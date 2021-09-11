@@ -2,7 +2,23 @@
 name = "rpg-stat"
 version = "0.1.0"
 edition = "2018"
+authors = ["Israel Dahl <israeldahl@protonmail.com>"]
+description = ""
+keywords = ["rpg","dnd","game"]
+categories = ["game-development", "command-line-utilities"]
+readme = "README.md"
+license-file = "LICENSE"
+repository = "https://github.com/1sra3l/rpg-stat"
+documentation = "https://docs.rs/rpg-stat/"
 
-# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+# library files
+[lib]
+name = "rpgstat"
+path = "src/lib.rs" 
+
+# binary file
+[[bin]]
+name = "rpgstat"
+path = "src/main.rs"
 
 [dependencies]
