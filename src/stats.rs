@@ -46,6 +46,7 @@ impl Basic {
     }
 }
 impl Default for Basic {
+    /// Default to empty
     fn default() -> Self {
         Self::empty()
     }
@@ -107,6 +108,7 @@ impl Normal {
     }
 }
 impl Default for Normal {
+    /// Default to empty
     fn default() -> Self {
         Self::empty()
     }
@@ -191,6 +193,7 @@ impl Advanced {
     }
 }
 impl Default for Advanced {
+    /// Default to empty
     fn default() -> Self {
         Self::empty()
     }
