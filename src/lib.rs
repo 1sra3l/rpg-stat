@@ -44,7 +44,7 @@ mod tests {
     use crate::class::Basic as Class;
     #[test]
     fn test_basic() {
-        let b:Stats = Stats::default();
+        let b:Stats<f64> = Stats::default();
         assert_eq!(0.0, b.xp);
     }
     #[test]

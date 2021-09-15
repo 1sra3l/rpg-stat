@@ -102,8 +102,8 @@ impl fmt::Display for  Normal{
         write!(f, "{}", v.as_str())
     }
 }
-// TODO impl ClassTrait for Normal {fn get_class(){}}
 
+//impl ClassTrait for Normal {fn _class(&self){}}
 //TODO lots...
 pub enum Advanced {
     TODO,
@@ -119,7 +119,6 @@ impl fmt::Display for  Advanced{
 }
 
 pub trait ClassTrait {
-    //TODO use type to abstract which enum is used!
-    fn get_class();
+    fn _class(&self);
     
 }

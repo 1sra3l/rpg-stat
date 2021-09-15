@@ -7,5 +7,6 @@ use crate::creature::Hero;
 
 fn main() {
     let h:Hero = Hero::Elf;
-    println!("{}", h);
+    let s:String = h.to_string();
+    println!("{}\n{:?}", h, s);
 }

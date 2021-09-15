@@ -8,47 +8,48 @@ This contains the basic structures for the entire statistics library
 
 This basic model of stats is easy to work with for beginners, but powerful enough to be used by the most experienced.
 */
-#[derive(Debug, Clone, Copy, PartialEq)]
-pub struct Basic {
+use std::default::Default;
+#[derive( Debug, Clone, Copy, PartialEq)]
+pub struct Basic<T> {
     /// Experience Points
-    pub xp:f64,
+    pub xp:T,
     /// Health Points
-    pub hp:f64,
+    pub hp:T,
     /// Mana Points
-    pub mp:f64,
+    pub mp:T,
     /// Experience Points multiplier for next level
-    pub xp_next:f64,
+    pub xp_next:T,
     /// Max Health Points
-    pub hp_max:f64,
+    pub hp_max:T,
     /// Max Mana Points
-    pub mp_max:f64,
+    pub mp_max:T,
     /// Current Level
-    pub level:f64,
+    pub level:T,
     /// The speed
-    pub speed:f64,
+    pub speed:T,
     /// your currency points
-    pub gp:f64,
+    pub gp:T,
 }
-impl Basic {
+impl<T:Default> Basic<T> {
     /// make empty stats
-    pub fn empty() -> Self where Self:Sized {
+    pub fn empty<U>() -> Self where Self:Sized {
         Basic {
-            xp:0.0,
-            xp_next:0.0,
-            mp:0.0,
-            hp:0.0,
-            mp_max:0.0,
-            hp_max:0.0,
-            level:0.0,
-            speed:0.0,
-            gp:0.0,
+            xp:Default::default(),
+            xp_next:Default::default(),
+            mp:Default::default(),
+            hp:Default::default(),
+            mp_max:Default::default(),
+            hp_max:Default::default(),
+            level:Default::default(),
+            speed:Default::default(),
+            gp:Default::default(),
         }
     }
 }
-impl Default for Basic {
+impl<T:Default> Default for Basic<T> {
     /// Default to empty
     fn default() -> Self {
-        Self::empty()
+        Self::empty::<T>()
     }
 }
 
@@ -57,60 +58,60 @@ impl Default for Basic {
 
 This model provides fine tuning of attack and defense without needing all the fine tuning of a full stat sheet
 */
-#[derive(Debug, Clone, Copy, PartialEq)]
-pub struct Normal {
+#[derive( Debug, Clone, Copy, PartialEq)]
+pub struct Normal<T> {
     /// Experience Points
-    pub xp:f64,
+    pub xp:T,
     /// Health Points
-    pub hp:f64,
+    pub hp:T,
     /// Mana Points
-    pub mp:f64,
+    pub mp:T,
     /// Experience Points multiplier for next level
-    pub xp_next:f64,
+    pub xp_next:T,
     /// Max Health Points
-    pub hp_max:f64,
+    pub hp_max:T,
     /// Max Mana Points
-    pub mp_max:f64,
+    pub mp_max:T,
     /// Current Level
-    pub level:f64,
+    pub level:T,
     /// The speed
-    pub speed:f64,
+    pub speed:T,
     /// your currency points
-    pub gp:f64,
+    pub gp:T,
     /// Attack
-    pub atk:f64,
+    pub atk:T,
     /// Defense
-    pub def:f64,
+    pub def:T,
     /// Mana Attack
-    pub m_atk:f64,
+    pub m_atk:T,
     /// Mana Defense
-    pub m_def:f64,
+    pub m_def:T,
 
 }
-impl Normal {
+impl<T:Default> Normal<T> {
     /// make empty stats
-    pub fn empty() -> Self where Self:Sized {
+    pub fn empty<U:Default>() -> Self where Self:Sized {
         Normal {
-            xp:0.0,
-            xp_next:0.0,
-            mp:0.0,
-            hp:0.0,
-            mp_max:0.0,
-            hp_max:0.0,
-            level:0.0,
-            speed:0.0,
-            gp:0.0,
-            atk:0.0,
-            def:0.0,
-            m_atk:0.0,
-            m_def:0.0,
+            xp:Default::default(),
+            xp_next:Default::default(),
+            mp:Default::default(),
+            hp:Default::default(),
+            mp_max:Default::default(),
+            hp_max:Default::default(),
+            level:Default::default(),
+            speed:Default::default(),
+            gp:Default::default(),
+            atk:Default::default(),
+            def:Default::default(),
+            m_atk:Default::default(),
+            m_def:Default::default(),
         }
     }
 }
-impl Default for Normal {
+impl<T:Default> Default for Normal<T> {
     /// Default to empty
     fn default() -> Self {
-        Self::empty()
+        Self::empty::<T>()
     }
 }
 
@@ -118,83 +119,87 @@ impl Default for Normal {
 # The Advanced stat model
 The entire stat sheet for fine tuned algorithms using all the information possible!
 */
-#[derive(Debug, Clone, Copy, PartialEq)]
-pub struct Advanced {
+#[derive( Debug, Clone, Copy, PartialEq)]
+pub struct Advanced<T> {
     /// Experience Points
-    pub xp:f64,
+    pub xp:T,
     /// Health Points
-    pub hp:f64,
+    pub hp:T,
     /// Mana Points
-    pub mp:f64,
+    pub mp:T,
     /// Experience Points multiplier for next level
-    pub xp_next:f64,
+    pub xp_next:T,
     /// Max Health Points
-    pub hp_max:f64,
+    pub hp_max:T,
     /// Max Mana Points
-    pub mp_max:f64,
+    pub mp_max:T,
     /// Current Level
-    pub level:f64,
+    pub level:T,
     /// The speed
-    pub speed:f64,
+    pub speed:T,
     /// your currency points
-    pub gp:f64,
+    pub gp:T,
     /// Attack
-    pub atk:f64,
+    pub atk:T,
     /// Defense
-    pub def:f64,
+    pub def:T,
     /// Mana Attack
-    pub m_atk:f64,
+    pub m_atk:T,
     /// Mana Defense
-    pub m_def:f64,
+    pub m_def:T,
     /// The agility Points
-    pub agility:f64,
+    pub agility:T,
     /// The strength Points
-    pub strength:f64,
+    pub strength:T,
     /// The dexterity Points
-    pub dexterity:f64,
+    pub dexterity:T,
     /// The constitution Points
-    pub constitution:f64,
+    pub constitution:T,
     /// The intelligence Points
-    pub intelligence:f64,
+    pub intelligence:T,
     /// The charisma Points
-    pub charisma:f64,
+    pub charisma:T,
     /// The wisdom Points
-    pub wisdom:f64,
+    pub wisdom:T,
     /// The current age
-    pub age:f64,
+    pub age:T,
     
 }
-impl Advanced {
+impl<T:Default> Advanced<T> {
     /// make empty stats
-    pub fn empty() -> Self where Self:Sized {
+    pub fn empty<U:Default>() -> Self where Self:Sized {
         Advanced {
-            xp:0.0,
-            xp_next:0.0,
-            mp:0.0,
-            hp:0.0,
-            mp_max:0.0,
-            hp_max:0.0,
-            level:0.0,
-            speed:0.0,
-            gp:0.0,
-            atk:0.0,
-            def:0.0,
-            m_atk:0.0,
-            m_def:0.0,
-            agility:0.0,
-            strength:0.0,
-            dexterity:0.0,
-            constitution:0.0,
-            intelligence:0.0,
-            charisma:0.0,
-            wisdom:0.0,
-            age:0.0,
+            xp:Default::default(),
+            xp_next:Default::default(),
+            mp:Default::default(),
+            hp:Default::default(),
+            mp_max:Default::default(),
+            hp_max:Default::default(),
+            level:Default::default(),
+            speed:Default::default(),
+            gp:Default::default(),
+            atk:Default::default(),
+            def:Default::default(),
+            m_atk:Default::default(),
+            m_def:Default::default(),
+            agility:Default::default(),
+            strength:Default::default(),
+            dexterity:Default::default(),
+            constitution:Default::default(),
+            intelligence:Default::default(),
+            charisma:Default::default(),
+            wisdom:Default::default(),
+            age:Default::default(),
         }
     }
 }
-impl Default for Advanced {
+impl<T:Default> Default for Advanced<T> {
     /// Default to empty
     fn default() -> Self {
-        Self::empty()
+        Self::empty::<T>()
     }
+}
+
+pub trait StatTrait<C> {
+    fn from_class (&self, class:C) -> Self;
 }
