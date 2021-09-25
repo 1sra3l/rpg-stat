@@ -8,7 +8,7 @@ The Stats are broken down into categories `Basic`, `Normal`, and `Advanced`
 
 This allows you to run:
 ```rs:no_run
-use rpg-stat::stats::Basic as Stats
+use rpgstat::stats::Basic as Stats
 // more stuff
 fn my_fun () {
     let b = Stats::default();
