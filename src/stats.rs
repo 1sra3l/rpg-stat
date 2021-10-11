@@ -9,6 +9,18 @@ This contains the basic structures for the entire statistics library
 This basic model of stats is easy to work with for beginners, but powerful enough to be used by the most experienced.
 */
 use std::default::Default;
+/*
+Trait for Basic Stat
+*/
+pub trait BasicStat<T> {
+    fn hp(&self) -> T;
+    fn mp(&self) -> T;
+    fn xp(&self) -> T;
+    fn hp_max(&self) -> T;
+    fn mp_max(&self) -> T;
+    fn xp_next(&self) -> T;
+}
+/// Basic Stat model hp/mp/xp/level for mechanics
 #[derive( Debug, Clone, Copy, PartialEq)]
 pub struct Basic<T> {
     /// Experience Points
@@ -32,7 +44,7 @@ pub struct Basic<T> {
 }
 impl<T:Default> Basic<T> {
     /// make empty stats
-    pub fn empty<U>() -> Self where Self:Sized {
+    pub fn empty<U>() -> Self {
         Basic {
             xp:Default::default(),
             xp_next:Default::default(),
@@ -90,7 +102,7 @@ pub struct Normal<T> {
 }
 impl<T:Default> Normal<T> {
     /// make empty stats
-    pub fn empty<U:Default>() -> Self where Self:Sized {
+    pub fn empty<U:Default>() -> Self {
         Normal {
             xp:Default::default(),
             xp_next:Default::default(),
@@ -167,7 +179,7 @@ pub struct Advanced<T> {
 }
 impl<T:Default> Advanced<T> {
     /// make empty stats
-    pub fn empty<U:Default>() -> Self where Self:Sized {
+    pub fn empty<U:Default>() -> Self {
         Advanced {
             xp:Default::default(),
             xp_next:Default::default(),

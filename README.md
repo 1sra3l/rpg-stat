@@ -16,6 +16,23 @@ fn my_fun () {
 }
 ```
 
+# Classes
 
+The Classes are broken down into categories `Basic`, `Normal`, and `Advanced`
+
+This allows you to run:
+```rs:no_run
+use rpgstat::class::Basic as Class
+// more stuff
+fn my_fun () {
+    let b = Class::default();
+    // whatever
+}
+```
+
+# Creatures
+ This contains all manner of creatures.  We have `Animal` creatures, `Hero` creatures, and more to come!
 
 # RPG Stat command line tool
+ WIP
+ Ideally, this will use `clap` and support some very specific stat traits only.

@@ -22,7 +22,7 @@ The Classes are broken down into categories `Basic`, `Normal`, and `Advanced`
 
 This allows you to run:
 ```rs:no_run
-use crate rpgstat::class::Basic as Class
+use rpgstat::class::Basic as Class
 // more stuff
 fn my_fun () {
     let b = Class::default();
@@ -31,7 +31,7 @@ fn my_fun () {
 ```
 
 # Creatures
- This contains all manner of creatures.  We have `Animal` creatures, `Hero` creatures, and more will come!
+ This contains all manner of creatures.  We have `Animal` creatures, `Hero` creatures, and more to come!
 
 */
 pub mod stats;
@@ -42,6 +42,43 @@ pub mod creature;
 mod tests {
     use crate::stats::Basic as Stats;
     use crate::class::Basic as Class;
+    use crate::stats::BasicStat as BasicStat;
+    // used in tests below
+    pub struct Character {
+        pub name:String,
+        pub stats:Stats<f64>,
+        pub class:Class,
+    }
+    impl Character {
+        pub fn empty() -> Self {
+            Character {
+                name:String::from(""),
+                stats:Stats::default(),
+                class:Class::default(),
+            }
+        }
+    }
+    impl BasicStat<f64> for Character {
+        fn hp(&self) -> f64 {
+            self.stats.hp
+        }
+        fn mp(&self) -> f64 {
+            self.stats.mp
+        }
+        fn xp(&self) -> f64 {
+            self.stats.xp
+        }
+        fn hp_max(&self) -> f64 {
+            self.stats.hp_max
+        }
+        fn mp_max(&self) -> f64 {
+            self.stats.mp_max
+        }
+        fn xp_next(&self) -> f64 {
+            self.stats.xp_next
+        }
+    }
+
     #[test]
     fn test_basic() {
         let b:Stats<f64> = Stats::default();
@@ -51,5 +88,9 @@ mod tests {
     fn test_class() {
         let c:Class = Class::default();
         assert_eq!(Class::Enemy, c);
+    }
+    #[test]
+    fn trait_test() {
+        let c:Character = Character::empty();
     }
 }
