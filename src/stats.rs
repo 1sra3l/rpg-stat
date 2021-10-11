@@ -19,6 +19,7 @@ pub trait BasicStat<T> {
     fn hp_max(&self) -> T;
     fn mp_max(&self) -> T;
     fn xp_next(&self) -> T;
+    fn damage(&mut self, amount:T);
 }
 /// Basic Stat model hp/mp/xp/level for mechanics
 #[derive( Debug, Clone, Copy, PartialEq)]

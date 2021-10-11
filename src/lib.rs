@@ -77,6 +77,11 @@ mod tests {
         fn xp_next(&self) -> f64 {
             self.stats.xp_next
         }
+        fn damage(&mut self, amount:f64) {
+            let mut val = self.stats.hp;
+            val -= amount ;
+            self.stats.hp = val;
+        }
     }
 
     #[test]
