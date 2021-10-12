@@ -1,7 +1,7 @@
-//mod stats;
-//mod class;
+mod stats;
+mod class;
 mod creature;
-
+mod tests;
 //use crate::stats::Basic as Stats;
 use crate::creature::Hero;
 
