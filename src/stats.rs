@@ -12,6 +12,35 @@ use std::default::Default;
 /*
 Trait for Basic Stat
 */
+pub trait BasicPremade<T:Default + std::ops::SubAssign> {
+    fn stat(&self) -> Basic<T>;
+    fn hp(&self) -> T {
+        self.stat().hp
+    }
+    fn mp(&self) -> T {
+        self.stat().mp
+    }
+    fn xp(&self) -> T {
+        self.stat().xp
+    }
+    fn hp_max(&self) -> T {
+        self.stat().hp_max
+    }
+    fn mp_max(&self) -> T {
+        self.stat().mp_max
+    }
+    fn xp_next(&self) -> T {
+        self.stat().xp_next
+    }
+    fn damage(&mut self, amount:T) -> T {
+        let mut val = self.hp();
+        val -= amount;
+        val
+    }
+}
+/*
+Trait for Basic Stat
+*/
 pub trait BasicStat<T> {
     fn hp(&self) -> T;
     fn mp(&self) -> T;
@@ -23,7 +52,7 @@ pub trait BasicStat<T> {
 }
 /// Basic Stat model hp/mp/xp/level for mechanics
 #[derive( Debug, Clone, Copy, PartialEq)]
-pub struct Basic<T> {
+pub struct Basic<T:Default> {
     /// Experience Points
     pub xp:T,
     /// Health Points
@@ -45,7 +74,7 @@ pub struct Basic<T> {
 }
 impl<T:Default> Basic<T> {
     /// make empty stats
-    pub fn empty<U>() -> Self {
+    pub fn empty() -> Self where Self:Sized {
         Basic {
             xp:Default::default(),
             xp_next:Default::default(),
@@ -61,8 +90,8 @@ impl<T:Default> Basic<T> {
 }
 impl<T:Default> Default for Basic<T> {
     /// Default to empty
-    fn default() -> Self {
-        Self::empty::<T>()
+    fn default() -> Self where Self:Sized {
+        Self::empty()
     }
 }
 

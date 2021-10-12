@@ -3,6 +3,7 @@ mod tests {
     use crate::stats::Basic as Stats;
     use crate::class::Basic as Class;
     use crate::stats::BasicStat as BasicStat;
+    use crate::stats::BasicPremade as BasicPremade;
     // used in tests below
     pub struct Character {
         pub name:String,
@@ -43,6 +44,25 @@ mod tests {
             self.stats.hp = val;
         }
     }
+    pub struct Hero {
+        pub name:String,
+        pub stats:Stats<f64>,
+        pub class:Class,
+    }
+    impl Hero {
+        pub fn empty() -> Self {
+            Hero {
+                name:String::from(""),
+                stats:Stats::default(),
+                class:Class::default(),
+            }
+        }
+    }
+    impl BasicPremade<f64> for Hero {
+        fn stat(&self) -> Stats<f64> {
+            self.stats
+        }
+    }
 
     #[test]
     fn test_basic() {
@@ -55,7 +75,11 @@ mod tests {
         assert_eq!(Class::Enemy, c);
     }
     #[test]
-    fn trait_test() {
+    fn trait_test_0() {
         let c:Character = Character::empty();
+    }
+    #[test]
+    fn trait_test_1() {
+        let c:Hero = Hero::empty();
     }
 } 
