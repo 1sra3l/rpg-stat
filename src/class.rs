@@ -6,11 +6,17 @@ You can even use the fully `Advanced` version to use the entire class realm.
 */
 use std::fmt;
 use serde::{Deserialize, Serialize};
+use crate::stats::Basic as BasicStats;
+use crate::stats::Normal as NormalStats;
+use strum::IntoEnumIterator;
+use strum_macros::EnumIter;
+extern crate num;
+use num::NumCast;
 
 /*
 Default to making an `Enemy`, because there are honestly few `Hero`s in games
 */
-#[derive(Clone, PartialEq, Copy, Debug, Serialize, Deserialize)]
+#[derive(Clone, PartialEq, Copy, Debug, Serialize, Deserialize, EnumIter)]
 pub enum Basic {
     /// Obviously the protagonist
     Hero,
@@ -59,7 +65,7 @@ Obviously you can forgo using this for enemies, by using the enemy enumerations 
 
 
 */
-#[derive(Clone, PartialEq, Copy, Debug, Serialize, Deserialize)]
+#[derive(Clone, PartialEq, Copy, Debug, Serialize, Deserialize, EnumIter)]
 pub enum Normal {
     /// Full of concotions to both heal and harm.
     Alchemist,
@@ -116,9 +122,4 @@ impl fmt::Display for  Advanced{
         }
         write!(f, "{}", v.as_str())
     }
-}
-
-pub trait ClassTrait {
-    fn _class(&self);
-    
 }

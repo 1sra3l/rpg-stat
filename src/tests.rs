@@ -38,9 +38,23 @@ mod tests {
         fn xp_next(&self) -> f64 {
             self.stats.xp_next
         }
+        fn level(&self) -> f64 {
+            self.stats.level
+        }
+        fn speed(&self) -> f64 {
+            self.stats.speed
+        }
+        fn gp(&self) -> f64 {
+            self.stats.gp
+        }
         fn damage(&mut self, amount:f64) {
             let mut val = self.stats.hp;
             val -= amount ;
+            self.stats.hp = val;
+        }
+        fn heal(&mut self, amount:f64) {
+            let mut val = self.stats.hp;
+            val += amount ;
             self.stats.hp = val;
         }
     }
@@ -75,11 +89,16 @@ mod tests {
         assert_eq!(Class::Enemy, c);
     }
     #[test]
+    fn test_basic_class_builder() {
+        let b:Stats<f64> = Stats::from_class(0.0, Class::Hero);
+        assert_eq!(b.xp_next, 10.0)
+    }
+    #[test]
     fn trait_test_0() {
-        let c:Character = Character::empty();
+        let _c:Character = Character::empty();
     }
     #[test]
     fn trait_test_1() {
-        let c:Hero = Hero::empty();
+        let _c:Hero = Hero::empty();
     }
 } 

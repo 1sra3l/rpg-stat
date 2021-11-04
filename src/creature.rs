@@ -4,8 +4,9 @@
 This encompasses all the different humanoids, as well as enemy creatures, and even pets
 */
 use std::fmt;
-
-#[derive(Clone, PartialEq, Copy, Debug)]//, Serialize, Deserialize)]
+use strum::IntoEnumIterator;
+use strum_macros::EnumIter;
+#[derive(Clone, PartialEq, Copy, Debug, EnumIter)]//, Serialize, Deserialize)]
 /// The Hero class of creature types
 pub enum Hero {
     /// Obviously we'd like to be heroic
@@ -35,13 +36,18 @@ impl fmt::Display for Hero {
     }
 }
 
-#[derive(Clone, PartialEq, Copy, Debug)]
+#[derive(Clone, PartialEq, Copy, Debug, EnumIter)]
 /// The various monsters you encounter
 pub enum Animal {
+    /// 
     Rat,
+    /// 
     Snake,
+    /// 
     Rabbit,
+    /// 
     Wolf,
+    /// 
     Crocodile,
 }
 impl Default for Animal {
