@@ -9,6 +9,7 @@ use num::NumCast;
 use crate::class::Normal as ClassNormal;
 use crate::class::Basic as ClassBasic;
 use crate::creature::Animal;
+use crate::creature::Person;
 use std::ops::{Add, AddAssign,  Div, DivAssign, Mul, MulAssign, Neg, Rem, RemAssign, Sub, SubAssign};
 /*
 Premade trait for Basic Stat
@@ -27,65 +28,88 @@ pub trait BasicPremade<T:Copy
                       + RemAssign
                       + Sub<Output = T>
                       + SubAssign
+                      + std::cmp::PartialOrd
                       + num::NumCast> {
+    /// # Functions you need to imlement
+    /// stat returns the `Basic<T>` you created
     fn stat(&self) -> Basic<T>;
+    /// Set the `Basic<T>` Health Points
+    fn set_hp(&mut self, amount:T);
+    /// Set the `Basic<T>` Mana Points
+    fn set_mp(&mut self, amount:T);
+    /// Set the `Basic<T>` Experience Points
+    fn set_xp(&mut self, amount:T);
+    /// Set the `Basic<T>` Max Health Points
+    fn set_hp_max(&mut self, amount:T);
+    /// Set the `Basic<T>` Max Mana Points
+    fn set_mp_max(&mut self, amount:T);
+    /// Set the `Basic<T>` Next Experience Points
+    fn set_xp_next(&mut self, amount:T);
+    /// Set the `Basic<T>` Gold Points
+    fn set_gp(&mut self, amount:T);
+    /// # Predefined functions
+    /// Return  the `Basic<T>` id number
     fn id(&self) -> T {
         self.stat().id
     }
+    /// Return  the `Basic<T>` Health Points
     fn hp(&self) -> T {
         self.stat().hp
     }
+    /// Return  the `Basic<T>` Mana Points
     fn mp(&self) -> T {
         self.stat().mp
     }
+    /// Return  the `Basic<T>` Experience Points
     fn xp(&self) -> T {
         self.stat().xp
     }
+    /// Return  the `Basic<T>` Max Health Points
     fn hp_max(&self) -> T {
         self.stat().hp_max
     }
+    /// Return  the `Basic<T>` Max Mana Points
     fn mp_max(&self) -> T {
         self.stat().mp_max
     }
+    /// Return  the `Basic<T>` Next Experience Points
     fn xp_next(&self) -> T {
         self.stat().xp_next
     }
+    /// Return  the `Basic<T>` Level
     fn level(&self) -> T {
         self.stat().level
     }
+    /// Return  the `Basic<T>` Speed
     fn speed(&self) -> T {
         self.stat().level
     }
+    /// Return  the `Basic<T>` Gold Points
     fn gp(&self) -> T {
         self.stat().gp
     }
-    fn damage(&mut self, amount:T) -> T {
+    /// Damage the character by an amount
+    fn damage(&mut self, amount:T) {
         let mut val = self.hp();
         val -= amount;
-        val
+        let none = num::cast(0).unwrap();
+        if val < none {
+            val = none;
+        }
+        self.set_hp(val)
     }
-    fn heal(&mut self, amount:T) -> T {
+    /// Add health to character but not beyond their Max Healh Points
+    fn heal(&mut self, amount:T) {
         let mut val = self.hp();
         val += amount;
-        val
+        let max = self.hp_max();
+        if val > max {
+            val = max;
+        }
+        self.set_hp(val)
     }
 }
-/*
-Generic trait so you can build anything you want
-*/
-pub trait BasicStat<T> {
-    fn hp(&self) -> T;
-    fn mp(&self) -> T;
-    fn xp(&self) -> T;
-    fn hp_max(&self) -> T;
-    fn mp_max(&self) -> T;
-    fn xp_next(&self) -> T;
-    fn level(&self) -> T;
-    fn speed(&self) -> T;
-    fn gp(&self) -> T;
-    fn damage(&mut self, amount:T);
-    fn heal(&mut self, amount:T);
-}
+
 /*
 # The Basic HP/MP/XP stat model
 
@@ -105,6 +129,7 @@ pub struct Basic<T:Copy
                  + RemAssign
                  + Sub<Output = T>
                  + SubAssign
+                 + std::cmp::PartialOrd
                  + num::NumCast> {
     /// Identification Number
     pub id:T,
@@ -140,7 +165,9 @@ impl<T:Copy
     + RemAssign
     + Sub<Output = T>
     + SubAssign
+    + std::cmp::PartialOrd
     + num::NumCast> Basic<T> {
+
     /// make empty stats
     pub fn empty() -> Self where Self:Sized {
         Basic {
@@ -252,6 +279,7 @@ impl<T:Copy
     + RemAssign
     + Sub<Output = T>
     + SubAssign
+    + std::cmp::PartialOrd
     + num::NumCast> Default for Basic<T> {
     /// Default to empty
     fn default() -> Self where Self:Sized {
@@ -276,54 +304,111 @@ pub trait NormalPremade<T:Copy
                       + RemAssign
                       + Sub<Output = T>
                       + SubAssign
+                      + std::cmp::PartialOrd
                       + num::NumCast> {
+    /// # Functions you need to imlement
+    /// stat returns the `Normal<T>` you created
     fn stat(&self) -> Normal<T>;
+    /// Set the `Normal<T>` Health Points
+    fn set_hp(&mut self, amount:T);
+    /// Set the `Normal<T>` Mana Points
+    fn set_mp(&mut self, amount:T);
+    /// Set the `Normal<T>` Experience Points
+    fn set_xp(&mut self, amount:T);
+    /// Set the `Normal<T>` Max Health Points
+    fn set_hp_max(&mut self, amount:T);
+    /// Set the `Normal<T>` Max Mana Points
+    fn set_mp_max(&mut self, amount:T);
+    /// Set the `Normal<T>` Next Experience Points
+    fn set_xp_next(&mut self, amount:T);
+    /// Set the `Normal<T>` Gold Points
+    fn set_gp(&mut self, amount:T);
+    /// Set the `Normal<T>` Attack Points
+    fn set_atk(&mut self, amount:T);
+    /// Set the `Normal<T>` Defense Points
+    fn set_def(&mut self, amount:T);
+    /// Set the `Normal<T>` Mana Attack Points
+    fn set_m_atk(&mut self, amount:T);
+    /// Set the `Normal<T>` Mana Defense Points
+    fn set_m_def(&mut self, amount:T);
+    
+    /// # Predefined functions
+    /// Return  the `Normal<T>` id number
     fn id(&self) -> T {
         self.stat().id
     }
+    /// Return  the `Normal<T>` Health Points
     fn hp(&self) -> T {
         self.stat().hp
     }
+    /// Return  the `Normal<T>` Mana Points
     fn mp(&self) -> T {
         self.stat().mp
     }
+    /// Return  the `Normal<T>` Experience Points
     fn xp(&self) -> T {
         self.stat().xp
     }
+    /// Return  the `Normal<T>` Max Health Points
     fn hp_max(&self) -> T {
         self.stat().hp_max
     }
+    /// Return  the `Normal<T>` Max Mana Points
     fn mp_max(&self) -> T {
         self.stat().mp_max
     }
+    /// Return  the `Normal<T>` Next Experience Points
     fn xp_next(&self) -> T {
         self.stat().xp_next
     }
+    /// Return  the `Normal<T>` Level
     fn level(&self) -> T {
         self.stat().level
     }
+    /// Return  the `Normal<T>` Speed
     fn speed(&self) -> T {
         self.stat().level
     }
-    fn atk(&self) -> T {
-        self.stat().atk
-    }
-    fn def(&self) -> T {
-        self.stat().def
-    }
-    fn m_atk(&self) -> T {
-        self.stat().m_atk
-    }
-    fn m_def(&self) -> T {
-        self.stat().m_def
-    }
+    /// Return  the `Normal<T>` Gold Points
     fn gp(&self) -> T {
         self.stat().gp
     }
-    fn damage(&mut self, amount:T) -> T {
+    /// Return  the `Normal<T>` Attack Points
+    fn atk(&self) -> T {
+        self.stat().atk
+    }
+    /// Return  the `Normal<T>` Defense Points
+    fn def(&self) -> T {
+        self.stat().def
+    }
+    /// Return  the `Normal<T>` Mana Attack Points
+    fn m_atk(&self) -> T {
+        self.stat().m_atk
+    }
+    /// Return  the `Normal<T>` Mana Defense Points
+    fn m_def(&self) -> T {
+        self.stat().m_def
+    }
+
+    /// Damage the character by an amount
+    fn damage(&mut self, amount:T) {
         let mut val = self.hp();
         val -= amount;
-        val
+        let none = num::cast(0).unwrap();
+        if val < none {
+            val = none;
+        }
+        self.set_hp(val)
+    }
+    /// Add health to character but not beyond their Max Healh Points
+    fn heal(&mut self, amount:T) {
+        let mut val = self.hp();
+        val += amount;
+        let max = self.hp_max();
+        if val > max {
+            val = max;
+        }
+        self.set_hp(val)
     }
     // Standard scalable attack forumla
     fn attack(&self, other:Normal<T>) -> T {
@@ -333,11 +418,6 @@ pub trait NormalPremade<T:Copy
         def += val;
         res = res / def;
         res
-    }
-    fn heal(&mut self, amount:T) -> T {
-        let mut val = self.hp();
-        val += amount;
-        val
     }
 }
 /*
@@ -359,6 +439,7 @@ pub struct Normal<T:Copy
                  + RemAssign
                  + Sub<Output = T>
                  + SubAssign
+                 + std::cmp::PartialOrd
                  + num::NumCast> {
     /// Identification Number
     pub id:T,
@@ -405,7 +486,17 @@ impl<T:Copy
     + RemAssign
     + Sub<Output = T>
     + SubAssign
+    + std::cmp::PartialOrd
     + num::NumCast> Normal<T> {
+    ///
+    pub fn change_health(&mut self, amount:T) {
+        self.hp -= amount;
+        let none = num::cast(0).unwrap();
+        if self.hp < none {
+            self.hp = none;
+        }
+    }
+    
     /// make empty stats
     pub fn empty<U:Default>() -> Self {
         Normal {
@@ -426,6 +517,92 @@ impl<T:Copy
             m_def:Default::default(),
         }
     }
+    /// Make a `Normal` Stat from an `Animal`
+    pub fn from_animal(id:T, animal:Animal, level:T)  -> Normal<T> {
+        let mut hp = num::cast(10).unwrap();
+        let mut mp = num::cast(5).unwrap();
+        let mut xp = num::cast(1).unwrap();
+        let mut gp = num::cast(5).unwrap();
+        let mut speed = num::cast(5).unwrap();
+        let mut atk = num::cast(10).unwrap();
+        let mut def = num::cast(5).unwrap();
+        let mut m_atk = num::cast(5).unwrap();
+        let mut m_def = num::cast(2).unwrap();
+        match animal {
+            Animal::Rat => {
+                gp += num::cast(2).unwrap();
+            }
+            Animal::Snake => {
+                speed += num::cast(2).unwrap();
+                mp += num::cast(1).unwrap();
+                hp += num::cast(1).unwrap();
+                xp += num::cast(1).unwrap();
+                gp += num::cast(1).unwrap();
+                atk += num::cast(1).unwrap();
+                def += num::cast(1).unwrap();
+                m_atk += num::cast(1).unwrap();
+                m_def += num::cast(1).unwrap();
+            }
+            Animal::Rabbit => {
+                speed += num::cast(2).unwrap();
+                hp += num::cast(2).unwrap();
+                mp += num::cast(2).unwrap();
+                xp += num::cast(2).unwrap();
+                atk += num::cast(2).unwrap();
+                def += num::cast(2).unwrap();
+                m_atk += num::cast(2).unwrap();
+                m_def += num::cast(7).unwrap();
+            }
+            Animal::Wolf => {
+                speed += num::cast(3).unwrap();
+                hp += num::cast(3).unwrap();
+                mp += num::cast(3).unwrap();
+                xp += num::cast(3).unwrap();
+                gp += num::cast(2).unwrap();
+                atk += num::cast(10).unwrap();
+                def += num::cast(5).unwrap();
+                m_atk += num::cast(3).unwrap();
+                m_def += num::cast(5).unwrap();
+            }
+            Animal::Crocodile => {
+                speed -= num::cast(1).unwrap();
+                hp += num::cast(5).unwrap();
+                mp += num::cast(5).unwrap();
+                xp += num::cast(5).unwrap();
+                gp += num::cast(4).unwrap();
+                atk += num::cast(7).unwrap();
+                def += num::cast(7).unwrap();
+                m_atk += num::cast(3).unwrap();
+                m_def += num::cast(1).unwrap();
+            }
+        }
+        hp *= level;
+        mp *= level;
+        xp *= level;
+        gp *= level;
+        speed += level;
+        atk *= level;
+        def *= level;
+        m_atk *= level;
+        m_def *= level;
+        Normal {
+            id:id,
+            xp:xp,
+            xp_next:Default::default(),
+            level:level,
+            gp:gp,
+            hp: hp,
+            mp: mp,
+            hp_max: hp,
+            mp_max: mp,
+            speed: speed,
+            atk: atk,
+            def: def,
+            m_atk: m_atk,
+            m_def: m_def,
+        }
+    }
+    /// Create a `Normal` Stat from a `Normal` Class
     pub fn from_class(id:T, class: &ClassNormal) -> Normal<T> {
         match class {
             ClassNormal::Alchemist => Normal {
@@ -598,6 +775,7 @@ impl<T:Copy
     + RemAssign
     + Sub<Output = T>
     + SubAssign
+    + std::cmp::PartialOrd
     + num::NumCast> Default for Normal<T> {
     /// Default to empty
     fn default() -> Self {
@@ -621,6 +799,7 @@ pub trait AdvancedPremade<T:Copy
                       + RemAssign
                       + Sub<Output = T>
                       + SubAssign
+                      + std::cmp::PartialOrd
                       + num::NumCast> {
     fn stat(&self) -> Advanced<T>;
     fn id(&self) -> T {
@@ -715,6 +894,7 @@ pub struct Advanced<T:Copy
                  + RemAssign
                  + Sub<Output = T>
                  + SubAssign
+                 + std::cmp::PartialOrd
                  + num::NumCast> {
     /// Identification Number
     pub id:T,
@@ -775,6 +955,7 @@ impl<T:Copy
     + RemAssign
     + Sub<Output = T>
     + SubAssign
+    + std::cmp::PartialOrd
     + num::NumCast> Advanced<T> {
     /// make empty stats
     pub fn empty<U:Default>() -> Self {
@@ -817,6 +998,7 @@ impl<T:Copy
     + RemAssign
     + Sub<Output = T>
     + SubAssign
+    + std::cmp::PartialOrd
     + num::NumCast> Default for Advanced<T> {
     /// Default to empty
     fn default() -> Self {

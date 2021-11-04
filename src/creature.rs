@@ -7,8 +7,8 @@ use std::fmt;
 use strum::IntoEnumIterator;
 use strum_macros::EnumIter;
 #[derive(Clone, PartialEq, Copy, Debug, EnumIter)]//, Serialize, Deserialize)]
-/// The Hero class of creature types
-pub enum Hero {
+/// The Person class of creature types
+pub enum Person {
     /// Obviously we'd like to be heroic
     Human,
     /// What would a heroic journey be without an elf or two
@@ -18,19 +18,19 @@ pub enum Hero {
     /// If you end up with a nagging one, sorry, but they are super helpful in a boss fight!
     Sprite,
 }
-impl Default for Hero {
+impl Default for Person {
     fn default() -> Self {
         Self::Human
     }
 }
-impl fmt::Display for Hero {
+impl fmt::Display for Person {
     fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
         let v:String;
         match *self {
-            Hero::Human => v = String::from("Human"),
-            Hero::Elf => v = String::from("Elf"),
-            Hero::Dwarf => v = String::from("Dwarf"),
-            Hero::Sprite => v = String::from("Sprite"),
+            Person::Human => v = String::from("Human"),
+            Person::Elf => v = String::from("Elf"),
+            Person::Dwarf => v = String::from("Dwarf"),
+            Person::Sprite => v = String::from("Sprite"),
         }
         write!(f, "{}", v.as_str())
     }

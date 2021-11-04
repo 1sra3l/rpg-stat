@@ -1,9 +1,10 @@
 #[cfg(test)]
 mod tests {
     use crate::stats::Basic as Stats;
+    use crate::stats::Normal as StatsNormal;
     use crate::class::Basic as Class;
-    use crate::stats::BasicStat as BasicStat;
     use crate::stats::BasicPremade as BasicPremade;
+    use crate::stats::NormalPremade as NormalPremade;
     // used in tests below
     pub struct Character {
         pub name:String,
@@ -19,62 +20,82 @@ mod tests {
             }
         }
     }
-    impl BasicStat<f64> for Character {
-        fn hp(&self) -> f64 {
-            self.stats.hp
+    impl BasicPremade<f64> for Character {
+        fn stat(&self) -> Stats<f64> {
+            self.stats
         }
-        fn mp(&self) -> f64 {
-            self.stats.mp
+        fn set_hp(&mut self, amount:f64) {
+            self.stats.hp = amount
         }
-        fn xp(&self) -> f64 {
-            self.stats.xp
+        fn set_mp(&mut self, amount:f64) {
+            self.stats.mp = amount
         }
-        fn hp_max(&self) -> f64 {
-            self.stats.hp_max
+        fn set_xp(&mut self, amount:f64) {
+            self.stats.xp = amount
         }
-        fn mp_max(&self) -> f64 {
-            self.stats.mp_max
+        fn set_hp_max(&mut self, amount:f64) {
+            self.stats.hp = amount
         }
-        fn xp_next(&self) -> f64 {
-            self.stats.xp_next
+        fn set_mp_max(&mut self, amount:f64) {
+            self.stats.mp = amount
         }
-        fn level(&self) -> f64 {
-            self.stats.level
+        fn set_xp_next(&mut self, amount:f64) {
+            self.stats.xp_next = amount
         }
-        fn speed(&self) -> f64 {
-            self.stats.speed
-        }
-        fn gp(&self) -> f64 {
-            self.stats.gp
-        }
-        fn damage(&mut self, amount:f64) {
-            let mut val = self.stats.hp;
-            val -= amount ;
-            self.stats.hp = val;
-        }
-        fn heal(&mut self, amount:f64) {
-            let mut val = self.stats.hp;
-            val += amount ;
-            self.stats.hp = val;
+        fn set_gp(&mut self, amount:f64) {
+            self.stats.gp = amount
         }
     }
-    pub struct Hero {
+    pub struct Player {
         pub name:String,
-        pub stats:Stats<f64>,
+        pub stats:StatsNormal<f64>,
         pub class:Class,
     }
-    impl Hero {
+    impl Player {
         pub fn empty() -> Self {
-            Hero {
+            Player {
                 name:String::from(""),
-                stats:Stats::default(),
+                stats:StatsNormal::default(),
                 class:Class::default(),
             }
         }
     }
-    impl BasicPremade<f64> for Hero {
-        fn stat(&self) -> Stats<f64> {
+    impl NormalPremade<f64> for Player {
+        fn stat(&self) -> StatsNormal<f64> {
             self.stats
+        }
+        fn set_hp(&mut self, amount:f64) {
+            self.stats.hp = amount
+        }
+        fn set_mp(&mut self, amount:f64) {
+            self.stats.mp = amount
+        }
+        fn set_xp(&mut self, amount:f64) {
+            self.stats.xp = amount
+        }
+        fn set_hp_max(&mut self, amount:f64) {
+            self.stats.hp = amount
+        }
+        fn set_mp_max(&mut self, amount:f64) {
+            self.stats.mp = amount
+        }
+        fn set_xp_next(&mut self, amount:f64) {
+            self.stats.xp_next = amount
+        }
+        fn set_gp(&mut self, amount:f64) {
+            self.stats.gp = amount
+        }
+        fn set_atk(&mut self, amount:f64) {
+            self.stats.atk = amount
+        }
+        fn set_m_atk(&mut self, amount:f64) {
+            self.stats.m_atk = amount
+        }
+         fn set_def(&mut self, amount:f64) {
+            self.stats.def = amount
+        }
+        fn set_m_def(&mut self, amount:f64) {
+            self.stats.m_def = amount
         }
     }
 
@@ -98,7 +119,30 @@ mod tests {
         let _c:Character = Character::empty();
     }
     #[test]
-    fn trait_test_1() {
-        let _c:Hero = Hero::empty();
+    fn fight_test_0() {
+        let player:Character = Character::empty();
+        let mut enemy:Character = Character::empty();
+        // enemy has 5 hp
+        enemy.stats = Stats::from_class(1.0, enemy.class);
+        assert_eq!(enemy.hp_max(), 5.0);
+        // now it has one less
+        enemy.damage(1.0);
+        assert_eq!(enemy.hp(), 4.0);
+        enemy.heal(5.0);
+        assert_eq!(enemy.hp(), 5.0);
+    }
+    #[test]
+    fn fight_test_1() {
+        let mut player:Player = Player::empty();
+        let mut enemy:Character = Character::empty();
+        // enemy has 5 hp
+        enemy.stats = Stats::from_class(1.0, enemy.class);
+        assert_eq!(enemy.hp_max(), 5.0);
+        player.set_atk(1.0);
+        // now it has one less
+        enemy.damage(player.atk());
+        assert_eq!(enemy.hp(), 4.0);
+        enemy.heal(5.0);
+        assert_eq!(enemy.hp(), 5.0);
     }
 } 

@@ -3,10 +3,10 @@ mod class;
 mod creature;
 mod tests;
 //use crate::stats::Basic as Stats;
-use crate::creature::Hero;
+use crate::creature::Person;
 
 fn main() {
-    let h:Hero = Hero::Elf;
+    let h:Person = Person::Elf;
     let s:String = h.to_string();
     println!("{}\n{:?}", h, s);
 }
