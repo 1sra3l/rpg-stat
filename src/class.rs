@@ -10,8 +10,6 @@ use crate::stats::Basic as BasicStats;
 use crate::stats::Normal as NormalStats;
 use strum::IntoEnumIterator;
 use strum_macros::EnumIter;
-extern crate num;
-use num::NumCast;
 
 /*
 Default to making an `Enemy`, because there are honestly few `Hero`s in games

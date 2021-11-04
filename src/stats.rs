@@ -8,24 +8,26 @@ extern crate num;
 use num::NumCast;
 use crate::class::Normal as ClassNormal;
 use crate::class::Basic as ClassBasic;
+use crate::creature::Animal;
+use std::ops::{Add, AddAssign,  Div, DivAssign, Mul, MulAssign, Neg, Rem, RemAssign, Sub, SubAssign};
 /*
 Premade trait for Basic Stat
 You simply define the function `stat()` to return the `Basic<T>` associated with your code.
 */
-pub trait BasicPremade<T:Default
-                        + std::ops::AddAssign
-                        + std::ops::Add
-                        + std::ops::Sub
-                        + std::ops::Div
-                        + std::ops::DivAssign
-                        + std::ops::Mul
-                        + std::ops::MulAssign
-                        + std::ops::Neg
-                        + std::ops::Rem
-                        + std::ops::RemAssign
-                        + std::ops::Sub
-                        + std::ops::SubAssign
-                        + num::NumCast> {
+pub trait BasicPremade<T:Copy 
+                      + Default
+                      + AddAssign
+                      + Add<Output = T>
+                      + Div<Output = T>
+                      + DivAssign
+                      + Mul<Output = T>
+                      + MulAssign
+                      + Neg<Output = T>
+                      + Rem<Output = T>
+                      + RemAssign
+                      + Sub<Output = T>
+                      + SubAssign
+                      + num::NumCast> {
     fn stat(&self) -> Basic<T>;
     fn id(&self) -> T {
         self.stat().id
@@ -90,20 +92,20 @@ pub trait BasicStat<T> {
 This basic model of stats is easy to work with for beginners, but powerful enough to be used by the most experienced.
 */
 #[derive( Debug, Clone, Copy, PartialEq)]
-pub struct Basic<T:Default
-                + std::ops::AddAssign
-                + std::ops::Add
-                + std::ops::Sub
-                + std::ops::Div
-                + std::ops::DivAssign
-                + std::ops::Mul
-                + std::ops::MulAssign
-                + std::ops::Neg
-                + std::ops::Rem
-                + std::ops::RemAssign
-                + std::ops::Sub
-                + std::ops::SubAssign
-                + num::NumCast> {
+pub struct Basic<T:Copy 
+                 + Default
+                 + AddAssign
+                 + Add<Output = T>
+                 + Div<Output = T>
+                 + DivAssign
+                 + Mul<Output = T>
+                 + MulAssign
+                 + Neg<Output = T>
+                 + Rem<Output = T>
+                 + RemAssign
+                 + Sub<Output = T>
+                 + SubAssign
+                 + num::NumCast> {
     /// Identification Number
     pub id:T,
     /// Experience Points
@@ -125,20 +127,20 @@ pub struct Basic<T:Default
     /// your currency points
     pub gp:T,
 }
-impl<T:Default
-   + std::ops::AddAssign
-   + std::ops::Add
-   + std::ops::Sub
-   + std::ops::Div
-   + std::ops::DivAssign
-   + std::ops::Mul
-   + std::ops::MulAssign
-   + std::ops::Neg
-   + std::ops::Rem
-   + std::ops::RemAssign
-   + std::ops::Sub
-   + std::ops::SubAssign
-   + num::NumCast> Basic<T> {
+impl<T:Copy 
+    + Default
+    + AddAssign
+    + Add<Output = T>
+    + Div<Output = T>
+    + DivAssign
+    + Mul<Output = T>
+    + MulAssign
+    + Neg<Output = T>
+    + Rem<Output = T>
+    + RemAssign
+    + Sub<Output = T>
+    + SubAssign
+    + num::NumCast> Basic<T> {
     /// make empty stats
     pub fn empty() -> Self where Self:Sized {
         Basic {
@@ -152,6 +154,59 @@ impl<T:Default
             level:Default::default(),
             speed:Default::default(),
             gp:Default::default(),
+        }
+    }
+    pub fn from_animal(id:T, animal:Animal, level:T)  -> Basic<T> {
+        let mut hp = num::cast(10).unwrap();
+        let mut mp = num::cast(5).unwrap();
+        let mut xp = num::cast(1).unwrap();
+        let mut gp = num::cast(5).unwrap();
+        let mut speed = num::cast(5).unwrap();
+        match animal {
+            Animal::Rat => {
+                gp += num::cast(2).unwrap();
+            }
+            Animal::Snake => {
+                speed += num::cast(2).unwrap();
+                mp += num::cast(1).unwrap();
+                hp += num::cast(1).unwrap();
+                xp += num::cast(1).unwrap();
+            }
+            Animal::Rabbit => {
+                speed += num::cast(2).unwrap();
+                hp += num::cast(2).unwrap();
+                mp += num::cast(2).unwrap();
+                xp += num::cast(2).unwrap();
+            }
+            Animal::Wolf => {
+                speed += num::cast(3).unwrap();
+                hp += num::cast(3).unwrap();
+                mp += num::cast(3).unwrap();
+                xp += num::cast(3).unwrap();
+            }
+            Animal::Crocodile => {
+                speed -= num::cast(1).unwrap();
+                hp += num::cast(5).unwrap();
+                mp += num::cast(5).unwrap();
+                xp += num::cast(5).unwrap();
+            }
+        }
+        hp *= level;
+        mp *= level;
+        xp *= level;
+        gp *= level;
+        speed += level;
+        Basic {
+            id:id,
+            xp:xp,
+            xp_next:Default::default(),
+            level:level,
+            gp:gp,
+            hp: hp,
+            mp: mp,
+            hp_max: hp,
+            mp_max: mp,
+            speed: speed,
         }
     }
     pub fn from_class(id:T, class:ClassBasic) -> Basic<T> {
@@ -184,20 +239,20 @@ impl<T:Default
         }
     }
 }
-impl<T:Default
-   + std::ops::AddAssign
-   + std::ops::Add
-   + std::ops::Sub
-   + std::ops::Div
-   + std::ops::DivAssign
-   + std::ops::Mul
-   + std::ops::MulAssign
-   + std::ops::Neg
-   + std::ops::Rem
-   + std::ops::RemAssign
-   + std::ops::Sub
-   + std::ops::SubAssign
-   + num::NumCast> Default for Basic<T> {
+impl<T:Copy 
+    + Default
+    + AddAssign
+    + Add<Output = T>
+    + Div<Output = T>
+    + DivAssign
+    + Mul<Output = T>
+    + MulAssign
+    + Neg<Output = T>
+    + Rem<Output = T>
+    + RemAssign
+    + Sub<Output = T>
+    + SubAssign
+    + num::NumCast> Default for Basic<T> {
     /// Default to empty
     fn default() -> Self where Self:Sized {
         Self::empty()
@@ -208,20 +263,20 @@ impl<T:Default
 Premade trait for Normal Stat
 You simply define the function `stat()` to return the `Normal<T>` associated with your code.
 */
-pub trait NormalPremade<T:Default
-                        + std::ops::AddAssign
-                        + std::ops::Add
-                        + std::ops::Sub
-                        + std::ops::Div
-                        + std::ops::DivAssign
-                        + std::ops::Mul
-                        + std::ops::MulAssign
-                        + std::ops::Neg
-                        + std::ops::Rem
-                        + std::ops::RemAssign
-                        + std::ops::Sub
-                        + std::ops::SubAssign
-                        + num::NumCast> {
+pub trait NormalPremade<T:Copy 
+                      + Default
+                      + AddAssign
+                      + Add<Output = T>
+                      + Div<Output = T>
+                      + DivAssign
+                      + Mul<Output = T>
+                      + MulAssign
+                      + Neg<Output = T>
+                      + Rem<Output = T>
+                      + RemAssign
+                      + Sub<Output = T>
+                      + SubAssign
+                      + num::NumCast> {
     fn stat(&self) -> Normal<T>;
     fn id(&self) -> T {
         self.stat().id
@@ -270,6 +325,15 @@ pub trait NormalPremade<T:Default
         val -= amount;
         val
     }
+    // Standard scalable attack forumla
+    fn attack(&self, other:Normal<T>) -> T {
+        let mut val = self.atk();
+        let mut res = val * val;
+        let mut def = other.def;
+        def += val;
+        res = res / def;
+        res
+    }
     fn heal(&mut self, amount:T) -> T {
         let mut val = self.hp();
         val += amount;
@@ -282,20 +346,20 @@ pub trait NormalPremade<T:Default
 This model provides fine tuning of attack and defense without needing all the fine tuning of a full stat sheet
 */
 #[derive( Debug, Clone, Copy, PartialEq)]
-pub struct Normal<T:Default
-                + std::ops::AddAssign
-                + std::ops::Add
-                + std::ops::Sub
-                + std::ops::Div
-                + std::ops::DivAssign
-                + std::ops::Mul
-                + std::ops::MulAssign
-                + std::ops::Neg
-                + std::ops::Rem
-                + std::ops::RemAssign
-                + std::ops::Sub
-                + std::ops::SubAssign
-                + num::NumCast> {
+pub struct Normal<T:Copy 
+                 + Default
+                 + AddAssign
+                 + Add<Output = T>
+                 + Div<Output = T>
+                 + DivAssign
+                 + Mul<Output = T>
+                 + MulAssign
+                 + Neg<Output = T>
+                 + Rem<Output = T>
+                 + RemAssign
+                 + Sub<Output = T>
+                 + SubAssign
+                 + num::NumCast> {
     /// Identification Number
     pub id:T,
     // Name
@@ -328,20 +392,20 @@ pub struct Normal<T:Default
     pub m_def:T,
 
 }
-impl<T:Default
-   + std::ops::AddAssign
-   + std::ops::Add
-   + std::ops::Sub
-   + std::ops::Div
-   + std::ops::DivAssign
-   + std::ops::Mul
-   + std::ops::MulAssign
-   + std::ops::Neg
-   + std::ops::Rem
-   + std::ops::RemAssign
-   + std::ops::Sub
-   + std::ops::SubAssign
-   + num::NumCast> Normal<T> {
+impl<T:Copy 
+    + Default
+    + AddAssign
+    + Add<Output = T>
+    + Div<Output = T>
+    + DivAssign
+    + Mul<Output = T>
+    + MulAssign
+    + Neg<Output = T>
+    + Rem<Output = T>
+    + RemAssign
+    + Sub<Output = T>
+    + SubAssign
+    + num::NumCast> Normal<T> {
     /// make empty stats
     pub fn empty<U:Default>() -> Self {
         Normal {
@@ -521,20 +585,20 @@ impl<T:Default
     }
 }
 
-impl<T:Default
-   + std::ops::AddAssign
-   + std::ops::Add
-   + std::ops::Sub
-   + std::ops::Div
-   + std::ops::DivAssign
-   + std::ops::Mul
-   + std::ops::MulAssign
-   + std::ops::Neg
-   + std::ops::Rem
-   + std::ops::RemAssign
-   + std::ops::Sub
-   + std::ops::SubAssign
-   + num::NumCast> Default for Normal<T> {
+impl<T:Copy 
+    + Default
+    + AddAssign
+    + Add<Output = T>
+    + Div<Output = T>
+    + DivAssign
+    + Mul<Output = T>
+    + MulAssign
+    + Neg<Output = T>
+    + Rem<Output = T>
+    + RemAssign
+    + Sub<Output = T>
+    + SubAssign
+    + num::NumCast> Default for Normal<T> {
     /// Default to empty
     fn default() -> Self {
         Self::empty::<T>()
@@ -544,20 +608,20 @@ impl<T:Default
 Premade trait for Advanced Stat
 You simply define the function `stat()` to return the `Advanced<T>` associated with your code.
 */
-pub trait AdvancedPremade<T:Default
-                        + std::ops::AddAssign
-                        + std::ops::Add
-                        + std::ops::Sub
-                        + std::ops::Div
-                        + std::ops::DivAssign
-                        + std::ops::Mul
-                        + std::ops::MulAssign
-                        + std::ops::Neg
-                        + std::ops::Rem
-                        + std::ops::RemAssign
-                        + std::ops::Sub
-                        + std::ops::SubAssign
-                        + num::NumCast> {
+pub trait AdvancedPremade<T:Copy 
+                      + Default
+                      + AddAssign
+                      + Add<Output = T>
+                      + Div<Output = T>
+                      + DivAssign
+                      + Mul<Output = T>
+                      + MulAssign
+                      + Neg<Output = T>
+                      + Rem<Output = T>
+                      + RemAssign
+                      + Sub<Output = T>
+                      + SubAssign
+                      + num::NumCast> {
     fn stat(&self) -> Advanced<T>;
     fn id(&self) -> T {
         self.stat().id
@@ -638,20 +702,20 @@ pub trait AdvancedPremade<T:Default
 The entire stat sheet for fine tuned algorithms using all the information possible!
 */
 #[derive( Debug, Clone, Copy, PartialEq)]
-pub struct Advanced<T:Default
-                + std::ops::AddAssign
-                + std::ops::Add
-                + std::ops::Sub
-                + std::ops::Div
-                + std::ops::DivAssign
-                + std::ops::Mul
-                + std::ops::MulAssign
-                + std::ops::Neg
-                + std::ops::Rem
-                + std::ops::RemAssign
-                + std::ops::Sub
-                + std::ops::SubAssign
-                + num::NumCast> {
+pub struct Advanced<T:Copy 
+                 + Default
+                 + AddAssign
+                 + Add<Output = T>
+                 + Div<Output = T>
+                 + DivAssign
+                 + Mul<Output = T>
+                 + MulAssign
+                 + Neg<Output = T>
+                 + Rem<Output = T>
+                 + RemAssign
+                 + Sub<Output = T>
+                 + SubAssign
+                 + num::NumCast> {
     /// Identification Number
     pub id:T,
     /// Experience Points
@@ -698,20 +762,20 @@ pub struct Advanced<T:Default
     pub age:T,
     
 }
-impl<T:Default
-   + std::ops::AddAssign
-   + std::ops::Add
-   + std::ops::Sub
-   + std::ops::Div
-   + std::ops::DivAssign
-   + std::ops::Mul
-   + std::ops::MulAssign
-   + std::ops::Neg
-   + std::ops::Rem
-   + std::ops::RemAssign
-   + std::ops::Sub
-   + std::ops::SubAssign
-   + num::NumCast> Advanced<T> {
+impl<T:Copy 
+    + Default
+    + AddAssign
+    + Add<Output = T>
+    + Div<Output = T>
+    + DivAssign
+    + Mul<Output = T>
+    + MulAssign
+    + Neg<Output = T>
+    + Rem<Output = T>
+    + RemAssign
+    + Sub<Output = T>
+    + SubAssign
+    + num::NumCast> Advanced<T> {
     /// make empty stats
     pub fn empty<U:Default>() -> Self {
         Advanced {
@@ -740,20 +804,20 @@ impl<T:Default
         }
     }
 }
-impl<T:Default
-   + std::ops::AddAssign
-   + std::ops::Add
-   + std::ops::Sub
-   + std::ops::Div
-   + std::ops::DivAssign
-   + std::ops::Mul
-   + std::ops::MulAssign
-   + std::ops::Neg
-   + std::ops::Rem
-   + std::ops::RemAssign
-   + std::ops::Sub
-   + std::ops::SubAssign
-   + num::NumCast> Default for Advanced<T> {
+impl<T:Copy 
+    + Default
+    + AddAssign
+    + Add<Output = T>
+    + Div<Output = T>
+    + DivAssign
+    + Mul<Output = T>
+    + MulAssign
+    + Neg<Output = T>
+    + Rem<Output = T>
+    + RemAssign
+    + Sub<Output = T>
+    + SubAssign
+    + num::NumCast> Default for Advanced<T> {
     /// Default to empty
     fn default() -> Self {
         Self::empty::<T>()
