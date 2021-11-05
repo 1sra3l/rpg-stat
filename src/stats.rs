@@ -448,7 +448,7 @@ pub trait NormalPremade<T:Copy
     /// Scalable attack forumla
     /// [damage = att * att / (att + def)](https://gamedev.stackexchange.com/questions/129319/rpg-formula-attack-and-defense)
     fn attack(&self, other:Normal<T>) -> T {
-        let mut val = self.atk();
+        let val = self.atk();
         let mut res = val * val;
         let mut def = other.def;
         def += val;
@@ -1005,7 +1005,7 @@ pub trait AdvancedPremade<T:Copy
     /// Scalable attack forumla
     /// [damage = att * att / (att + def)](https://gamedev.stackexchange.com/questions/129319/rpg-formula-attack-and-defense)
     fn attack(&self, other:Advanced<T>) -> T {
-        let mut val = self.atk();
+        let val = self.atk();
         let mut res = val * val;
         let mut def = other.def;
         def += val;
