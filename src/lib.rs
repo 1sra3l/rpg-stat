@@ -37,3 +37,5 @@ fn my_fun () {
 pub mod stats;
 pub mod class;
 pub mod creature;
+pub mod legendary;
+pub mod body;

@@ -217,6 +217,32 @@ impl<T:Copy
                 mp += num::cast(5).unwrap();
                 xp += num::cast(5).unwrap();
             }
+            Animal::Insect => {
+                hp -= num::cast(2).unwrap();
+                mp += num::cast(4).unwrap();
+            }
+            Animal::Lion => {
+                hp += num::cast(10).unwrap();
+                speed += num::cast(7).unwrap();
+                mp += num::cast(4).unwrap();
+                xp += num::cast(9).unwrap();
+            }
+            Animal::Tiger => {
+                hp += num::cast(9).unwrap();
+                speed += num::cast(9).unwrap();
+                mp += num::cast(7).unwrap();
+                xp += num::cast(7).unwrap();
+            }
+            Animal::Bear => {
+                hp += num::cast(15).unwrap();
+                mp += num::cast(10).unwrap();
+                xp += num::cast(10).unwrap();
+            }
+            Animal::Bird => {
+                hp += num::cast(3).unwrap();
+                mp += num::cast(12).unwrap();
+                xp += num::cast(7).unwrap();
+            }
         }
         hp *= level;
         mp *= level;
@@ -410,7 +436,17 @@ pub trait NormalPremade<T:Copy
         }
         self.set_hp(val)
     }
-    // Standard scalable attack forumla
+    /// Stable attack forumla
+    /// [attack*(100/(100+defense))](https://rpg.fandom.com/wiki/Damage_Formula)
+    fn attack_stable(&self, other:Normal<T>) -> T { 
+        let hundred = num::cast(100).unwrap();
+        let val = self.atk();
+        let def = other.def + hundred;
+        let res = hundred / def;
+        val * res
+    }
+    /// Scalable attack forumla
+    /// [damage = att * att / (att + def)](https://gamedev.stackexchange.com/questions/129319/rpg-formula-attack-and-defense)
     fn attack(&self, other:Normal<T>) -> T {
         let mut val = self.atk();
         let mut res = val * val;
@@ -575,6 +611,53 @@ impl<T:Copy
                 m_atk += num::cast(3).unwrap();
                 m_def += num::cast(1).unwrap();
             }
+            Animal::Insect => {
+                hp -= num::cast(2).unwrap();
+                mp += num::cast(4).unwrap();
+                atk += num::cast(2).unwrap();
+                def += num::cast(3).unwrap();
+                m_atk += num::cast(1).unwrap();
+                m_def += num::cast(1).unwrap();
+            }
+            Animal::Lion => {
+                hp += num::cast(10).unwrap();
+                speed += num::cast(7).unwrap();
+                mp += num::cast(4).unwrap();
+                xp += num::cast(9).unwrap();
+                atk += num::cast(11).unwrap();
+                def += num::cast(9).unwrap();
+                m_atk += num::cast(5).unwrap();
+                m_def += num::cast(8).unwrap();
+            }
+            Animal::Tiger => {
+                hp += num::cast(9).unwrap();
+                speed += num::cast(9).unwrap();
+                mp += num::cast(7).unwrap();
+                xp += num::cast(7).unwrap();
+                atk += num::cast(12).unwrap();
+                def += num::cast(5).unwrap();
+                m_atk += num::cast(5).unwrap();
+                m_def += num::cast(12).unwrap();
+            }
+            Animal::Bear => {
+                hp += num::cast(15).unwrap();
+                mp += num::cast(10).unwrap();
+                xp += num::cast(10).unwrap();
+                atk += num::cast(18).unwrap();
+                def += num::cast(12).unwrap();
+                m_atk += num::cast(2).unwrap();
+                m_def += num::cast(5).unwrap();
+            }
+            Animal::Bird => {
+                hp += num::cast(2).unwrap();
+                mp += num::cast(12).unwrap();
+                xp += num::cast(7).unwrap();
+                atk += num::cast(11).unwrap();
+                def += num::cast(1).unwrap();
+                m_atk += num::cast(8).unwrap();
+                m_def += num::cast(10).unwrap();
+            }
+            
         }
         hp *= level;
         mp *= level;
@@ -801,7 +884,31 @@ pub trait AdvancedPremade<T:Copy
                       + SubAssign
                       + std::cmp::PartialOrd
                       + num::NumCast> {
+    /// # Functions you need to imlement
+    /// stat returns the `Advanced<T>` you created
     fn stat(&self) -> Advanced<T>;
+    /// Set the `Advanced<T>` Health Points
+    fn set_hp(&mut self, amount:T);
+    /// Set the `Advanced<T>` Mana Points
+    fn set_mp(&mut self, amount:T);
+    /// Set the `Advanced<T>` Experience Points
+    fn set_xp(&mut self, amount:T);
+    /// Set the `Advanced<T>` Max Health Points
+    fn set_hp_max(&mut self, amount:T);
+    /// Set the `Advanced<T>` Max Mana Points
+    fn set_mp_max(&mut self, amount:T);
+    /// Set the `Advanced<T>` Next Experience Points
+    fn set_xp_next(&mut self, amount:T);
+    /// Set the `Advanced<T>` Gold Points
+    fn set_gp(&mut self, amount:T);
+    /// Set the `Advanced<T>` Attack Points
+    fn set_atk(&mut self, amount:T);
+    /// Set the `Advanced<T>` Defense Points
+    fn set_def(&mut self, amount:T);
+    /// Set the `Advanced<T>` Mana Attack Points
+    fn set_m_atk(&mut self, amount:T);
+    /// Set the `Advanced<T>` Mana Defense Points
+    fn set_m_def(&mut self, amount:T);
     fn id(&self) -> T {
         self.stat().id
     }
@@ -865,15 +972,45 @@ pub trait AdvancedPremade<T:Copy
     fn age(&self) -> T {
         self.stat().age
     }
-    fn damage(&mut self, amount:T) -> T {
+    /// Damage the character by an amount
+    fn damage(&mut self, amount:T) {
         let mut val = self.hp();
         val -= amount;
-        val
+        let none = num::cast(0).unwrap();
+        if val < none {
+            val = none;
+        }
+        self.set_hp(val)
     }
-    fn heal(&mut self, amount:T) -> T {
+    /// Add health to character but not beyond their Max Healh Points
+    fn heal(&mut self, amount:T) {
         let mut val = self.hp();
         val += amount;
-        val
+        let max = self.hp_max();
+        if val > max {
+            val = max;
+        }
+        self.set_hp(val)
+    }
+    // TODO taken from `Normal`
+    /// Stable attack forumla
+    /// [attack*(100/(100+defense))](https://rpg.fandom.com/wiki/Damage_Formula)
+    fn attack_stable(&self, other:Advanced<T>) -> T { 
+        let hundred = num::cast(100).unwrap();
+        let val = self.atk();
+        let def = other.def + hundred;
+        let res = hundred / def;
+        val * res
+    }
+    /// Scalable attack forumla
+    /// [damage = att * att / (att + def)](https://gamedev.stackexchange.com/questions/129319/rpg-formula-attack-and-defense)
+    fn attack(&self, other:Advanced<T>) -> T {
+        let mut val = self.atk();
+        let mut res = val * val;
+        let mut def = other.def;
+        def += val;
+        res = res / def;
+        res
     }
 }
 /*
@@ -926,7 +1063,7 @@ pub struct Advanced<T:Copy
     pub m_def:T,
     /// The agility Points
     pub agility:T,
-    /// The strength Points
+    /// # The strength Points
     pub strength:T,
     /// The dexterity Points
     pub dexterity:T,

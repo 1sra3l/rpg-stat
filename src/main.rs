@@ -1,6 +1,8 @@
 mod stats;
 mod class;
 mod creature;
+mod body;
+mod legendary;
 mod tests;
 //use crate::stats::Basic as Stats;
 use crate::creature::Person;

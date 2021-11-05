@@ -5,6 +5,7 @@ mod tests {
     use crate::class::Basic as Class;
     use crate::stats::BasicPremade as BasicPremade;
     use crate::stats::NormalPremade as NormalPremade;
+    use crate::legendary::Legendary;
     // used in tests below
     pub struct Character {
         pub name:String,
