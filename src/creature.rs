@@ -6,8 +6,10 @@ This encompasses all the different humanoids, as well as enemy creatures, and ev
 use std::fmt;
 use strum::IntoEnumIterator;
 use strum_macros::EnumIter;
-#[derive(Clone, PartialEq, Copy, Debug, EnumIter)]//, Serialize, Deserialize)]
+use crate::stats::Normal;
+use std::ops::{Add, AddAssign,  Div, DivAssign, Mul, MulAssign, Neg, Rem, RemAssign, Sub, SubAssign};
 
+#[derive(Clone, PartialEq, Copy, Debug, EnumIter)]//, Serialize, Deserialize)]
 /// The Person class of creature types
 pub enum Person {
     /// These little guys rock!

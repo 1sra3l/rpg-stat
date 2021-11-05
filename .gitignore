@@ -1,3 +1,4 @@
 /target
 ~*
 *.kate-swp
+src/tmp*
