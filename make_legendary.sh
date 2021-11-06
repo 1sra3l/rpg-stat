@@ -4,8 +4,8 @@ FILE1=tmp1.rs
 FILE2=tmp2.rs
 FILE3=tmp3.rs
 
-INI_FILE="../assets/ini/legendary.ini"
-OUTPUT="legendary.rs"
+INI_FILE="assets/ini/legendary.ini"
+OUTPUT="src/legendary.rs"
 echo "/*!
 # Legendary Creatures
 

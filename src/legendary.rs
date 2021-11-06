@@ -28,2832 +28,2836 @@ pub enum Legendary {
     Abaasy,
     /// [Äbädä](https://en.wikipedia.org/wiki/%C3%84b%C3%A4d%C3%A4)(Tatar) – Forest spirit.
     Abada,
-    /// [Abaia]()(Tatar) – Forest spirit. (Melanesia) – Huge magical eel.
+    /// [Abaia](https://en.wikipedia.org/wiki/Abaia)(Tatar) – Forest spirit. (Melanesia) – Huge magical eel.
     Abaia,
-    /// [Abarimon]()(Medieval Bestiaries) – Savage humanoid with backward feet.
+    /// [Abarimon](https://en.wikipedia.org/wiki/Abarimon)(Medieval Bestiaries) – Savage humanoid with backward feet.
     Abarimon,
-    /// [Abath]()(Malay) – One-horned animal.
+    /// [Abath](https://en.wikipedia.org/wiki/Abath)(Malay) – One-horned animal.
     Abath,
-    /// []()(Japanese) – Creature from a mountain pass in Kumamoto Prefecture.
+    /// [Abura-sumashi](https://en.wikipedia.org/wiki/Abura-sumashi)(Japanese) – Creature from a mountain pass in Kumamoto Prefecture.
     AburaSumashi,
-    /// []()(Greek) – Headless humanoids.
+    /// [Acephali](https://en.wikipedia.org/wiki/Headless_men)(Greek) – Headless humanoids.
     Acephali,
-    /// []()(Mitologia Hindu) – Disease-bringing ghost.
+    /// [](https://en.wikipedia.org/wiki/)(Mitologia Hindu) – Disease-bringing ghost.
     Acheri,
-    /// []()(Roman) – Curious elk.
+    /// [](https://en.wikipedia.org/wiki/)(Roman) – Curious elk.
     Achlis,
-    /// [Adar Llwch Gwin]()(Welsh) – Giant birds that understand human languages.
+    /// [Adar Llwch Gwin](https://en.wikipedia.org/wiki/)(Welsh) – Giant birds that understand human languages.
     AdarLlwchGwin,
-    /// []()(Solomon Islands) – Malevolent merfolk.
+    /// [](https://en.wikipedia.org/wiki/)(Solomon Islands) – Malevolent merfolk.
     Adaro,
-    /// []()(Manx) – Nature spirit.
+    /// [](https://en.wikipedia.org/wiki/)(Manx) – Nature spirit.
     Adhene,
-    /// []()(Inuit) – Vampiric dog-human hybrid
+    /// [](https://en.wikipedia.org/wiki/)(Inuit) – Vampiric dog-human hybrid
     Adlet,
-    /// []()(Lugbara) – Nature spirit.
+    /// [](https://en.wikipedia.org/wiki/)(Lugbara) – Nature spirit.
     Adroanzi,
-    /// []()(Ewe people) – African vampiric-forest being.
+    /// [](https://en.wikipedia.org/wiki/)(Ewe people) – African vampiric-forest being.
     Adze,
-    /// []()(Greek) – Disease demon.
+    /// [](https://en.wikipedia.org/wiki/)(Greek) – Disease demon.
     Aerico,
-    /// []()(Norse) – Norse deities.
+    /// [](https://en.wikipedia.org/wiki/)(Norse) – Norse deities.
     AEsir,
-    /// []()(Welsh) – Lake monster (exact lake varies by story).
+    /// [](https://en.wikipedia.org/wiki/)(Welsh) – Lake monster (exact lake varies by story).
     Afanc,
-    /// []()(Hindu) – God of fire and sacrifices.
+    /// [](https://en.wikipedia.org/wiki/)(Hindu) – God of fire and sacrifices.
     Agni,
-    /// []()(Greek) – Spirit of vinefields and grainfields.
+    /// [](https://en.wikipedia.org/wiki/)(Greek) – Spirit of vinefields and grainfields.
     Agathodaemon,
-    /// []()(Inuit) – Ice spirit that aids hunters and fishermen.
+    /// [](https://en.wikipedia.org/wiki/)(Inuit) – Ice spirit that aids hunters and fishermen.
     Agloolik,
-    /// []()(East Africa) – Small, ape-like humanoid.
+    /// [](https://en.wikipedia.org/wiki/)(East Africa) – Small, ape-like humanoid.
     Agogwe,
-    /// []()(Inuit) – Animated skeleton that causes shipwrecks.
+    /// [](https://en.wikipedia.org/wiki/)(Inuit) – Animated skeleton that causes shipwrecks.
     Ahkiyyini,
-    /// []()(Aztec) – Anthropophagous dog-monkey hybrid.
+    /// [](https://en.wikipedia.org/wiki/)(Aztec) – Anthropophagous dog-monkey hybrid.
     Ahuizotl,
-    /// []()(Zoroastrianism) – Zoroastrian spirits.
+    /// [](https://en.wikipedia.org/wiki/)(Zoroastrianism) – Zoroastrian spirits.
     Ahura,
-    /// []()(Khoikhoi) – Anthropophagous humanoid with eyes in its instep.
+    /// [](https://en.wikipedia.org/wiki/)(Khoikhoi) – Anthropophagous humanoid with eyes in its instep.
     Aigamuxa,
-    /// []()(Etruscan) – Fish-tailed goat.
+    /// [](https://en.wikipedia.org/wiki/)(Etruscan) – Fish-tailed goat.
     Aigikampoi,
-    /// []()(Hindu) – Divine elephant.
+    /// [](https://en.wikipedia.org/wiki/)(Hindu) – Divine elephant.
     Airavata,
-    /// []()(Polynesian) – Malevolent spirits or demons.
+    /// [](https://en.wikipedia.org/wiki/)(Polynesian) – Malevolent spirits or demons.
     Aitu,
-    /// []()(Lithuanian) – Household spirit.
+    /// [](https://en.wikipedia.org/wiki/)(Lithuanian) – Household spirit.
     Aitvaras,
-    /// []()(Finnish) – Dragon/snake female spirit, is said to spread diseases
+    /// [](https://en.wikipedia.org/wiki/)(Finnish) – Dragon/snake female spirit, is said to spread diseases
     Ajatar,
-    /// []()(Japanese) – Tree-dwelling monster.
+    /// [](https://en.wikipedia.org/wiki/)(Japanese) – Tree-dwelling monster.
     Akateko,
-    /// []()(Inuit) – Orca-wolf shapeshifter.
+    /// [](https://en.wikipedia.org/wiki/)(Inuit) – Orca-wolf shapeshifter.
     Akhlut,
-    /// []()(Finnish) – Female spirits or minor goddesses.
+    /// [](https://en.wikipedia.org/wiki/)(Finnish) – Female spirits or minor goddesses.
     Akka,
-    /// []()(Japanese) – Large, grotesque humanoid.
+    /// [](https://en.wikipedia.org/wiki/)(Japanese) – Large, grotesque humanoid.
     Akki,
-    /// []()(Ainu) – Sea monster.
+    /// [](https://en.wikipedia.org/wiki/)(Ainu) – Sea monster.
     Akkorokamui,
-    /// []()(Japanese) – Evil spirit or devil
+    /// [](https://en.wikipedia.org/wiki/)(Japanese) – Evil spirit or devil
     Akuma,
-    /// []()(Hindu) – Giant turtle that supports the world.
+    /// [](https://en.wikipedia.org/wiki/)(Hindu) – Giant turtle that supports the world.
     Akupara,
-    /// []()(Japanese) – Ghostly flame which causes disease.
+    /// [](https://en.wikipedia.org/wiki/)(Japanese) – Ghostly flame which causes disease.
     AkurojinNoHi,
-    /// []()(Armenian and Persian) – Spirit that steals unborn babies and livers from pregnant women.
+    /// [](https://en.wikipedia.org/wiki/)(Armenian and Persian) – Spirit that steals unborn babies and livers from pregnant women.
     Al,
-    /// []()(Slavic) – Bad weather demon.
+    /// [](https://en.wikipedia.org/wiki/)(Slavic) – Bad weather demon.
     Ala,
-    /// []()(Chaldean) – Queen of the full moon.
+    /// [](https://en.wikipedia.org/wiki/)(Chaldean) – Queen of the full moon.
     Alal,
-    /// []()(Philippine) – Winged humanoid that steals reproductive waste to make children.
+    /// [](https://en.wikipedia.org/wiki/)(Philippine) – Winged humanoid that steals reproductive waste to make children.
     Alan,
-    /// []()(Heraldic) – Wingless griffin.
+    /// [](https://en.wikipedia.org/wiki/)(Heraldic) – Wingless griffin.
     Alce,
-    /// []()(Bengali) – Spirit of a dead fisherman.
+    /// [](https://en.wikipedia.org/wiki/)(Bengali) – Spirit of a dead fisherman.
     Aleya,
-    /// []()(Chilean) – Bird that eats gold and silver.
+    /// [](https://en.wikipedia.org/wiki/)(Chilean) – Bird that eats gold and silver.
     Alicanto,
-    /// []()(Bestiario medieval) – Winged unicorn.
+    /// [](https://en.wikipedia.org/wiki/)(Bestiario medieval) – Winged unicorn.
     Alicorn,
-    /// []()(Slavic) – Angelic bird with human head and breasts.
+    /// [](https://en.wikipedia.org/wiki/)(Slavic) – Angelic bird with human head and breasts.
     Alkonost,
-    /// []()(Heraldic) – Ass-camel hybrid.
+    /// [](https://en.wikipedia.org/wiki/)(Heraldic) – Ass-camel hybrid.
     Allocamelus,
-    /// []()(Mongolian) – Savage humanoid.
+    /// [](https://en.wikipedia.org/wiki/)(Mongolian) – Savage humanoid.
     Almas,
-    /// []()(Islamic) – One-horned rabbit.
+    /// [](https://en.wikipedia.org/wiki/)(Islamic) – One-horned rabbit.
     AlMiRaj,
-    /// []()(Catalan) – Female water spirit.
+    /// [](https://en.wikipedia.org/wiki/)(Catalan) – Female water spirit.
     Aloja,
-    /// []()(Abenaki) – Little people and tricksters.
+    /// [](https://en.wikipedia.org/wiki/)(Abenaki) – Little people and tricksters.
     AlomBagWinnosis,
-    /// []()(German) – Male night-demon.
+    /// [](https://en.wikipedia.org/wiki/)(German) – Male night-demon.
     Alp,
-    /// []()(Heraldic) – Lion-like creature, sometimes with dragon or goat forelegs.
+    /// [](https://en.wikipedia.org/wiki/)(Heraldic) – Lion-like creature, sometimes with dragon or goat forelegs.
     Alphyn,
-    /// []()(Irish) – Parasitic fairy.
+    /// [](https://en.wikipedia.org/wiki/)(Irish) – Parasitic fairy.
     AlpLuachra,
-    /// []()(Islamic) – Guard dog of the Seven Sleepers.
+    /// [](https://en.wikipedia.org/wiki/)(Islamic) – Guard dog of the Seven Sleepers.
     AlRakim,
-    /// []()(Greek) – Grove nymph.
+    /// [](https://en.wikipedia.org/wiki/)(Greek) – Grove nymph.
     Alseid,
-    /// []()(Assyrian) – Leprous demon.
+    /// [](https://en.wikipedia.org/wiki/)(Assyrian) – Leprous demon.
     Alu,
-    /// []()(Mayan) – Little people.
+    /// [](https://en.wikipedia.org/wiki/)(Mayan) – Little people.
     Alux,
-    /// []()(Japanese) – Ritual disciplinary demon from Shikoku.
+    /// [](https://en.wikipedia.org/wiki/)(Japanese) – Ritual disciplinary demon from Shikoku.
     Amaburakosagi,
-    /// []()(Tsimshian) – Giant who holds up the world.
+    /// [](https://en.wikipedia.org/wiki/)(Tsimshian) – Giant who holds up the world.
     Amala,
-    /// []()(Japanese) – Ritual disciplinary demon from Hokuriku.
+    /// [](https://en.wikipedia.org/wiki/)(Japanese) – Ritual disciplinary demon from Hokuriku.
     Amamehagi,
-    /// []()(Japanese) – Small demon.
+    /// [](https://en.wikipedia.org/wiki/)(Japanese) – Small demon.
     Amanojaku,
-    /// []()(Inuit) – Giant wolf.
+    /// [](https://en.wikipedia.org/wiki/)(Inuit) – Giant wolf.
     Amarok,
-    /// []()(Quechua) – Water boa spirit.
+    /// [](https://en.wikipedia.org/wiki/)(Quechua) – Water boa spirit.
     Amarum,
-    /// []()(Japanese) – Disease-causing hag.
+    /// [](https://en.wikipedia.org/wiki/)(Japanese) – Disease-causing hag.
     AmazakeBabaa,
-    /// []()(Ainu) – Lake monster.
+    /// [](https://en.wikipedia.org/wiki/)(Ainu) – Lake monster.
     Amemasu,
-    /// []()(Ancient Egyptian) – Female demon who was part lion, hippopotamus and crocodile and devoured the souls of the wicked.
+    /// [](https://en.wikipedia.org/wiki/)(Ancient Egyptian) – Female demon who was part lion, hippopotamus and crocodile and devoured the souls of the wicked.
     Ammit,
-    /// []()(Japanese) – Tennyo from the island of Amami Ōshima.
+    /// [](https://en.wikipedia.org/wiki/)(Japanese) – Tennyo from the island of Amami Ōshima.
     Amoronagu,
-    /// []()(Heraldic) – Winged serpent.
+    /// [](https://en.wikipedia.org/wiki/)(Heraldic) – Winged serpent.
     Amphiptere,
-    /// []()(Greek) – Serpent with a head at each end.
+    /// [](https://en.wikipedia.org/wiki/)(Greek) – Serpent with a head at each end.
     Amphisbaena,
-    /// []()(Jewish) – Giant.
+    /// [](https://en.wikipedia.org/wiki/)(Jewish) – Giant.
     Anak,
-    /// []()(Ancient Egyptian) – Human-headed sphinx.
+    /// [](https://en.wikipedia.org/wiki/)(Ancient Egyptian) – Human-headed sphinx.
     Androsphinx,
-    /// []()(mainly Christian, Jewish, Islamic traditions) – Divine beings of Heaven who act as mediators between God and humans; the counterparts of Demons.
+    /// [](https://en.wikipedia.org/wiki/)(mainly Christian, Jewish, Islamic traditions) – Divine beings of Heaven who act as mediators between God and humans; the counterparts of Demons.
     Angel,
-    /// []()(Arabian) – Legendary Huge Satanic Eagle with Human Face. sometimes can resurrect herself like phoenix did.
+    /// [](https://en.wikipedia.org/wiki/)(Arabian) – Legendary Huge Satanic Eagle with Human Face. sometimes can resurrect herself like phoenix did.
     Anqa,
-    /// []()(Cherokee) – Lightning spirit.
+    /// [](https://en.wikipedia.org/wiki/)(Cherokee) – Lightning spirit.
     AniHyuntikwalaski,
-    /// []()(French) – Skeletal grave watcher with a lantern and scythe.
+    /// [](https://en.wikipedia.org/wiki/)(French) – Skeletal grave watcher with a lantern and scythe.
     Ankou,
-    /// []()(Japanese) – Ritual disciplinary demon from Iwate Prefecture.
+    /// [](https://en.wikipedia.org/wiki/)(Japanese) – Ritual disciplinary demon from Iwate Prefecture.
     Anmo,
-    /// []()(Greek) – Giant who was extremely strong as long as he remained in contact with the ground.
+    /// [](https://en.wikipedia.org/wiki/)(Greek) – Giant who was extremely strong as long as he remained in contact with the ground.
     Antaeus,
-    /// []()(Ancient Egyptian) – God of the Underworld
+    /// [](https://en.wikipedia.org/wiki/)(Ancient Egyptian) – God of the Underworld
     Anubis,
-    /// []()(Finnish) – Subterranean giant.
+    /// [](https://en.wikipedia.org/wiki/)(Finnish) – Subterranean giant.
     AnteroVipunen,
-    /// []()(Sumerian) – Divine storm bird
+    /// [](https://en.wikipedia.org/wiki/)(Sumerian) – Divine storm bird
     Anzu,
-    /// []()(Guaraní) – Anthropophagous peccary or sheep.
+    /// [](https://en.wikipedia.org/wiki/)(Guaraní) – Anthropophagous peccary or sheep.
     AoAo,
-    /// []()(Japanese) – Blue monk who kidnaps children.
+    /// [](https://en.wikipedia.org/wiki/)(Japanese) – Blue monk who kidnaps children.
     Aobozu,
-    /// []()(Sumerian) – Fish-human hybrid that attends the god Enki.
+    /// [](https://en.wikipedia.org/wiki/)(Sumerian) – Fish-human hybrid that attends the god Enki.
     Apkallu,
-    /// []()(Buddhist and Hindu) – Female cloud spirit.
+    /// [](https://en.wikipedia.org/wiki/)(Buddhist and Hindu) – Female cloud spirit.
     Apsaras,
-    /// []()(Akkadian) – Human-scorpion hybrid.
+    /// [](https://en.wikipedia.org/wiki/)(Akkadian) – Human-scorpion hybrid.
     Aqrabuamelu,
-    /// []()(Akkadian) – Disease demon.
+    /// [](https://en.wikipedia.org/wiki/)(Akkadian) – Disease demon.
     ArdatLili,
-    /// []()(Greek) – Hundred-eyed giant.
+    /// [](https://en.wikipedia.org/wiki/)(Greek) – Hundred-eyed giant.
     ArgusPanoptes,
-    /// []()(Japanese) – Old woman with magical powers.
+    /// [](https://en.wikipedia.org/wiki/)(Japanese) – Old woman with magical powers.
     ArikuraNoBaba,
-    /// []()(Greek) – One-eyed humanoid.
+    /// [](https://en.wikipedia.org/wiki/)(Greek) – One-eyed humanoid.
     Arimaspi,
-    /// []()(Greek) – Swift green-maned talking horse.
+    /// [](https://en.wikipedia.org/wiki/)(Greek) – Swift green-maned talking horse.
     Arion,
-    /// []()(Manx) – Fairy hedgehog.
+    /// [](https://en.wikipedia.org/wiki/)(Manx) – Fairy hedgehog.
     ArkanSonney,
-    /// []()(Sumerian) – Hideous rock demon.
+    /// [](https://en.wikipedia.org/wiki/)(Sumerian) – Hideous rock demon.
     Asag,
-    /// []()(Sumerian) – Demon.
+    /// [](https://en.wikipedia.org/wiki/)(Sumerian) – Demon.
     Asakku,
-    /// []()(West Africa) – Iron-toothed vampire.
+    /// [](https://en.wikipedia.org/wiki/)(West Africa) – Iron-toothed vampire.
     Asanbosam,
-    /// []()(Turkic) – Blue-maned wolf.
+    /// [](https://en.wikipedia.org/wiki/)(Turkic) – Blue-maned wolf.
     Asena,
-    /// []()(Abenaki) – Stone giant.
+    /// [](https://en.wikipedia.org/wiki/)(Abenaki) – Stone giant.
     ASeneeKiWakw,
-    /// []()(Japanese) – Invisible tendril that impedes movement.
+    /// [](https://en.wikipedia.org/wiki/)(Japanese) – Invisible tendril that impedes movement.
     AshiMagari,
-    /// []()(Dahomey) – Vampiric possession spirit.
+    /// [](https://en.wikipedia.org/wiki/)(Dahomey) – Vampiric possession spirit.
     Asiman,
-    /// []()(Germanic) – Female tree spirit.
+    /// [](https://en.wikipedia.org/wiki/)(Germanic) – Female tree spirit.
     Askefrue,
-    /// []()(Abenaki) – Fire elemental and spectral fire.
+    /// [](https://en.wikipedia.org/wiki/)(Abenaki) – Fire elemental and spectral fire.
     AskWeeDaEed,
-    /// []()(Japanese) – Spectral fire from Kōchi Prefecture.
+    /// [](https://en.wikipedia.org/wiki/)(Japanese) – Spectral fire from Kōchi Prefecture.
     Asobibi,
-    /// []()(Medieval Bestiaries) – Island-sized whale or sea turtle.
+    /// [](https://en.wikipedia.org/wiki/)(Medieval Bestiaries) – Island-sized whale or sea turtle.
     Aspidochelone,
-    /// []()(English) – Water spirit.
+    /// [](https://en.wikipedia.org/wiki/)(English) – Water spirit.
     Asrai,
-    /// []()(Greek) – Humanoid sustained by pleasant smells instead of food.
+    /// [](https://en.wikipedia.org/wiki/)(Greek) – Humanoid sustained by pleasant smells instead of food.
     Astomi,
-    /// []()(Hindu) – Hindu malevolent divinities.
+    /// [](https://en.wikipedia.org/wiki/)(Hindu) – Hindu malevolent divinities.
     Asura,
-    /// []()(Philippine) – Carrion-eating humanoid.
+    /// [](https://en.wikipedia.org/wiki/)(Philippine) – Carrion-eating humanoid.
     Aswang,
-    /// []()(English) – Surprisingly small creature.
+    /// [](https://en.wikipedia.org/wiki/)(English) – Surprisingly small creature.
     Atomy,
-    /// []()(Japanese) – Invisible spirit that follows people.
+    /// [](https://en.wikipedia.org/wiki/)(Japanese) – Invisible spirit that follows people.
     AtoOiKozo,
-    /// []()(Inuit) – Anthropophagous spirit.
+    /// [](https://en.wikipedia.org/wiki/)(Inuit) – Anthropophagous spirit.
     Atshen,
-    /// []()(Greek) – Pasture nymph.
+    /// [](https://en.wikipedia.org/wiki/)(Greek) – Pasture nymph.
     Auloniad,
-    /// []()(Medieval Bestiary) – King of the birds.
+    /// [](https://en.wikipedia.org/wiki/)(Medieval Bestiary) – King of the birds.
     Avalerion,
-    /// []()(Abenaki) – Insect spirit.
+    /// [](https://en.wikipedia.org/wiki/)(Abenaki) – Insect spirit.
     AwaHonDo,
-    /// []()(Ancient Egyptian) – Falcon-lion hybrid.
+    /// [](https://en.wikipedia.org/wiki/)(Ancient Egyptian) – Falcon-lion hybrid.
     Axex,
-    /// []()(Japanese) – Sea serpent that travels over boats in an arc while dripping oil.
+    /// [](https://en.wikipedia.org/wiki/)(Japanese) – Sea serpent that travels over boats in an arc while dripping oil.
     Ayakashi,
-    /// []()(Japanese) – Spectral fire from Ishikawa Prefecture.
+    /// [](https://en.wikipedia.org/wiki/)(Japanese) – Spectral fire from Ishikawa Prefecture.
     AyakashiNoAyashibi,
-    /// []()(Dahomey) – Little people that help hunters.
+    /// [](https://en.wikipedia.org/wiki/)(Dahomey) – Little people that help hunters.
     Aziza,
-    /// []()(Japanese) – Spirit that washes azuki beans along riversides.
+    /// [](https://en.wikipedia.org/wiki/)(Japanese) – Spirit that washes azuki beans along riversides.
     Azukiarai,
-    /// []()(Japanese) – Spirit that washes azuki beans along riversides.
+    /// [](https://en.wikipedia.org/wiki/)(Japanese) – Spirit that washes azuki beans along riversides.
     Azukitogi,
-    /// []()(Japanese) – Bean-grinding hag who devours people.
+    /// [](https://en.wikipedia.org/wiki/)(Japanese) – Bean-grinding hag who devours people.
     Azukibabaa,
-    /// []()(Egyptian) – Soul of the deceased, depicted as a bird or a human-headed bird
+    /// [](https://en.wikipedia.org/wiki/)(Egyptian) – Soul of the deceased, depicted as a bird or a human-headed bird
     Ba,
-    /// []()(Slavic) – Forest spirit and hag
+    /// [](https://en.wikipedia.org/wiki/)(Slavic) – Forest spirit and hag
     BabaYaga,
-    /// []()(Guyanese/Surinamese) – Malevolent little people
+    /// [](https://en.wikipedia.org/wiki/)(Guyanese/Surinamese) – Malevolent little people
     Baccoo,
-    /// []()(Italian) – Goat-like creature from the southern central Alps
+    /// [](https://en.wikipedia.org/wiki/)(Italian) – Goat-like creature from the southern central Alps
     Badalisc,
-    /// []()(Slavic) – Malevolent water spirit
+    /// [](https://en.wikipedia.org/wiki/)(Slavic) – Malevolent water spirit
     Bagiennik,
-    /// []()(Arabian) – Giant fish
+    /// [](https://en.wikipedia.org/wiki/)(Arabian) – Giant fish
     Bahamut,
-    /// []()(Chinese) – Talking beast which handed down knowledge on harmful spirits
+    /// [](https://en.wikipedia.org/wiki/)(Chinese) – Talking beast which handed down knowledge on harmful spirits
     BaiZe,
-    /// []()(Chinese) – Banana tree spirit
+    /// [](https://en.wikipedia.org/wiki/)(Chinese) – Banana tree spirit
     BaJiaoGui,
-    /// []()(Indian) - Assamese shape-shifting aqueous creature
+    /// [](https://en.wikipedia.org/wiki/)(Indian) - Assamese shape-shifting aqueous creature
     Bak,
-    /// []()(Japanese) – Ghostly whale skeleton that drifts along the coastline of Shimane Prefecture
+    /// [](https://en.wikipedia.org/wiki/)(Japanese) – Ghostly whale skeleton that drifts along the coastline of Shimane Prefecture
     BakeKujira,
-    /// []()(Japanese) – Magical cat
+    /// [](https://en.wikipedia.org/wiki/)(Japanese) – Magical cat
     Bakeneko,
-    /// []()(Japanese) – Animated straw sandal
+    /// [](https://en.wikipedia.org/wiki/)(Japanese) – Animated straw sandal
     Bakezori,
-    /// []()(Iranian) – Night demon
+    /// [](https://en.wikipedia.org/wiki/)(Iranian) – Night demon
     Bakhtak,
-    /// []()(Japanese) – Dream-devouring, tapir-like creature
+    /// [](https://en.wikipedia.org/wiki/)(Japanese) – Dream-devouring, tapir-like creature
     Baku,
-    /// []()(Philippine) – Sea serpent that causes eclipses
+    /// [](https://en.wikipedia.org/wiki/)(Philippine) – Sea serpent that causes eclipses
     Bakunawa,
-    /// []()(Romanian) – Multi-headed dragon
+    /// [](https://en.wikipedia.org/wiki/)(Romanian) – Multi-headed dragon
     Balaur,
-    /// []()(Albanian) – Sea monster
+    /// [](https://en.wikipedia.org/wiki/)(Albanian) – Sea monster
     Baloz,
-    /// []()(Slavic) – Bathhouse spirit
+    /// [](https://en.wikipedia.org/wiki/)(Slavic) – Bathhouse spirit
     Bannik,
-    /// []()(Irish) – Screaming death spirit
+    /// [](https://en.wikipedia.org/wiki/)(Irish) – Screaming death spirit
     Banshee,
-    /// []()(Celtic Mythology) – Beautiful vampiric seductresses who prey on young travelers
+    /// [](https://en.wikipedia.org/wiki/)(Celtic Mythology) – Beautiful vampiric seductresses who prey on young travelers
     BaobhanSith,
-    /// []()(Swiss) – Dwarf with giant, snowshoe-like feet
+    /// [](https://en.wikipedia.org/wiki/)(Swiss) – Dwarf with giant, snowshoe-like feet
     Barbegazi,
-    /// []()(Albanian) – Mountain spirit
+    /// [](https://en.wikipedia.org/wiki/)(Albanian) – Mountain spirit
     Bardha,
-    /// []()(Trabzon) – Shapechanging death spirit
+    /// [](https://en.wikipedia.org/wiki/)(Trabzon) – Shapechanging death spirit
     Bardi,
     /// Yorkshire black dog
     Barghest,
-    /// []()(Jewish) – Gigantic bird
+    /// [](https://en.wikipedia.org/wiki/)(Jewish) – Gigantic bird
     BarJuchne,
-    /// []()(Medieval folklore) – Geese which hatch from barnacles
+    /// [](https://en.wikipedia.org/wiki/)(Medieval folklore) – Geese which hatch from barnacles
     BarnacleGeese,
-    /// []()(Balinese) – Tutelary spirit
+    /// [](https://en.wikipedia.org/wiki/)(Balinese) – Tutelary spirit
     Barong,
-    /// []()(Basque) – Ancestral, megalith-building race
+    /// [](https://en.wikipedia.org/wiki/)(Basque) – Ancestral, megalith-building race
     Basajaun,
-    /// []()(Serbian) – Powerful, evil winged man whose soul is not held by his body and can be subdued only by causing him to suffer dehydration
+    /// [](https://en.wikipedia.org/wiki/)(Serbian) – Powerful, evil winged man whose soul is not held by his body and can be subdued only by causing him to suffer dehydration
     BasCelik,
-    /// []()(Chinese) – Elephant-swallowing serpent
+    /// [](https://en.wikipedia.org/wiki/)(Chinese) – Elephant-swallowing serpent
     Bashe,
-    /// []()(Chilota) – Chicken-serpent hybrid
+    /// [](https://en.wikipedia.org/wiki/)(Chilota) – Chicken-serpent hybrid
     BasiliscoChilote,
-    /// []()(Italian) – Multi-limbed, venomous lizard
+    /// [](https://en.wikipedia.org/wiki/)(Italian) – Multi-limbed, venomous lizard
     Basilisk,
-    /// []()(Philippine) – Primordial god of creation
+    /// [](https://en.wikipedia.org/wiki/)(Philippine) – Primordial god of creation
     Bathala,
-    /// []()(Philippine) – Female night-demon
+    /// [](https://en.wikipedia.org/wiki/)(Philippine) – Female night-demon
     Batibat,
-    /// []()(Chinese) – Drought spirit
+    /// [](https://en.wikipedia.org/wiki/)(Chinese) – Drought spirit
     Batsu,
-    /// []()(Lithuanian) – Malevolent spirit
+    /// [](https://en.wikipedia.org/wiki/)(Lithuanian) – Malevolent spirit
     Baubas,
-    /// []()(Ojibwa) – Flying skeleton
+    /// [](https://en.wikipedia.org/wiki/)(Ojibwa) – Flying skeleton
     Baykok,
-    /// []()(American Folklore) – Werewolf
+    /// [](https://en.wikipedia.org/wiki/)(American Folklore) – Werewolf
     BeastOfBrayRoad,
-    /// []()(Irish) – Death spirit; a type of Banshee/Bean Sídhe)
+    /// [](https://en.wikipedia.org/wiki/)(Irish) – Death spirit; a type of Banshee/Bean Sídhe)
     BeanNighe,
-    /// []()(Jewish) – Massive beast, possibly like a dinosaur
+    /// [](https://en.wikipedia.org/wiki/)(Jewish) – Massive beast, possibly like a dinosaur
     Behemoth,
-    /// []()(Welsh) – Giant king
+    /// [](https://en.wikipedia.org/wiki/)(Welsh) – Giant king
     Bendigeidfran,
-    /// []()(Egyptian) – Heron-like, regenerative bird, equivalent to (or inspiration for) the Phoenix
+    /// [](https://en.wikipedia.org/wiki/)(Egyptian) – Heron-like, regenerative bird, equivalent to (or inspiration for) the Phoenix
     Bennu,
-    /// []()(Slavic) – Water spirit
+    /// [](https://en.wikipedia.org/wiki/)(Slavic) – Water spirit
     Berehynia,
-    /// []()(Norse) – Mountain giants who live alongside the Hrimthursar (lit. 'Rime-Giants') in Jotunheim
+    /// [](https://en.wikipedia.org/wiki/)(Norse) – Mountain giants who live alongside the Hrimthursar (lit. 'Rime-Giants') in Jotunheim
     Bergrisar,
-    /// []()(Norse) – Mountain spirit
+    /// [](https://en.wikipedia.org/wiki/)(Norse) – Mountain spirit
     Bergsra,
-    /// []()(Brazilian) – Centauroid specter
+    /// [](https://en.wikipedia.org/wiki/)(Brazilian) – Centauroid specter
     BestialBeast,
-    /// []()(Japanese) – Invisible spirit which follows people at night, making the sound of footsteps
+    /// [](https://en.wikipedia.org/wiki/)(Japanese) – Invisible spirit which follows people at night, making the sound of footsteps
     BetobetoSan,
-    /// []()(Buddhist and Hindu) – Ghost of someone killed by execution or suicide
+    /// [](https://en.wikipedia.org/wiki/)(Buddhist and Hindu) – Ghost of someone killed by execution or suicide
     Bhuta,
-    /// []()(Khoikhoi) – Female, cannibalistic, partially invisible monster
+    /// [](https://en.wikipedia.org/wiki/)(Khoikhoi) – Female, cannibalistic, partially invisible monster
     BiBlouk,
-    /// []()(Slavic) – Demon
+    /// [](https://en.wikipedia.org/wiki/)(Slavic) – Demon
     Bies,
-    /// []()(American Folklore) – Forest-dwelling hominid cryptid.
+    /// [](https://en.wikipedia.org/wiki/)(American Folklore) – Forest-dwelling hominid cryptid.
     Bigfoot,
-    /// []()(Japanese) – Spirit of poverty
+    /// [](https://en.wikipedia.org/wiki/)(Japanese) – Spirit of poverty
     Binbogami,
-    /// []()(Medieval Bestiaries) – Fish-like humanoid
+    /// [](https://en.wikipedia.org/wiki/)(Medieval Bestiaries) – Fish-like humanoid
     BishopFish,
-    /// []()(Japanese) – Animated biwa
+    /// [](https://en.wikipedia.org/wiki/)(Japanese) – Animated biwa
     BiwaBokuboku,
-    /// []()(English) – Blue-faced hag
+    /// [](https://en.wikipedia.org/wiki/)(English) – Blue-faced hag
     BlackAnnis,
-    /// []()(British) – Canine death spirit
+    /// [](https://en.wikipedia.org/wiki/)(British) – Canine death spirit
     BlackDog,
     /// Norfolk, Essex, and Suffolk black dog
     BlackShuck,
     /// Imaginary creature from the early United States of America
     Blafard,
-    /// []()(Medieval Bestiary) – Headless humanoid with face in torso
+    /// [](https://en.wikipedia.org/wiki/)(Medieval Bestiary) – Headless humanoid with face in torso
     Blemmyae,
-    /// []()(Irish) – Water bogeyman
+    /// [](https://en.wikipedia.org/wiki/)(Irish) – Water bogeyman
     BloodyBones,
-    /// []()(Slavic) – Mischievous gnome
+    /// [](https://en.wikipedia.org/wiki/)(Slavic) – Mischievous gnome
     Bludnik,
-    /// []()(Brazilian) – Giant amazonian bird
+    /// [](https://en.wikipedia.org/wiki/)(Brazilian) – Giant amazonian bird
     BlueCrow,
-    /// []()(English) – Mine-dwelling fairy
+    /// [](https://en.wikipedia.org/wiki/)(English) – Mine-dwelling fairy
     Bluecap,
-    /// []()(Scottish) – Malevolent spirit
+    /// [](https://en.wikipedia.org/wiki/)(Scottish) – Malevolent spirit
     Bodach,
-    /// []()(English) – Malevolent spirit
+    /// [](https://en.wikipedia.org/wiki/)(English) – Malevolent spirit
     Bogeyman,
-    /// []()(English) – Malevolent household spirit
+    /// [](https://en.wikipedia.org/wiki/)(English) – Malevolent household spirit
     Boggart,
-    /// []()(Slavic) – Nature spirit
+    /// [](https://en.wikipedia.org/wiki/)(Slavic) – Nature spirit
     Boginki,
-    /// []()(Scottish) – Malevolent spirit
+    /// [](https://en.wikipedia.org/wiki/)(Scottish) – Malevolent spirit
     Bogle,
-    /// []()(Brazilian) – Giant snake
+    /// [](https://en.wikipedia.org/wiki/)(Brazilian) – Giant snake
     BoiTata,
-    /// []()(Albanian) – Dragon
+    /// [](https://en.wikipedia.org/wiki/)(Albanian) – Dragon
     Bolla,
-    /// []()(Medieval Bestiaries) – Bull-horse hybrid with flaming dung
+    /// [](https://en.wikipedia.org/wiki/)(Medieval Bestiaries) – Bull-horse hybrid with flaming dung
     Bonnacon,
-    /// []()(American Folklore) – Vampire-like creature that steals energy from sleeping victims
+    /// [](https://en.wikipedia.org/wiki/)(American Folklore) – Vampire-like creature that steals energy from sleeping victims
     BooHag,
-    /// []()(Scottish) – Roaring water bird
+    /// [](https://en.wikipedia.org/wiki/)(Scottish) – Roaring water bird
     Boobrie,
-    /// []()(Slavic) – Death spirit
+    /// [](https://en.wikipedia.org/wiki/)(Slavic) – Death spirit
     Bozaloshtsh,
-    /// []()(English) – Malevolent water horse
+    /// [](https://en.wikipedia.org/wiki/)(English) – Malevolent water horse
     Brag,
-    /// []()(English and Scottish) – Benevolent household spirit
+    /// [](https://en.wikipedia.org/wiki/)(English and Scottish) – Benevolent household spirit
     Brownie,
-    /// []()(Jewish) – Nocturnal bird that drains goats of their milk
+    /// [](https://en.wikipedia.org/wiki/)(Jewish) – Nocturnal bird that drains goats of their milk
     Broxa,
-    /// []()(Cornish) – Male sea-spirit, a merman, that inhabited mines and coastal communities as a hobgoblin during storms
+    /// [](https://en.wikipedia.org/wiki/)(Cornish) – Male sea-spirit, a merman, that inhabited mines and coastal communities as a hobgoblin during storms
     Bucca,
-    /// []()(Dutch) – Ghosts/devils riding flying goats; co-opted by bandits to instil fear during raids
+    /// [](https://en.wikipedia.org/wiki/)(Dutch) – Ghosts/devils riding flying goats; co-opted by bandits to instil fear during raids
     Bokkenrijders,
-    /// []()(English) – Bearlike goblin
+    /// [](https://en.wikipedia.org/wiki/)(English) – Bearlike goblin
     Bugbear,
-    /// []()(Manx) – Ogre-like humanoid
+    /// [](https://en.wikipedia.org/wiki/)(Manx) – Ogre-like humanoid
     Buggane,
-    /// []()(Celtic) – Extremely ugly, but kind, forest spirit
+    /// [](https://en.wikipedia.org/wiki/)(Celtic) – Extremely ugly, but kind, forest spirit
     BugulNoz,
-    /// []()(Serbia) – Six-legged lake monster
+    /// [](https://en.wikipedia.org/wiki/)(Serbia) – Six-legged lake monster
     Bukavac,
-    /// []()(Australian Aboriginal) – Horse-walrus hybrid lake monster
+    /// [](https://en.wikipedia.org/wiki/)(Australian Aboriginal) – Horse-walrus hybrid lake monster
     Bunyip,
-    /// []()(American Folklore) West Virginia Urban Legend – Spirit/Maniac that wears a bunny costume and wields an axe
+    /// [](https://en.wikipedia.org/wiki/)(American Folklore) West Virginia Urban Legend – Spirit/Maniac that wears a bunny costume and wields an axe
     BunnyMan,
-    /// []()(Guyanese) – Spirit that seduces and kills men
+    /// [](https://en.wikipedia.org/wiki/)(Guyanese) – Spirit that seduces and kills men
     BushDaiDai,
-    /// []()(Bengali) – Fortune-telling birds
+    /// [](https://en.wikipedia.org/wiki/)(Bengali) – Fortune-telling birds
     Byangoma,
-    /// []()(Scandinavian) – Diminutive forest spirit
+    /// [](https://en.wikipedia.org/wiki/)(Scandinavian) – Diminutive forest spirit
     Bysen,
-    /// []()(Greek) – Smith and wine spirit
+    /// [](https://en.wikipedia.org/wiki/)(Greek) – Smith and wine spirit
     Cabeiri,
-    /// []()(Roman) – Fire-breathing giant
+    /// [](https://en.wikipedia.org/wiki/)(Roman) – Fire-breathing giant
     Cacus,
-    /// []()(Central America) – Cow-sized dog-goat hybrid
+    /// [](https://en.wikipedia.org/wiki/)(Central America) – Cow-sized dog-goat hybrid
     Cadejo,
-    /// []()(Scottish) – Divine creator and weather deity hag
+    /// [](https://en.wikipedia.org/wiki/)(Scottish) – Divine creator and weather deity hag
     Cailleach,
-    /// []()(Tupi) – Fox-human hybrid and nature spirit
+    /// [](https://en.wikipedia.org/wiki/)(Tupi) – Fox-human hybrid and nature spirit
     Caipora,
-    /// []()(Medieval Bestiary) – White bird that can foretell if a sick person will recover or die
+    /// [](https://en.wikipedia.org/wiki/)(Medieval Bestiary) – White bird that can foretell if a sick person will recover or die
     Caladrius,
-    /// []()(Medieval Bestiary) – Humanoid with an eight-year lifespan
+    /// [](https://en.wikipedia.org/wiki/)(Medieval Bestiary) – Humanoid with an eight-year lifespan
     Calingi,
-    /// []()(Medieval Bestiary) – Apes who always bear twins, one the mother loves, the other it hates
+    /// [](https://en.wikipedia.org/wiki/)(Medieval Bestiary) – Apes who always bear twins, one the mother loves, the other it hates
     Callitrix,
-    /// []()(Greek) – Giant, chthonic boar
+    /// [](https://en.wikipedia.org/wiki/)(Greek) – Giant, chthonic boar
     CalydonianBoar,
-    /// []()(Heraldic) – Wildcat-deer/antelope-eagle-ox-lion hybrid :>
+    /// [](https://en.wikipedia.org/wiki/)(Heraldic) – Wildcat-deer/antelope-eagle-ox-lion hybrid :>
     Calygreyhound,
-    /// []()(Chilota) – One-horned calf
+    /// [](https://en.wikipedia.org/wiki/)(Chilota) – One-horned calf
     Camahueto,
-    /// []()(Medieval folklore) – Offspring of a human and an incubus or succubus
+    /// [](https://en.wikipedia.org/wiki/)(Medieval folklore) – Offspring of a human and an incubus or succubus
     Cambion,
-    /// []()(Greek) – Dragon-human-scorpion hybrid
+    /// [](https://en.wikipedia.org/wiki/)(Greek) – Dragon-human-scorpion hybrid
     Campe,
-    /// []()(Mayan) – Bird that ate the heads of the first men
+    /// [](https://en.wikipedia.org/wiki/)(Mayan) – Bird that ate the heads of the first men
     Camulatz,
-    /// []()(Colombian) – Spectral, fiery hag
+    /// [](https://en.wikipedia.org/wiki/)(Colombian) – Spectral, fiery hag
     Candileja,
-    /// []()(Guyanese) – Were-jaguar
+    /// [](https://en.wikipedia.org/wiki/)(Guyanese) – Were-jaguar
     Canaima,
-    /// []()(Lakota) – Little people and tree spirits
+    /// [](https://en.wikipedia.org/wiki/)(Lakota) – Little people and tree spirits
     Canotila,
-    /// []()(Scottish) – Death spirit (a particular type of Banshee/Bean Sídhe)
+    /// [](https://en.wikipedia.org/wiki/)(Scottish) – Death spirit (a particular type of Banshee/Bean Sídhe)
     Caoineag,
-    /// []()(Lakota) – Beaver spirit
+    /// [](https://en.wikipedia.org/wiki/)(Lakota) – Beaver spirit
     Chapa,
     ///(Manipuri)-Semi-hornbill, semi-human creature
     Chareng,
-    /// []()(Romanian) – Large, monstrous humanoid
+    /// [](https://en.wikipedia.org/wiki/)(Romanian) – Large, monstrous humanoid
     Capcaun,
-    /// []()(Latin America) – Small creature with a jewel on its head
+    /// [](https://en.wikipedia.org/wiki/)(Latin America) – Small creature with a jewel on its head
     Carbuncle,
-    /// []()(Medieval Bestiary) – Scaled buffalo-hog hybrid
+    /// [](https://en.wikipedia.org/wiki/)(Medieval Bestiary) – Scaled buffalo-hog hybrid
     Catoblepas,
-    /// []()(Scottish) – Fairy cat
+    /// [](https://en.wikipedia.org/wiki/)(Scottish) – Fairy cat
     CatSidhe,
-    /// []()(Scottish) — Benevolent Scottish mermaids
+    /// [](https://en.wikipedia.org/wiki/)(Scottish) — Benevolent Scottish mermaids
     Ceasg,
-    /// []()(Welsh) – Malevolent water horse
+    /// [](https://en.wikipedia.org/wiki/)(Welsh) – Malevolent water horse
     CeffylDwr,
-    /// []()(Greek) – Human-horse hybrid
+    /// [](https://en.wikipedia.org/wiki/)(Greek) – Human-horse hybrid
     Centaur,
-    /// []()(Indian) – Horse-Antelope-Lion-Bear hybrid
+    /// [](https://en.wikipedia.org/wiki/)(Indian) – Horse-Antelope-Lion-Bear hybrid
     Centicore,
-    /// []()(Greek) – Extremely flexible, horned snake
+    /// [](https://en.wikipedia.org/wiki/)(Greek) – Extremely flexible, horned snake
     Cerastes,
-    /// []()(Greek) – Three-headed dog that guards the entrance to the underworld
+    /// [](https://en.wikipedia.org/wiki/)(Greek) – Three-headed dog that guards the entrance to the underworld
     Cerberus,
-    /// []()(Greek) – Mischievous forest spirit
+    /// [](https://en.wikipedia.org/wiki/)(Greek) – Mischievous forest spirit
     Cercopes,
-    /// []()(Medieval Bestiary) – Apes who always bear twins, one the mother loves, the other it hates
+    /// [](https://en.wikipedia.org/wiki/)(Medieval Bestiary) – Apes who always bear twins, one the mother loves, the other it hates
     Cericopithicus,
-    /// []()(Greek) – Hind with golden antlers and bronze or brass hooves
+    /// [](https://en.wikipedia.org/wiki/)(Greek) – Hind with golden antlers and bronze or brass hooves
     CeryneianHind,
-    /// []()(Lakota) – Hawk spirit
+    /// [](https://en.wikipedia.org/wiki/)(Lakota) – Hawk spirit
     Cetan,
-    /// []()(Greek) The Cetus was variously described as a sea monster or sea serpent. Other versions describe Cetus as a monster with the head of a boar or a greyhound and the body of a whale or dolphin, and a divided, fan-like tail. Cetus was said to be a colossal beast the size of a ship, its skull alone measuring 40 feet (12.2 meters) in length, its spines being a cubit in thickness, and its skeleton taller at the shoulder than an elephant.
+    /// [](https://en.wikipedia.org/wiki/)(Greek) The Cetus was variously described as a sea monster or sea serpent. Other versions describe Cetus as a monster with the head of a boar or a greyhound and the body of a whale or dolphin, and a divided, fan-like tail. Cetus was said to be a colossal beast the size of a ship, its skull alone measuring 40 feet (12.2 meters) in length, its spines being a cubit in thickness, and its skeleton taller at the shoulder than an elephant.
     Cetus,
-    /// []()(Hindu) – Lunar bird
+    /// [](https://en.wikipedia.org/wiki/)(Hindu) – Lunar bird
     Chakora,
-    /// []()(Apocryphal writings) – Angelic birds
+    /// [](https://en.wikipedia.org/wiki/)(Apocryphal writings) – Angelic birds
     Chalkydri,
-    /// []()(Persian) – Dog-bird hybrid
+    /// [](https://en.wikipedia.org/wiki/)(Persian) – Dog-bird hybrid
     Chamrosh,
-    /// []()(Aztec) – Little people and nature spirits
+    /// [](https://en.wikipedia.org/wiki/)(Aztec) – Little people and nature spirits
     Chaneque,
-    /// []()(European) – Humanoid child (fairy, elf, troll, etc.) substituted for a kidnapped human child
+    /// [](https://en.wikipedia.org/wiki/)(European) – Humanoid child (fairy, elf, troll, etc.) substituted for a kidnapped human child
     Changeling,
-    /// []()(Greek) – Sea monster in the form of a giant mouth
+    /// [](https://en.wikipedia.org/wiki/)(Greek) – Sea monster in the form of a giant mouth
     Charybdis,
-    /// []()(Mi'kmaq/Algonquian) – Giant, human-eating ice monsters; former humans who either committed terrible crime(s) or were possessed by evil spirits, turning their hearts to ice
+    /// [](https://en.wikipedia.org/wiki/)(Mi'kmaq/Algonquian) – Giant, human-eating ice monsters; former humans who either committed terrible crime(s) or were possessed by evil spirits, turning their hearts to ice
     Chenoo,
-    /// []()(Narragansett) – Ancestral spirit that instructs tribe members
+    /// [](https://en.wikipedia.org/wiki/)(Narragansett) – Ancestral spirit that instructs tribe members
     Chepi,
-    /// []()(Mapuche) – Volcano-dwelling monster
+    /// [](https://en.wikipedia.org/wiki/)(Mapuche) – Volcano-dwelling monster
     Cherufe,
-    /// []()(French) – Evil horse who runs away with travelers
+    /// [](https://en.wikipedia.org/wiki/)(French) – Evil horse who runs away with travelers
     ChevalMallet,
-    /// []()(French) – Evil horse who drowns riders, similar to kelpie
+    /// [](https://en.wikipedia.org/wiki/)(French) – Evil horse who drowns riders, similar to kelpie
     ChevalGauvin,
-    /// []()(Abenaki) – Ghost of an improperly buried person
+    /// [](https://en.wikipedia.org/wiki/)(Abenaki) – Ghost of an improperly buried person
     Chibaiskweda,
     /// Human-faced cow that feeds on good women
     Chichevache,
-    /// []()(Bahamian) – Bird-mammal hybrid
+    /// [](https://en.wikipedia.org/wiki/)(Bahamian) – Bird-mammal hybrid
     Chickcharney,
-    /// []()(Greek) – Lion-goat-snake hybrid
+    /// [](https://en.wikipedia.org/wiki/)(Greek) – Lion-goat-snake hybrid
     Chimaera,
-    /// []()(Navajo) – Vengeful ghost that causes dust devils
+    /// [](https://en.wikipedia.org/wiki/)(Navajo) – Vengeful ghost that causes dust devils
     Chindi,
-    /// []()(Burmese) – Temple-guarding feline, similar to Chinese Shi and Japanese Shisa
+    /// [](https://en.wikipedia.org/wiki/)(Burmese) – Temple-guarding feline, similar to Chinese Shi and Japanese Shisa
     Chinthe,
-    /// []()(Zulu) – Human-lizard hybrid
+    /// [](https://en.wikipedia.org/wiki/)(Zulu) – Human-lizard hybrid
     Chitauli,
-    /// []()(Japanese) – Animated paper lantern
+    /// [](https://en.wikipedia.org/wiki/)(Japanese) – Animated paper lantern
     Chochinobake,
-    /// []()(Biblical mythology) – Regenerative bird
+    /// [](https://en.wikipedia.org/wiki/)(Biblical mythology) – Regenerative bird
     Chol,
-    /// []()(Korean) – Supernaturally fast horse
+    /// [](https://en.wikipedia.org/wiki/)(Korean) – Supernaturally fast horse
     Chollima,
-    /// []()(Mapuche) – Disembodied, flying head
+    /// [](https://en.wikipedia.org/wiki/)(Mapuche) – Disembodied, flying head
     Chonchon,
-    /// []()(Guyanese) – Ghost of a woman that died in childbirth
+    /// [](https://en.wikipedia.org/wiki/)(Guyanese) – Ghost of a woman that died in childbirth
     Choorile,
-    /// []()(Medieval Bestiary) – Hairy savage with dog teeth
+    /// [](https://en.wikipedia.org/wiki/)(Medieval Bestiary) – Hairy savage with dog teeth
     Chromandi,
-    /// []()(Greek) – The giant son of the gorgon Medusa.
+    /// [](https://en.wikipedia.org/wiki/)(Greek) – The giant son of the gorgon Medusa.
     Chrysaor,
-    /// []()(Greek mythology) – Golden winged ram
+    /// [](https://en.wikipedia.org/wiki/)(Greek mythology) – Golden winged ram
     Chrysomallus,
-    /// []()(Hindu) – Giant turtle that supports the world
+    /// [](https://en.wikipedia.org/wiki/)(Hindu) – Giant turtle that supports the world
     Chukwa,
-    /// []()(Latin America) – Cryptid beast named for its habit of sucking the blood of livestock
+    /// [](https://en.wikipedia.org/wiki/)(Latin America) – Cryptid beast named for its habit of sucking the blood of livestock
     Chupacabra,
-    /// []()(Hindu) – Vampiric, female ghost
+    /// [](https://en.wikipedia.org/wiki/)(Hindu) – Vampiric, female ghost
     Churel,
-    /// []()(Dominican Republic) – Malevolent seductress
+    /// [](https://en.wikipedia.org/wiki/)(Dominican Republic) – Malevolent seductress
     Ciguapa,
-    /// []()(Aztec) – Ghost of women that died in childbirth
+    /// [](https://en.wikipedia.org/wiki/)(Aztec) – Ghost of women that died in childbirth
     Cihuateteo,
-    /// []()(Serbian) – Bird that serves its owner
+    /// [](https://en.wikipedia.org/wiki/)(Serbian) – Bird that serves its owner
     Cikavac,
-    /// []()(Medieval Bestiaries) – Giant bird that makes its nest out of cinnamon
+    /// [](https://en.wikipedia.org/wiki/)(Medieval Bestiaries) – Giant bird that makes its nest out of cinnamon
     CinnamonBird,
-    /// []()(Aztec) – Sea monster, crocodile-fish hybrid
+    /// [](https://en.wikipedia.org/wiki/)(Aztec) – Sea monster, crocodile-fish hybrid
     Cipactli,
-    /// []()(Scottish) – Sea serpent
+    /// [](https://en.wikipedia.org/wiki/)(Scottish) – Sea serpent
     CireinCroin,
-    /// []()(Welsh) – Little people and mine spirits
+    /// [](https://en.wikipedia.org/wiki/)(Welsh) – Little people and mine spirits
     Coblynau,
-    /// []()(Medieval Bestiaries) – Chicken-lizard hybrid
+    /// [](https://en.wikipedia.org/wiki/)(Medieval Bestiaries) – Chicken-lizard hybrid
     Cockatrice,
-    /// []()(English) – Cove god
+    /// [](https://en.wikipedia.org/wiki/)(English) – Cove god
     Cofgod,
-    /// []()(Greek) – Bronze-hoofed bulls
+    /// [](https://en.wikipedia.org/wiki/)(Greek) – Bronze-hoofed bulls
     ColchisBull,
-    /// []()(Mapuche) – Rat-bird hybrid that can shapeshift into a serpent
+    /// [](https://en.wikipedia.org/wiki/)(Mapuche) – Rat-bird hybrid that can shapeshift into a serpent
     ColoColo,
-    /// []()(Greek) – Nymph of the Corycian Cave
+    /// [](https://en.wikipedia.org/wiki/)(Greek) – Nymph of the Corycian Cave
     CorycianNymphs,
-    /// []()(Greek) – Monstrous bull
+    /// [](https://en.wikipedia.org/wiki/)(Greek) – Monstrous bull
     CretanBull,
-    /// []()(Greek) – Fountain nymph
+    /// [](https://en.wikipedia.org/wiki/)(Greek) – Fountain nymph
     Crinaeae,
-    /// []()(Ancient Egypt) – Ram-headed sphinx
+    /// [](https://en.wikipedia.org/wiki/)(Ancient Egypt) – Ram-headed sphinx
     Criosphinx,
-    /// []()(Medieval Bestiaries) – Monstrous dog-wolf
+    /// [](https://en.wikipedia.org/wiki/)(Medieval Bestiaries) – Monstrous dog-wolf
     Crocotta,
-    /// []()(Mexican) – El Pájaro Cu; a bird.
+    /// [](https://en.wikipedia.org/wiki/)(Mexican) – El Pájaro Cu; a bird.
     TheCuBird,
-    /// []()(Latin America) – Bogeyman
+    /// [](https://en.wikipedia.org/wiki/)(Latin America) – Bogeyman
     Cuco,
-    /// []()(Latin America) – Malevolent spirit
+    /// [](https://en.wikipedia.org/wiki/)(Latin America) – Malevolent spirit
     Cucuy,
-    /// []()(Cantabrian) – Monstrous, three-armed humanoid
+    /// [](https://en.wikipedia.org/wiki/)(Cantabrian) – Monstrous, three-armed humanoid
     Cuegle,
-    /// []()(Asturian and Cantabrian) – Dragon
+    /// [](https://en.wikipedia.org/wiki/)(Asturian and Cantabrian) – Dragon
     Cuelebre,
-    /// []()(Tupi) – Nature spirit
+    /// [](https://en.wikipedia.org/wiki/)(Tupi) – Nature spirit
     Curupira,
-    /// []()(Scottish) – Gigantic fairy dog
+    /// [](https://en.wikipedia.org/wiki/)(Scottish) – Gigantic fairy dog
     CuSith,
-    /// []()(Welsh) – Underworld hunting dog
+    /// [](https://en.wikipedia.org/wiki/)(Welsh) – Underworld hunting dog
     CwnAnnwn,
-    /// []()(Greek) – One-eyed giant
+    /// [](https://en.wikipedia.org/wiki/)(Greek) – One-eyed giant
     Cyclops,
-    /// []()(Welsh) – Death spirit
+    /// [](https://en.wikipedia.org/wiki/)(Welsh) – Death spirit
     Cyhyraeth,
-    /// []()(Medieval Bestiaries) – Dog-headed humanoid
+    /// [](https://en.wikipedia.org/wiki/)(Medieval Bestiaries) – Dog-headed humanoid
     Cynocephalus,
-    /// []()(Greek) – Little people and smith and healing spirits
+    /// [](https://en.wikipedia.org/wiki/)(Greek) – Little people and smith and healing spirits
     Dactyl,
-    /// []()(Greek) – Incorporeal spirit
+    /// [](https://en.wikipedia.org/wiki/)(Greek) – Incorporeal spirit
     Daemon,
-    /// []()(France, Switzerland and the north of Italy) – Similar to a deer or ibex; legs on one side of its body are shorter than on the other side
+    /// [](https://en.wikipedia.org/wiki/)(France, Switzerland and the north of Italy) – Similar to a deer or ibex; legs on one side of its body are shorter than on the other side
     Dahu,
-    /// []()(Japanese) – Giant responsible for creating many geographical features in Japan
+    /// [](https://en.wikipedia.org/wiki/)(Japanese) – Giant responsible for creating many geographical features in Japan
     Daidarabotchi,
-    /// []()(Japanese) – Most powerful class of tengu, each of whom lives on a separate mountain
+    /// [](https://en.wikipedia.org/wiki/)(Japanese) – Most powerful class of tengu, each of whom lives on a separate mountain
     Daitengu,
-    /// []()(Hindu) – Giant
+    /// [](https://en.wikipedia.org/wiki/)(Hindu) – Giant
     Daitya,
-    /// []()(Hindu) – Water demon
+    /// [](https://en.wikipedia.org/wiki/)(Hindu) – Water demon
     Danava,
-    /// []()(Greek) – Laurel tree nymph
+    /// [](https://en.wikipedia.org/wiki/)(Greek) – Laurel tree nymph
     Daphnaie,
-    /// []()(Japanese) – Old woman who steals clothes from the souls of the dead
+    /// [](https://en.wikipedia.org/wiki/)(Japanese) – Old woman who steals clothes from the souls of the dead
     DatsueBa,
-    /// []()(Islamic) – Human tribe turned into apes for ignoring Moses' message
+    /// [](https://en.wikipedia.org/wiki/)(Islamic) – Human tribe turned into apes for ignoring Moses' message
     DeadSeaApes,
-    /// []()(Russia) – A winter spirit who delivers gifts to children on New Year's Eve
+    /// [](https://en.wikipedia.org/wiki/)(Russia) – A winter spirit who delivers gifts to children on New Year's Eve
     DedMoroz,
-    /// []()(Native American) – Human-deer hybrid
+    /// [](https://en.wikipedia.org/wiki/)(Native American) – Human-deer hybrid
     DeerWoman,
-    /// []()(Global) – Preternatural or supernatural possibly immortal being
+    /// [](https://en.wikipedia.org/wiki/)(Global) – Preternatural or supernatural possibly immortal being
     Deity,
-    /// []()(Global) – Half human, half god
+    /// [](https://en.wikipedia.org/wiki/)(Global) – Half human, half god
     Demigod,
-    /// []()(Balkans) – Human/vampire hybrid
+    /// [](https://en.wikipedia.org/wiki/)(Balkans) – Human/vampire hybrid
     Dhampir,
-    /// []()(Chinese) – Hanged ghost
+    /// [](https://en.wikipedia.org/wiki/)(Chinese) – Hanged ghost
     DiaoSiGui,
-    /// []()(Chinese) – Earth dragon
+    /// [](https://en.wikipedia.org/wiki/)(Chinese) – Earth dragon
     Dilong,
-    /// []()(Catalan) – Demonic and vampiric dog
+    /// [](https://en.wikipedia.org/wiki/)(Catalan) – Demonic and vampiric dog
     Dip,
-    /// []()(Roman) – House spirit
+    /// [](https://en.wikipedia.org/wiki/)(Roman) – House spirit
     DiPenates,
-    /// []()(Medieval Bestiaries) – Extremely venomous snake
+    /// [](https://en.wikipedia.org/wiki/)(Medieval Bestiaries) – Extremely venomous snake
     Dipsa,
-    /// []()(Australian Aboriginal) – Goanna spirit
+    /// [](https://en.wikipedia.org/wiki/)(Australian Aboriginal) – Goanna spirit
     Dirawong,
-    /// []()(Gotland) – Little people and nature spirits
+    /// [](https://en.wikipedia.org/wiki/)(Gotland) – Little people and nature spirits
     DiSmaUndarJordi,
-    /// []()(Philippine) – Tree spirit
+    /// [](https://en.wikipedia.org/wiki/)(Philippine) – Tree spirit
     Diwata,
-    /// []()(Albanian) – Devil
+    /// [](https://en.wikipedia.org/wiki/)(Albanian) – Devil
     Djall,
-    /// []()(Irish) – King otter
+    /// [](https://en.wikipedia.org/wiki/)(Irish) – King otter
     DobharChu,
-    /// []()(Abenaki) – Little people
+    /// [](https://en.wikipedia.org/wiki/)(Abenaki) – Little people
     DoGakwHoWad,
-    /// []()(Korean) – Grotesque, horned humanoids
+    /// [](https://en.wikipedia.org/wiki/)(Korean) – Grotesque, horned humanoids
     Dokkaebi,
-    /// []()(Norse) – Male ancestral spirits; the Dark Elves
+    /// [](https://en.wikipedia.org/wiki/)(Norse) – Male ancestral spirits; the Dark Elves
     Dokkalfar,
-    /// []()(Slavic) – Tutelary and fate spirit
+    /// [](https://en.wikipedia.org/wiki/)(Slavic) – Tutelary and fate spirit
     Dola,
-    /// []()(Slavic) – House spirit
+    /// [](https://en.wikipedia.org/wiki/)(Slavic) – House spirit
     Domovoi,
-    /// []()(German) – Ghostly double
+    /// [](https://en.wikipedia.org/wiki/)(German) – Ghostly double
     Doppelganger,
-    /// []()(Catalan) – Lion or bull-faced dragon[]
-    /// []()(French) – Winged sea serpent
+    /// [](https://en.wikipedia.org/wiki/)(Catalan) – Lion or bull-faced dragon[]
+    /// [](https://en.wikipedia.org/wiki/)(French) – Winged sea serpent
     Drac,
-    /// []()(Greek) – Greek dragons
+    /// [](https://en.wikipedia.org/wiki/)(Greek) – Greek dragons
     Drakon,
-    /// []()(Greek) – Dragons depicted with female characteristics
+    /// [](https://en.wikipedia.org/wiki/)(Greek) – Dragons depicted with female characteristics
     Drakaina,
-    /// []()(Many cultures worldwide) – Fire-breathing and,/// []()(normally) winged reptiles
+    /// [](https://en.wikipedia.org/wiki/)(Many cultures worldwide) – Fire-breathing and,/// [](https://en.wikipedia.org/wiki/)(normally) winged reptiles
     Dragon,
-    /// []()(Chinese) – Giant turtle with dragon-like head
+    /// [](https://en.wikipedia.org/wiki/)(Chinese) – Giant turtle with dragon-like head
     DragonTurtle,
-    /// []()(Albanian) – Semi-human winged warriors
+    /// [](https://en.wikipedia.org/wiki/)(Albanian) – Semi-human winged warriors
     Drangue,
-    /// []()(Norse) – Undead
+    /// [](https://en.wikipedia.org/wiki/)(Norse) – Undead
     Draugr,
-    /// []()(Slavic) – Restless ghost of an unbaptised child
+    /// [](https://en.wikipedia.org/wiki/)(Slavic) – Restless ghost of an unbaptised child
     Drekavac,
-    /// []()(Australian) – Large carnivorous koala that hunts by dropping on its prey from trees
+    /// [](https://en.wikipedia.org/wiki/)(Australian) – Large carnivorous koala that hunts by dropping on its prey from trees
     DropBear,
-    /// []()(Scottish) – Cavern spirit
+    /// [](https://en.wikipedia.org/wiki/)(Scottish) – Cavern spirit
     Drow,
-    /// []()(German) – Possessing demon
+    /// [](https://en.wikipedia.org/wiki/)(German) – Possessing demon
     Drude,
-    /// []()(Bhutanese) – Dragon
+    /// [](https://en.wikipedia.org/wiki/)(Bhutanese) – Dragon
     Druk,
-    /// []()(Greek) – Tree nymph
+    /// [](https://en.wikipedia.org/wiki/)(Greek) – Tree nymph
     Dryad,
-    /// []()(Spanish and Portuguese) – Little people and forest spirits
+    /// [](https://en.wikipedia.org/wiki/)(Spanish and Portuguese) – Little people and forest spirits
     Duende,
-    /// []()(English) – Malevolent little people
+    /// [](https://en.wikipedia.org/wiki/)(English) – Malevolent little people
     Duergar,
-    /// []()(Irish) – Headless death spirit
+    /// [](https://en.wikipedia.org/wiki/)(Irish) – Headless death spirit
     Dullahan,
-    /// []()(Philippine) – Little people, some are house spirits, others nature spirits
+    /// [](https://en.wikipedia.org/wiki/)(Philippine) – Little people, some are house spirits, others nature spirits
     Duwende,
-    /// []()(Norse) – Subterranean little people smiths
+    /// [](https://en.wikipedia.org/wiki/)(Norse) – Subterranean little people smiths
     Dvergr,
-    /// []()(Slavic) – Courtyard spirit
+    /// [](https://en.wikipedia.org/wiki/)(Slavic) – Courtyard spirit
     Dvorovoi,
-    /// []()(Germanic) – Little people nature spirits
+    /// [](https://en.wikipedia.org/wiki/)(Germanic) – Little people nature spirits
     Dwarf,
-    /// []()(Jewish) – Spirit,/// []()(sometimes the soul of a wicked deceased) that possesses the living
+    /// [](https://en.wikipedia.org/wiki/)(Jewish) – Spirit,/// [](https://en.wikipedia.org/wiki/)(sometimes the soul of a wicked deceased) that possesses the living
     Dybbuk,
-    /// []()(Abenaki) – Hideous monster
+    /// [](https://en.wikipedia.org/wiki/)(Abenaki) – Hideous monster
     DzeeDzeeBonDa,
-    /// []()(Kwakwaka'wakw) – Child-eating hag
+    /// [](https://en.wikipedia.org/wiki/)(Kwakwaka'wakw) – Child-eating hag
     Dzunukwa,
-    /// []()(Christianity) – Anthropomorphic lagomorph.
+    /// [Easter Bunny](https://en.wikipedia.org/wiki/Easter_Bunny)(Christianity) – Anthropomorphic lagomorph.
     EasterBunny,
-    /// []()(Australian) – Anthropomorphic bilby.
+    /// [Easter Bilby](https://en.wikipedia.org/wiki/Easter_Bilby)(Australian) – Anthropomorphic bilby.
     EasterBilby,
-    /// []()(Scottish) – Malevolent water horse
+    /// [Each-uisge](https://en.wikipedia.org/wiki/Each-uisge)(Scottish) – Malevolent water horse
     EachUisge,
-    /// []()(Many cultures worldwide) – Leadership or guidance totem
+    /// [](https://en.wikipedia.org/wiki/)(Many cultures worldwide) – Leadership or guidance totem
     EagleSpirit,
-    /// []()(Flores) – Diminutive humanoids, possibly inspired by Homo floresiensis
+    /// [](https://en.wikipedia.org/wiki/)(Flores) – Diminutive humanoids, possibly inspired by Homo floresiensis
     EbuGogo,
-    /// []()(Greek)
+    /// [](https://en.wikipedia.org/wiki/)(Greek)
     Echidna,
-    /// []()(Medieval Bestiaries) – Remora, said to attach to ships to slow them down
+    /// [](https://en.wikipedia.org/wiki/)(Medieval Bestiaries) – Remora, said to attach to ships to slow them down
     Echeneis,
-    /// []()(Sumerian) – Ghosts of those not buried properly
+    /// [](https://en.wikipedia.org/wiki/)(Sumerian) – Ghosts of those not buried properly
     Edimmu,
-    /// []()(Yoruba) – Humanoid that carries a magical mat
+    /// [](https://en.wikipedia.org/wiki/)(Yoruba) – Humanoid that carries a magical mat
     Egbere,
-    /// []()(Norse)
+    /// [](https://en.wikipedia.org/wiki/)(Norse)
     Eikthyrnir,
-    /// []()(Norse) – Spirits of brave warriors
+    /// [](https://en.wikipedia.org/wiki/)(Norse) – Spirits of brave warriors
     Einherjar,
-    /// []()(Philippine) – Flesh-eating, winged humanoids
+    /// [](https://en.wikipedia.org/wiki/)(Philippine) – Flesh-eating, winged humanoids
     Ekek,
-    /// []()(Ojibwa) – Hags with awls in their elbows
+    /// [](https://en.wikipedia.org/wiki/)(Ojibwa) – Hags with awls in their elbows
     ElbowWitch,
-    /// []()(Norse) – Fire Giants who reside in Muspelheim, with Surtr as their leader
+    /// [](https://en.wikipedia.org/wiki/)(Norse) – Fire Giants who reside in Muspelheim, with Surtr as their leader
     Eldjotnar,
-    /// []()(Greek) – Marsh nymph
+    /// [](https://en.wikipedia.org/wiki/)(Greek) – Marsh nymph
     Eleionomae,
-    /// []()(Alchemy) – Personification of one of the Classical elements
+    /// [](https://en.wikipedia.org/wiki/)(Alchemy) – Personification of one of the Classical elements
     Elemental,
-    /// []()(Hawaiian) – Monarch flycatcher spirit that guides canoe-builders to the proper trees
+    /// [](https://en.wikipedia.org/wiki/)(Hawaiian) – Monarch flycatcher spirit that guides canoe-builders to the proper trees
     Elepaio,
-    /// []()(Germanic) – Nature and fertility spirit
+    /// [](https://en.wikipedia.org/wiki/)(Germanic) – Nature and fertility spirit
     Elf,
-    /// []()(Central Africa) – Little people and malevolent nature spirits
+    /// [](https://en.wikipedia.org/wiki/)(Central Africa) – Little people and malevolent nature spirits
     Eloko,
-    /// []()(Yoruba) – Child that can move back and forth between the material world and the afterlife at will
+    /// [](https://en.wikipedia.org/wiki/)(Yoruba) – Child that can move back and forth between the material world and the afterlife at will
     Emere,
-    /// []()(Jewish) – Giant
+    /// [](https://en.wikipedia.org/wiki/)(Jewish) – Giant
     Emim,
-    /// []()(Greek) – Female demon that waylays travelers and seduces and kills men
+    /// [](https://en.wikipedia.org/wiki/)(Greek) – Female demon that waylays travelers and seduces and kills men
     Empusa,
-    /// []()(Brazilian) – Dolphin-human shapeshifter
+    /// [](https://en.wikipedia.org/wiki/)(Brazilian) – Dolphin-human shapeshifter
     Encantado,
-    /// []()(Portuguese) – Enchanted princesses
+    /// [](https://en.wikipedia.org/wiki/)(Portuguese) – Enchanted princesses
     EnchantedMoor,
-    /// []()(Heraldic) – Fox-greyhound-lion-wolf-eagle hybrid
+    /// [](https://en.wikipedia.org/wiki/)(Heraldic) – Fox-greyhound-lion-wolf-eagle hybrid
     Enfield,
-    /// []()(Philippine) – Neutral nature spirit
+    /// [](https://en.wikipedia.org/wiki/)(Philippine) – Neutral nature spirit
     Engkanto,
-    /// []()(Japanese) – Kappa of Shikoku and western Honshū
+    /// [](https://en.wikipedia.org/wiki/)(Japanese) – Kappa of Shikoku and western Honshū
     Enko,
-    /// []()(worldwide/fantasy) -Living tree that is said to live for years
+    /// [](https://en.wikipedia.org/wiki/)(worldwide/fantasy) -Living tree that is said to live for years
     Ent,
-    /// []()(Greek) – Apple tree nymph
+    /// [](https://en.wikipedia.org/wiki/)(Greek) – Apple tree nymph
     Epimeliad,
-    /// []()(Sardinia) – Ox-human, wereox
+    /// [](https://en.wikipedia.org/wiki/)(Sardinia) – Ox-human, wereox
     Erchitu,
-    /// []()(Chinese) – Hungry ghost
+    /// [](https://en.wikipedia.org/wiki/)(Chinese) – Hungry ghost
     ErGui,
-    /// []()(Greek) – Winged spirits of vengeance or justice, also known as Furies
+    /// [](https://en.wikipedia.org/wiki/)(Greek) – Winged spirits of vengeance or justice, also known as Furies
     Erinyes,
-    /// []()(German) – Death spirit
+    /// [](https://en.wikipedia.org/wiki/)(German) – Death spirit
     Erlking,
-    /// []()(Greek) – Giant boar
+    /// [](https://en.wikipedia.org/wiki/)(Greek) – Giant boar
     ErymanthianBoar,
-    /// []()(Medieval Bestiaries) – Horned, winged horse
+    /// [](https://en.wikipedia.org/wiki/)(Medieval Bestiaries) – Horned, winged horse
     EthiopianPegasus,
-    /// []()(Finnish mythology) – Spirit being of a living person
+    /// [](https://en.wikipedia.org/wiki/)(Finnish mythology) – Spirit being of a living person
     Etiainen,
-    /// []()(English) – Three-headed giant
+    /// [](https://en.wikipedia.org/wiki/)(English) – Three-headed giant
     Ettin,
-    /// []()(Greek) – Blue-black, carrion-eater in the underworld
+    /// [](https://en.wikipedia.org/wiki/)(Greek) – Blue-black, carrion-eater in the underworld
     Eurynomos,
-    /// []()(Cherokee) – Human-cougar hybrid
+    /// [](https://en.wikipedia.org/wiki/)(Cherokee) – Human-cougar hybrid
     Ewah,
-    /// []()(Lithuanian) – Lake spirit
+    /// [](https://en.wikipedia.org/wiki/)(Lithuanian) – Lake spirit
     Eerinis,
-    /// []()(Irish and Scottish) – Monster with half a body
+    /// [](https://en.wikipedia.org/wiki/)(Irish and Scottish) – Monster with half a body
     Fachen,
-    /// []()(Germanic mythology) – Dwarf who was cursed and turned into a dragon. He was later slain by Sigurd in the Saga of Nibelung.
+    /// [](https://en.wikipedia.org/wiki/)(Germanic mythology) – Dwarf who was cursed and turned into a dragon. He was later slain by Sigurd in the Saga of Nibelung.
     Fafnir,
-    /// []()(many cultures worldwide, esp. Germanic mythology/folklore) – Nature spirits
+    /// [](https://en.wikipedia.org/wiki/)(many cultures worldwide, esp. Germanic mythology/folklore) – Nature spirits
     Fairy,
-    /// []()(English) – Animal servant
+    /// [](https://en.wikipedia.org/wiki/)(English) – Animal servant
     Familiar,
-    /// []()(Irish) – Little people that constantly play pranks
+    /// [](https://en.wikipedia.org/wiki/)(Irish) – Little people that constantly play pranks
     FarDarrig,
-    /// []()(French) – Small,/// []()(some half-meter tall), wrinkled, and brown-skinned helpful sprites.
+    /// [](https://en.wikipedia.org/wiki/)(French) – Small,/// [](https://en.wikipedia.org/wiki/)(some half-meter tall), wrinkled, and brown-skinned helpful sprites.
     Farfadet,
-    /// []()(Greek) – Three time-controlling sisters
+    /// [](https://en.wikipedia.org/wiki/)(Greek) – Three time-controlling sisters
     Fates,
-    /// []()(Roman) – Human-goat hybrid nature spirit
+    /// [](https://en.wikipedia.org/wiki/)(Roman) – Human-goat hybrid nature spirit
     Faun,
-    /// []()(Irish) – Hunger ghost
+    /// [](https://en.wikipedia.org/wiki/)(Irish) – Hunger ghost
     FearGorta,
     /// Mesoamerican dragon
     FeatheredSerpent,
-    /// []()(Chinese) – Chinese wind god
+    /// [](https://en.wikipedia.org/wiki/)(Chinese) – Chinese wind god
     FeiLian,
-    /// []()(Chinese) – Chinese Phoenix, female in marriage symbol
+    /// [](https://en.wikipedia.org/wiki/)(Chinese) – Chinese Phoenix, female in marriage symbol
     Fenghuang,
-    /// []()(Manx) – House spirit
+    /// [](https://en.wikipedia.org/wiki/)(Manx) – House spirit
     Fenodyree,
-    /// []()(Norse) – Gigantic, ravenous wolf
+    /// [](https://en.wikipedia.org/wiki/)(Norse) – Gigantic, ravenous wolf
     Fenrir,
-    /// []()(Irish) – Double or doppelgänger
+    /// [](https://en.wikipedia.org/wiki/)(Irish) – Double or doppelgänger
     Fetch,
-    /// []()(Slavic) – Undead
+    /// [](https://en.wikipedia.org/wiki/)(Slavic) – Undead
     Fext,
-    /// []()(Orkney) – Fish-human hybrid that kidnaps humans for servants
+    /// [](https://en.wikipedia.org/wiki/)(Orkney) – Fish-human hybrid that kidnaps humans for servants
     Finfolk,
-    /// []()(Irish) – Ancestral race
+    /// [](https://en.wikipedia.org/wiki/)(Irish) – Ancestral race
     FirBolg,
-    /// []()(Many cultures worldwide) – Regenerative solar bird
+    /// [](https://en.wikipedia.org/wiki/)(Many cultures worldwide) – Regenerative solar bird
     FireBird,
-    /// []()(Germanic) – Dragon
+    /// [](https://en.wikipedia.org/wiki/)(Germanic) – Dragon
     Firedrake,
-    /// []()(Cantabrian) – Amphibious, scaled humanoid
+    /// [](https://en.wikipedia.org/wiki/)(Cantabrian) – Amphibious, scaled humanoid
     FishMan,
-    /// []()(American Folklore),/// []()(West Virginia) – Alien, humanoid
+    /// [](https://en.wikipedia.org/wiki/)(American Folklore),/// [](https://en.wikipedia.org/wiki/)(West Virginia) – Alien, humanoid
     FlatwoodsMonster,
-    /// []()(Irish) – Goat-headed giant
+    /// [](https://en.wikipedia.org/wiki/)(Irish) – Goat-headed giant
     Fomorian,
-    /// []()(Medieval Bestiaries) – Giant horned red cattle
+    /// [](https://en.wikipedia.org/wiki/)(Medieval Bestiaries) – Giant horned red cattle
     ForestBull,
     // Norfolk black dog
     Freybug,
-    /// []()(Celtic) – Malevolent water spirit
+    /// [](https://en.wikipedia.org/wiki/)(Celtic) – Malevolent water spirit
     Fuath,
-    /// []()(Chinese) – Underworld dragon
+    /// [](https://en.wikipedia.org/wiki/)(Chinese) – Underworld dragon
     Fucanglong,
-    /// []()(Japanese) – Ghosts of people who drowned at sea
+    /// [](https://en.wikipedia.org/wiki/)(Japanese) – Ghosts of people who drowned at sea
     Funayurei,
-    /// []()(Japanese) – Animated jar
+    /// [](https://en.wikipedia.org/wiki/)(Japanese) – Animated jar
     FuruUtsubo,
-    /// []()(Japanese) – Woman with a second mouth on the back of her head
+    /// [](https://en.wikipedia.org/wiki/)(Japanese) – Woman with a second mouth on the back of her head
     FutakuchiOnna,
-    /// []()(Scandinavian) – Animal familiar
+    /// [](https://en.wikipedia.org/wiki/)(Scandinavian) – Animal familiar
     Fylgja,
-    /// []()(Seneca) – Dragon
+    /// [](https://en.wikipedia.org/wiki/)(Seneca) – Dragon
     Gaasyendietha,
-    /// []()(Russian) – Iron-beaked bird with copper talons
+    /// [](https://en.wikipedia.org/wiki/)(Russian) – Iron-beaked bird with copper talons
     Gagana,
-    /// []()(Japanese) – Ghosts of especially greedy people
+    /// [](https://en.wikipedia.org/wiki/)(Japanese) – Ghosts of especially greedy people
     Gaki,
-    /// []()(Mesopotamian) – Underworld demons
+    /// [](https://en.wikipedia.org/wiki/)(Mesopotamian) – Underworld demons
     Gallu,
-    /// []()(Basque) – Small demonic servants
+    /// [](https://en.wikipedia.org/wiki/)(Basque) – Small demonic servants
     Galtzagorriak,
-    /// []()(Russian) – Prophetic human-headed bird
+    /// [](https://en.wikipedia.org/wiki/)(Russian) – Prophetic human-headed bird
     Gamayun,
-    /// []()(Hindu) – Attendants of Shiva
+    /// [](https://en.wikipedia.org/wiki/)(Hindu) – Attendants of Shiva
     Gana,
-    /// []()(Irish) – Male fairy that seduces human women
+    /// [](https://en.wikipedia.org/wiki/)(Irish) – Male fairy that seduces human women
     Gancanagh,
-    /// []()(Hindu) – Double-headed bird
+    /// [](https://en.wikipedia.org/wiki/)(Hindu) – Double-headed bird
     Gandabherunda,
-    /// []()(Hindu) – Male nature spirits, often depicted as part human, part animal
+    /// [](https://en.wikipedia.org/wiki/)(Hindu) – Male nature spirits, often depicted as part human, part animal
     Gandharva,
-    /// []()(French) – Water dragon
+    /// [](https://en.wikipedia.org/wiki/)(French) – Water dragon
     Gargouille,
-    /// []()(Australian Aboriginal) – A flying humanoid who envelops his victims
+    /// [](https://en.wikipedia.org/wiki/)(Australian Aboriginal) – A flying humanoid who envelops his victims
     Garkain,
-    /// []()(Norse) – Giant, ravenous hound
+    /// [](https://en.wikipedia.org/wiki/)(Norse) – Giant, ravenous hound
     Garmr,
-    /// []()(Hindu) – Human-eagle hybrid
+    /// [](https://en.wikipedia.org/wiki/)(Hindu) – Human-eagle hybrid
     Garuda,
-    /// []()(Japanese) – Giant malevolent skeletons
+    /// [](https://en.wikipedia.org/wiki/)(Japanese) – Giant malevolent skeletons
     Gashadokuro,
-    /// []()(Basque) – Wolf capable of walking upright
+    /// [](https://en.wikipedia.org/wiki/)(Basque) – Wolf capable of walking upright
     Gaueko,
-    /// []()(Egyptian) – God of the Earth, married to Nut
+    /// [](https://en.wikipedia.org/wiki/)(Egyptian) – God of the Earth, married to Nut
     Geb,
-    /// []()(Heraldic) – The fish pike
+    /// [](https://en.wikipedia.org/wiki/)(Heraldic) – The fish pike
     Ged,
-    /// []()(Greek) – Six-armed giant
+    /// [](https://en.wikipedia.org/wiki/)(Greek) – Six-armed giant
     Gegenees,
-    /// []()(Roman) – Spirit that protects a specific place
+    /// [](https://en.wikipedia.org/wiki/)(Roman) – Spirit that protects a specific place
     GeniusLoci,
-    /// []()(Slavic) – Male spirit associated with bringing rain and hail
+    /// [](https://en.wikipedia.org/wiki/)(Slavic) – Male spirit associated with bringing rain and hail
     German,
-    /// []()(Greek) – Three-headed six-armed giant with three torsos and (in some sources) six legs
+    /// [](https://en.wikipedia.org/wiki/)(Greek) – Three-headed six-armed giant with three torsos and (in some sources) six legs
     Geryon,
-    /// []()(Scottish) – Tree guardian
+    /// [](https://en.wikipedia.org/wiki/)(Scottish) – Tree guardian
     GhillieDhu,
     /// Disembodied spirits of those that have died
     Ghost,
-    /// []()(Arabian) – Cannibalistic shapeshifting desert genie often classified as undead.
+    /// [](https://en.wikipedia.org/wiki/)(Arabian) – Cannibalistic shapeshifting desert genie often classified as undead.
     Ghoul,
-    /// []()(Worldwide) – Immensely large and strong humanoids
+    /// [](https://en.wikipedia.org/wiki/)(Worldwide) – Immensely large and strong humanoids
     Giant,
-    /// []()(Worldwide) – Unusually large beasts
+    /// [](https://en.wikipedia.org/wiki/)(Worldwide) – Unusually large beasts
     GiantAnimal,
-    /// []()(Ojibwa) – Bison-snake-bird-cougar hybrid water spirit
+    /// [](https://en.wikipedia.org/wiki/)(Ojibwa) – Bison-snake-bird-cougar hybrid water spirit
     GichiAnamiEBizhiw,
-    /// []()(Sumerian) – Ghost
+    /// [](https://en.wikipedia.org/wiki/)(Sumerian) – Ghost
     Gidim,
-    /// []()(Greek) – Race of giants that fought the Olympian gods, sometimes depicted with snake-legs
+    /// [](https://en.wikipedia.org/wiki/)(Greek) – Race of giants that fought the Olympian gods, sometimes depicted with snake-legs
     Gigantes,
-    /// []()(Scottish) – Smallest animal
+    /// [](https://en.wikipedia.org/wiki/)(Scottish) – Smallest animal
     Gigelorum,
-    /// []()(Akkadian) – Human-scorpion hybrid
+    /// [](https://en.wikipedia.org/wiki/)(Akkadian) – Human-scorpion hybrid
     Girtablilu,
-    /// []()(Scandinavian) – Corporeal ghost
+    /// [](https://en.wikipedia.org/wiki/)(Scandinavian) – Corporeal ghost
     Gjenganger,
-    /// []()(Scottish) – Human-goat hybrid
+    /// [](https://en.wikipedia.org/wiki/)(Scottish) – Human-goat hybrid
     Glaistig,
-    /// []()(Manx) – Malevolent water horse
+    /// [](https://en.wikipedia.org/wiki/)(Manx) – Malevolent water horse
     Glashtyn,
-    /// []()(Alchemy) – Diminutive Earth elemental
+    /// [](https://en.wikipedia.org/wiki/)(Alchemy) – Diminutive Earth elemental
     Gnome,
-    /// []()(Medieval) – Grotesque, mischievous little people
+    /// [](https://en.wikipedia.org/wiki/)(Medieval) – Grotesque, mischievous little people
     Goblin,
-    /// []()(English) – Giant protector of London
+    /// [](https://en.wikipedia.org/wiki/)(English) – Giant protector of London
     Gog,
-    /// []()(Medieval Bestiaries) – Dog-sized ant that digs for gold in sandy areas
+    /// [](https://en.wikipedia.org/wiki/)(Medieval Bestiaries) – Dog-sized ant that digs for gold in sandy areas
     GoldDiggingAnt,
-    /// []()(Jewish) – Animated construct
+    /// [](https://en.wikipedia.org/wiki/)(Jewish) – Animated construct
     Golem,
-    /// []()(Medieval Bestiary) – Hairy humanoid
+    /// [](https://en.wikipedia.org/wiki/)(Medieval Bestiary) – Hairy humanoid
     Gorgades,
-    /// []()(Greek) – Fanged, snake-haired humanoids that turn anyone who sees them into stone
+    /// [](https://en.wikipedia.org/wiki/)(Greek) – Fanged, snake-haired humanoids that turn anyone who sees them into stone
     Gorgon,
-    /// []()(Japanese) – Vengeful ghosts, usually of martyrs
+    /// [](https://en.wikipedia.org/wiki/)(Japanese) – Vengeful ghosts, usually of martyrs
     Goryo,
-    /// []()(Ohio, USA) – Ape-like cryptid
+    /// [](https://en.wikipedia.org/wiki/)(Ohio, USA) – Ape-like cryptid
     Grassman,
-    /// []()(Folklore) – Creatures that sabotage airplanes
+    /// [](https://en.wikipedia.org/wiki/)(Folklore) – Creatures that sabotage airplanes
     Gremlin,
-    /// []()(Heraldic) – Lion-eagle hybrid
+    /// [](https://en.wikipedia.org/wiki/)(Heraldic) – Lion-eagle hybrid
     Griffin,
-    /// []()(Christian, Jewish, and Islamic mythology) – Fallen angels, father of Nephilim
+    /// [](https://en.wikipedia.org/wiki/)(Christian, Jewish, and Islamic mythology) – Fallen angels, father of Nephilim
     Grigori,
-    /// []()(English and Scandinavian) – Tutelary spirits of churches
+    /// [](https://en.wikipedia.org/wiki/)(English and Scandinavian) – Tutelary spirits of churches
     Grim,
-    /// []()(Worldwide) – Death angel often thought to be God's/Satan's assistant
+    /// [](https://en.wikipedia.org/wiki/)(Worldwide) – Death angel often thought to be God's/Satan's assistant
     GrimReaper,
-    /// []()(English) – Malevolent water spirit
+    /// [](https://en.wikipedia.org/wiki/)(English) – Malevolent water spirit
     Grindylow,
-    /// []()(Mapuche) – Malevolent spirit
+    /// [](https://en.wikipedia.org/wiki/)(Mapuche) – Malevolent spirit
     Gualichu,
-    /// []()(Christian, Jewish, and Islamic belief) – Subclassification of angels that guard and protect a specific person or living being
+    /// [](https://en.wikipedia.org/wiki/)(Christian, Jewish, and Islamic belief) – Subclassification of angels that guard and protect a specific person or living being
     GuardianAngel,
-    /// []()(Akkadian) – Human-bull hybrid
+    /// [](https://en.wikipedia.org/wiki/)(Akkadian) – Human-bull hybrid
     GudElim,
-    /// []()(Japanese) – Anthropomorphic bird
+    /// [](https://en.wikipedia.org/wiki/)(Japanese) – Anthropomorphic bird
     Guhin,
-    /// []()(Chinese) – Ghost that manifests as an old woman
+    /// [](https://en.wikipedia.org/wiki/)(Chinese) – Ghost that manifests as an old woman
     GuiPo,
-    /// []()(Chinese) – Ghostly tree that confuses travelers by moving
+    /// [](https://en.wikipedia.org/wiki/)(Chinese) – Ghostly tree that confuses travelers by moving
     GuiShu,
-    /// []()(Germanic) – Gluttonous dog-cat-fox hybrid
+    /// [](https://en.wikipedia.org/wiki/)(Germanic) – Gluttonous dog-cat-fox hybrid
     Gulon,
-    /// []()(Korean mythology) – Demonic fox with thousands of tails believed to possess an army of spirits and magic in its tails
+    /// [](https://en.wikipedia.org/wiki/)(Korean mythology) – Demonic fox with thousands of tails believed to possess an army of spirits and magic in its tails
     Gumiho,
-    /// []()(Australian Aboriginal) - An enormous reptile-fish whose movements carved out the landscape south of the Blue Mountains
+    /// [](https://en.wikipedia.org/wiki/)(Australian Aboriginal) - An enormous reptile-fish whose movements carved out the landscape south of the Blue Mountains
     Gurangatch,
-    /// []()(Nepalese) – Child-eating demon
+    /// [](https://en.wikipedia.org/wiki/)(Nepalese) – Child-eating demon
     Gurumapa,
-    /// []()(Welsh) – Black dog
+    /// [](https://en.wikipedia.org/wiki/)(Welsh) – Black dog
     Gwyllgi,
-    /// []()(Welsh) – Malevolent spirit
+    /// [](https://en.wikipedia.org/wiki/)(Welsh) – Malevolent spirit
     Gwyllion,
-    /// []()(American folklore) – Four-legged herbivore
+    /// [](https://en.wikipedia.org/wiki/)(American folklore) – Four-legged herbivore
     Gyascutus,
-    /// []()(Lincolnshire and Yorkshire) – Black dog
+    /// [](https://en.wikipedia.org/wiki/)(Lincolnshire and Yorkshire) – Black dog
     Gytrash,
-    /// []()(Japanese) – Bull-headed monster
+    /// [](https://en.wikipedia.org/wiki/)(Japanese) – Bull-headed monster
     Gyuki,
-    /// []()(Norse) – listed as the 'best' hawk
+    /// [](https://en.wikipedia.org/wiki/)(Norse) – listed as the 'best' hawk
     Habrok,
-    /// []()(Persian) – gigantic land animal
+    /// [](https://en.wikipedia.org/wiki/)(Persian) – gigantic land animal
     Hadhayosh,
-    /// []()(Greek) – Ruler of the Underworld
+    /// [](https://en.wikipedia.org/wiki/)(Greek) – Ruler of the Underworld
     Hades,
-    /// []()(Korean) – dog-lion hybrid
+    /// [](https://en.wikipedia.org/wiki/)(Korean) – dog-lion hybrid
     Haetae,
-    /// []()(Many cultures worldwide) – wise old woman who is usually a malevolent spirit or a disguised goddess
+    /// [](https://en.wikipedia.org/wiki/)(Many cultures worldwide) – wise old woman who is usually a malevolent spirit or a disguised goddess
     Hag,
-    /// []()(Nuu-chah-nulth) – water serpent
+    /// [](https://en.wikipedia.org/wiki/)(Nuu-chah-nulth) – water serpent
     Haietlik,
-    /// []()(Khoikhoi) – male cannibalistic partially invisible monster
+    /// [](https://en.wikipedia.org/wiki/)(Khoikhoi) – male cannibalistic partially invisible monster
     HaiUri,
-    /// []()(Japanese) – talking beast which handed down knowledge on harmful spirits
+    /// [](https://en.wikipedia.org/wiki/)(Japanese) – talking beast which handed down knowledge on harmful spirits
     Hakutaku,
-    /// []()(Māori) – nature guardian
+    /// [](https://en.wikipedia.org/wiki/)(Māori) – nature guardian
     Hakuturi,
-    /// []()(Norse) – human-elf hybrid
+    /// [](https://en.wikipedia.org/wiki/)(Norse) – human-elf hybrid
     HalfElf,
-    /// []()(Finnish) – spirit that protects a specific place
+    /// [](https://en.wikipedia.org/wiki/)(Finnish) – spirit that protects a specific place
     Haltija,
-    /// []()(Greek) – oak tree nymph
+    /// [](https://en.wikipedia.org/wiki/)(Greek) – oak tree nymph
     Hamadryad,
-    /// []()(Scandinavian) – personal protection spirit
+    /// [](https://en.wikipedia.org/wiki/)(Scandinavian) – personal protection spirit
     Hamingja,
-    /// []()(Buddhist, Hindu and Jainism) – mystic bird
+    /// [](https://en.wikipedia.org/wiki/)(Buddhist, Hindu and Jainism) – mystic bird
     Hamsa,
-    /// []()(Rapa Nui) – long-eared humanoid
+    /// [](https://en.wikipedia.org/wiki/)(Rapa Nui) – long-eared humanoid
     HanauEpe,
-    /// []()(Malay) – shapeshifting water spirit
+    /// [](https://en.wikipedia.org/wiki/)(Malay) – shapeshifting water spirit
     HantuAir,
-    /// []()(Philippine) – demon
+    /// [](https://en.wikipedia.org/wiki/)(Philippine) – demon
     HantuDemon,
-    /// []()(Malay) – demonic servant
+    /// [](https://en.wikipedia.org/wiki/)(Malay) – demonic servant
     HantuRaya,
-    /// []()(Japanese) – humanoid female with barbed, prehensile hair
+    /// [](https://en.wikipedia.org/wiki/)(Japanese) – humanoid female with barbed, prehensile hair
     Harionago,
-    /// []()(Greek) – birdlike human-headed death spirit
+    /// [](https://en.wikipedia.org/wiki/)(Greek) – birdlike human-headed death spirit
     Harpy,
-    /// []()(Norse) – undead being who cannot leave its burial mound
+    /// [](https://en.wikipedia.org/wiki/)(Norse) – undead being who cannot leave its burial mound
     Haugbui,
-    /// []()(Norse) – saltwater spirit
+    /// [](https://en.wikipedia.org/wiki/)(Norse) – saltwater spirit
     Havsrå,
-    /// []()(Manipuri mythology) – celestial maidens, daughters of the Sky God Soraren
+    /// [](https://en.wikipedia.org/wiki/)(Manipuri mythology) – celestial maidens, daughters of the Sky God Soraren
     Helloi,
-    /// []()(European) – humanoid spirit who haunts or kills
+    /// [](https://en.wikipedia.org/wiki/)(European) – humanoid spirit who haunts or kills
     HeadlessHorseman,
-    /// []()(Brazilian) – fire-spewing, headless, spectral mule
+    /// [](https://en.wikipedia.org/wiki/)(Brazilian) – fire-spewing, headless, spectral mule
     HeadlessMule,
-    /// []()(Greek) – primordial giants with 100 hands and fifty heads
+    /// [](https://en.wikipedia.org/wiki/)(Greek) – primordial giants with 100 hands and fifty heads
     Hecatonchires,
-    /// []()(Japanese) – crabs with human-faced shells, the spirits of warriors killed in the Battle of Dan-no-ura
+    /// [](https://en.wikipedia.org/wiki/)(Japanese) – crabs with human-faced shells, the spirits of warriors killed in the Battle of Dan-no-ura
     Heikegani,
-    /// []()(German) – household spirit
+    /// [](https://en.wikipedia.org/wiki/)(German) – household spirit
     Heinzelmannchen,
-    /// []()(Greek) – fen nymph
+    /// [](https://en.wikipedia.org/wiki/)(Greek) – fen nymph
     Helead,
-    /// []()(Many cultures worldwide) – underworld dog
+    /// [](https://en.wikipedia.org/wiki/)(Many cultures worldwide) – underworld dog
     Hellhound,
-    /// []()(Greek) – gatekeeper of Olympus
+    /// [](https://en.wikipedia.org/wiki/)(Greek) – gatekeeper of Olympus
     Heracles,
-    /// []()(Medieval Bestiaries) – glowing bird
+    /// [](https://en.wikipedia.org/wiki/)(Medieval Bestiaries) – glowing bird
     Hercinia,
-    /// []()(Basque) – dragon
+    /// [](https://en.wikipedia.org/wiki/)(Basque) – dragon
     Herensuge,
-    /// []()(Greek) – nymph daughters of Atlas
+    /// [](https://en.wikipedia.org/wiki/)(Greek) – nymph daughters of Atlas
     Hesperides,
-    /// []()(United States) – nocturnal forest creature
+    /// [](https://en.wikipedia.org/wiki/)(United States) – nocturnal forest creature
     Hidebehind,
-    /// []()(Japanese) – drought spirit
+    /// [](https://en.wikipedia.org/wiki/)(Japanese) – drought spirit
     Hiderigami,
-    /// []()(Ancient Egypt) – falcon-headed sphinx
+    /// [](https://en.wikipedia.org/wiki/)(Ancient Egypt) – falcon-headed sphinx
     Hieracosphinx,
-    /// []()(Japanese) – baboon monster
+    /// [](https://en.wikipedia.org/wiki/)(Japanese) – baboon monster
     Hihi,
-    /// []()(Finnish) – nature guardian
+    /// [](https://en.wikipedia.org/wiki/)(Finnish) – nature guardian
     Hiisi,
-    /// []()(Greek)
+    /// [](https://en.wikipedia.org/wiki/)(Greek)
     Hippalectryon,
-    /// []()(Etruscan, Greek and Phoenician) – horse-fish hybrid
+    /// [](https://en.wikipedia.org/wiki/)(Etruscan, Greek and Phoenician) – horse-fish hybrid
     Hippocamp,
-    /// []()(Medieval Bestiaries) – hybrid of a griffin and horse; a lion-eagle-horse hybrid
+    /// [](https://en.wikipedia.org/wiki/)(Medieval Bestiaries) – hybrid of a griffin and horse; a lion-eagle-horse hybrid
     Hippogriff,
-    /// []()(Medieval Bestiary) – horse-hoofed humanoid
+    /// [](https://en.wikipedia.org/wiki/)(Medieval Bestiary) – horse-hoofed humanoid
     Hippopodes,
-    /// []()(Medieval Bestiary) – deer-goat hybrid
+    /// [](https://en.wikipedia.org/wiki/)(Medieval Bestiary) – deer-goat hybrid
     Hircocervus,
-    /// []()(Japanese) – ghosts of the newly dead, which take the form of fireballs
+    /// [](https://en.wikipedia.org/wiki/)(Japanese) – ghosts of the newly dead, which take the form of fireballs
     Hitodama,
-    /// []()(Japanese) – one-eyed childlike spirit
+    /// [](https://en.wikipedia.org/wiki/)(Japanese) – one-eyed childlike spirit
     HitotsumeKozo,
-    /// []()(English) – house spirit
+    /// [](https://en.wikipedia.org/wiki/)(English) – house spirit
     Hob,
-    /// []()(English) – malevolent spirit
+    /// [](https://en.wikipedia.org/wiki/)(English) – malevolent spirit
     Hobbididance,
-    /// []()(Medieval) – friendly or amusing goblin
+    /// [](https://en.wikipedia.org/wiki/)(Medieval) – friendly or amusing goblin
     Hobgoblin,
-    /// []()(Native American) – frog-mammoth-lizard hybrid
+    /// [](https://en.wikipedia.org/wiki/)(Native American) – frog-mammoth-lizard hybrid
     Hodag,
-    /// []()(Kwakiutl) – bird
+    /// [](https://en.wikipedia.org/wiki/)(Kwakiutl) – bird
     Hokhokw,
-    /// []()(Japanese) – dog-like Chinese tree spirit
+    /// [](https://en.wikipedia.org/wiki/)(Japanese) – dog-like Chinese tree spirit
     Hoko,
-    /// []()(Persian) – eagle-lion hybrid, similar to a griffin
+    /// [](https://en.wikipedia.org/wiki/)(Persian) – eagle-lion hybrid, similar to a griffin
     Homa,
-    /// []()(Colombian) – human-alligator hybrid
+    /// [](https://en.wikipedia.org/wiki/)(Colombian) – human-alligator hybrid
     HombreCaiman,
-    /// []()(Latin America) – human-cat hybrid
+    /// [](https://en.wikipedia.org/wiki/)(Latin America) – human-cat hybrid
     HombreGato,
-    /// []()(Alchemy) – small animated construct
+    /// [](https://en.wikipedia.org/wiki/)(Alchemy) – small animated construct
     Homunculus,
-    /// []()(Japanese) – rooster-swallow-fowl-snake-goose-tortoise-stag-fish hybrid
+    /// [](https://en.wikipedia.org/wiki/)(Japanese) – rooster-swallow-fowl-snake-goose-tortoise-stag-fish hybrid
     Hoo,
     /// near passerine bird common to Africa and Eurasia that features in many mythologies in those continents
     Hoopoe,
     /// snake which rolls by taking its tail in its mouth
     HoopSnake,
-    /// []()(Native American) – serpentine rain spirit
+    /// [](https://en.wikipedia.org/wiki/)(Native American) – serpentine rain spirit
     HornedSerpent,
-    /// []()(Japanese) – deceased person
+    /// [](https://en.wikipedia.org/wiki/)(Japanese) – deceased person
     Hotoke,
-    /// []()(Islamic) – heavenly beings
+    /// [](https://en.wikipedia.org/wiki/)(Islamic) – heavenly beings
     Houri,
-    /// []()(Norse) – giant, who in eagle form, creates the wind by beating his wings
+    /// [](https://en.wikipedia.org/wiki/)(Norse) – giant, who in eagle form, creates the wind by beating his wings
     Hraesvelg,
-    /// []()(Norse) – frost giants who are the main inhabitants of either Jotunheim or Niflheim
+    /// [](https://en.wikipedia.org/wiki/)(Norse) – frost giants who are the main inhabitants of either Jotunheim or Niflheim
     Hrímþursar,
-    /// []()(Mayan) – human-deer hybrid
+    /// [](https://en.wikipedia.org/wiki/)(Mayan) – human-deer hybrid
     Huaychivo,
-    /// []()(Norse) – pair of ravens associated with the Norse god Odin whose names mean Thought and Memory.
+    /// [](https://en.wikipedia.org/wiki/)(Norse) – pair of ravens associated with the Norse god Odin whose names mean Thought and Memory.
     HuginnAndMuninn,
-    /// []()(Icelandic/Faroese) – secret mound/rock dwelling elves
+    /// [](https://en.wikipedia.org/wiki/)(Icelandic/Faroese) – secret mound/rock dwelling elves
     Huldufolk,
-    /// []()(Scandinavian) – forest spirit
+    /// [](https://en.wikipedia.org/wiki/)(Scandinavian) – forest spirit
     Hulder,
-    /// []()(Chinese) – nine-tailed fox spirit
+    /// [](https://en.wikipedia.org/wiki/)(Chinese) – nine-tailed fox spirit
     HuliJing,
-    /// []()(Persian) – regenerative fire bird
+    /// [](https://en.wikipedia.org/wiki/)(Persian) – regenerative fire bird
     Huma,
-    /// []()(Akkadian) – lion-faced giant
+    /// [](https://en.wikipedia.org/wiki/)(Akkadian) – lion-faced giant
     Humbaba,
-    /// []()(Chinese) – chaos spirit
+    /// [](https://en.wikipedia.org/wiki/)(Chinese) – chaos spirit
     Hundun,
-    /// []()(Taíno) – nocturnal ghost
+    /// [](https://en.wikipedia.org/wiki/)(Taíno) – nocturnal ghost
     Hupia,
-    /// []()(Japanese) – hundred-eyes creature
+    /// [](https://en.wikipedia.org/wiki/)(Japanese) – hundred-eyes creature
     Hyakume,
-    /// []()(Greek) – multi-headed water serpent/dragon
+    /// [](https://en.wikipedia.org/wiki/)(Greek) – multi-headed water serpent/dragon
     Hydra,
-    /// []()(Medieval Bestiary) – snake whose poison causes the victim to swell up
+    /// [](https://en.wikipedia.org/wiki/)(Medieval Bestiary) – snake whose poison causes the victim to swell up
     Hydros,
-    /// []()(Medieval Bestiary) – snake from the Nile River that would kill crocodiles from the inside
+    /// [](https://en.wikipedia.org/wiki/)(Medieval Bestiary) – snake from the Nile River that would kill crocodiles from the inside
     Hydrus,
-    /// []()(Japanese) – hair-covered kappa
+    /// [](https://en.wikipedia.org/wiki/)(Japanese) – hair-covered kappa
     Hyosube,
-    /// []()(Medieval Bestiary) – snake that kills its victims in their sleep
+    /// [](https://en.wikipedia.org/wiki/)(Medieval Bestiary) – snake that kills its victims in their sleep
     Hypnalis,
-    /// []()(mythology) – Hoopoe
+    /// [](https://en.wikipedia.org/wiki/)(mythology) – Hoopoe
     Hudhud,
-    /// []()(Inuit) – Little people
+    /// [](https://en.wikipedia.org/wiki/)(Inuit) – Little people
     Ishigaq,
-    /// []()(Medieval Bestiaries) – Savage human-goat hybrid from a remote island chain
+    /// [](https://en.wikipedia.org/wiki/)(Medieval Bestiaries) – Savage human-goat hybrid from a remote island chain
     IslandSatyr,
-    /// []()(Japanese) – Shark-like sea monster
+    /// [](https://en.wikipedia.org/wiki/)(Japanese) – Shark-like sea monster
     Isonade,
-    /// []()(Japanese) – Ghostly aerial phenomenon that attacks people
+    /// [](https://en.wikipedia.org/wiki/)(Japanese) – Ghostly aerial phenomenon that attacks people
     IttanMomen,
-    /// []()(Japanese) – Char which appeared as a Buddhist monk
+    /// [](https://en.wikipedia.org/wiki/)(Japanese) – Char which appeared as a Buddhist monk
     IwanaBozu,
-    /// []()(American) – Rabbit with antlers
+    /// [](https://en.wikipedia.org/wiki/)(American) – Rabbit with antlers
     Jackalope,
-    /// []()(English) – Malevolent giant
+    /// [](https://en.wikipedia.org/wiki/)(English) – Malevolent giant
     JackInIrons,
-    /// []()(Medieval folklore) – Vegetal lantern
+    /// [](https://en.wikipedia.org/wiki/)(Medieval folklore) – Vegetal lantern
     JackOLantern,
-    /// []()(Medieval Bestiaries) – Winged serpent or small dragon
+    /// [](https://en.wikipedia.org/wiki/)(Medieval Bestiaries) – Winged serpent or small dragon
     Jaculus,
-    /// []()(Medieval folklore) – Island-sized fish
+    /// [](https://en.wikipedia.org/wiki/)(Medieval folklore) – Island-sized fish
     Jasconius,
-    /// []()(Guaraní) – Nature guardian and bogeyman
+    /// [](https://en.wikipedia.org/wiki/)(Guaraní) – Nature guardian and bogeyman
     JasyJaterei,
-    /// []()(Hindu mythology) – Vulture demigod
+    /// [](https://en.wikipedia.org/wiki/)(Hindu mythology) – Vulture demigod
     Jatayu,
-    /// []()(Slavic) – Vampirised premature baby
+    /// [](https://en.wikipedia.org/wiki/)(Slavic) – Vampirised premature baby
     Jaud,
-    /// []()(Java) – Vampiric little people
+    /// [](https://en.wikipedia.org/wiki/)(Java) – Vampiric little people
     Jenglot,
-    /// []()(Sawa) – Water spirit
+    /// [](https://en.wikipedia.org/wiki/)(Sawa) – Water spirit
     Jengu,
-    /// []()(Basque) – Megalith-building giant
+    /// [](https://en.wikipedia.org/wiki/)(Basque) – Megalith-building giant
     Jentil,
-    /// []()(Mi'kmaq) – Anthropophagous giant
+    /// [](https://en.wikipedia.org/wiki/)(Mi'kmaq) – Anthropophagous giant
     Jenu,
-    /// []()(Swedish) – Gluttonous dog-cat-fox hybrid
+    /// [](https://en.wikipedia.org/wiki/)(Swedish) – Gluttonous dog-cat-fox hybrid
     Jerff,
-    /// []()(American) – Demonic dragon or flying demon who was given birth to by an American living in New Jersey
+    /// [](https://en.wikipedia.org/wiki/)(American) – Demonic dragon or flying demon who was given birth to by an American living in New Jersey
     JerseyDevil,
-    /// []()(Chinese) – One-eyed, one-winged bird who requires a mate for survival
+    /// [](https://en.wikipedia.org/wiki/)(Chinese) – One-eyed, one-winged bird who requires a mate for survival
     Jian,
-    /// []()(Chinese) – Life-draining, reanimated corpse
+    /// [](https://en.wikipedia.org/wiki/)(Chinese) – Life-draining, reanimated corpse
     Jiangshi,
-    /// []()(Chinese) – Dragon
+    /// [](https://en.wikipedia.org/wiki/)(Chinese) – Dragon
     Jiaolong,
-    /// []()(Japanese) – Spirit that protects a specific place
+    /// [](https://en.wikipedia.org/wiki/)(Japanese) – Spirit that protects a specific place
     Jibakurei,
-    /// []()(Lithuanian) – House spirit
+    /// [](https://en.wikipedia.org/wiki/)(Lithuanian) – House spirit
     Jievaras,
-    /// []()(Japanese) – Corpse-eating ghost
+    /// [](https://en.wikipedia.org/wiki/)(Japanese) – Corpse-eating ghost
     Jikininki,
-    /// []()(Arabian, Islamic) – Spiritual creatures; genii
+    /// [](https://en.wikipedia.org/wiki/)(Arabian, Islamic) – Spiritual creatures; genii
     Jinn,
-    /// []()(Mi'kmaq) – Underwater horned snake; lives in lakes and eats humans
+    /// [](https://en.wikipedia.org/wiki/)(Mi'kmaq) – Underwater horned snake; lives in lakes and eats humans
     JipijkaM,
-    /// []()(Chinese) – Nine-headed bird worshiped by ancient natives in Hubei Province.
+    /// [](https://en.wikipedia.org/wiki/)(Chinese) – Nine-headed bird worshiped by ancient natives in Hubei Province.
     Jiufeng,
-    /// []()(Chinese) – Nine-headed, demonic bird
+    /// [](https://en.wikipedia.org/wiki/)(Chinese) – Nine-headed, demonic bird
     JiuTouNiao,
-    /// []()(Iroquois) – Little people nature spirit
+    /// [](https://en.wikipedia.org/wiki/)(Iroquois) – Little people nature spirit
     Jogah,
-    /// []()(Norse) – Sea serpent
+    /// [](https://en.wikipedia.org/wiki/)(Norse) – Sea serpent
     Jormungandr,
-    /// []()(Japanese) – Spider woman
+    /// [](https://en.wikipedia.org/wiki/)(Japanese) – Spider woman
     Jorogumo,
-    /// []()(Japanese) – Animated folding screen cloth
+    /// [](https://en.wikipedia.org/wiki/)(Japanese) – Animated folding screen cloth
     Jotai,
-    /// []()(Norse) – Gigantic nature spirits
+    /// [](https://en.wikipedia.org/wiki/)(Norse) – Gigantic nature spirits
     Jotunn,
-    /// []()(Korean) – Bird
+    /// [](https://en.wikipedia.org/wiki/)(Korean) – Bird
     Jujak,
-    /// []()(Guyanese) – Malevolent spirit
+    /// [](https://en.wikipedia.org/wiki/)(Guyanese) – Malevolent spirit
     Jumbee,
-    /// []()(Dutch) – Little people that live underground, in mushrooms, or as house spirits
+    /// [](https://en.wikipedia.org/wiki/)(Dutch) – Little people that live underground, in mushrooms, or as house spirits
     Kabouter,
-    /// []()(Hopi and Puebloan) – Nature spirit
+    /// [](https://en.wikipedia.org/wiki/)(Hopi and Puebloan) – Nature spirit
     Kachina,
-    /// []()(Japanese) – Little people and water spirits
+    /// [](https://en.wikipedia.org/wiki/)(Japanese) – Little people and water spirits
     Kahaku,
-    /// []()(Scandinavian) – Wind spirit
+    /// [](https://en.wikipedia.org/wiki/)(Scandinavian) – Wind spirit
     Kajsa,
-    /// []()(Hindu) – Descendants of Kala
+    /// [](https://en.wikipedia.org/wiki/)(Hindu) – Descendants of Kala
     Kalakeyas,
-    /// []()(Greek) – Grotesque, malevolent spirit
+    /// [](https://en.wikipedia.org/wiki/)(Greek) – Grotesque, malevolent spirit
     Kallikantzaroi,
-    /// []()(Japanese) – Wind spirit
+    /// [](https://en.wikipedia.org/wiki/)(Japanese) – Wind spirit
     Kamaitachi,
-    /// []()(Philippine) – Philippine counterpart of Death
+    /// [](https://en.wikipedia.org/wiki/)(Philippine) – Philippine counterpart of Death
     Kamatayan,
-    /// []()(Japanese) – Nature spirit
+    /// [](https://en.wikipedia.org/wiki/)(Japanese) – Nature spirit
     Kami,
-    /// []()(Japanese) – Hair-cutting spirit
+    /// [](https://en.wikipedia.org/wiki/)(Japanese) – Hair-cutting spirit
     Kamikiri,
-    /// []()(Japanese) – Bathroom spirit
+    /// [](https://en.wikipedia.org/wiki/)(Japanese) – Bathroom spirit
     KanbariNyudo,
-    /// []()(Manipuri mythology) – Great Dragon in the Kangla Palace
+    /// [](https://en.wikipedia.org/wiki/)(Manipuri mythology) – Great Dragon in the Kangla Palace
     KanglaSha,
-    /// []()(Japanese) – Drought spirit
+    /// [](https://en.wikipedia.org/wiki/)(Japanese) – Drought spirit
     Kanbo,
-    /// []()(Japanese) – Money spirit
+    /// [](https://en.wikipedia.org/wiki/)(Japanese) – Money spirit
     Kanedama,
-    /// []()(Japanese) – Little people and water spirit
+    /// [](https://en.wikipedia.org/wiki/)(Japanese) – Little people and water spirit
     Kappa,
-    /// []()(Philippine) – Malevolent tree spirit
+    /// [](https://en.wikipedia.org/wiki/)(Philippine) – Malevolent tree spirit
     Kapre,
-    /// []()(Bulgarian and Turkish), also in Bosnia and Herzegovina and Serbia known as Karanđoloz – Troublesome spirit
+    /// [](https://en.wikipedia.org/wiki/)(Bulgarian and Turkish), also in Bosnia and Herzegovina and Serbia known as Karanđoloz – Troublesome spirit
     Karakoncolos,
-    /// []()(Turkish) – Male night-demon
+    /// [](https://en.wikipedia.org/wiki/)(Turkish) – Male night-demon
     Karakura,
-    /// []()(Japanese) – Tengu with a bird's bill
+    /// [](https://en.wikipedia.org/wiki/)(Japanese) – Tengu with a bird's bill
     KarasuTengu,
-    /// []()(Persian) – One-horned giant animal
+    /// [](https://en.wikipedia.org/wiki/)(Persian) – One-horned giant animal
     Karkadann,
-    /// []()(Greek) – Giant crab
+    /// [](https://en.wikipedia.org/wiki/)(Greek) – Giant crab
     Karkinos,
-    /// []()(Japanese) – Eagle-human hybrid
+    /// [](https://en.wikipedia.org/wiki/)(Japanese) – Eagle-human hybrid
     Karura,
-    /// []()(Polish) – Little people and mine spirits
+    /// [](https://en.wikipedia.org/wiki/)(Polish) – Little people and mine spirits
     Karzelek,
-    /// []()(Japanese) – Animated parasol
+    /// [](https://en.wikipedia.org/wiki/)(Japanese) – Animated parasol
     KasaObake,
-    /// []()(Japanese) – Cat-like demon which descends from the sky and carries away corpses
+    /// [](https://en.wikipedia.org/wiki/)(Japanese) – Cat-like demon which descends from the sky and carries away corpses
     Kasha,
-    /// []()(Japanese) – Kappa who climb into the mountains for the winter
+    /// [](https://en.wikipedia.org/wiki/)(Japanese) – Kappa who climb into the mountains for the winter
     Kashanbo,
-    /// []()(Japanese) – Woman riding on a flaming wheel
+    /// [](https://en.wikipedia.org/wiki/)(Japanese) – Woman riding on a flaming wheel
     KatawaGuruma,
-    /// []()(Japanese) – Handsome man from the moon
+    /// [](https://en.wikipedia.org/wiki/)(Japanese) – Handsome man from the moon
     KatsuraOtoko,
-    /// []()(Albanian) – Man-eating giant
+    /// [](https://en.wikipedia.org/wiki/)(Albanian) – Man-eating giant
     Katallan,
-    /// []()(Lithuanian) – Nature spirit
+    /// [](https://en.wikipedia.org/wiki/)(Lithuanian) – Nature spirit
     Kaukas,
-    /// []()(Japanese) – Supernatural river otter
+    /// [](https://en.wikipedia.org/wiki/)(Japanese) – Supernatural river otter
     KawaUso,
-    /// []()(Japanese) – Smelly, cowardly water spirit
+    /// [](https://en.wikipedia.org/wiki/)(Japanese) – Smelly, cowardly water spirit
     KawaZaru,
-    /// []()(Chukchi mythology) – Ogre or evil spirit
+    /// [](https://en.wikipedia.org/wiki/)(Chukchi mythology) – Ogre or evil spirit
     KeLets,
-    /// []()(Inuit) – Hairless dog
+    /// [](https://en.wikipedia.org/wiki/)(Inuit) – Hairless dog
     Keelut,
-    /// []()(Abenaki) – Half-human half-animal cannibalistic giant
+    /// [](https://en.wikipedia.org/wiki/)(Abenaki) – Half-human half-animal cannibalistic giant
     KeeWakw,
-    /// []()(Japanese) – Amorphous afterbirth spirit
+    /// [](https://en.wikipedia.org/wiki/)(Japanese) – Amorphous afterbirth spirit
     Kekkai,
-    /// []()(Irish and Scottish) – Malevolent water horse
+    /// [](https://en.wikipedia.org/wiki/)(Irish and Scottish) – Malevolent water horse
     Kelpie,
-    /// []()(Greek) – Female death spirit
+    /// [](https://en.wikipedia.org/wiki/)(Greek) – Female death spirit
     Ker,
-    /// []()(Japanese) – Mysterious, white, fluffy creature
+    /// [](https://en.wikipedia.org/wiki/)(Japanese) – Mysterious, white, fluffy creature
     KesaranPasaran,
-    /// []()(Japanese) – Disease spirit
+    /// [](https://en.wikipedia.org/wiki/)(Japanese) – Disease spirit
     Keukegen,
-    /// []()(Heraldic) – Wingless griffin
+    /// [](https://en.wikipedia.org/wiki/)(Heraldic) – Wingless griffin
     Keythong,
-    /// []()(Nepalese) – Fat, hairy ape-like creature
+    /// [](https://en.wikipedia.org/wiki/)(Nepalese) – Fat, hairy ape-like creature
     Khyah,
-    /// []()(Inuit) – Night-demon
+    /// [](https://en.wikipedia.org/wiki/)(Inuit) – Night-demon
     Kigatilik,
-    /// []()(Sotho) – Gluttonous monster that was one of the first beasts of creation
+    /// [](https://en.wikipedia.org/wiki/)(Sotho) – Gluttonous monster that was one of the first beasts of creation
     Kholomodumo,
-    /// []()(Japanese) – Tree sprite from Okinawa
+    /// [](https://en.wikipedia.org/wiki/)(Japanese) – Tree sprite from Okinawa
     Kijimunaa,
-    /// []()(Japanese) – She-devil
+    /// [](https://en.wikipedia.org/wiki/)(Japanese) – She-devil
     Kijo,
-    /// []()(Slavic) – Female house spirit
+    /// [](https://en.wikipedia.org/wiki/)(Slavic) – Female house spirit
     Kikimora,
-    /// []()(English and Scottish) – Ugly, mischievous mill spirit
+    /// [](https://en.wikipedia.org/wiki/)(English and Scottish) – Ugly, mischievous mill spirit
     Killmoulis,
-    /// []()(Hindu) – Human-bird hybrid
+    /// [](https://en.wikipedia.org/wiki/)(Hindu) – Human-bird hybrid
     Kinnara,
-    /// []()(Japanese) – Bird
+    /// [](https://en.wikipedia.org/wiki/)(Japanese) – Bird
     KinU,
-    /// []()(Japanese) – Japanese Unicorn
+    /// [](https://en.wikipedia.org/wiki/)(Japanese) – Japanese Unicorn
     Kirin,
-    /// []()(Angola) – Malevolent, two-faced seducer
+    /// [](https://en.wikipedia.org/wiki/)(Angola) – Malevolent, two-faced seducer
     Kishi,
-    /// []()(Japanese) – Fox spirit
+    /// [](https://en.wikipedia.org/wiki/)(Japanese) – Fox spirit
     Kitsune,
-    /// []()(Japanese) – Person possessed by a fox spirit
+    /// [](https://en.wikipedia.org/wiki/)(Japanese) – Person possessed by a fox spirit
     KitsuneTsuki,
-    /// []()(Japanese) – Woman who transformed into a serpentine demon out of the rage of unrequited love
+    /// [](https://en.wikipedia.org/wiki/)(Japanese) – Woman who transformed into a serpentine demon out of the rage of unrequited love
     Kiyohime,
-    /// []()(German) – Ship spirit
+    /// [](https://en.wikipedia.org/wiki/)(German) – Ship spirit
     Klabautermann,
-    /// []()(folklore),/// []()(Cornish and Welsh) – Little people and mine spirits
+    /// [](https://en.wikipedia.org/wiki/)(folklore),/// [](https://en.wikipedia.org/wiki/)(Cornish and Welsh) – Little people and mine spirits
     Knocker,
-    /// []()(English) – Water dragon
+    /// [](https://en.wikipedia.org/wiki/)(English) – Water dragon
     Knucker,
-    /// []()(Greek) – Goblin like thieves and tricksters
+    /// [](https://en.wikipedia.org/wiki/)(Greek) – Goblin like thieves and tricksters
     Kobalos,
-    /// []()(German) – Little people and mine or house spirits
+    /// [](https://en.wikipedia.org/wiki/)(German) – Little people and mine or house spirits
     Kobold,
-    /// []()(Japanese) – Tree spirit
+    /// [](https://en.wikipedia.org/wiki/)(Japanese) – Tree spirit
     Kodama,
-    /// []()(Germanic) – House spirit
+    /// [](https://en.wikipedia.org/wiki/)(Germanic) – House spirit
     Kofewalt,
-    /// []()(Abenaki) – Hideous monster
+    /// [](https://en.wikipedia.org/wiki/)(Abenaki) – Hideous monster
     KoGok,
-    /// []()(Japanese) – Ubume bird
+    /// [](https://en.wikipedia.org/wiki/)(Japanese) – Ubume bird
     Kokakucho,
-    /// []()(Japanese) – Protective animal
+    /// [](https://en.wikipedia.org/wiki/)(Japanese) – Protective animal
     Komainu,
-    /// []()(Japanese) – Infant that cries until it is picked up, then increases its weight and crushes its victim
+    /// [](https://en.wikipedia.org/wiki/)(Japanese) – Infant that cries until it is picked up, then increases its weight and crushes its victim
     KonakiJiji,
-    /// []()(Japanese) – Bird-like creature
+    /// [](https://en.wikipedia.org/wiki/)(Japanese) – Bird-like creature
     KonohaTengu,
-    /// []()(Ainu) – Little people
+    /// [](https://en.wikipedia.org/wiki/)(Ainu) – Little people
     KoroPokGuru,
-    /// []()(Breton) – Little people and nature spirits
+    /// [](https://en.wikipedia.org/wiki/)(Breton) – Little people and nature spirits
     Korrigan,
-    /// []()(Scandinavian) – Sea monster
+    /// [](https://en.wikipedia.org/wiki/)(Scandinavian) – Sea monster
     Kraken,
-    /// []()(Slavic) – Little people nature spirits
+    /// [](https://en.wikipedia.org/wiki/)(Slavic) – Little people nature spirits
     Krasnoludek,
-    /// []()(Southeast Asian) – Vampiric, floating head
+    /// [](https://en.wikipedia.org/wiki/)(Southeast Asian) – Vampiric, floating head
     Krasue,
-    /// []()(Germany) – Christmas Devil who punishes badly-behaved children
+    /// [](https://en.wikipedia.org/wiki/)(Germany) – Christmas Devil who punishes badly-behaved children
     Krampus,
-    /// []()(Guaraní) – Forest spirit
+    /// [](https://en.wikipedia.org/wiki/)(Guaraní) – Forest spirit
     KuarahyJara,
-    /// []()(Japanese) – Female corpse-chewing graveyard spirit
+    /// [](https://en.wikipedia.org/wiki/)(Japanese) – Female corpse-chewing graveyard spirit
     Kubikajiri,
-    /// []()(Japanese) – Vengeful ghost of a woman mutilated by her husband
+    /// [](https://en.wikipedia.org/wiki/)(Japanese) – Vengeful ghost of a woman mutilated by her husband
     KuchisakeOnna,
-    /// []()(Japanese) – Miniature fox spirit
+    /// [](https://en.wikipedia.org/wiki/)(Japanese) – Miniature fox spirit
     KudaGitsune,
-    /// []()(Japanese) – Human-faced calf which predicts a calamity before dying
+    /// [](https://en.wikipedia.org/wiki/)(Japanese) – Human-faced calf which predicts a calamity before dying
     Kudan,
-    /// []()(Chinese) – One-legged monster
+    /// [](https://en.wikipedia.org/wiki/)(Chinese) – One-legged monster
     Kui,
-    /// []()(Albanian) – Female demon who spreads sickness
+    /// [](https://en.wikipedia.org/wiki/)(Albanian) – Female demon who spreads sickness
     Kukudhi,
-    /// []()(Mi'kmaq) – Large, hairy, greedy, human-eating bipedal monsters whose scream can kill
+    /// [](https://en.wikipedia.org/wiki/)(Mi'kmaq) – Large, hairy, greedy, human-eating bipedal monsters whose scream can kill
     Kukwes,
-    /// []()(Albanian) – Drought-causing dragon
+    /// [](https://en.wikipedia.org/wiki/)(Albanian) – Drought-causing dragon
     Kulshedra,
-    /// []()(Philippine) – Death spirits
+    /// [](https://en.wikipedia.org/wiki/)(Philippine) – Death spirits
     Kumakatok,
-    /// []()(Korean) – Fox spirit
+    /// [](https://en.wikipedia.org/wiki/)(Korean) – Fox spirit
     Kumiho,
-    /// []()(Chinese) – Giant fish
+    /// [](https://en.wikipedia.org/wiki/)(Chinese) – Giant fish
     Kun,
-    /// []()(Hawaiian) – Shapeshifting tricksters
+    /// [](https://en.wikipedia.org/wiki/)(Hawaiian) – Shapeshifting tricksters
     Kupua,
-    /// []()(Japanese) – Guardian spirit of a warehouse
+    /// [](https://en.wikipedia.org/wiki/)(Japanese) – Guardian spirit of a warehouse
     Kurabokko,
-    /// []()(Japanese) – Jellyfish which floats through the air as a fireball
+    /// [](https://en.wikipedia.org/wiki/)(Japanese) – Jellyfish which floats through the air as a fireball
     KurageNoHinotama,
-    /// []()(Hindu mythology) – Second avatar of Vishnu in the form of a Turtle
+    /// [](https://en.wikipedia.org/wiki/)(Hindu mythology) – Second avatar of Vishnu in the form of a Turtle
     Kurma,
-    /// []()(Guaraní) – Wild man and fertility spirit
+    /// [](https://en.wikipedia.org/wiki/)(Guaraní) – Wild man and fertility spirit
     Kurupi,
-    /// []()(Tlingit) – Shapeshifting 'land otter man'
+    /// [](https://en.wikipedia.org/wiki/)(Tlingit) – Shapeshifting 'land otter man'
     Kushtaka,
-    /// []()(Korean) – Chicken-lizard hybrid
+    /// [](https://en.wikipedia.org/wiki/)(Korean) – Chicken-lizard hybrid
     KyeRyong,
-    /// []()(Japanese) – Animated scroll or paper
+    /// [](https://en.wikipedia.org/wiki/)(Japanese) – Animated scroll or paper
     Kyourinrin,
-    /// []()(Japanese) – Nine-tailed fox
+    /// [](https://en.wikipedia.org/wiki/)(Japanese) – Nine-tailed fox
     KyubiNoKitsune,
-    /// []()(Japanese) – Vampire
+    /// [](https://en.wikipedia.org/wiki/)(Japanese) – Vampire
     Kyuketsuki,
-    /// []()(Assyrian) – Disease demon
+    /// [](https://en.wikipedia.org/wiki/)(Assyrian) – Disease demon
     LaBarTu,
-    /// []()(Akkadian) – Sea snake
+    /// [](https://en.wikipedia.org/wiki/)(Akkadian) – Sea snake
     LabbMu,
-    /// []()(Slavic) – Sunstroke spirit
+    /// [](https://en.wikipedia.org/wiki/)(Slavic) – Sunstroke spirit
     Ladyidday,
-    /// []()(Greek) – Dragon guarding the golden apples of the Hesperides
+    /// [](https://en.wikipedia.org/wiki/)(Greek) – Dragon guarding the golden apples of the Hesperides
     Ladon,
-    /// []()(Greek) – Enchanted dog that always caught his prey
+    /// [](https://en.wikipedia.org/wiki/)(Greek) – Enchanted dog that always caught his prey
     Laelaps,
-    /// []()(Greek) – Anthropophagic giants
+    /// [](https://en.wikipedia.org/wiki/)(Greek) – Anthropophagic giants
     Laestrygonians,
-    /// []()(Slavic) – Field spirit
+    /// [](https://en.wikipedia.org/wiki/)(Slavic) – Field spirit
     Lakanica,
-    /// []()(Worldwide) – Gigantic animals reported to inhabit various lakes around the world
+    /// [](https://en.wikipedia.org/wiki/)(Worldwide) – Gigantic animals reported to inhabit various lakes around the world
     LakeMonster,
-    /// []()(Nepalese) – Demon with fangs
+    /// [](https://en.wikipedia.org/wiki/)(Nepalese) – Demon with fangs
     Lakhey,
-    /// []()(Latin America) – Death spirit associated with drowning
+    /// [](https://en.wikipedia.org/wiki/)(Latin America) – Death spirit associated with drowning
     LaLlorona,
-    /// []()(Akkadian and Sumerian) – Protective spirit with the form of a winged bull or human-headed lion
+    /// [](https://en.wikipedia.org/wiki/)(Akkadian and Sumerian) – Protective spirit with the form of a winged bull or human-headed lion
     Lamassu,
-    /// []()(English) – Giant worm
+    /// [](https://en.wikipedia.org/wiki/)(English) – Giant worm
     LambtonWorm,
-    /// []()(Greek) – Child-devouring monster
+    /// [](https://en.wikipedia.org/wiki/)(Greek) – Child-devouring monster
     Lamia,
-    /// []()(Basque) – Water spirit with duck-like feet
+    /// [](https://en.wikipedia.org/wiki/)(Basque) – Water spirit with duck-like feet
     Lamiak,
-    /// []()(Colombian) – Shapeshifting, female water spirit
+    /// [](https://en.wikipedia.org/wiki/)(Colombian) – Shapeshifting, female water spirit
     LaMojana,
-    /// []()(Greek) – Underworld nymph
+    /// [](https://en.wikipedia.org/wiki/)(Greek) – Underworld nymph
     Lampades,
-    /// []()(Norse) – Nature spirits
+    /// [](https://en.wikipedia.org/wiki/)(Norse) – Nature spirits
     Landvaettir,
-    /// []()(Manipuri mythology) – Semi human, semi hornbill creature
+    /// [](https://en.wikipedia.org/wiki/)(Manipuri mythology) – Semi human, semi hornbill creature
     Langmeidong,
-    /// []()(Roman) – House spirit
+    /// [](https://en.wikipedia.org/wiki/)(Roman) – House spirit
     Lares,
-    /// []()(Venezuela) – Female ghost that punishes unfaithful husbands
+    /// [](https://en.wikipedia.org/wiki/)(Venezuela) – Female ghost that punishes unfaithful husbands
     LaSayona,
-    /// []()(Colombian) – Nature spirit that seduces and kills men
+    /// [](https://en.wikipedia.org/wiki/)(Colombian) – Nature spirit that seduces and kills men
     LaTunda,
     /// Miniature bear thought to inhabit the lava beds of south central Oregon
     LavaBear,
-    /// []()(Lithuanian) – Field spirit
+    /// [](https://en.wikipedia.org/wiki/)(Lithuanian) – Field spirit
     LaukuDvasios,
-    /// []()(Baltic) – Sky spirit
+    /// [](https://en.wikipedia.org/wiki/)(Baltic) – Sky spirit
     Lauma,
-    /// []()(Scottish) – Gigantic water rat
+    /// [](https://en.wikipedia.org/wiki/)(Scottish) – Gigantic water rat
     Lavellan,
-    /// []()(Celtic) – Fairy lover
+    /// [](https://en.wikipedia.org/wiki/)(Celtic) – Fairy lover
     LeananSidhe,
-    /// []()(Irish) – Possessing spirit or vampire
+    /// [](https://en.wikipedia.org/wiki/)(Irish) – Possessing spirit or vampire
     Leanashe,
-    /// []()(Greek) – Meadow nymph
+    /// [](https://en.wikipedia.org/wiki/)(Greek) – Meadow nymph
     Leimakids,
-    /// []()(Etruscan) – Fish-tailed lion
+    /// [](https://en.wikipedia.org/wiki/)(Etruscan) – Fish-tailed lion
     Leokampoi,
-    /// []()(Medieval Bestiary) – Tiny animal poisonous to lions
+    /// [](https://en.wikipedia.org/wiki/)(Medieval Bestiary) – Tiny animal poisonous to lions
     Leontophone,
-    /// []()(Irish) – Cobbler spirit
+    /// [](https://en.wikipedia.org/wiki/)(Irish) – Cobbler spirit
     Leprechaun,
-    /// []()(Slavic) – Tree spirit
+    /// [](https://en.wikipedia.org/wiki/)(Slavic) – Tree spirit
     Leszi,
-    /// []()(Greek) – White poplar tree nymph
+    /// [](https://en.wikipedia.org/wiki/)(Greek) – White poplar tree nymph
     Leuce,
-    /// []()(Medieval Bestiary) – Crocotta-lion hybrid
+    /// [](https://en.wikipedia.org/wiki/)(Medieval Bestiary) – Crocotta-lion hybrid
     Leucrota,
-    /// []()(Jewish) – Sea monster seen in Job 41
+    /// [](https://en.wikipedia.org/wiki/)(Jewish) – Sea monster seen in Job 41
     Leviathan,
-    /// []()(Balinese) – Anthropophagous flying head with entrails
+    /// [](https://en.wikipedia.org/wiki/)(Balinese) – Anthropophagous flying head with entrails
     Leyak,
-    /// []()(Medieval Bestiaries) – Human-horse hybrid
+    /// [](https://en.wikipedia.org/wiki/)(Medieval Bestiaries) – Human-horse hybrid
     LibyanAegipanes,
-    /// []()(Medieval Bestiaries) – Human-goat hybrid
+    /// [](https://en.wikipedia.org/wiki/)(Medieval Bestiaries) – Human-goat hybrid
     LibyanSatyr,
-    /// []()(Hungary) – Magical chicken that transforms into a humanoid
+    /// [](https://en.wikipedia.org/wiki/)(Hungary) – Magical chicken that transforms into a humanoid
     Liderc,
-    /// []()(Southern Africa) – Magical bird found at sites of lightning strikes
+    /// [](https://en.wikipedia.org/wiki/)(Southern Africa) – Magical bird found at sites of lightning strikes
     LightningBird,
-    /// []()(Slavic) – One-eyed hag or goblin
+    /// [](https://en.wikipedia.org/wiki/)(Slavic) – One-eyed hag or goblin
     Likho,
-    /// []()(Jewish) – Night-demoness
+    /// [](https://en.wikipedia.org/wiki/)(Jewish) – Night-demoness
     Lilin,
-    /// []()(Assyrian) – Winged demon
+    /// [](https://en.wikipedia.org/wiki/)(Assyrian) – Winged demon
     Lilitu,
-    /// []()(Greek) – Lake nymph
+    /// [](https://en.wikipedia.org/wiki/)(Greek) – Lake nymph
     Limnades,
-    /// []()(Germanic) – Dragon
+    /// [](https://en.wikipedia.org/wiki/)(Germanic) – Dragon
     Lindworm,
-    /// []()(Norse) – Sunlight spirits; the Light Elves
+    /// [](https://en.wikipedia.org/wiki/)(Norse) – Sunlight spirits; the Light Elves
     Ljosalfar,
-    /// []()(Albanian)- Demoness
+    /// [](https://en.wikipedia.org/wiki/)(Albanian)- Demoness
     Ljubi,
-    /// []()(Welsh) – Frog-bat-lizard hybrid
+    /// [](https://en.wikipedia.org/wiki/)(Welsh) – Frog-bat-lizard hybrid
     LlamhigynYDwr,
-    /// []()(Scottish) – Serpentine sea monster
+    /// [](https://en.wikipedia.org/wiki/)(Scottish) – Serpentine sea monster
     LochNessMonster,
-    /// []()(Norse mythology) – God of night
+    /// [](https://en.wikipedia.org/wiki/)(Norse mythology) – God of night
     Loki,
-    /// []()(Abenaki) – Hideous monster
+    /// [](https://en.wikipedia.org/wiki/)(Abenaki) – Hideous monster
     LoLol,
     /// Chinese dragon
     Long,
-    /// []()(Italian) – Female human-goat hybrid and water spirit
+    /// [](https://en.wikipedia.org/wiki/)(Italian) – Female human-goat hybrid and water spirit
     Longana,
-    /// []()(Chinese) – Dragon-horse hybrid
+    /// [](https://en.wikipedia.org/wiki/)(Chinese) – Dragon-horse hybrid
     LongMa,
-    /// []()(French America) – Shapeshifting, female vampire
+    /// [](https://en.wikipedia.org/wiki/)(French America) – Shapeshifting, female vampire
     Loogaroo,
-    /// []()(French) – Snake-mollusk hybrid
+    /// [](https://en.wikipedia.org/wiki/)(French) – Snake-mollusk hybrid
     LouCarcolh,
-    /// []()(French) – Werewolf
+    /// [](https://en.wikipedia.org/wiki/)(French) – Werewolf
     LoupGarou,
-    /// []()(American Folklore),/// []()(Ohio) – Cryptid, Humanoid Frog
+    /// [](https://en.wikipedia.org/wiki/)(American Folklore),/// [](https://en.wikipedia.org/wiki/)(Ohio) – Cryptid, Humanoid Frog
     LovelandFrog,
-    /// []()(English) – House spirit
+    /// [](https://en.wikipedia.org/wiki/)(English) – House spirit
     LubberFiend,
-    /// []()(Chinese) – Truth-detecting animal
+    /// [](https://en.wikipedia.org/wiki/)(Chinese) – Truth-detecting animal
     Luduan,
-    /// []()(Albanian) – Vampire
+    /// [](https://en.wikipedia.org/wiki/)(Albanian) – Vampire
     Lugat,
-    /// []()(Guaraní) – Werewolf | Cadaver-eating dog
+    /// [](https://en.wikipedia.org/wiki/)(Guaraní) – Werewolf | Cadaver-eating dog
     Luison,
     /// Sea Monster
     Lusca,
-    /// []()(French) – Amusing goblin
+    /// [](https://en.wikipedia.org/wiki/)(French) – Amusing goblin
     Lutin,
-    /// []()(Icelandic) Whale-like sea monster
+    /// [](https://en.wikipedia.org/wiki/)(Icelandic) Whale-like sea monster
     Lyngbakr,
-    /// []()(Medieval Bestiaries) – Feline guide spirit
+    /// [](https://en.wikipedia.org/wiki/)(Medieval Bestiaries) – Feline guide spirit
     Lynx,
-    /// []()(Estonian mythology) – Subterranean spirit
+    /// [](https://en.wikipedia.org/wiki/)(Estonian mythology) – Subterranean spirit
     MaaAlused,
-    /// []()(Medieval bestiaries) – Hermaphroditic humanoid
+    /// [](https://en.wikipedia.org/wiki/)(Medieval bestiaries) – Hermaphroditic humanoid
     Machlyes,
-    /// []()(Medieval bestiaries) – Giant-headed humanoid
+    /// [](https://en.wikipedia.org/wiki/)(Medieval bestiaries) – Giant-headed humanoid
     Macrocephali,
-    /// []()(West African Mythology ) – Female ghost
+    /// [](https://en.wikipedia.org/wiki/)(West African Mythology ) – Female ghost
     MadamKoiKoi,
-    /// []()(Colombian folklore) – Nature guardian
+    /// [](https://en.wikipedia.org/wiki/)(Colombian folklore) – Nature guardian
     Madremonte,
-    /// []()(Māori) – Savage, arboreal humanoids
+    /// [](https://en.wikipedia.org/wiki/)(Māori) – Savage, arboreal humanoids
     Maero,
-    /// []()(English folklore) – Giant protector of London
+    /// [](https://en.wikipedia.org/wiki/)(English folklore) – Giant protector of London
     Magog,
-    /// []()(Hindu mythology) – Giant elephant that holds up the world
+    /// [](https://en.wikipedia.org/wiki/)(Hindu mythology) – Giant elephant that holds up the world
     MahaPudma,
-    /// []()(Basque mythology) – Megalith-building giant
+    /// [](https://en.wikipedia.org/wiki/)(Basque mythology) – Megalith-building giant
     Mairu,
-    /// []()(Latvian mythology) – Benevolent house spirit
+    /// [](https://en.wikipedia.org/wiki/)(Latvian mythology) – Benevolent house spirit
     MajasGari,
     // in Swahili mythology, shape-shifting spirits that can pass as humans
     Majitu,
-    /// []()(Indian mythology) – Aquatic beings
+    /// [](https://en.wikipedia.org/wiki/)(Indian mythology) – Aquatic beings
     Makara,
-    /// []()(Japanese mythology) – Pillow-moving spirit
+    /// [](https://en.wikipedia.org/wiki/)(Japanese mythology) – Pillow-moving spirit
     MakuraGaeshi,
-    /// []()(Welsh mythology) – Spirit of the hunt
+    /// [](https://en.wikipedia.org/wiki/)(Welsh mythology) – Spirit of the hunt
     MalltYNos,
-    /// []()(Africa and the African diaspora) – Supernaturally beautiful water spirits
+    /// [](https://en.wikipedia.org/wiki/)(Africa and the African diaspora) – Supernaturally beautiful water spirits
     MamiWata,
-    /// []()(Philippine mythology) – Vampires that sever their torsos from their legs to fly around
+    /// [](https://en.wikipedia.org/wiki/)(Philippine mythology) – Vampires that sever their torsos from their legs to fly around
     Manananggal,
-    /// []()(Medieval bestiaries) – Humanoid with a forty-year lifespan
+    /// [](https://en.wikipedia.org/wiki/)(Medieval bestiaries) – Humanoid with a forty-year lifespan
     Mandi,
-    /// []()(Medieval folklore) – Diminutive, animated construct
+    /// [](https://en.wikipedia.org/wiki/)(Medieval folklore) – Diminutive, animated construct
     Mandrake,
-    /// []()(Roman mythology) – Ancestral spirits
+    /// [](https://en.wikipedia.org/wiki/)(Roman mythology) – Ancestral spirits
     Manes,
-    /// []()(Cree) – Little people with six fingers and no noses
+    /// [](https://en.wikipedia.org/wiki/)(Cree) – Little people with six fingers and no noses
     Mannegishi,
-    /// []()(Persian mythology) – Lion-human-scorpion hybrid
+    /// [](https://en.wikipedia.org/wiki/)(Persian mythology) – Lion-human-scorpion hybrid
     Manticore,
-    /// []()(Brazilian mythology) – Giant sloth
+    /// [](https://en.wikipedia.org/wiki/)(Brazilian mythology) – Giant sloth
     Mapinguari,
-    /// []()(Scandinavian folklore) – Female night-demon
+    /// [](https://en.wikipedia.org/wiki/)(Scandinavian folklore) – Female night-demon
     Mara,
-    /// []()(Italian folklore) – Malevolent water spirit
+    /// [](https://en.wikipedia.org/wiki/)(Italian folklore) – Malevolent water spirit
     Marabbecca,
-    /// []()(Tuamotu) – Attendant of Kiho-tumu, the supreme god
+    /// [](https://en.wikipedia.org/wiki/)(Tuamotu) – Attendant of Kiho-tumu, the supreme god
     Mareikura,
-    /// []()(Greek mythology) – Man-eating horses
+    /// [](https://en.wikipedia.org/wiki/)(Greek mythology) – Man-eating horses
     MaresOfDiomedes,
-    /// []()(Arabian mythology) – Jinn associated fortune tellers
+    /// [](https://en.wikipedia.org/wiki/)(Arabian mythology) – Jinn associated fortune tellers
     Marid,
-    /// []()(Norse mythology) – Mermen with prophetic abilities
+    /// [](https://en.wikipedia.org/wiki/)(Norse mythology) – Mermen with prophetic abilities
     Marmennill,
-    /// []()(Lithuanian mythology) – Disease spirits
+    /// [](https://en.wikipedia.org/wiki/)(Lithuanian mythology) – Disease spirits
     MaroDeives,
-    /// []()(Abenaki mythology) – Shapeshifting toad spirit
+    /// [](https://en.wikipedia.org/wiki/)(Abenaki mythology) – Shapeshifting toad spirit
     MaskiMonGweZoOs,
-    /// []()(French mythology) – Spirit that takes animal form; usually that of a black cat
+    /// [](https://en.wikipedia.org/wiki/)(French mythology) – Spirit that takes animal form; usually that of a black cat
     Matagot,
-    /// []()(Hindu mythology) – First Avatar of Vishnu in the form of a half-fish and half-man
+    /// [](https://en.wikipedia.org/wiki/)(Hindu mythology) – First Avatar of Vishnu in the form of a half-fish and half-man
     Matsya,
-    /// []()(Hindu mythology) – Peacock spirit
+    /// [](https://en.wikipedia.org/wiki/)(Hindu mythology) – Peacock spirit
     Mayura,
-    /// []()(Jewish mythology) – Invisible, malevolent spirit
+    /// [](https://en.wikipedia.org/wiki/)(Jewish mythology) – Invisible, malevolent spirit
     Mazzikin,
-    /// []()(Guaraní mythology) – Snake-parrot hybrid
+    /// [](https://en.wikipedia.org/wiki/)(Guaraní mythology) – Snake-parrot hybrid
     MboiTuI,
-    /// []()(Central Africa) – Possessing demon
+    /// [](https://en.wikipedia.org/wiki/)(Central Africa) – Possessing demon
     Mbwiri,
-    /// []()(Greek mythology) – Serpent-female hybrid,/// []()(Gorgon) with numerous snake heads
+    /// [](https://en.wikipedia.org/wiki/)(Greek mythology) – Serpent-female hybrid,/// [](https://en.wikipedia.org/wiki/)(Gorgon) with numerous snake heads
     Medusa,
     // biblical bird
     MelekTaus,
-    /// []()(Greek mythology) – Ash tree nymph
+    /// [](https://en.wikipedia.org/wiki/)(Greek mythology) – Ash tree nymph
     Meliae,
-    /// []()(Medieval folklore) – Female water spirit, with the form of a winged mermaid or serpent
+    /// [](https://en.wikipedia.org/wiki/)(Medieval folklore) – Female water spirit, with the form of a winged mermaid or serpent
     Melusine,
-    /// []()(Hawaiian mythology) – Little people and craftsmen
+    /// [](https://en.wikipedia.org/wiki/)(Hawaiian mythology) – Little people and craftsmen
     Menehune,
-    /// []()(Finnish mythology) – Little people and nature spirits
+    /// [](https://en.wikipedia.org/wiki/)(Finnish mythology) – Little people and nature spirits
     Menninkainen,
-    /// []()(Singapore) – Combination of a lion and a fish, the symbol of Singapore
+    /// [](https://en.wikipedia.org/wiki/)(Singapore) – Combination of a lion and a fish, the symbol of Singapore
     Merlion,
-    /// []()(multiple cultures) – Human-fish hybrid
+    /// [](https://en.wikipedia.org/wiki/)(multiple cultures) – Human-fish hybrid
     Mermaid,
-    /// []()(multiple cultures) – Human-fish hybrid
+    /// [](https://en.wikipedia.org/wiki/)(multiple cultures) – Human-fish hybrid
     Merman,
-    /// []()(English mythology) – Elderly wizard
+    /// [](https://en.wikipedia.org/wiki/)(English mythology) – Elderly wizard
     Merlin,
-    /// []()(Irish mythology and Scottish) – Human-fish hybrid
+    /// [](https://en.wikipedia.org/wiki/)(Irish mythology and Scottish) – Human-fish hybrid
     Merrow,
-    /// []()(Abenaki mythology) – Ice-hearted wizards
+    /// [](https://en.wikipedia.org/wiki/)(Abenaki mythology) – Ice-hearted wizards
     MeteeKolenOl,
-    /// []()(Australian Aboriginal mythology) – Extremely elongated humanoid that has to live in rock crevasses to avoid blowing away
+    /// [](https://en.wikipedia.org/wiki/)(Australian Aboriginal mythology) – Extremely elongated humanoid that has to live in rock crevasses to avoid blowing away
     Mimi,
-    /// []()(Australian Aboriginal mythology) – Death spirit
+    /// [](https://en.wikipedia.org/wiki/)(Australian Aboriginal mythology) – Death spirit
     MinkaBird,
-    /// []()(Philippine) – Giant swallow
+    /// [](https://en.wikipedia.org/wiki/)(Philippine) – Giant swallow
     Minokawa,
-    /// []()(Greek mythology) – Human-bull hybrid
+    /// [](https://en.wikipedia.org/wiki/)(Greek mythology) – Human-bull hybrid
     Minotaur,
-    /// []()(Ojibwa) – Feline water spirit
+    /// [](https://en.wikipedia.org/wiki/)(Ojibwa) – Feline water spirit
     Mishibizhiw,
-    /// []()(Ojibwa) – Serpentine rain spirit
+    /// [](https://en.wikipedia.org/wiki/)(Ojibwa) – Serpentine rain spirit
     MisiGinebig,
-    /// []()(Cree) – Serpentine rain spirit
+    /// [](https://en.wikipedia.org/wiki/)(Cree) – Serpentine rain spirit
     MisiKinepikw,
-    /// []()(Japanese mythology) – Water dragon
+    /// [](https://en.wikipedia.org/wiki/)(Japanese mythology) – Water dragon
     Mizuchi,
-    /// []()(Chinese mythology) – Vengeful ghost or demon
+    /// [](https://en.wikipedia.org/wiki/)(Chinese mythology) – Vengeful ghost or demon
     Mogwai,
-    /// []()(Latin American folklore) – Nature spirit
+    /// [](https://en.wikipedia.org/wiki/)(Latin American folklore) – Nature spirit
     Mohan,
-    /// []()(Congo) – Water-dwelling creature
+    /// [](https://en.wikipedia.org/wiki/)(Congo) – Water-dwelling creature
     MokeleMbembe,
-    /// []()(Australian Aboriginal mythology) – Malevolent spirit that kills sorcerers
+    /// [](https://en.wikipedia.org/wiki/)(Australian Aboriginal mythology) – Malevolent spirit that kills sorcerers
     Mokoi,
-    /// []()(Polynesian mythology) – Amphibious humanoid living in the spirit world,/// []()(underground world)
+    /// [](https://en.wikipedia.org/wiki/)(Polynesian mythology) – Amphibious humanoid living in the spirit world,/// [](https://en.wikipedia.org/wiki/)(underground world)
     Mokorea,
-    /// []()(Guaraní mythology) – Giant snake with antennae
+    /// [](https://en.wikipedia.org/wiki/)(Guaraní mythology) – Giant snake with antennae
     Monai,
-    /// []()(Medieval bestiaries) – One-horned stag-horse-elephant-boar hybrid, sometimes treated as distinct from the unicorn
+    /// [](https://en.wikipedia.org/wiki/)(Medieval bestiaries) – One-horned stag-horse-elephant-boar hybrid, sometimes treated as distinct from the unicorn
     Monocerus,
-    /// []()(South America) – Giant monkey
+    /// [](https://en.wikipedia.org/wiki/)(South America) – Giant monkey
     MonoGrande,
-    /// []()(Medieval bestiaries) – Dwarf with one giant foot
+    /// [](https://en.wikipedia.org/wiki/)(Medieval bestiaries) – Dwarf with one giant foot
     Monopod,
-    /// []()(Manx folklore) – Nature spirit
+    /// [](https://en.wikipedia.org/wiki/)(Manx folklore) – Nature spirit
     MooinjerVeggey,
-    /// []()(Slavic mythology) – Disembodied spirit
+    /// [](https://en.wikipedia.org/wiki/)(Slavic mythology) – Disembodied spirit
     Mora,
-    /// []()(Breton and Welsh mythology) – Water spirits
+    /// [](https://en.wikipedia.org/wiki/)(Breton and Welsh mythology) – Water spirits
     Morgens,
-    /// []()(Japanese mythology) – Animated tea kettle
+    /// [](https://en.wikipedia.org/wiki/)(Japanese mythology) – Animated tea kettle
     MorinjiNoOkama,
-    /// []()(Greek) – Underworld spirit
+    /// [](https://en.wikipedia.org/wiki/)(Greek) – Underworld spirit
     Mormolykeia,
-    /// []()(Romanian) – Vampiric ghost
+    /// [](https://en.wikipedia.org/wiki/)(Romanian) – Vampiric ghost
     Moroi,
-    /// []()(Continental Germanic mythology) – Little people and tree spirits
+    /// [](https://en.wikipedia.org/wiki/)(Continental Germanic mythology) – Little people and tree spirits
     MossPeople,
-    /// []()(American folklore) – Large grey winged humanoid with glowing red eyes
+    /// [](https://en.wikipedia.org/wiki/)(American folklore) – Large grey winged humanoid with glowing red eyes
     Mothman,
-    /// []()(Canadian folklore) – Fish-like lake monster
+    /// [](https://en.wikipedia.org/wiki/)(Canadian folklore) – Fish-like lake monster
     Mugwump,
-    /// []()(Japanese mythology) – Shapeshifting badger spirit
+    /// [](https://en.wikipedia.org/wiki/)(Japanese mythology) – Shapeshifting badger spirit
     Mujina,
-    /// []()(Australian Aboriginal mythology) – Water monster
+    /// [](https://en.wikipedia.org/wiki/)(Australian Aboriginal mythology) – Water monster
     Muldjewangk,
-    /// []()(Philippine mythology) – Spirit of a deceased person seeking justice or has unfinished business
+    /// [](https://en.wikipedia.org/wiki/)(Philippine mythology) – Spirit of a deceased person seeking justice or has unfinished business
     Multo,
-    /// []()(Egyptian) – Undead creature who revives
+    /// [](https://en.wikipedia.org/wiki/)(Egyptian) – Undead creature who revives
     Mummy,
-    /// []()(Romanian folklore) – Forest-dwelling hag
+    /// [](https://en.wikipedia.org/wiki/)(Romanian folklore) – Forest-dwelling hag
     MumaPadurii,
-    /// []()(Australian Aboriginal) – Giant goanna
+    /// [](https://en.wikipedia.org/wiki/)(Australian Aboriginal) – Giant goanna
     MungoonGali,
-    /// []()(Medieval bestiaries) – Hare-squirrel-boar hybrid that has an intense body heat
+    /// [](https://en.wikipedia.org/wiki/)(Medieval bestiaries) – Hare-squirrel-boar hybrid that has an intense body heat
     Muscaliet,
-    /// []()(Greek mythology) – Spirits that inspire artists
+    /// [](https://en.wikipedia.org/wiki/)(Greek mythology) – Spirits that inspire artists
     Muse,
-    /// []()(Mesopotamian mythology)
+    /// [](https://en.wikipedia.org/wiki/)(Mesopotamian mythology)
     Mushusshu,
-    /// []()(Heraldic) – Sheep-goat hybrid
+    /// [](https://en.wikipedia.org/wiki/)(Heraldic) – Sheep-goat hybrid
     Musimon,
-    /// []()(Scandinavian folklore) – Ghosts of unbaptized children
+    /// [](https://en.wikipedia.org/wiki/)(Scandinavian folklore) – Ghosts of unbaptized children
     Myling,
-    /// []()(Medieval bestiaries) – Ant-lion hybrid
+    /// [](https://en.wikipedia.org/wiki/)(Medieval bestiaries) – Ant-lion hybrid
     Myrmecoleon,
-    /// []()(German) – Anthropophagous undead
+    /// [](https://en.wikipedia.org/wiki/)(German) – Anthropophagous undead
     Nachzehrer,
-    /// []()(Buddhist and Hindu) – Nature and water spirits, serpentine or human-serpent hybrids
+    /// [](https://en.wikipedia.org/wiki/)(Buddhist and Hindu) – Nature and water spirits, serpentine or human-serpent hybrids
     Naga,
-    /// []()(Thai) – Spectral fire
+    /// [](https://en.wikipedia.org/wiki/)(Thai) – Spectral fire
     NagaFireballs,
-    /// []()(Mesoamerica) – Human-animal shapeshifter
+    /// [](https://en.wikipedia.org/wiki/)(Mesoamerica) – Human-animal shapeshifter
     Nagual,
-    /// []()(Greek) – Freshwater nymph
+    /// [](https://en.wikipedia.org/wiki/)(Greek) – Freshwater nymph
     Naiad,
-    /// []()(Finnish) – Water spirit
+    /// [](https://en.wikipedia.org/wiki/)(Finnish) – Water spirit
     Nakki,
-    /// []()(Japanese) – Ritual disciplinary demon from the Oga Peninsula
+    /// [](https://en.wikipedia.org/wiki/)(Japanese) – Ritual disciplinary demon from the Oga Peninsula
     Namahage,
-    /// []()(Japanese) – Giant catfish whose thrashing causing earthquakes
+    /// [](https://en.wikipedia.org/wiki/)(Japanese) – Giant catfish whose thrashing causing earthquakes
     Namazu,
-    /// []()(Japanese) – Old woman who hides under the floor in abandoned storerooms
+    /// [](https://en.wikipedia.org/wiki/)(Japanese) – Old woman who hides under the floor in abandoned storerooms
     NandoBaba,
-    /// []()(Thai) – Tree spirit
+    /// [](https://en.wikipedia.org/wiki/)(Thai) – Tree spirit
     NangTakian,
-    /// []()(Abenaki) – Earthquake spirit
+    /// [](https://en.wikipedia.org/wiki/)(Abenaki) – Earthquake spirit
     NanomKeeaPoDa,
-    /// []()(Greek) – Grotto nymph
+    /// [](https://en.wikipedia.org/wiki/)(Greek) – Grotto nymph
     Napaeae,
-    /// []()(Hindu mythology) – Avatar of Vishnu in the form of half-man/half-lion
+    /// [](https://en.wikipedia.org/wiki/)(Hindu mythology) – Avatar of Vishnu in the form of half-man/half-lion
     Narasimha,
-    /// []()(Slavic) – Fate spirit
+    /// [](https://en.wikipedia.org/wiki/)(Slavic) – Fate spirit
     Narecnitsi,
-    /// []()(Thai) – Pod people
+    /// [](https://en.wikipedia.org/wiki/)(Thai) – Pod people
     Nariphon,
-    /// []()(Gunai) – Water monster
+    /// [](https://en.wikipedia.org/wiki/)(Gunai) – Water monster
     Nargun,
-    /// []()(Arabian) – Half-human, half-demon creature with half a body
+    /// [](https://en.wikipedia.org/wiki/)(Arabian) – Half-human, half-demon creature with half a body
     Nasnas,
-    /// []()(Slavic) – Ghost
+    /// [](https://en.wikipedia.org/wiki/)(Slavic) – Ghost
     Nav,
-    /// []()(Hawaiian) – Savage humanoid
+    /// [](https://en.wikipedia.org/wiki/)(Hawaiian) – Savage humanoid
     Nawao,
-    /// []()(Abenaki) – Fish-human hybrid
+    /// [](https://en.wikipedia.org/wiki/)(Abenaki) – Fish-human hybrid
     NDamKenoWet,
-    /// []()(Roman mythology) – God of freshwater and sea
+    /// [](https://en.wikipedia.org/wiki/)(Roman mythology) – God of freshwater and sea
     Neptune,
-    /// []()(Germanic mythology) – Female water spirit
+    /// [](https://en.wikipedia.org/wiki/)(Germanic mythology) – Female water spirit
     Neck,
-    /// []()(Catalan) – Little people that turn into coins
+    /// [](https://en.wikipedia.org/wiki/)(Catalan) – Little people that turn into coins
     Negret,
-    /// []()(Japanese) – Split-tailed magical cat
+    /// [](https://en.wikipedia.org/wiki/)(Japanese) – Split-tailed magical cat
     Nekomata,
-    /// []()(Japanese) – Cat in the form of a girl
+    /// [](https://en.wikipedia.org/wiki/)(Japanese) – Cat in the form of a girl
     Nekomusume,
-    /// []()(Greek) – Lion with impenetrable skin
+    /// [](https://en.wikipedia.org/wiki/)(Greek) – Lion with impenetrable skin
     NemeanLion,
-    /// []()(Abrahamic mythology) – Gigantic sons of Grigori and human women
+    /// [](https://en.wikipedia.org/wiki/)(Abrahamic mythology) – Gigantic sons of Grigori and human women
     Nephilim,
-    /// []()(Greek) – Nymph daughters of Nereus
+    /// [](https://en.wikipedia.org/wiki/)(Greek) – Nymph daughters of Nereus
     Nereid,
-    /// []()(Mapuche) – Nature spirit
+    /// [](https://en.wikipedia.org/wiki/)(Mapuche) – Nature spirit
     Ngen,
-    /// []()(Mapuche) – Fox-like water snake
+    /// [](https://en.wikipedia.org/wiki/)(Mapuche) – Fox-like water snake
     Nguruvilu,
-    /// []()(Chinese) – Predatory animal
+    /// [](https://en.wikipedia.org/wiki/)(Chinese) – Predatory animal
     Nian,
-    /// []()(Hawaiian) – Warrior ghosts
+    /// [](https://en.wikipedia.org/wiki/)(Hawaiian) – Warrior ghosts
     Nightmarchers,
-    /// []()(Japanese) – Monster which appears as a young woman and sucks all of the flesh off of its victim's body
+    /// [](https://en.wikipedia.org/wiki/)(Japanese) – Monster which appears as a young woman and sucks all of the flesh off of its victim's body
     Nikusui,
-    /// []()(Shoshone) – Aggressive little people
+    /// [](https://en.wikipedia.org/wiki/)(Shoshone) – Aggressive little people
     Nimerigar,
-    /// []()(Japanese) – Monkey-fish hybrid
+    /// [](https://en.wikipedia.org/wiki/)(Japanese) – Monkey-fish hybrid
     Ningyo,
-    /// []()(Western Africa) – Large reptile, possibly a dragon
+    /// [](https://en.wikipedia.org/wiki/)(Western Africa) – Large reptile, possibly a dragon
     NinkiNanka,
-    /// []()(Scandinavian) – House spirit
+    /// [](https://en.wikipedia.org/wiki/)(Scandinavian) – House spirit
     Nisse,
-    /// []()(Norse) – Dragon
+    /// [](https://en.wikipedia.org/wiki/)(Norse) – Dragon
     Niohoggr,
-    /// []()(Hindu) – Ocean demon
+    /// [](https://en.wikipedia.org/wiki/)(Hindu) – Ocean demon
     Nivatakavachas,
-    /// []()(Germanic) – Female water spirit
+    /// [](https://en.wikipedia.org/wiki/)(Germanic) – Female water spirit
     Nix,
-    /// []()(Japanese) – Supernatural wall, also a monstrous flying squirrel
+    /// [](https://en.wikipedia.org/wiki/)(Japanese) – Supernatural wall, also a monstrous flying squirrel
     Nobusuma,
-    /// []()(Slavic) – Nightmare spirit
+    /// [](https://en.wikipedia.org/wiki/)(Slavic) – Nightmare spirit
     Nocnitsa,
-    /// []()(Japanese) – Faceless ghost
+    /// [](https://en.wikipedia.org/wiki/)(Japanese) – Faceless ghost
     NopperaBo,
-    /// []()(Japanese) – Small sea serpent
+    /// [](https://en.wikipedia.org/wiki/)(Japanese) – Small sea serpent
     Nozuchi,
-    /// []()(Scottish) – Malevolent human-horse-fish hybrid
+    /// [](https://en.wikipedia.org/wiki/)(Scottish) – Malevolent human-horse-fish hybrid
     Nuckelavee,
-    /// []()(Japanese) – Monkey-raccoon dog-tiger-snake hybrid
+    /// [](https://en.wikipedia.org/wiki/)(Japanese) – Monkey-raccoon dog-tiger-snake hybrid
     Nue,
-    /// []()(Chinese) – Vengeful female ghost
+    /// [](https://en.wikipedia.org/wiki/)(Chinese) – Vengeful female ghost
     NuGui,
-    /// []()(Japanese) – Disembodied, flying head that attacks people
+    /// [](https://en.wikipedia.org/wiki/)(Japanese) – Disembodied, flying head that attacks people
     Nukekubi,
-    /// []()(Māori) – Forest spirit
+    /// [](https://en.wikipedia.org/wiki/)(Māori) – Forest spirit
     NukuMaiTore,
-    /// []()(Medieval Bestiary) – Humanoid with backwards, eight-toed feet
+    /// [](https://en.wikipedia.org/wiki/)(Medieval Bestiary) – Humanoid with backwards, eight-toed feet
     Nuli,
-    /// []()(Roman) – Tutelary spirit
+    /// [](https://en.wikipedia.org/wiki/)(Roman) – Tutelary spirit
     Numen,
-    /// []()(Philippine) – Malevolent little people
+    /// [](https://en.wikipedia.org/wiki/)(Philippine) – Malevolent little people
     Nuno,
-    /// []()(Japanese) – Animated chunk of dead flesh
+    /// [](https://en.wikipedia.org/wiki/)(Japanese) – Animated chunk of dead flesh
     Nuppeppo,
-    /// []()(Japanese) – Head-sized ball-like creature that floats in the sea and teases sailors
+    /// [](https://en.wikipedia.org/wiki/)(Japanese) – Head-sized ball-like creature that floats in the sea and teases sailors
     Nurarihyon,
-    /// []()(Japanese) – Female monster who appears on the beach
+    /// [](https://en.wikipedia.org/wiki/)(Japanese) – Female monster who appears on the beach
     NureOnna,
-    /// []()(Japanese) – Spirit that manifests as an impassable, invisible wall
+    /// [](https://en.wikipedia.org/wiki/)(Japanese) – Spirit that manifests as an impassable, invisible wall
     Nurikabe,
-    /// []()(Tonga,/// []()(Zimbabwean) mythology) – Snake-spirit of the Zambezi River
+    /// [](https://en.wikipedia.org/wiki/)(Tonga,/// [](https://en.wikipedia.org/wiki/)(Zimbabwean) mythology) – Snake-spirit of the Zambezi River
     NyamiNyami,
-    /// []()(Lithuanian) – Cavern spirit
+    /// [](https://en.wikipedia.org/wiki/)(Lithuanian) – Cavern spirit
     Nykstukas,
-    /// []()(Greek) – Nature spirit
+    /// [](https://en.wikipedia.org/wiki/)(Greek) – Nature spirit
     Nymph,
-    /// []()(Japanese) – Shapeshifting spirits
+    /// [](https://en.wikipedia.org/wiki/)(Japanese) – Shapeshifting spirits
     Obake,
-    /// []()(Japanese) – Spook which rides piggyback on a human victim and becomes unbearably heavy
+    /// [](https://en.wikipedia.org/wiki/)(Japanese) – Spook which rides piggyback on a human victim and becomes unbearably heavy
     Obariyon,
-    /// []()(Ashanti) – Vampiric possession spirit
+    /// [](https://en.wikipedia.org/wiki/)(Ashanti) – Vampiric possession spirit
     Obayifo,
-    /// []()(West Africa) – Gigantic animal that serves witches
+    /// [](https://en.wikipedia.org/wiki/)(West Africa) – Gigantic animal that serves witches
     Obia,
-    /// []()(Greek) – Nymph daughters of Oceanus
+    /// [](https://en.wikipedia.org/wiki/)(Greek) – Nymph daughters of Oceanus
     Oceanid,
-    /// []()(Basque) – Storm spirit
+    /// [](https://en.wikipedia.org/wiki/)(Basque) – Storm spirit
     Odei,
-    /// []()(Norse mythology) – King of Asgard
+    /// [](https://en.wikipedia.org/wiki/)(Norse mythology) – King of Asgard
     Odin,
-    /// []()(Slavic) – Changeling
+    /// [](https://en.wikipedia.org/wiki/)(Slavic) – Changeling
     Odmience,
-    /// []()(Jewish) – Giant king of the Amorites
+    /// [](https://en.wikipedia.org/wiki/)(Jewish) – Giant king of the Amorites
     Og,
-    /// []()(Canadian) Canadian Lake Monster
+    /// [](https://en.wikipedia.org/wiki/)(Canadian) Canadian Lake Monster
     Ogopogo,
-    /// []()(Nigeria) – Iron god for the Yoruba people,/// []()(South Western Nigeria)
+    /// [](https://en.wikipedia.org/wiki/)(Nigeria) – Iron god for the Yoruba people,/// [](https://en.wikipedia.org/wiki/)(South Western Nigeria)
     Ogun,
-    /// []()(Medieval folklore) – Large, grotesque humanoid
+    /// [](https://en.wikipedia.org/wiki/)(Medieval folklore) – Large, grotesque humanoid
     Ogre,
-    /// []()(Japanese) – Ghost of a woman with a distorted face who was murdered by her husband
+    /// [](https://en.wikipedia.org/wiki/)(Japanese) – Ghost of a woman with a distorted face who was murdered by her husband
     Oiwa,
-    /// []()(Cantabrian) – Giant cyclops who embodies evil.
+    /// [](https://en.wikipedia.org/wiki/)(Cantabrian) – Giant cyclops who embodies evil.
     Ojancanu,
-    /// []()(Japanese) – Spirit of a plate-counting servant girl, associated with the 'Okiku-Mushi' worm
+    /// [](https://en.wikipedia.org/wiki/)(Japanese) – Spirit of a plate-counting servant girl, associated with the 'Okiku-Mushi' worm
     Okiku,
-    /// []()(Japanese) – Death spirit
+    /// [](https://en.wikipedia.org/wiki/)(Japanese) – Death spirit
     Okubi,
-    /// []()(Japanese) – Dog or wolf that follows travelers at night, similar to the Black dog of English folklore
+    /// [](https://en.wikipedia.org/wiki/)(Japanese) – Dog or wolf that follows travelers at night, similar to the Black dog of English folklore
     OkuriInu,
-    /// []()(Guyanese) – Vampiric hag who takes the form of a fireball at night
+    /// [](https://en.wikipedia.org/wiki/)(Guyanese) – Vampiric hag who takes the form of a fireball at night
     OleHigue,
-    /// []()(Japanese) – Giant, human-eating centipede that lives in the mountains
+    /// [](https://en.wikipedia.org/wiki/)(Japanese) – Giant, human-eating centipede that lives in the mountains
     Omukade,
-    /// []()(Japanese) – Large, grotesque humanoid demon, usually having red skin and horns
+    /// [](https://en.wikipedia.org/wiki/)(Japanese) – Large, grotesque humanoid demon, usually having red skin and horns
     Oni,
-    /// []()(Japanese) – Spectral fire
+    /// [](https://en.wikipedia.org/wiki/)(Japanese) – Spectral fire
     Onibi,
-    /// []()(Japanese) – Bird-demon created from the spirits of freshly dead corpses
+    /// [](https://en.wikipedia.org/wiki/)(Japanese) – Bird-demon created from the spirits of freshly dead corpses
     Onmoraki,
-    /// []()(Medieval Bestiaries) – Human-donkey hybrid
+    /// [](https://en.wikipedia.org/wiki/)(Medieval Bestiaries) – Human-donkey hybrid
     Onocentaur,
-    /// []()(Greek) – Shapeshifting demon
+    /// [](https://en.wikipedia.org/wiki/)(Greek) – Shapeshifting demon
     Onoskelis,
-    /// []()(Japanese) – Vengeful ghost that manifests in a physical rather than a spectral form
+    /// [](https://en.wikipedia.org/wiki/)(Japanese) – Vengeful ghost that manifests in a physical rather than a spectral form
     Onryo,
-    /// []()(Aztec and Latin American folklore) – Wild cat, possibly a subspecies of cougar
+    /// [](https://en.wikipedia.org/wiki/)(Aztec and Latin American folklore) – Wild cat, possibly a subspecies of cougar
     Onza,
-    /// []()(Unknown origin) – Bird that flies backwards
+    /// [](https://en.wikipedia.org/wiki/)(Unknown origin) – Bird that flies backwards
     OozlumBird,
-    /// []()(Greek) – Bull-serpent hybrid
+    /// [](https://en.wikipedia.org/wiki/)(Greek) – Bull-serpent hybrid
     Ophiotaurus,
-    /// []()(Heraldic) – Lion-eagle hybrid, similar to a griffin, but with leonine forelimbs
+    /// [](https://en.wikipedia.org/wiki/)(Heraldic) – Lion-eagle hybrid, similar to a griffin, but with leonine forelimbs
     Opinicus,
-    /// []()(Malay) – Forest spirit
+    /// [](https://en.wikipedia.org/wiki/)(Malay) – Forest spirit
     OrangBunian,
-    /// []()(Malay) – Spectral rapist
+    /// [](https://en.wikipedia.org/wiki/)(Malay) – Spectral rapist
     OrangMinyak,
-    /// []()(Hungarian) – Shapeshifting demon
+    /// [](https://en.wikipedia.org/wiki/)(Hungarian) – Shapeshifting demon
     Ordog,
-    /// []()(Greek) – Mountain nymph
+    /// [](https://en.wikipedia.org/wiki/)(Greek) – Mountain nymph
     Oread,
-    /// []()(Tyrolean) – Little people and house spirits
+    /// [](https://en.wikipedia.org/wiki/)(Tyrolean) – Little people and house spirits
     Ork,
-    /// []()(European) – Horse-headed, honest oracle classed as a demon
+    /// [](https://en.wikipedia.org/wiki/)(European) – Horse-headed, honest oracle classed as a demon
     Orobas,
-    /// []()(Medieval Bestiaries) – Peacock-eagle-swan-crane hybrid
+    /// [](https://en.wikipedia.org/wiki/)(Medieval Bestiaries) – Peacock-eagle-swan-crane hybrid
     OrphanBird,
-    /// []()(Greek) – Two-headed dog
+    /// [](https://en.wikipedia.org/wiki/)(Greek) – Two-headed dog
     Orthrus,
-    /// []()(Hellenized) – God of the dead and the judge of the underworld
+    /// [](https://en.wikipedia.org/wiki/)(Hellenized) – God of the dead and the judge of the underworld
     Osiris,
-    /// []()(Nigeria) – God of love and fertility
+    /// [](https://en.wikipedia.org/wiki/)(Nigeria) – God of love and fertility
     Oshun,
-    /// []()(Finnish) – Bear spirit
+    /// [](https://en.wikipedia.org/wiki/)(Finnish) – Bear spirit
     Otso,
-    /// []()(Worldwide) – Mystic serpent/dragon that eats its own tail
+    /// [](https://en.wikipedia.org/wiki/)(Worldwide) – Mystic serpent/dragon that eats its own tail
     Ouroboros,
-    /// []()(Slavic) – Malevolent threshing house spirit
+    /// [](https://en.wikipedia.org/wiki/)(Slavic) – Malevolent threshing house spirit
     Ovinnik,
-    /// []()(Cornish) – Owl-like humanoid
+    /// [](https://en.wikipedia.org/wiki/)(Cornish) – Owl-like humanoid
     Owlman,
-    /// []()(Finnish) – Spectral fire
+    /// [](https://en.wikipedia.org/wiki/)(Finnish) – Spectral fire
     PaasselkaDevils,
-    /// []()(Abenaki) – Weather spirit
+    /// [](https://en.wikipedia.org/wiki/)(Abenaki) – Weather spirit
     Pamola,
-    /// []()(Greek) – Human-goat hybrids descended from the god Pan
+    /// [](https://en.wikipedia.org/wiki/)(Greek) – Human-goat hybrids descended from the god Pan
     Panes,
-    /// []()(Medieval Bestiary) – White-haired humanoid with giant ears and eight fingers and toes
+    /// [](https://en.wikipedia.org/wiki/)(Medieval Bestiary) – White-haired humanoid with giant ears and eight fingers and toes
     Pandi,
-    /// []()(Hindu) – Demons with herds of stolen cows
+    /// [](https://en.wikipedia.org/wiki/)(Hindu) – Demons with herds of stolen cows
     Panis,
-    /// []()(Chinese) – Water dragon
+    /// [](https://en.wikipedia.org/wiki/)(Chinese) – Water dragon
     Panlong,
-    /// []()(Medieval Bestiaries) – Humanoid with gigantic ears
+    /// [](https://en.wikipedia.org/wiki/)(Medieval Bestiaries) – Humanoid with gigantic ears
     Panotti,
-    /// []()(Medieval Bestiaries) – Feline with sweet breath
+    /// [](https://en.wikipedia.org/wiki/)(Medieval Bestiaries) – Feline with sweet breath
     Panther,
-    /// []()(Medieval Bestiaries) – Shapeshifting animal whose natural form was a large ruminant
+    /// [](https://en.wikipedia.org/wiki/)(Medieval Bestiaries) – Shapeshifting animal whose natural form was a large ruminant
     Parandrus,
-    /// []()(Medieval Bestiaries) – Fast, spotted feline believed to mate with lions to produce leopards
+    /// [](https://en.wikipedia.org/wiki/)(Medieval Bestiaries) – Fast, spotted feline believed to mate with lions to produce leopards
     Pard,
-    /// []()(Etruscan) – Fish-tailed leopard
+    /// [](https://en.wikipedia.org/wiki/)(Etruscan) – Fish-tailed leopard
     Pardalokampoi,
-    /// []()(Medieval folklore) – Giant race reputed to live in the area of Patagonia
+    /// [](https://en.wikipedia.org/wiki/)(Medieval folklore) – Giant race reputed to live in the area of Patagonia
     Patagon,
-    /// []()(Latin America) – Anthropophagous, one-legged humanoid
+    /// [](https://en.wikipedia.org/wiki/)(Latin America) – Anthropophagous, one-legged humanoid
     Patasola,
-    /// []()(Māori) – White-skinned nature spirits
+    /// [](https://en.wikipedia.org/wiki/)(Māori) – White-skinned nature spirits
     Patupairehe,
-    /// []()(Scottish) – Strong little people
+    /// [](https://en.wikipedia.org/wiki/)(Scottish) – Strong little people
     Pech,
-    /// []()(Greek) – Spring nymph
+    /// [](https://en.wikipedia.org/wiki/)(Greek) – Spring nymph
     Pegaeae,
-    /// []()(Greek) – Winged horse
+    /// [](https://en.wikipedia.org/wiki/)(Greek) – Winged horse
     Pegasus,
     /// Pegasus-unicorn hybrid
     Pegacorn,
-    /// []()(Malay) – Servant spirit
+    /// [](https://en.wikipedia.org/wiki/)(Malay) – Servant spirit
     Pelesit,
-    /// []()(French) – Dragon
+    /// [](https://en.wikipedia.org/wiki/)(French) – Dragon
     Peluda,
-    /// []()(Malay) – Vampires that sever their heads from their bodies to fly around, usually with their intestines or other internal organs trailing behind
+    /// [](https://en.wikipedia.org/wiki/)(Malay) – Vampires that sever their heads from their bodies to fly around, usually with their intestines or other internal organs trailing behind
     Penanggalan,
-    /// []()(Chinese) – Giant bird
+    /// [](https://en.wikipedia.org/wiki/)(Chinese) – Giant bird
     Peng,
-    /// []()(Chinese) – Tree spirit
+    /// [](https://en.wikipedia.org/wiki/)(Chinese) – Tree spirit
     Penghou,
-    /// []()(Persian) – Winged humanoid
+    /// [](https://en.wikipedia.org/wiki/)(Persian) – Winged humanoid
     Peri,
-    /// []()(Allegedly Medieval folklore) – Deer-bird hybrid
+    /// [](https://en.wikipedia.org/wiki/)(Allegedly Medieval folklore) – Deer-bird hybrid
     Peryton,
-    /// []()(Catalan) – Nightmare demon in the form of a cat or dog
+    /// [](https://en.wikipedia.org/wiki/)(Catalan) – Nightmare demon in the form of a cat or dog
     Pesanta,
-    /// []()(Chilota and Mapuche) – Vampiric, flying, shapeshifting serpent
+    /// [](https://en.wikipedia.org/wiki/)(Chilota and Mapuche) – Vampiric, flying, shapeshifting serpent
     Peuchen,
-    /// []()(Thai) – Ghost of a person who has died suddenly of a violent or cruel death
+    /// [](https://en.wikipedia.org/wiki/)(Thai) – Ghost of a person who has died suddenly of a violent or cruel death
     PhiTaiHong,
-    /// []()(Phoenician) – Regenerative bird reborn from its own ashes
+    /// [](https://en.wikipedia.org/wiki/)(Phoenician) – Regenerative bird reborn from its own ashes
     Phoenix,
-    /// []()(Native American mythology) – Winged, antlered feline-like dragon
+    /// [](https://en.wikipedia.org/wiki/)(Native American mythology) – Winged, antlered feline-like dragon
     Piasa,
-    /// []()(Armenian) – Large land animal
+    /// [](https://en.wikipedia.org/wiki/)(Armenian) – Large land animal
     Piatek,
-    /// []()(Pictish stones) – Stylistic animal, possibly a dragon
+    /// [](https://en.wikipedia.org/wiki/)(Pictish stones) – Stylistic animal, possibly a dragon
     PictishBeast,
-    /// []()(Mapuche) – Nature spirit
+    /// [](https://en.wikipedia.org/wiki/)(Mapuche) – Nature spirit
     Pillan,
-    /// []()([Japanese spirit])
+    /// [](https://en.wikipedia.org/wiki/)([Japanese spirit])
     Plagg,
-    /// []()(Abenaki) – Water spirit
+    /// [](https://en.wikipedia.org/wiki/)(Abenaki) – Water spirit
     PimSkwaWagenOwad,
-    /// []()(Finnish) – Minor demon
+    /// [](https://en.wikipedia.org/wiki/)(Finnish) – Minor demon
     Piru,
-    /// []()(Hindu) – Carrion-eating demon
+    /// [](https://en.wikipedia.org/wiki/)(Hindu) – Carrion-eating demon
     Pishacha,
-    /// []()(Peru) – Monster man that steals its victim's body fat for cannibalistic purposes
+    /// [](https://en.wikipedia.org/wiki/)(Peru) – Monster man that steals its victim's body fat for cannibalistic purposes
     Pishtaco,
-    /// []()(Abenaki) – Serpentine rain spirit
+    /// [](https://en.wikipedia.org/wiki/)(Abenaki) – Serpentine rain spirit
     PitaSkog,
-    /// []()(Cornish) – Little people and nature spirits
+    /// [](https://en.wikipedia.org/wiki/)(Cornish) – Little people and nature spirits
     Pixie,
-    /// []()(Chinese) – Winged lion
+    /// [](https://en.wikipedia.org/wiki/)(Chinese) – Winged lion
     Pixiu,
-    /// []()(Chinese) – Horned, dragon-lion hybrid
+    /// [](https://en.wikipedia.org/wiki/)(Chinese) – Horned, dragon-lion hybrid
     PiYao,
-    /// []()(Slavic) – Vampire created when a mother strangles her child
+    /// [](https://en.wikipedia.org/wiki/)(Slavic) – Vampire created when a mother strangles her child
     Plakavac,
-    /// []()(Abenaki) – Tree spirit
+    /// [](https://en.wikipedia.org/wiki/)(Abenaki) – Tree spirit
     PokWejeeMen,
-    /// []()(Polish) – Little people and field spirits
+    /// [](https://en.wikipedia.org/wiki/)(Polish) – Little people and field spirits
     Polevik,
-    /// []()(Colombian) – Man-eating chicken spirit
+    /// [](https://en.wikipedia.org/wiki/)(Colombian) – Man-eating chicken spirit
     PolloMaligno,
-    /// []()(Malay) – Invisible servant spirit
+    /// [](https://en.wikipedia.org/wiki/)(Malay) – Invisible servant spirit
     Polong,
-    /// []()(German) – Ghost that moves objects
+    /// [](https://en.wikipedia.org/wiki/)(German) – Ghost that moves objects
     Poltergeist,
-    /// []()(Guaraní) – Wild man and nature spirit
+    /// [](https://en.wikipedia.org/wiki/)(Guaraní) – Wild man and nature spirit
     Pombero,
-    /// []()(Māori) – Grotesque, malevolent humanoid
+    /// [](https://en.wikipedia.org/wiki/)(Māori) – Grotesque, malevolent humanoid
     Ponaturi,
-    /// []()(Malay) – Undead, vampiric women who died in childbirth
+    /// [](https://en.wikipedia.org/wiki/)(Malay) – Undead, vampiric women who died in childbirth
     Pontianak,
-    /// []()(American Folklore) Kentucky Urban Legend – Cryptid, a murderous creature that is part man, sheep, and goat
+    /// [](https://en.wikipedia.org/wiki/)(American Folklore) Kentucky Urban Legend – Cryptid, a murderous creature that is part man, sheep, and goat
     PopeLickMonster,
-    /// []()(Māori) – Giant bird
+    /// [](https://en.wikipedia.org/wiki/)(Māori) – Giant bird
     Poukai,
-    /// []()(Buddhist, Hindu, and Jain) – Ghosts of especially greedy people
+    /// [](https://en.wikipedia.org/wiki/)(Buddhist, Hindu, and Jain) – Ghosts of especially greedy people
     Preta,
-    /// []()(Romanian – Roman) – Undead wolf
+    /// [](https://en.wikipedia.org/wiki/)(Romanian – Roman) – Undead wolf
     Pricolici,
-    /// []()(Serbia) – Dog-headed monster
+    /// [](https://en.wikipedia.org/wiki/)(Serbia) – Dog-headed monster
     Psoglav,
-    /// []()(Slavic) – Mischievous spirit
+    /// [](https://en.wikipedia.org/wiki/)(Slavic) – Mischievous spirit
     Psotnik,
-    /// []()(Greek) – Butterfly-winged nymphs, daughters of Psyche
+    /// [](https://en.wikipedia.org/wiki/)(Greek) – Butterfly-winged nymphs, daughters of Psyche
     Psychai,
-    /// []()(Greek) – Creatures, spirits, angels, or deities in many religions who escort newly deceased souls from Earth to the afterlife
+    /// [](https://en.wikipedia.org/wiki/)(Greek) – Creatures, spirits, angels, or deities in many religions who escort newly deceased souls from Earth to the afterlife
     Psychopomp,
-    /// []()(Welsh) – Shapeshifting animal spirit
+    /// [](https://en.wikipedia.org/wiki/)(Welsh) – Shapeshifting animal spirit
     Puca,
-    /// []()(Icelandic) – Malevolent little person
+    /// [](https://en.wikipedia.org/wiki/)(Icelandic) – Malevolent little person
     Puki,
-    /// []()(English) – House spirit
+    /// [](https://en.wikipedia.org/wiki/)(English) – House spirit
     Puck,
-    /// []()(German) – House spirit
+    /// [](https://en.wikipedia.org/wiki/)(German) – House spirit
     Putz,
-    /// []()(Philippine) – Headless humanoid
+    /// [](https://en.wikipedia.org/wiki/)(Philippine) – Headless humanoid
     Pugot,
-    /// []()(Frisian) – House spirit
+    /// [](https://en.wikipedia.org/wiki/)(Frisian) – House spirit
     Puk,
-    /// []()(Latvian) – Dragon
+    /// [](https://en.wikipedia.org/wiki/)(Latvian) – Dragon
     Pukis,
-    /// []()(Native American mythology) – Troll-like gray-skinned being
+    /// [](https://en.wikipedia.org/wiki/)(Native American mythology) – Troll-like gray-skinned being
     Puckwudgie,
-    /// []()(Greek) – Little people
+    /// [](https://en.wikipedia.org/wiki/)(Greek) – Little people
     Pygmy,
-    /// []()(Greek) – Insect-dragon hybrid
+    /// [](https://en.wikipedia.org/wiki/)(Greek) – Insect-dragon hybrid
     Pyrausta,
-    /// []()(Greek) – Serpentine dragon
+    /// [](https://en.wikipedia.org/wiki/)(Greek) – Serpentine dragon
     Python,
-    /// []()(Inuit mythology) – Aquatic human abductor
+    /// [](https://en.wikipedia.org/wiki/)(Inuit mythology) – Aquatic human abductor
     Qalupalik,
-    /// []()(Chinese) – Dragon-ox-deer hybrid
+    /// [](https://en.wikipedia.org/wiki/)(Chinese) – Dragon-ox-deer hybrid
     Qilin,
-    /// []()(Inuit) – Large, bald dog spirit
+    /// [](https://en.wikipedia.org/wiki/)(Inuit) – Large, bald dog spirit
     Qiqirn,
-    /// []()(Jewish) – Evil spirits
+    /// [](https://en.wikipedia.org/wiki/)(Jewish) – Evil spirits
     Qliphoth,
-    /// []()(Arthurian legend) – Serpent-leopard-lion-hart hybrid
+    /// [](https://en.wikipedia.org/wiki/)(Arthurian legend) – Serpent-leopard-lion-hart hybrid
     QuestingBeast,
-    /// []()(Aztec) – Important Aztec god whose name means 'feathered serpent'; he is not to be confused with the quetzal, a type of bird
+    /// [](https://en.wikipedia.org/wiki/)(Aztec) – Important Aztec god whose name means 'feathered serpent'; he is not to be confused with the quetzal, a type of bird
     Quetzalcoatl,
-    /// []()(Frankish) – Five-horned bull
+    /// [](https://en.wikipedia.org/wiki/)(Frankish) – Five-horned bull
     Quinotaur,
-    /// []()(Norse) – Spirit that protects a specific place
+    /// [](https://en.wikipedia.org/wiki/)(Norse) – Spirit that protects a specific place
     Ra,
-    /// []()(Akkadian) – Vampiric spirit that ambushes people
+    /// [](https://en.wikipedia.org/wiki/)(Akkadian) – Vampiric spirit that ambushes people
     Rabisu,
-    /// []()(Swedish) – Tree spirit
+    /// [](https://en.wikipedia.org/wiki/)(Swedish) – Tree spirit
     Radande,
-    /// []()(Lithuanian) – Malevolent witch
+    /// [](https://en.wikipedia.org/wiki/)(Lithuanian) – Malevolent witch
     Ragana,
-    /// []()(Japanese) – Lightning spirit
+    /// [](https://en.wikipedia.org/wiki/)(Japanese) – Lightning spirit
     Raiju,
-    /// []()(Native American) – Rain spirit
+    /// [](https://en.wikipedia.org/wiki/)(Native American) – Rain spirit
     RainBird,
-    /// []()(Lenape) – Crow spirit
+    /// [](https://en.wikipedia.org/wiki/)(Lenape) – Crow spirit
     RainbowCrow,
-    /// []()(Hindu) – Whale-sized, multi-colored fish
+    /// [](https://en.wikipedia.org/wiki/)(Hindu) – Whale-sized, multi-colored fish
     RainbowFish,
-    /// []()(Australian Aboriginal) – Snake
+    /// [](https://en.wikipedia.org/wiki/)(Australian Aboriginal) – Snake
     RainbowSerpent,
-    /// []()(Buddhist and Hindu) – Shapeshifting demon
+    /// [](https://en.wikipedia.org/wiki/)(Buddhist and Hindu) – Shapeshifting demon
     Rakshasa,
-    /// []()(Cantabrian) – Extremely long, weasel-like animal
+    /// [](https://en.wikipedia.org/wiki/)(Cantabrian) – Extremely long, weasel-like animal
     Ramidreju,
-    /// []()(Slavic) – Whirlwind spirit
+    /// [](https://en.wikipedia.org/wiki/)(Slavic) – Whirlwind spirit
     Rarog,
-    /// []()(Cherokee) – Life-draining spirit
+    /// [](https://en.wikipedia.org/wiki/)(Cherokee) – Life-draining spirit
     RavenMocker,
-    /// []()(Native American, Norse, and Siberian) – Trickster spirit
+    /// [](https://en.wikipedia.org/wiki/)(Native American, Norse, and Siberian) – Trickster spirit
     RavenSpirit,
-    /// []()(Norse) – Squirrel spirit
+    /// [](https://en.wikipedia.org/wiki/)(Norse) – Squirrel spirit
     Ratatoskr,
-    /// []()(American Folklore) – Possible plesiosaur or serpent
+    /// [](https://en.wikipedia.org/wiki/)(American Folklore) – Possible plesiosaur or serpent
     RaystownRay,
-    /// []()(English) – Evil, ugly humanoid
+    /// [](https://en.wikipedia.org/wiki/)(English) – Evil, ugly humanoid
     Redcap,
-    /// []()(Jewish) – Gigantic land animal
+    /// [](https://en.wikipedia.org/wiki/)(Jewish) – Gigantic land animal
     ReEm,
-    /// []()(Heraldic) – Eagle, sometimes depicted with two heads
+    /// [](https://en.wikipedia.org/wiki/)(Heraldic) – Eagle, sometimes depicted with two heads
     Reichsadler,
-    /// []()(Jewish) – Giant
+    /// [](https://en.wikipedia.org/wiki/)(Jewish) – Giant
     Rephaite,
-    /// []()(Global) – Human-lizard hybrid
+    /// [](https://en.wikipedia.org/wiki/)(Global) – Human-lizard hybrid
     ReptilianHumanoid,
-    /// []()(Medieval folklore) – Reanimated dead
+    /// [](https://en.wikipedia.org/wiki/)(Medieval folklore) – Reanimated dead
     Revenant,
-    /// []()(Arabian and Persian) – Gigantic bird
+    /// [](https://en.wikipedia.org/wiki/)(Arabian and Persian) – Gigantic bird
     Roc,
-    /// []()(Japanese) – Long-necked, humanoid trickster
+    /// [](https://en.wikipedia.org/wiki/)(Japanese) – Long-necked, humanoid trickster
     Rokurokubi,
-    /// []()(Africa and India) – Skeletal creature with elements of a rabbit, badger, and bear
+    /// [](https://en.wikipedia.org/wiki/)(Africa and India) – Skeletal creature with elements of a rabbit, badger, and bear
     Rompo,
-    /// []()(Vietnamese) dragon
+    /// [](https://en.wikipedia.org/wiki/)(Vietnamese) dragon
     Rong,
-    /// []()(French America) – Human-wolf shapeshifter
+    /// [](https://en.wikipedia.org/wiki/)(French America) – Human-wolf shapeshifter
     Rougarou,
-    /// []()(Slavic) – Female water spirit
+    /// [](https://en.wikipedia.org/wiki/)(Slavic) – Female water spirit
     Rusalka,
     /// Japanese dragon
     Ryu,
-    /// []()(Brazilian) – One-legged nature spirit
+    /// [](https://en.wikipedia.org/wiki/)(Brazilian) – One-legged nature spirit
     Saci,
-    /// []()(Japanese) – Horse head that dangles from trees on Kyūshū
+    /// [](https://en.wikipedia.org/wiki/)(Japanese) – Horse head that dangles from trees on Kyūshū
     Sagari,
-    /// []()(Japanese) – Haunted pillar, installed upside-down
+    /// [](https://en.wikipedia.org/wiki/)(Japanese) – Haunted pillar, installed upside-down
     Sakabashira,
-    /// []()(Alchemy) – Fire elemental
+    /// [](https://en.wikipedia.org/wiki/)(Alchemy) – Fire elemental
     Salamander,
-    /// []()(Japanese) – Shark-man servant of the dragon king of the sea
+    /// [](https://en.wikipedia.org/wiki/)(Japanese) – Shark-man servant of the dragon king of the sea
     Samebito,
-    /// []()(Slavic) – Nature spirit
+    /// [](https://en.wikipedia.org/wiki/)(Slavic) – Nature spirit
     Samodiva,
-    /// []()(Hindu) – The demigod Jatayu's brother
+    /// [](https://en.wikipedia.org/wiki/)(Hindu) – The demigod Jatayu's brother
     Sampati,
-    /// []()(Northern Europe) – Nursery spirit that induces sleep in children
+    /// [](https://en.wikipedia.org/wiki/)(Northern Europe) – Nursery spirit that induces sleep in children
     Sandman,
-    /// []()(South Western Nigeria) – Yoruba king of arts, music, dance and entertainment
+    /// [](https://en.wikipedia.org/wiki/)(South Western Nigeria) – Yoruba king of arts, music, dance and entertainment
     Sango,
-    /// []()(Philippine) – Spirits in the form of fireballs that roam around the forest
+    /// [](https://en.wikipedia.org/wiki/)(Philippine) – Spirits in the form of fireballs that roam around the forest
     Santelmo,
-    /// []()(North Pole-European folklore) – Elderly man who delivers gifts to well-behaved children on the night of Christmas Eve
+    /// [Santa Claus](https://en.wikipedia.org/wiki/Santa_Claus)(North Pole-European folklore) – Elderly man who delivers gifts to well-behaved children on the night of Christmas Eve
     SantaClaus,
-    /// []()(Romanian) – Nature spirit
+    /// [](https://en.wikipedia.org/wiki/)(Romanian) – Nature spirit
     Sanziana,
-    /// []()(Philippine) – Bird of good fortune
+    /// [](https://en.wikipedia.org/wiki/)(Philippine) – Bird of good fortune
     Sarimanok,
-    /// []()(Hindu) – Bird spirit
+    /// [](https://en.wikipedia.org/wiki/)(Hindu) – Bird spirit
     Sarngika,
-    /// []()(Japanese) – Wicked monkey spirit who was defeated by a dog
+    /// [](https://en.wikipedia.org/wiki/)(Japanese) – Wicked monkey spirit who was defeated by a dog
     Sarugami,
-    /// []()(Japanese) – Mind-reading humanoid
+    /// [](https://en.wikipedia.org/wiki/)(Japanese) – Mind-reading humanoid
     Satori,
-    /// []()(Heaven--Abrahamic mythology) – Ruler of Hell
+    /// [](https://en.wikipedia.org/wiki/)(Heaven--Abrahamic mythology) – Ruler of Hell
     Satan,
-    /// []()(Greek) – Human-goat hybrid and fertility spirit
+    /// [](https://en.wikipedia.org/wiki/)(Greek) – Human-goat hybrid and fertility spirit
     Satyr,
-    /// []()(Medieval Bestiary) – Apes who always bear twins, one the mother loves, the other it hates
+    /// [](https://en.wikipedia.org/wiki/)(Medieval Bestiary) – Apes who always bear twins, one the mother loves, the other it hates
     Satyrus,
-    /// []()(Japanese) – Shapeshifting turban snail spirit
+    /// [](https://en.wikipedia.org/wiki/)(Japanese) – Shapeshifting turban snail spirit
     SazaeOni,
-    /// []()(English) – Shapeshifting undead
+    /// [](https://en.wikipedia.org/wiki/)(English) – Shapeshifting undead
     Sceadugenga,
-    /// []()(Medieval Bestiaries) – Snake which mesmerizes its prey
+    /// [](https://en.wikipedia.org/wiki/)(Medieval Bestiaries) – Snake which mesmerizes its prey
     Scitalis,
-    /// []()(Sumerian) – Human-scorpion hybrid
+    /// [](https://en.wikipedia.org/wiki/)(Sumerian) – Human-scorpion hybrid
     ScorpionMan,
-    /// []()(Greek) – Human-snake hybrid with a snake's tail, twelve legs, and six long-necked snake heads
+    /// [](https://en.wikipedia.org/wiki/)(Greek) – Human-snake hybrid with a snake's tail, twelve legs, and six long-necked snake heads
     Scylla,
-    /// []()(Heraldic) – Fish-tailed bee
+    /// [](https://en.wikipedia.org/wiki/)(Heraldic) – Fish-tailed bee
     SeaBee,
-    /// []()(Heraldic) a legendary creature that has the head and upper body of a lion, but with webbed forelimbs and a fish tail.
+    /// [](https://en.wikipedia.org/wiki/)(Heraldic) a legendary creature that has the head and upper body of a lion, but with webbed forelimbs and a fish tail.
     SeaLion,
-    /// []()(Medieval folklore) – Fish-like humanoid
+    /// [](https://en.wikipedia.org/wiki/)(Medieval folklore) – Fish-like humanoid
     SeaMonk,
-    /// []()(Worldwide) – Giant, marine animals
+    /// [](https://en.wikipedia.org/wiki/)(Worldwide) – Giant, marine animals
     SeaMonster,
-    /// []()(Worldwide) – Serpentine sea monster
+    /// [](https://en.wikipedia.org/wiki/)(Worldwide) – Serpentine sea monster
     SeaSerpent,
-    /// []()(Heraldic) – Fish-tailed wyvern
+    /// [](https://en.wikipedia.org/wiki/)(Heraldic) – Fish-tailed wyvern
     SeaWyvern,
-    /// []()(Japanese) – Water spirit which can be heard making merry at night
+    /// [](https://en.wikipedia.org/wiki/)(Japanese) – Water spirit which can be heard making merry at night
     Seko,
-    /// []()(Faroese, Icelandic, Irish, and Scottish) – Human-seal shapeshifter
+    /// [](https://en.wikipedia.org/wiki/)(Faroese, Icelandic, Irish, and Scottish) – Human-seal shapeshifter
     Selkie,
-    /// []()(Japanese) – Human-faced frog which guides newly deceased souls to the graveyard
+    /// [](https://en.wikipedia.org/wiki/)(Japanese) – Human-faced frog which guides newly deceased souls to the graveyard
     SenpokuKanpoku,
-    /// []()(Medieval Bestiaries) – Snake with corrosive venom
+    /// [](https://en.wikipedia.org/wiki/)(Medieval Bestiaries) – Snake with corrosive venom
     Seps,
-    /// []()(Worldwide) – Snake spirit
+    /// [](https://en.wikipedia.org/wiki/)(Worldwide) – Snake spirit
     Serpent,
-    /// []()(Ancient Egypt) – Serpent-leopard hybrid
+    /// [](https://en.wikipedia.org/wiki/)(Ancient Egypt) – Serpent-leopard hybrid
     Serpopard,
-    /// []()(Japanese) – Tiger-carp hybrid
+    /// [](https://en.wikipedia.org/wiki/)(Japanese) – Tiger-carp hybrid
     Shachihoko,
-    /// []()(Worldwide) – Spiritual imprint
+    /// [](https://en.wikipedia.org/wiki/)(Worldwide) – Spiritual imprint
     Shade,
-    /// []()(American) – Malevolent ghost
+    /// [](https://en.wikipedia.org/wiki/)(American) – Malevolent ghost
     ShadowPeople,
-    /// []()(Persian) – Giant eagle or hawk
+    /// [](https://en.wikipedia.org/wiki/)(Persian) – Giant eagle or hawk
     Shahbaz,
-    /// []()(Islam) – Islamic version of the Devil (Satan) from the Bible
+    /// [](https://en.wikipedia.org/wiki/)(Islam) – Islamic version of the Devil (Satan) from the Bible
     Shaitan,
-    /// []()(Chinese) – Rain bird
+    /// [](https://en.wikipedia.org/wiki/)(Chinese) – Rain bird
     ShangYang,
-    /// []()(Jewish) – Chicken-legged demon
+    /// [](https://en.wikipedia.org/wiki/)(Jewish) – Chicken-legged demon
     Shedim,
-    /// []()(Akkadian and Sumerian) – Protective spirit who takes the form of a winged bull or human-headed lion
+    /// [](https://en.wikipedia.org/wiki/)(Akkadian and Sumerian) – Protective spirit who takes the form of a winged bull or human-headed lion
     Shedu,
-    /// []()(English, Scottish and German, as schellenrocc) – Water spirit
+    /// [](https://en.wikipedia.org/wiki/)(English, Scottish and German, as schellenrocc) – Water spirit
     Shellycoat,
-    /// []()(Chinese) – Shapeshifing sea monster
+    /// [](https://en.wikipedia.org/wiki/)(Chinese) – Shapeshifing sea monster
     Shen,
-    /// []()(Chinese) – Weather dragon
+    /// [](https://en.wikipedia.org/wiki/)(Chinese) – Weather dragon
     Shenlong,
-    /// []()(Japanese) – Water spirit from Shikoku
+    /// [](https://en.wikipedia.org/wiki/)(Japanese) – Water spirit from Shikoku
     Shibaten,
-    /// []()(Japanese) – Servant spirit
+    /// [](https://en.wikipedia.org/wiki/)(Japanese) – Servant spirit
     Shikigami,
-    /// []()(Japanese) – Child-sized servant spirit
+    /// [](https://en.wikipedia.org/wiki/)(Japanese) – Child-sized servant spirit
     ShikiOji,
-    /// []()(Japanese) – Underworld hag
+    /// [](https://en.wikipedia.org/wiki/)(Japanese) – Underworld hag
     Shikome,
-    /// []()(Japanese) – 'Death god'
+    /// [](https://en.wikipedia.org/wiki/)(Japanese) – 'Death god'
     Shinigami,
-    /// []()(Japanese) – White, faceless spirit
+    /// [](https://en.wikipedia.org/wiki/)(Japanese) – White, faceless spirit
     ShiroBozu,
-    /// []()(Japanese) – Animated mosquito netting or dust cloth
+    /// [](https://en.wikipedia.org/wiki/)(Japanese) – Animated mosquito netting or dust cloth
     Shirouneri,
-    /// []()(Japanese) – Spirit of a dead person
+    /// [](https://en.wikipedia.org/wiki/)(Japanese) – Spirit of a dead person
     Shiryo,
-    /// []()(Japanese) – Lion-dog hybrid
+    /// [](https://en.wikipedia.org/wiki/)(Japanese) – Lion-dog hybrid
     Shisa,
-    /// []()(Chinese) – Protective animal
+    /// [](https://en.wikipedia.org/wiki/)(Chinese) – Protective animal
     Shishi,
-    /// []()(Japanese) – Red-haired sea-sprites who love alcohol
+    /// [](https://en.wikipedia.org/wiki/)(Japanese) – Red-haired sea-sprites who love alcohol
     Shojo,
-    /// []()(Japanese) – Creature that peers in through skylights
+    /// [](https://en.wikipedia.org/wiki/)(Japanese) – Creature that peers in through skylights
     Shokera,
-    /// []()(Albanian) – Vampire witch that feeds on children
+    /// [](https://en.wikipedia.org/wiki/)(Albanian) – Vampire witch that feeds on children
     Shtriga,
-    /// []()(Chinese) – Drowned ghost
+    /// [](https://en.wikipedia.org/wiki/)(Chinese) – Drowned ghost
     ShuiGui,
-    /// []()(English) – Dog/monkey
+    /// [](https://en.wikipedia.org/wiki/)(English) – Dog/monkey
     ShugMonkey,
-    /// []()(Japanese) – Red-faced ghoul
+    /// [](https://en.wikipedia.org/wiki/)(Japanese) – Red-faced ghoul
     Shunoban,
-    /// []()(Japanese) – Ruler of the Oni
+    /// [](https://en.wikipedia.org/wiki/)(Japanese) – Ruler of the Oni
     ShutenDoji,
-    /// []()(Irish and Scottish) – Ancestral or nature spirit
+    /// [](https://en.wikipedia.org/wiki/)(Irish and Scottish) – Ancestral or nature spirit
     Sídhe,
-    /// []()(Philippine) – Goat-like vampire
+    /// [](https://en.wikipedia.org/wiki/)(Philippine) – Goat-like vampire
     Sigbin,
-    /// []()(Greek) – Bald, fat, thick-lipped, and flat-nosed followers of Dionysus
+    /// [](https://en.wikipedia.org/wiki/)(Greek) – Bald, fat, thick-lipped, and flat-nosed followers of Dionysus
     Sileni,
-    /// []()(Slavic) – Winged dog
+    /// [](https://en.wikipedia.org/wiki/)(Slavic) – Winged dog
     Simargl,
-    /// []()(Persian) – Dog-lion-peacock hybrid
+    /// [](https://en.wikipedia.org/wiki/)(Persian) – Dog-lion-peacock hybrid
     Simurgh,
-    /// []()(Batak) – Feline animal
+    /// [](https://en.wikipedia.org/wiki/)(Batak) – Feline animal
     Singa,
-    /// []()(Choctaw) – Serpentine rain spirit
+    /// [](https://en.wikipedia.org/wiki/)(Choctaw) – Serpentine rain spirit
     SintHolo,
-    /// []()(Greek) – Human-bird hybrid
+    /// [](https://en.wikipedia.org/wiki/)(Greek) – Human-bird hybrid
     Siren,
-    /// []()(Slavic) – Demonic human-headed bird
+    /// [](https://en.wikipedia.org/wiki/)(Slavic) – Demonic human-headed bird
     Sirin,
-    /// []()(Akkadian) – Dragon with aquiline hind legs and feline forelegs
+    /// [](https://en.wikipedia.org/wiki/)(Akkadian) – Dragon with aquiline hind legs and feline forelegs
     Sirrush,
-    /// []()(American Indian) – Two-headed sea serpent
+    /// [](https://en.wikipedia.org/wiki/)(American Indian) – Two-headed sea serpent
     Sisiutl,
-    /// []()(Paiute) – Red-haired giants
+    /// [](https://en.wikipedia.org/wiki/)(Paiute) – Red-haired giants
     SiTeCah,
-    /// []()(Norse) – Freshwater spirit
+    /// [](https://en.wikipedia.org/wiki/)(Norse) – Freshwater spirit
     Sjora,
-    /// []()(Norse) – Sea spirit
+    /// [](https://en.wikipedia.org/wiki/)(Norse) – Sea spirit
     Sjovaettir,
-    /// []()(American Indian) – Animal-human shapeshifter
+    /// [](https://en.wikipedia.org/wiki/)(American Indian) – Animal-human shapeshifter
     SkinWalker,
-    /// []()(Scandinavian) – Forest spirit
+    /// [](https://en.wikipedia.org/wiki/)(Scandinavian) – Forest spirit
     Skogsra,
-    /// []()(Norse) – Wolf that chases the Sun
+    /// [](https://en.wikipedia.org/wiki/)(Norse) – Wolf that chases the Sun
     Skoll,
-    /// []()(Chinook Jargon) – Hairy giant
+    /// [](https://en.wikipedia.org/wiki/)(Chinook Jargon) – Hairy giant
     Skookum,
-    /// []()(Medieval folklore) – Living skeletons
+    /// [](https://en.wikipedia.org/wiki/)(Medieval folklore) – Living skeletons
     Skeleton,
-    /// []()(Slavic) – Flying imp
+    /// [](https://en.wikipedia.org/wiki/)(Slavic) – Flying imp
     Skrzak,
-    /// []()(Polish) – Weather spirit
+    /// [](https://en.wikipedia.org/wiki/)(Polish) – Weather spirit
     SkyWomen,
-    /// []()(Norse) – Eight-legged horse
+    /// [](https://en.wikipedia.org/wiki/)(Norse) – Eight-legged horse
     Sleipnir,
-    /// []()(Irish and Scottish) – Restless ghost
+    /// [](https://en.wikipedia.org/wiki/)(Irish and Scottish) – Restless ghost
     Sluagh,
-    /// []()(Japanese) – Invisible spirit which pulls on sleeves
+    /// [](https://en.wikipedia.org/wiki/)(Japanese) – Invisible spirit which pulls on sleeves
     SodehikiKozo,
-    /// []()(Japanese) – Fiery ghost of an oil-stealing monk
+    /// [](https://en.wikipedia.org/wiki/)(Japanese) – Fiery ghost of an oil-stealing monk
     Sogenbi,
-    /// []()(Japanese) – Ritual disciplinary demon
+    /// [](https://en.wikipedia.org/wiki/)(Japanese) – Ritual disciplinary demon
     Soragami,
-    /// []()(Japanese) – Sound of trees being cut down, when later none seem to have been cut
+    /// [](https://en.wikipedia.org/wiki/)(Japanese) – Sound of trees being cut down, when later none seem to have been cut
     SorakiGaeshi,
-    /// []()(Japanese) – Ghost with an abacus
+    /// [](https://en.wikipedia.org/wiki/)(Japanese) – Ghost with an abacus
     Sorobanbozu,
-    /// []()(Japanese) – Fox spirit from Kyoto
+    /// [](https://en.wikipedia.org/wiki/)(Japanese) – Fox spirit from Kyoto
     Sotangitsune,
-    /// []()(Trinidad and Tobago) – Vampiric hag who takes the form of a fireball at night
+    /// [](https://en.wikipedia.org/wiki/)(Trinidad and Tobago) – Vampiric hag who takes the form of a fireball at night
     Soucouyant,
-    /// []()(Cherokee) – Sharp-fingered hag
+    /// [](https://en.wikipedia.org/wiki/)(Cherokee) – Sharp-fingered hag
     Spearfinger,
-    /// []()(Worldwide) – Terrifying ghost
+    /// [](https://en.wikipedia.org/wiki/)(Worldwide) – Terrifying ghost
     Spectre,
-    /// []()(Greek) – Winged woman-headed lion
+    /// [](https://en.wikipedia.org/wiki/)(Greek) – Winged woman-headed lion
     Sphinx,
-    /// []()(Romanian) – Little people
+    /// [](https://en.wikipedia.org/wiki/)(Romanian) – Little people
     Spiridus,
     /// Ghosts
     Spirit,
-    /// []()(Cornish) – Guardians of graveyards and ruins
+    /// [](https://en.wikipedia.org/wiki/)(Cornish) – Guardians of graveyards and ruins
     Spriggan,
-    /// []()(Medieval folklore) – little people, ghosts or elves
+    /// [](https://en.wikipedia.org/wiki/)(Medieval folklore) – little people, ghosts or elves
     Sprite,
-    /// []()(American) – Ugly and lonely creature capable of evading capture by dissolving itself into a pool of tears
+    /// [](https://en.wikipedia.org/wiki/)(American) – Ugly and lonely creature capable of evading capture by dissolving itself into a pool of tears
     Squonk,
-    /// []()(Albanian) – Demonic dragon who guards a treasure
+    /// [](https://en.wikipedia.org/wiki/)(Albanian) – Demonic dragon who guards a treasure
     Stihi,
-    /// []()(Romanian) – Vampire
+    /// [](https://en.wikipedia.org/wiki/)(Romanian) – Vampire
     Strigoi,
-    /// []()(Roman) – Vampiric bird
+    /// [](https://en.wikipedia.org/wiki/)(Roman) – Vampiric bird
     Strix,
-    /// []()(Medieval Bestiaries) – Humanoid whose males have enormous feet, and females have tiny feet
+    /// [](https://en.wikipedia.org/wiki/)(Medieval Bestiaries) – Humanoid whose males have enormous feet, and females have tiny feet
     Struthopodes,
-    /// []()(Slavic) – Vampiric undead
+    /// [](https://en.wikipedia.org/wiki/)(Slavic) – Vampiric undead
     Strzyga,
-    /// []()(Slavic) – Malevolent mountain spirit
+    /// [](https://en.wikipedia.org/wiki/)(Slavic) – Malevolent mountain spirit
     Stuhac,
-    /// []()(Greek) – Metallic bird
+    /// [](https://en.wikipedia.org/wiki/)(Greek) – Metallic bird
     StymphalianBird,
-    /// []()(New Guinea) – Cannibalistic sorcerer
+    /// [](https://en.wikipedia.org/wiki/)(New Guinea) – Cannibalistic sorcerer
     Suangi,
-    /// []()(Medieval folklore) – Female night-demon
+    /// [](https://en.wikipedia.org/wiki/)(Medieval folklore) – Female night-demon
     Succubus,
-    /// []()(Slavic) – Fortune spirit
+    /// [](https://en.wikipedia.org/wiki/)(Slavic) – Fortune spirit
     Sudice,
-    /// []()(Japanese) – Sand-throwing hag
+    /// [](https://en.wikipedia.org/wiki/)(Japanese) – Sand-throwing hag
     SunakakeBaba,
-    /// []()(Japanese) – Small dog- or cat-like creature that rubs against a person's legs at night
+    /// [](https://en.wikipedia.org/wiki/)(Japanese) – Small dog- or cat-like creature that rubs against a person's legs at night
     Sunekosuri,
-    /// []()(Finnish) – Hellhound
+    /// [](https://en.wikipedia.org/wiki/)(Finnish) – Hellhound
     Surma,
-    /// []()(Japanese) – Japanese version of the Chinese Vermillion Bird
+    /// [](https://en.wikipedia.org/wiki/)(Japanese) – Japanese version of the Chinese Vermillion Bird
     Suzaku,
-    /// []()(Norse) – Unnatural strong horse, father of Sleipnir
+    /// [](https://en.wikipedia.org/wiki/)(Norse) – Unnatural strong horse, father of Sleipnir
     Svaoilfari,
-    /// []()(Norse) – Cavern spirits; the Black Elves
+    /// [](https://en.wikipedia.org/wiki/)(Norse) – Cavern spirits; the Black Elves
     Svartalfar,
-    /// []()(Ancient Egyptian) – Crocodile-leopard-hippopotamus hybrid
+    /// [](https://en.wikipedia.org/wiki/)(Ancient Egyptian) – Crocodile-leopard-hippopotamus hybrid
     Swallower,
-    /// []()(Worldwide) – Swan-human shapeshifter
+    /// [](https://en.wikipedia.org/wiki/)(Worldwide) – Swan-human shapeshifter
     SwanMaiden,
-    /// []()(Alchemy) – Air elemental
+    /// [](https://en.wikipedia.org/wiki/)(Alchemy) – Air elemental
     Sylph,
-    /// []()(Medieval folklore) – Forest spirit
+    /// [](https://en.wikipedia.org/wiki/)(Medieval folklore) – Forest spirit
     Sylvan,
-    /// []()(Medieval Bestiaries) – African giant
+    /// [](https://en.wikipedia.org/wiki/)(Medieval Bestiaries) – African giant
     Syrbotae,
-    /// []()(Medieval Bestiaries) – Reptilian humanoid
+    /// [](https://en.wikipedia.org/wiki/)(Medieval Bestiaries) – Reptilian humanoid
     Syrictae,
-    /// []()(Jewish) – Large land animal
+    /// [](https://en.wikipedia.org/wiki/)(Jewish) – Large land animal
     Tachash,
-    /// []()(American Folklore),/// []()(Appalachia) – Powerful animal, that takes revenge on those who steal its tail
+    /// [](https://en.wikipedia.org/wiki/)(American Folklore),/// [](https://en.wikipedia.org/wiki/)(Appalachia) – Powerful animal, that takes revenge on those who steal its tail
     Tailypo,
-    /// []()(Japanese) – Tengu surrounded in demonic fire
+    /// [](https://en.wikipedia.org/wiki/)(Japanese) – Tengu surrounded in demonic fire
     Taimatsumaru,
-    /// []()(Persian) – Nature spirit
+    /// [](https://en.wikipedia.org/wiki/)(Persian) – Nature spirit
     Takam,
-    /// []()(Japanese) – Female spirit which can stretch itself to peer into the second story of a building
+    /// [](https://en.wikipedia.org/wiki/)(Japanese) – Female spirit which can stretch itself to peer into the second story of a building
     TakaOnna,
-    /// []()(Greek) – Giant made of bronze
+    /// [](https://en.wikipedia.org/wiki/)(Greek) – Giant made of bronze
     Talos,
-    /// []()(Scottish) – Shapeshifting water spirit
+    /// [](https://en.wikipedia.org/wiki/)(Scottish) – Shapeshifting water spirit
     Tangie,
-    /// []()(Māori) – Water spirit
+    /// [](https://en.wikipedia.org/wiki/)(Māori) – Water spirit
     Taniwha,
-    /// []()(Japanese) – Unharvested persimmon which becomes a monster
+    /// [](https://en.wikipedia.org/wiki/)(Japanese) – Unharvested persimmon which becomes a monster
     Tantankororin,
-    /// []()(Japanese) – Shapeshifting raccoon dog
+    /// [](https://en.wikipedia.org/wiki/)(Japanese) – Shapeshifting raccoon dog
     Tanuki,
-    /// []()(Mariana Islands) – Ancestral spirits
+    /// [](https://en.wikipedia.org/wiki/)(Mariana Islands) – Ancestral spirits
     TaotaoMona,
-    /// []()(Chinese) – Greed spirit
+    /// [](https://en.wikipedia.org/wiki/)(Chinese) – Greed spirit
     Taotie,
-    /// []()(Mangaia) – Nature spirit
+    /// [](https://en.wikipedia.org/wiki/)(Mangaia) – Nature spirit
     Tapairu,
-    /// []()(French) – Dragon with leonine, turtle, bear, and human attributes
+    /// [](https://en.wikipedia.org/wiki/)(French) – Dragon with leonine, turtle, bear, and human attributes
     Tarasque,
-    /// []()(Basque) – One-eyed giant
+    /// [](https://en.wikipedia.org/wiki/)(Basque) – One-eyed giant
     Tartalo,
-    /// []()(Christian) – Demonic punisher
+    /// [](https://en.wikipedia.org/wiki/)(Christian) – Demonic punisher
     Tartaruchi,
-    /// []()(Japanese) – Poltergeist that hits the tatami mats at night
+    /// [](https://en.wikipedia.org/wiki/)(Japanese) – Poltergeist that hits the tatami mats at night
     TatamiTataki,
-    /// []()(Alpine Folklore) lizard-like creature, often described as having the face of a cat, with a serpent-like body which may be slender or stubby, with four short legs or two forelegs
+    /// [](https://en.wikipedia.org/wiki/)(Alpine Folklore) lizard-like creature, often described as having the face of a cat, with a serpent-like body which may be slender or stubby, with four short legs or two forelegs
     Tatzelwurm,
     /// Japanese dragon
     Tatsu,
-    /// []()(Etruscan) – Fish-tailed bull
+    /// [](https://en.wikipedia.org/wiki/)(Etruscan) – Fish-tailed bull
     Taurokampoi,
-    /// []()(Trabzon) – Night-demon[citation needed]
+    /// [](https://en.wikipedia.org/wiki/)(Trabzon) – Night-demon
     Tavara,
-    /// []()(Guaraní) – Lizard with seven dog heads
+    /// [](https://en.wikipedia.org/wiki/)(Guaraní) – Lizard with seven dog heads
     TejuJagua,
-    /// []()(Mayan) – Bird
+    /// [](https://en.wikipedia.org/wiki/)(Mayan) – Bird
     Tecumbalam,
-    /// []()(Japanese) – Anthropomorphic bird
+    /// [](https://en.wikipedia.org/wiki/)(Japanese) – Anthropomorphic bird
     Tengu,
-    /// []()(Japanese) – Angelic humanoid
+    /// [](https://en.wikipedia.org/wiki/)(Japanese) – Angelic humanoid
     Tennin,
-    /// []()(Japanese) – Ghost of a blind man, with his eyes on his hands
+    /// [](https://en.wikipedia.org/wiki/)(Japanese) – Ghost of a blind man, with his eyes on his hands
     TeNoMe,
-    /// []()(Azerbaijani) – Azerbaijani mythical creature similar to the cyclops Polyphemus
+    /// [](https://en.wikipedia.org/wiki/)(Azerbaijani) – Azerbaijani mythical creature similar to the cyclops Polyphemus
     Tepegoz,
-    /// []()(Jewish) – Lion-eagle-scorpion hybrid made from the blood of murder victims
+    /// [](https://en.wikipedia.org/wiki/)(Jewish) – Lion-eagle-scorpion hybrid made from the blood of murder victims
     TerribleMonster,
-    /// []()(Greek) – Gigantic fox
+    /// [](https://en.wikipedia.org/wiki/)(Greek) – Gigantic fox
     TeumessianFox,
-    /// []()(Medieval folklore) – Animal-headed humanoid
+    /// [](https://en.wikipedia.org/wiki/)(Medieval folklore) – Animal-headed humanoid
     Theriocephalus,
-    /// []()(Asia and Africa) – Solar bird
+    /// [](https://en.wikipedia.org/wiki/)(Asia and Africa) – Solar bird
     ThreeLeggedBird,
-    /// []()(Native American) – Avian lightning bird spirit
+    /// [](https://en.wikipedia.org/wiki/)(Native American) – Avian lightning bird spirit
     Thunderbird,
-    /// []()(Norse mythology) – God of thunder and storm
+    /// [](https://en.wikipedia.org/wiki/)(Norse mythology) – God of thunder and storm
     Thor,
-    /// []()(Chinese) – Meteoric dog
+    /// [](https://en.wikipedia.org/wiki/)(Chinese) – Meteoric dog
     Tiangou,
-    /// []()(Chinese) – Celestial dragon
+    /// [](https://en.wikipedia.org/wiki/)(Chinese) – Celestial dragon
     Tianlong,
-    /// []()(Canarian) – Evil Dog
+    /// [](https://en.wikipedia.org/wiki/)(Canarian) – Evil Dog
     Tibicena,
-    /// []()(English) – Bog spirit
+    /// [](https://en.wikipedia.org/wiki/)(English) – Bog spirit
     TiddyMun,
-    /// []()(Philippine) – Asian fairy bluebird
+    /// [](https://en.wikipedia.org/wiki/)(Philippine) – Asian fairy bluebird
     Tigmamanukan,
-    /// []()(Jewish) – Giant lion
+    /// [](https://en.wikipedia.org/wiki/)(Jewish) – Giant lion
     Tigris,
-    /// []()(Philippine) – Anthropomorphic horse
+    /// [](https://en.wikipedia.org/wiki/)(Philippine) – Anthropomorphic horse
     Tikbalang,
-    /// []()(Zulu) – Little people and water spirit
+    /// [](https://en.wikipedia.org/wiki/)(Zulu) – Little people and water spirit
     Tikoloshe,
-    /// []()(Hindu) – Sea monster
+    /// [](https://en.wikipedia.org/wiki/)(Hindu) – Sea monster
     Timingila,
-    /// []()(Māori) – Spirit that protects a specific place
+    /// [](https://en.wikipedia.org/wiki/)(Māori) – Spirit that protects a specific place
     Tipua,
-    /// []()(Greek) – Primeval god
+    /// [](https://en.wikipedia.org/wiki/)(Greek) – Primeval god
     Titan,
-    /// []()(Philippine) – Demons that are souls of dead unbaptized babies
+    /// [](https://en.wikipedia.org/wiki/)(Philippine) – Demons that are souls of dead unbaptized babies
     Tiyanak,
-    /// []()(Inuit) – Sea serpent
+    /// [](https://en.wikipedia.org/wiki/)(Inuit) – Sea serpent
     Tizheruk,
-    /// []()(Tlaxcalan) – Shapeshifting vampire
+    /// [](https://en.wikipedia.org/wiki/)(Tlaxcalan) – Shapeshifting vampire
     Tlahuelpuchi,
-    /// []()(Japanese) – Spirit child carrying a block of tofu
+    /// [](https://en.wikipedia.org/wiki/)(Japanese) – Spirit child carrying a block of tofu
     TofuKozo,
-    /// []()(Japanese) – Ghost who lurks in grade school restroom stalls
+    /// [](https://en.wikipedia.org/wiki/)(Japanese) – Ghost who lurks in grade school restroom stalls
     ToireNoHanakosan,
-    /// []()(Scandinavian) – House spirit
+    /// [](https://en.wikipedia.org/wiki/)(Scandinavian) – House spirit
     Tomte,
-    /// []()(Slavic) – Water spirit
+    /// [Tooth fairy](https://en.wikipedia.org/wiki/Tooth_fairy) a mythical creature who gives out money in exchange for teeth.
+    ToothFairy,
+    
+    The tradition of leaving a tooth under a pillow for the Tooth Fairy or another fantasy figure to collect is practiced in various countries.,
+    /// [](https://en.wikipedia.org/wiki/)(Slavic) – Water spirit
     Topielec,
-    /// []()(Japanese) – Greed spirit
+    /// [](https://en.wikipedia.org/wiki/)(Japanese) – Greed spirit
     Totetsu,
-    /// []()(Malay) – Servant spirit
+    /// [](https://en.wikipedia.org/wiki/)(Malay) – Servant spirit
     Toyol,
-    /// []()(Spanish and Portuguese) – Grotesque, mischievous little people
+    /// [](https://en.wikipedia.org/wiki/)(Spanish and Portuguese) – Grotesque, mischievous little people
     Trasgo,
-    /// []()(Chilota) – Fertility spirit
+    /// [](https://en.wikipedia.org/wiki/)(Chilota) – Fertility spirit
     Trauco,
-    /// []()(Cantabrian) – Diminutive demon
+    /// [](https://en.wikipedia.org/wiki/)(Cantabrian) – Diminutive demon
     Trenti,
     /// Character in a story which exhibits a great degree of intellect or secret knowledge, and uses it to play tricks or otherwise disobey normal rules and conventional behaviour
     Trickster,
-    /// []()(Hindu) – Demonic inhabitants of Tripura
+    /// [](https://en.wikipedia.org/wiki/)(Hindu) – Demonic inhabitants of Tripura
     Tripurasura,
-    /// []()(Greek) – Male human-fish hybrid
+    /// [](https://en.wikipedia.org/wiki/)(Greek) – Male human-fish hybrid
     Tritons,
-    /// []()(Norse) – Nature spirit
+    /// [](https://en.wikipedia.org/wiki/)(Norse) – Nature spirit
     Troll,
-    /// []()(Orkney and Shetland) – Little people and nature spirits
+    /// [](https://en.wikipedia.org/wiki/)(Orkney and Shetland) – Little people and nature spirits
     Trow,
-    /// []()(Abenaki) – Vampiric demon
+    /// [](https://en.wikipedia.org/wiki/)(Abenaki) – Vampiric demon
     TsiNoo,
-    /// []()(Japanese) – Shapeshifting, giant spider
+    /// [](https://en.wikipedia.org/wiki/)(Japanese) – Shapeshifting, giant spider
     Tsuchigumo,
-    /// []()(Japanese) – Plump snake-like creature
+    /// [](https://en.wikipedia.org/wiki/)(Japanese) – Plump snake-like creature
     Tsuchinoko,
-    /// []()(Japanese) – Inanimate object that becomes animated after existing for 100 years
+    /// [](https://en.wikipedia.org/wiki/)(Japanese) – Inanimate object that becomes animated after existing for 100 years
     Tsukumogami,
-    /// []()(Cherokee) – Giant nature spirit
+    /// [](https://en.wikipedia.org/wiki/)(Cherokee) – Giant nature spirit
     TsulKalu,
-    /// []()(Japanese) – Icicle woman
+    /// [](https://en.wikipedia.org/wiki/)(Japanese) – Icicle woman
     TsuraraOnna,
-    /// []()(Japanese) – Monster which drops or lowers a bucket from the top of a tree to catch people
+    /// [](https://en.wikipedia.org/wiki/)(Japanese) – Monster which drops or lowers a bucket from the top of a tree to catch people
     TsurubeOtoshi,
-    /// []()(Slavic) – Evil shapeshifter
+    /// [](https://en.wikipedia.org/wiki/)(Slavic) – Evil shapeshifter
     TugarinZmeyevich,
-    /// []()(Welsh) – Nature spirit
+    /// [](https://en.wikipedia.org/wiki/)(Welsh) – Nature spirit
     TylwythTeg,
-    /// []()(Inuit) – Animated construct
+    /// [](https://en.wikipedia.org/wiki/)(Inuit) – Animated construct
     Tupilaq,
-    /// []()(Māori) – Pale spirit
+    /// [](https://en.wikipedia.org/wiki/)(Māori) – Pale spirit
     Turehu,
-    /// []()(Swiss) – legendary figure who turns people into dogs
+    /// [](https://en.wikipedia.org/wiki/)(Swiss) – legendary figure who turns people into dogs
     Turst,
-    /// []()(Hungarian) – Giant falcon that helped shape the origins of the Magyars
+    /// [](https://en.wikipedia.org/wiki/)(Hungarian) – Giant falcon that helped shape the origins of the Magyars
     Turul,
-    /// []()(Heraldry) – Like a real tiger, but lacks stripes. It has the tufted tail of a lion and a thick mane along the neck like a horse
+    /// [](https://en.wikipedia.org/wiki/)(Heraldry) – Like a real tiger, but lacks stripes. It has the tufted tail of a lion and a thick mane along the neck like a horse
     Tyger,
-    /// []()(Greek) – Winged, snake-legged giant
+    /// [](https://en.wikipedia.org/wiki/)(Greek) – Winged, snake-legged giant
     Typhon,
-    /// []()(Aztec) – Skeletal star spirit
+    /// [](https://en.wikipedia.org/wiki/)(Aztec) – Skeletal star spirit
     Tzitzimitl,
-    /// []()(Japanese) – Ghosts of women who died in childbirth
+    /// [](https://en.wikipedia.org/wiki/)(Japanese) – Ghosts of women who died in childbirth
     Ubume,
     ///(Manipuri mythology) – Semi human, semi hornbill creature
     UchekLangmeidong,
-    /// []()(Japanese) – Horse's leg which dangles from a tree and kicks passersby
+    /// [](https://en.wikipedia.org/wiki/)(Japanese) – Horse's leg which dangles from a tree and kicks passersby
     UmaNoAshi,
-    /// []()(Japanese) – Ghost of drowned priest
+    /// [](https://en.wikipedia.org/wiki/)(Japanese) – Ghost of drowned priest
     Umibozu,
-    /// []()(Japanese) – Female sea monster who steals fish
+    /// [](https://en.wikipedia.org/wiki/)(Japanese) – Female sea monster who steals fish
     UmiNyobo,
-    /// []()(Worldwide) – Dead that behave as if alive
+    /// [](https://en.wikipedia.org/wiki/)(Worldwide) – Dead that behave as if alive
     Undead,
-    /// []()(Native American) – Feline water spirit
+    /// [](https://en.wikipedia.org/wiki/)(Native American) – Feline water spirit
     UnderwaterPanther,
-    /// []()(Alchemy) – Water elemental
+    /// [](https://en.wikipedia.org/wiki/)(Alchemy) – Water elemental
     Undine,
-    /// []()(Lakota) – Dragon
+    /// [](https://en.wikipedia.org/wiki/)(Lakota) – Dragon
     Unhcegila,
-    /// []()(Medieval Bestiaries) – Horse-like creature with the legs of an antelope, the tail of a lion and a single magical healing horn.
+    /// [](https://en.wikipedia.org/wiki/)(Medieval Bestiaries) – Horse-like creature with the legs of an antelope, the tail of a lion and a single magical healing horn. Also called an Abada (African) – Unicorn that inhabits the African Congo.
     Unicorn,
-    /// []()(Lakota) – Serpentine rain spirit
+    /// [](https://en.wikipedia.org/wiki/)(Lakota) – Serpentine rain spirit
     Unktehi,
-    /// []()(Lakota) – Reptilian water monster
+    /// [](https://en.wikipedia.org/wiki/)(Lakota) – Reptilian water monster
     Unktehila,
-    /// []()(Lithuanian) – River spirit
+    /// [](https://en.wikipedia.org/wiki/)(Lithuanian) – River spirit
     Upinis,
-    /// []()(Native American) – Hairy giant
+    /// [](https://en.wikipedia.org/wiki/)(Native American) – Hairy giant
     Urayuli,
-    /// []()(Romanian) – Giant
+    /// [](https://en.wikipedia.org/wiki/)(Romanian) – Giant
     Urias,
-    /// []()(Mesopotamian) – Lion-human hybrid guardian spirit
+    /// [](https://en.wikipedia.org/wiki/)(Mesopotamian) – Lion-human hybrid guardian spirit
     Urmahlullu,
-    /// []()(Japanese) – Bull-headed monster
+    /// [](https://en.wikipedia.org/wiki/)(Japanese) – Bull-headed monster
     UshiOni,
-    /// []()(Akkadian) – ″Underworld messenger spirit″
+    /// [](https://en.wikipedia.org/wiki/)(Akkadian) – ″Underworld messenger spirit″
     Utukku,
-    /// []()(Japanese) – Spirit that shouts to surprise people
+    /// [](https://en.wikipedia.org/wiki/)(Japanese) – Spirit that shouts to surprise people
     Uwan,
-    /// []()(Latvian) – Spirit that misleads people
+    /// [](https://en.wikipedia.org/wiki/)(Latvian) – Spirit that misleads people
     Vadatajs,
-    /// []()(Hindu) – Divine mounts
+    /// [](https://en.wikipedia.org/wiki/)(Hindu) – Divine mounts
     Vahana,
-    /// []()(Indian) – Deadly snake
+    /// [](https://en.wikipedia.org/wiki/)(Indian) – Deadly snake
     Vaibhavi,
-    /// []()(Norse) – Female spirit that leads souls of dead warriors to Valhalla
+    /// [](https://en.wikipedia.org/wiki/)(Norse) – Female spirit that leads souls of dead warriors to Valhalla
     Valkyrie,
-    /// []()(Romanian) – Female nature spirit
+    /// [](https://en.wikipedia.org/wiki/)(Romanian) – Female nature spirit
     Valva,
-    /// []()(Danish) – Supernatural raven
+    /// [](https://en.wikipedia.org/wiki/)(Danish) – Supernatural raven
     Valravn,
-    /// []()(Slavic) – Reanimated corpse that feeds on blood
+    /// [](https://en.wikipedia.org/wiki/)(Slavic) – Reanimated corpse that feeds on blood
     Vampire,
-    /// []()(Hindu) – Human-ape hybrid
+    /// [](https://en.wikipedia.org/wiki/)(Hindu) – Human-ape hybrid
     Vanara,
-    /// []()(Romanian) – Female weather spirit
+    /// [](https://en.wikipedia.org/wiki/)(Romanian) – Female weather spirit
     Vantoase,
-    /// []()(Hindu mythology) – Third Avatar of Vishnu in the form of a boar
+    /// [](https://en.wikipedia.org/wiki/)(Hindu mythology) – Third Avatar of Vishnu in the form of a boar
     Varaha,
-    /// []()(Romanian) – Vampire or werewolf
+    /// [](https://en.wikipedia.org/wiki/)(Romanian) – Vampire or werewolf
     Varcolac,
-    /// []()(Scandinavian) – Ghostly double
+    /// [](https://en.wikipedia.org/wiki/)(Scandinavian) – Ghostly double
     Vardoger,
-    /// []()(Norse) – Hawk sitting between the eyes of an eagle in the crown of the World Tree Yggdrasil
+    /// [](https://en.wikipedia.org/wiki/)(Norse) – Hawk sitting between the eyes of an eagle in the crown of the World Tree Yggdrasil
     Vedrfolnir,
-    /// []()(Latvian) – Ghost, shade, formed after a death of a human
+    /// [](https://en.wikipedia.org/wiki/)(Latvian) – Ghost, shade, formed after a death of a human
     Veli,
     /// Chuvash dragon
     VeriSelen,
-    /// []()(Hindu) – Corpses possessed by vampiric spirits
+    /// [](https://en.wikipedia.org/wiki/)(Hindu) – Corpses possessed by vampiric spirits
     Vetala,
-    /// []()(Catalan) – Dragon with breasts and an eagle's beak
+    /// [](https://en.wikipedia.org/wiki/)(Catalan) – Dragon with breasts and an eagle's beak
     Víbria,
-    /// []()(German) – Gluttonous dog-cat-fox hybrid
+    /// [](https://en.wikipedia.org/wiki/)(German) – Gluttonous dog-cat-fox hybrid
     Vielfras,
-    /// []()(Slavic) – Weather spirit
+    /// [](https://en.wikipedia.org/wiki/)(Slavic) – Weather spirit
     Vila,
-    /// []()(Latvian) – Animalistic, werewolf-like monster
+    /// [](https://en.wikipedia.org/wiki/)(Latvian) – Animalistic, werewolf-like monster
     Vilkacis,
-    /// []()(Colombian) – Handsome demon
+    /// [](https://en.wikipedia.org/wiki/)(Colombian) – Handsome demon
     Virunas,
-    /// []()(Mayan) – Mystical dragon
+    /// [](https://en.wikipedia.org/wiki/)(Mayan) – Mystical dragon
     VisionSerpent,
-    /// []()(Norse) – Rooster that sits atop the tree
+    /// [](https://en.wikipedia.org/wiki/)(Norse) – Rooster that sits atop the tree
     Vídopnir,
-    /// []()(Slavic) – Male water spirit
+    /// [](https://en.wikipedia.org/wiki/)(Slavic) – Male water spirit
     Vodyanoy,
-    /// []()(Greek) – Undead wolf-human hybrid
+    /// [](https://en.wikipedia.org/wiki/)(Greek) – Undead wolf-human hybrid
     Vrykolakas,
-    /// []()(Norse) – Nature spirit
+    /// [](https://en.wikipedia.org/wiki/)(Norse) – Nature spirit
     Vaettir,
-    /// []()(German) – Forest spirit
+    /// [](https://en.wikipedia.org/wiki/)(German) – Forest spirit
     Waldgeist,
-    /// []()(Abenaki) – Water spirits
+    /// [](https://en.wikipedia.org/wiki/)(Abenaki) – Water spirits
     WanaGamesAk,
-    /// []()(Japanese) – Crocodilian water monster
+    /// [](https://en.wikipedia.org/wiki/)(Japanese) – Crocodilian water monster
     Wani,
-    /// []()(Japanese) – Demon in the form of a burning human-headed ox cart
+    /// [](https://en.wikipedia.org/wiki/)(Japanese) – Demon in the form of a burning human-headed ox cart
     Wanyudo,
-    /// []()(Indonesian Muslim) – Egg-laying bird
+    /// [](https://en.wikipedia.org/wiki/)(Indonesian Muslim) – Egg-laying bird
     WarakNgendog,
-    /// []()(English and Scandinavian O.N. vargr) – Giant, demonic wolf
+    /// [](https://en.wikipedia.org/wiki/)(English and Scandinavian O.N. vargr) – Giant, demonic wolf
     Warg,
-    /// []()(Worldwide) – Male witch
+    /// [](https://en.wikipedia.org/wiki/)(Worldwide) – Male witch
     Warlock,
-    /// []()(Abenaki) – Aurora spirits
+    /// [](https://en.wikipedia.org/wiki/)(Abenaki) – Aurora spirits
     WassanMonGaneehlaAk,
-    /// []()(Chinese) – Water spirit
+    /// [](https://en.wikipedia.org/wiki/)(Chinese) – Water spirit
     WaterMonkey,
-    /// []()(Alchemy) – Water elemental
+    /// [](https://en.wikipedia.org/wiki/)(Alchemy) – Water elemental
     WaterSprite,
-    /// []()(Australia Aboriginal) – Goanna spirits
+    /// [](https://en.wikipedia.org/wiki/)(Australia Aboriginal) – Goanna spirits
     WatiKutjara,
-    /// []()(Abenaki) – Shapeshifting snail spirit
+    /// [](https://en.wikipedia.org/wiki/)(Abenaki) – Shapeshifting snail spirit
     WaWonDeeAMegw,
-    /// []()(German) – Female spirit
+    /// [](https://en.wikipedia.org/wiki/)(German) – Female spirit
     WeisseFrauen,
-    /// []()(Mapuche) – Demon
+    /// [](https://en.wikipedia.org/wiki/)(Mapuche) – Demon
     Wekufe,
-    /// []()(Algonquian) – Anthropophagous spirit
+    /// [](https://en.wikipedia.org/wiki/)(Algonquian) – Anthropophagous spirit
     Wendigo,
-    /// []()(Inuit) – Water spirit
+    /// [](https://en.wikipedia.org/wiki/)(Inuit) – Water spirit
     Wentshukumishiteu,
-    /// []()(Worldwide) – Feline-human shapeshifter
+    /// [Werecat](https://en.wikipedia.org/wiki/Werecat)(Worldwide) – Feline-human shapeshifter
     Werecat,
-    /// []()(Africa) – Hyena-human shapeshifter
+    /// [Werehyena](https://en.wikipedia.org/wiki/Werehyena)(Africa) – Hyena-human shapeshifter
     Werehyena,
-    /// []()(Worldwide) – Wolf-human shapeshifter
+    /// [Werewolf](https://en.wikipedia.org/wiki/Werewolf)(Worldwide) – Wolf-human shapeshifter
     Werewolf,
-    /// []()(Worldwide) – Ghost of a murdered or mistreated woman
+    /// [](https://en.wikipedia.org/wiki/)(Worldwide) – Ghost of a murdered or mistreated woman
     WhiteLady,
-    /// []()(Australian Aboriginal) – Giant frog-headed goanna with six legs
+    /// [](https://en.wikipedia.org/wiki/)(Australian Aboriginal) – Giant frog-headed goanna with six legs
     Whowie,
-    /// []()(European) – Hairy, bipedal, man-like creature
+    /// [](https://en.wikipedia.org/wiki/)(European) – Hairy, bipedal, man-like creature
     WildMan,
-    /// []()(Worldwide) – Spectral fire
+    /// [](https://en.wikipedia.org/wiki/)(Worldwide) – Spectral fire
     WillOTheWisp,
-    /// []()(Scottish) – Malevolent spirit
+    /// [](https://en.wikipedia.org/wiki/)(Scottish) – Malevolent spirit
     WirryCow,
-    /// []()(Worldwide) – Person who practices magic
+    /// [](https://en.wikipedia.org/wiki/)(Worldwide) – Person who practices magic
     Witch,
-    /// []()(Dutch) – Female, ancestral spirit
+    /// [](https://en.wikipedia.org/wiki/)(Dutch) – Female, ancestral spirit
     WitteWieven,
-    /// []()(German) – Forest animal comprised from various animal parts,/// []()(similar to a Chimera)
+    /// [](https://en.wikipedia.org/wiki/)(German) – Forest animal comprised from various animal parts,/// [](https://en.wikipedia.org/wiki/)(similar to a Chimera)
     Wolpertinger,
-    /// []()(Australia Aboriginal) – Weather spirit
+    /// [](https://en.wikipedia.org/wiki/)(Australia Aboriginal) – Weather spirit
     Wondjina,
-    /// []()(Scottish) – Water spirit or ghostly apparition
+    /// [](https://en.wikipedia.org/wiki/)(Scottish) – Water spirit or ghostly apparition
     Wraith,
-    /// []()(Scottish) – Wolf-headed humanoid spirit
+    /// [](https://en.wikipedia.org/wiki/)(Scottish) – Wolf-headed humanoid spirit
     Wulver,
-    /// []()(Chinese) – Beheaded ghost
+    /// [](https://en.wikipedia.org/wiki/)(Chinese) – Beheaded ghost
     WuTouGui,
     /// English dragon
     Wyrm,
-    /// []()(Germanic Heraldic) – Flying reptile, usually with two legs and two wings
+    /// [](https://en.wikipedia.org/wiki/)(Germanic Heraldic) – Flying reptile, usually with two legs and two wings
     Wyvern,
-    /// []()(Asturian) – Female water spirit
+    /// [](https://en.wikipedia.org/wiki/)(Asturian) – Female water spirit
     Xana,
-    /// []()(Greek)
+    /// [](https://en.wikipedia.org/wiki/)(Greek)
     Xanthus,
-    /// []()(Mayan) – Bird
+    /// [](https://en.wikipedia.org/wiki/)(Mayan) – Bird
     Xecotcovach,
-    /// []()(Aztec) – Giant
+    /// [](https://en.wikipedia.org/wiki/)(Aztec) – Giant
     Xelhua,
-    /// []()(mythology), (Chinese) – Ape or four-winged bird
+    /// [](https://en.wikipedia.org/wiki/)(mythology), (Chinese) – Ape or four-winged bird
     Xiao,
-    /// []()(Chinese) – Headless giant
+    /// [](https://en.wikipedia.org/wiki/)(Chinese) – Headless giant
     XingTian,
-    /// []()(Aztec) – Drought spirit
+    /// [](https://en.wikipedia.org/wiki/)(Aztec) – Drought spirit
     Xiuhcoatl,
-    /// []()(Albanian) – Elves
+    /// [](https://en.wikipedia.org/wiki/)(Albanian) – Elves
     Xhindi,
-    /// []()(South America) – Sea monster
+    /// [](https://en.wikipedia.org/wiki/)(South America) – Sea monster
     Yacumama,
-    /// []()(Indigenous people of the Amazon) – Mythical water people, with backwards heads and feet
+    /// [](https://en.wikipedia.org/wiki/)(Indigenous people of the Amazon) – Mythical water people, with backwards heads and feet
     Yacuruna,
-    /// []()(Japanese) – Malevolent, nocturnal spirit
+    /// [](https://en.wikipedia.org/wiki/)(Japanese) – Malevolent, nocturnal spirit
     Yadokai,
-    /// []()(Japanese) – Demon who rides through the night on a headless horse
+    /// [](https://en.wikipedia.org/wiki/)(Japanese) – Demon who rides through the night on a headless horse
     YagyoSan,
-    /// []()(Buddhist, Hindu, and Jainism) – Male nature spirit
+    /// [](https://en.wikipedia.org/wiki/)(Buddhist, Hindu, and Jainism) – Male nature spirit
     Yaksha,
-    /// []()(Keralite) – Vampire
+    /// [](https://en.wikipedia.org/wiki/)(Keralite) – Vampire
     Yakshi,
-    /// []()(Buddhist, Hindu, and Jainism) – Female nature spirit
+    /// [](https://en.wikipedia.org/wiki/)(Buddhist, Hindu, and Jainism) – Female nature spirit
     Yakshini,
-    /// []()(Japanese) – Disease and misfortune spirit
+    /// [](https://en.wikipedia.org/wiki/)(Japanese) – Disease and misfortune spirit
     YakubyoGami,
-    /// []()(Medieval Bestiaries) – Antelope- or goat-like animal with swiveling horns
+    /// [](https://en.wikipedia.org/wiki/)(Medieval Bestiaries) – Antelope- or goat-like animal with swiveling horns
     Yale,
-    /// []()(Tamil) – Lion-like beast
+    /// [](https://en.wikipedia.org/wiki/)(Tamil) – Lion-like beast
     Yazhi,
-    /// []()(English) – Nature spirit
+    /// [](https://en.wikipedia.org/wiki/)(English) – Nature spirit
     YalleryBrown,
-    /// []()(Yama,/// []()(East Asia)) – Wrathful god
+    /// [](https://en.wikipedia.org/wiki/)(Yama,/// [](https://en.wikipedia.org/wiki/)(East Asia)) – Wrathful god
     Yama,
-    /// []()(Japanese) – Echo spirit
+    /// [](https://en.wikipedia.org/wiki/)(Japanese) – Echo spirit
     YamaBiko,
-    /// []()(Japanese) – Savage, mountain-dwelling humanoid
+    /// [](https://en.wikipedia.org/wiki/)(Japanese) – Savage, mountain-dwelling humanoid
     YamaBito,
-    /// []()(Japanese) – Monkey-like mountain spirit
+    /// [](https://en.wikipedia.org/wiki/)(Japanese) – Monkey-like mountain spirit
     YamaChichi,
-    /// []()(Japanese) – Dog-like mountain spirit
+    /// [](https://en.wikipedia.org/wiki/)(Japanese) – Dog-like mountain spirit
     YamaInu,
-    /// []()(Japanese) – Mountain giant
+    /// [](https://en.wikipedia.org/wiki/)(Japanese) – Mountain giant
     YamaOtoko,
-    /// []()(Japanese) – Gigantic, eight-headed serpent
+    /// [](https://en.wikipedia.org/wiki/)(Japanese) – Gigantic, eight-headed serpent
     YamataNoOrochi,
-    /// []()(Japanese) – Malevolent, mountain-dwelling hag
+    /// [](https://en.wikipedia.org/wiki/)(Japanese) – Malevolent, mountain-dwelling hag
     YamaUba,
-    /// []()(Japanese) – Hairy, one-eyed spirit
+    /// [](https://en.wikipedia.org/wiki/)(Japanese) – Hairy, one-eyed spirit
     YamaWaro,
-    /// []()(Japanese) – Spirit which causes strange noises
+    /// [](https://en.wikipedia.org/wiki/)(Japanese) – Spirit which causes strange noises
     Yanari,
-    /// []()(Chinese) – Animalistic demon or fallen gods
+    /// [](https://en.wikipedia.org/wiki/)(Chinese) – Animalistic demon or fallen gods
     Yaoguai,
-    /// []()(Australian Aboriginal) – Diminutive, sucker-fingered vampire
+    /// [](https://en.wikipedia.org/wiki/)(Australian Aboriginal) – Diminutive, sucker-fingered vampire
     YaraMaYhaWho,
-    /// []()(Japanese) – Three-legged crow of Amaterasu
+    /// [](https://en.wikipedia.org/wiki/)(Japanese) – Three-legged crow of Amaterasu
     Yatagarasu,
-    /// []()(Japanese) – Serpent spirits
+    /// [](https://en.wikipedia.org/wiki/)(Japanese) – Serpent spirits
     YatoNoKami,
-    /// []()(English) – Headless dog
+    /// [](https://en.wikipedia.org/wiki/)(English) – Headless dog
     YethHound,
-    /// []()(Himalayan) – Mountain bigfoot
+    /// [](https://en.wikipedia.org/wiki/)(Himalayan) – Mountain bigfoot
     Yeti,
-    /// []()(Turkic) – Either a dragon or a giant
+    /// [](https://en.wikipedia.org/wiki/)(Turkic) – Either a dragon or a giant
     Yilbegan,
-    /// []()(Japanese) – Mountain dwelling spirit
+    /// [](https://en.wikipedia.org/wiki/)(Japanese) – Mountain dwelling spirit
     Yobuko,
-    /// []()(Japanese) – Supernatural monster
+    /// [](https://en.wikipedia.org/wiki/)(Japanese) – Supernatural monster
     Yokai,
-    /// []()(Japanese) – Underworld hag
+    /// [](https://en.wikipedia.org/wiki/)(Japanese) – Underworld hag
     YomotsuShikome,
     /// Korean dragon
     Yong,
-    /// []()(Japanese) – Fairy
+    /// [](https://en.wikipedia.org/wiki/)(Japanese) – Fairy
     Yosei,
-    /// []()(Japanese) – Mysterious bird that sings at night, sometimes indicating that the okuri-inu is near
+    /// [](https://en.wikipedia.org/wiki/)(Japanese) – Mysterious bird that sings at night, sometimes indicating that the okuri-inu is near
     Yosuzume,
-    /// []()(Chinese) – Wandering ghost
+    /// [](https://en.wikipedia.org/wiki/)(Chinese) – Wandering ghost
     YouHunYeGui,
-    /// []()(Australian Aboriginal) – Nocturnal human-ape hybrid, also Yahoo
+    /// [](https://en.wikipedia.org/wiki/)(Australian Aboriginal) – Nocturnal human-ape hybrid, also Yahoo
     Yowie,
-    /// []()(Heraldic) – Boar-camel-ox-serpent hybrid
+    /// [](https://en.wikipedia.org/wiki/)(Heraldic) – Boar-camel-ox-serpent hybrid
     Ypotryll,
-    /// []()(Chinese) – Distressed ghost
+    /// [](https://en.wikipedia.org/wiki/)(Chinese) – Distressed ghost
     YuanGui,
-    /// []()(Japanese) – Childlike snow spirit
+    /// [](https://en.wikipedia.org/wiki/)(Japanese) – Childlike snow spirit
     Yukinko,
-    /// []()(Japanese) – Female snow spirit
+    /// [](https://en.wikipedia.org/wiki/)(Japanese) – Female snow spirit
     YukiOnna,
-    /// []()(Japanese) – Ghost
+    /// [](https://en.wikipedia.org/wiki/)(Japanese) – Ghost
     Yurei,
-    /// []()(Tatar) – 100-year-old snake that transforms into a beautiful human
+    /// [](https://en.wikipedia.org/wiki/)(Tatar) – 100-year-old snake that transforms into a beautiful human
     Yuxa,
-    /// []()(Persian) – Dragon
+    /// [](https://en.wikipedia.org/wiki/)(Persian) – Dragon
     Zahhak,
-    /// []()(Baltic) – Serpentine fertility spirit
+    /// [](https://en.wikipedia.org/wiki/)(Baltic) – Serpentine fertility spirit
     Zaltys,
-    /// []()(Jewish) – Giant
+    /// [](https://en.wikipedia.org/wiki/)(Jewish) – Giant
     Zamzummim,
-    /// []()(Albanian) – Mountain fairy who bless warriors
+    /// [](https://en.wikipedia.org/wiki/)(Albanian) – Mountain fairy who bless warriors
     ZanaEMalit,
-    /// []()(Romanian) – Nature spirit
+    /// [](https://en.wikipedia.org/wiki/)(Romanian) – Nature spirit
     Zână,
-    /// []()(Japanese) – House spirit
+    /// [](https://en.wikipedia.org/wiki/)(Japanese) – House spirit
     ZashikiWarashi,
-    /// []()(Romanian) – Wolf-headed dragon
+    /// [](https://en.wikipedia.org/wiki/)(Romanian) – Wolf-headed dragon
     Zburator,
-    /// []()(Slavic mythology) – Disembodied, heroic spirit
+    /// [](https://en.wikipedia.org/wiki/)(Slavic mythology) – Disembodied, heroic spirit
     Zduhac,
-    /// []()(Greek) – God of lightning and storms
+    /// [](https://en.wikipedia.org/wiki/)(Greek) – God of lightning and storms
     Zeus,
-    /// []()(Japanese) – Rain-making dragon
+    /// [](https://en.wikipedia.org/wiki/)(Japanese) – Rain-making dragon
     ZennyoRyuo,
-    /// []()(Slavic) – Glowing bird
+    /// [](https://en.wikipedia.org/wiki/)(Slavic) – Glowing bird
     ZharPtitsa,
-    /// []()(Chinese) – Pig-headed dragon
+    /// [](https://en.wikipedia.org/wiki/)(Chinese) – Pig-headed dragon
     Zhulong,
-    /// []()(Chinese) – Fire elemental bird
+    /// [](https://en.wikipedia.org/wiki/)(Chinese) – Fire elemental bird
     ZhuQue,
-    /// []()(Lithuanian) – Forest spirit in the form of a glowing skeleton
+    /// [](https://en.wikipedia.org/wiki/)(Lithuanian) – Forest spirit in the form of a glowing skeleton
     Ziburinis,
-    /// []()(Tatar) – Flying chicken-legged reptile
+    /// [](https://en.wikipedia.org/wiki/)(Tatar) – Flying chicken-legged reptile
     Zilant,
-    /// []()(West Africa) – Water spirits
+    /// [](https://en.wikipedia.org/wiki/)(West Africa) – Water spirits
     Zin,
-    /// []()(Jewish) – Giant bird
+    /// [](https://en.wikipedia.org/wiki/)(Jewish) – Giant bird
     Ziz,
-    /// []()(Slovenia) – White golden-horned deer
+    /// [](https://en.wikipedia.org/wiki/)(Slovenia) – White golden-horned deer
     Zlatorog,
-    /// []()(Romanian folklore) – Giant with a habit of kidnapping young girls
+    /// [](https://en.wikipedia.org/wiki/)(Romanian folklore) – Giant with a habit of kidnapping young girls
     Zmeu,
     /// Slavic dragon
     Zmiy,
-    /// []()(Vodou/Worldwide) – Re-animated corpse
+    /// [](https://en.wikipedia.org/wiki/)(Vodou/Worldwide) – Re-animated corpse
     Zombie,
-    /// []()(Japanese) – Animated clock
+    /// [](https://en.wikipedia.org/wiki/)(Japanese) – Animated clock
     Zorigami,
-    /// []()(Japanese) – Tutelary spirit
+    /// [](https://en.wikipedia.org/wiki/)(Japanese) – Tutelary spirit
     Zuijin,
-    /// []()(Japanese) – Faceless ghost
+    /// [](https://en.wikipedia.org/wiki/)(Japanese) – Faceless ghost
     ZunberaBo,
 }
 impl fmt::Display for Legendary {
@@ -4098,6 +4102,8 @@ impl fmt::Display for Legendary {
             Legendary::TofuKozo =>  v = String::from("TofuKozo"),
             Legendary::ToireNoHanakosan =>  v = String::from("ToireNoHanakosan"),
             Legendary::Tomte =>  v = String::from("Tomte"),
+            Legendary::ToothFairy =>  v = String::from("ToothFairy"),
+            Legendary::The tradition of leaving a tooth under a pillow for the Tooth Fairy or another fantasy figure to collect is practiced in various countries. =>  v = String::from("The tradition of leaving a tooth under a pillow for the Tooth Fairy or another fantasy figure to collect is practiced in various countries."),
             Legendary::Topielec =>  v = String::from("Topielec"),
             Legendary::Totetsu =>  v = String::from("Totetsu"),
             Legendary::Toyol =>  v = String::from("Toyol"),
@@ -4293,7 +4299,7 @@ impl Legendary {
             Legendary::Abaia =>  v = String::from("Abaia – Huge magical eel."),
             Legendary::Abarimon =>  v = String::from("Abarimon – Savage humanoid with backward feet."),
             Legendary::Abath =>  v = String::from("Abath – One-horned animal."),
-            Legendary::AburaSumashi =>  v = String::from("AburaSumashi – Creature from a mountain pass in Kumamoto Prefecture."),
+            Legendary::AburaSumashi =>  v = String::from("Abura-sumashi – Creature from a mountain pass in Kumamoto Prefecture."),
             Legendary::Acephali =>  v = String::from("Acephali – Headless humanoids."),
             Legendary::Acheri =>  v = String::from("Acheri – Disease-bringing ghost."),
             Legendary::Achlis =>  v = String::from("Achlis – Curious elk."),
@@ -4643,9 +4649,9 @@ impl Legendary {
             Legendary::Dybbuk =>  v = String::from("Dybbuk that possesses the living"),
             Legendary::DzeeDzeeBonDa =>  v = String::from("DzeeDzeeBonDa – Hideous monster"),
             Legendary::Dzunukwa =>  v = String::from("Dzunukwa – Child-eating hag"),
-            Legendary::EasterBunny =>  v = String::from("EasterBunny – Anthropomorphic lagomorph."),
-            Legendary::EasterBilby =>  v = String::from("EasterBilby – Anthropomorphic bilby."),
-            Legendary::EachUisge =>  v = String::from("EachUisge – Malevolent water horse"),
+            Legendary::EasterBunny =>  v = String::from("Easter Bunny – Anthropomorphic lagomorph."),
+            Legendary::EasterBilby =>  v = String::from("Easter Bilby – Anthropomorphic bilby."),
+            Legendary::EachUisge =>  v = String::from("Each-uisge – Malevolent water horse"),
             Legendary::EagleSpirit =>  v = String::from("EagleSpirit – Leadership or guidance totem"),
             Legendary::EbuGogo =>  v = String::from("EbuGogo – Diminutive humanoids, possibly inspired by Homo floresiensis"),
             Legendary::Echidna =>  v = String::from("Echidna"),
@@ -5360,7 +5366,7 @@ impl Legendary {
             Legendary::Sandman =>  v = String::from("Sandman – Nursery spirit that induces sleep in children"),
             Legendary::Sango =>  v = String::from("Sango – Yoruba king of arts, music, dance and entertainment"),
             Legendary::Santelmo =>  v = String::from("Santelmo – Spirits in the form of fireballs that roam around the forest"),
-            Legendary::SantaClaus =>  v = String::from("SantaClaus – Elderly man who delivers gifts to well-behaved children on the night of Christmas Eve"),
+            Legendary::SantaClaus =>  v = String::from("Santa Claus – Elderly man who delivers gifts to well-behaved children on the night of Christmas Eve"),
             Legendary::Sanziana =>  v = String::from("Sanziana – Nature spirit"),
             Legendary::Sarimanok =>  v = String::from("Sarimanok – Bird of good fortune"),
             Legendary::Sarngika =>  v = String::from("Sarngika – Bird spirit"),
@@ -5494,7 +5500,7 @@ impl Legendary {
             Legendary::Tatzelwurm =>  v = String::from("Tatzelwurm lizard-like creature, often described as having the face of a cat, with a serpent-like body which may be slender or stubby, with four short legs or two forelegs"),
             Legendary::Tatsu =>  v = String::from("Japanese dragonJapanese dragon"),
             Legendary::Taurokampoi =>  v = String::from("Taurokampoi – Fish-tailed bull"),
-            Legendary::Tavara =>  v = String::from("Tavara – Night-demon[citation needed]"),
+            Legendary::Tavara =>  v = String::from("Tavara – Night-demon"),
             Legendary::TejuJagua =>  v = String::from("TejuJagua – Lizard with seven dog heads"),
             Legendary::Tecumbalam =>  v = String::from("Tecumbalam – Bird"),
             Legendary::Tengu =>  v = String::from("Tengu – Anthropomorphic bird"),
@@ -5524,6 +5530,8 @@ impl Legendary {
             Legendary::TofuKozo =>  v = String::from("TofuKozo – Spirit child carrying a block of tofu"),
             Legendary::ToireNoHanakosan =>  v = String::from("ToireNoHanakosan – Ghost who lurks in grade school restroom stalls"),
             Legendary::Tomte =>  v = String::from("Tomte – House spirit"),
+            Legendary::ToothFairy =>  v = String::from("Tooth fairy a mythical creature who gives out money in exchange for teeth."),
+            Legendary::The tradition of leaving a tooth under a pillow for the Tooth Fairy or another fantasy figure to collect is practiced in various countries. =>  v = String::from("The tradition of leaving a tooth under a pillow for the Tooth Fairy or another fantasy figure to collect is practiced in various countries."),
             Legendary::Topielec =>  v = String::from("Topielec – Water spirit"),
             Legendary::Totetsu =>  v = String::from("Totetsu – Greed spirit"),
             Legendary::Toyol =>  v = String::from("Toyol – Servant spirit"),
@@ -5560,7 +5568,7 @@ impl Legendary {
             Legendary::UnderwaterPanther =>  v = String::from("UnderwaterPanther – Feline water spirit"),
             Legendary::Undine =>  v = String::from("Undine – Water elemental"),
             Legendary::Unhcegila =>  v = String::from("Unhcegila – Dragon"),
-            Legendary::Unicorn =>  v = String::from("Unicorn – Horse-like creature with the legs of an antelope, the tail of a lion and a single magical healing horn."),
+            Legendary::Unicorn =>  v = String::from("Unicorn – Unicorn that inhabits the African Congo."),
             Legendary::Unktehi =>  v = String::from("Unktehi – Serpentine rain spirit"),
             Legendary::Unktehila =>  v = String::from("Unktehila – Reptilian water monster"),
             Legendary::Upinis =>  v = String::from("Upinis – River spirit"),
@@ -5715,11 +5723,11 @@ impl Legendary {
             Legendary::Aatxe =>  v = String::from("Aatxe is a spirit in the folk mythology of the Basque people. His name is literally translated as 'Young Bull', and he is sometimes known as Etsai. He is a cave-dwelling spirit who adopts the form of a young red bull, but being a shapeshifter, sometimes takes the shape of a man. At night, more so in stormy weather, he arises from the hollow which is his lair. He attacks criminals and other malevolent people. He also protects people by making them stay home when danger is near. He is theorized to be a representative of the goddess Mari, or may be an enforcer of her will, punishing people who cheat her. Another name for him is Aatxegorri which means 'young red bull'. It is believed Aatxe inhabited caves and hollows; in many (Isturits, Sare, Errenteria, among others) engravings and paintings depicting aurochs, bulls, and oxen have been found; which implies that this Basque myth has its origins in the Paleolithic."),
             Legendary::Abaasy =>  v = String::from("The Abaasy (Abaahy or Abasy, Yakut: Aбаасы, Abaası; Dolgan: Абааһы, Abaahı; Azerbaijani: Abası; Turkish: Abası; Hungarian: Abaaszi; Bulgarian: Абааси, Abaasi; Russian: Абасы, Abasy; cognate of the Turkic word Abası) are demons in the mythology of the Sakha (also known as the Yakuts). Yakut Shamanism divides the universe into upper and lower layers, with the earth being 'a kind of indeterminate space or matter' in between. The abaasy occupy the lower level, referred to as the underworld or 'kingdom of darkness.'  The abaasy are alleged to be the spirits of the long-time deceased who dwell near graves or in deserted places who otherwise travel about causing destruction. They serve Arson-Duolai, the ruler of the dead, who also swallows people' souls and gives the living diseases. The abaasy can be appeased by blood sacrifices.  The abaasy have been depicted as causing sexual manifestations and madness."),
             Legendary::Abada =>  v = String::from("Äbädä is an innocent forest spirit in Tatar mythology. It looks like an old woman. Äbädä also is represented in mythologies of Siberian peoples.Äbädä is a demon or spirit. He is a Turkic forest being, similar in nature to the İyes. He protects the birds, trees, and animals of the forest; he appears in the shape of a human with blue skin, two great horns, green hair, and a long green beard across his face, carrying a club or whip indicating his mastery of the forest. He can shapeshift into many different forms. As a human, he looks like a peasant with glowing eyes, and his shoes are on backwards. Should one ever encounter an Äbädä, one must thwart him immediately by turning all one's clothes inside out and backwards, and placing one's shoes on the opposite feet."),
-            Legendary::Abaia =>  v = String::from("Abaia – Huge magical eel."),
-            Legendary::Abarimon =>  v = String::from("Abarimon – Savage humanoid with backward feet."),
-            Legendary::Abath =>  v = String::from("Abath – One-horned animal."),
-            Legendary::AburaSumashi =>  v = String::from("AburaSumashi – Creature from a mountain pass in Kumamoto Prefecture."),
-            Legendary::Acephali =>  v = String::from("Acephali – Headless humanoids."),
+            Legendary::Abaia =>  v = String::from("Abaia is a huge, magical eel in Melanesian mythology.  According to Melanesian mythology the Abaia is a type of large eel which dwells at the bottom of freshwater lakes in the Fiji, Solomon and Vanuatu Islands. The Abaia is said to consider all creatures in the lake its children and protects them furiously against anyone who would harm or disturb them. It is said that those who are foolish enough to try to catch the fish from a lake containing the Abaia are immediately overwhelmed by a large wave caused by the thrashing of the Abaia's powerful tail.  Another version of the legend states that if someone were to harm a creature living in the Abaia's home, the Abaia would cause a great rain storm flooding the land and drowning those who had caused the harm. One example of this ability is illustrated in the following story:    One day a man discovered a lake in which were many fish, and at the bottom of the lake lived a magic eel, but the man knew it not. He caught many fish and returned the next day with the people of his village whom he had told of his discovery, and they also were very successful, while one woman even laid hold of the great eel, Abaia, who dwelt in the depths of the lake, though he escaped her. Now Abaia was angry that his fish had been caught and that he himself had been seized, so he caused a great rain to fall that night, and the waters of the lake also rose, and all the people were drowned except an old woman who had not eaten of the fish and who saved herself in a tree.  Although it would seem that the magical powers of the Abaia are the byproduct of human imagination and its fear of the unknown, it has been suggested that the Abaia legend may have stemmed from encounters with an actual undiscovered species of giant eel living at the bottom of these remote lakes."),
+            Legendary::Abarimon =>  v = String::from("Abarimon or antipode in mythology are people whose feet are turned backwards, but in spite of this handicap were able to run at great speed.  In Europe, this tribe was first described by Pliny the Elder, in his book, Natural History (VII 11), who considered them to be native to India. A similar tale is recounted by Aulus Gellius in Attic Nights.  They lived side by side with wild animals and attempts to capture them failed because they were so savage. Pliny refers to information that originates from Baiton, which was Alexander the Great's Land Surveyor. Baiton says that the abarimons could only breathe the air in their own domestic valleys. Because of the special quality of air, which meant if it was breathed for a long period of time, it would be impossible to breathe any other type of air. Therefore the inhabitants were unable to leave the valley and live anywhere else. And so it was impossible to capture them and bring them to the courts of a distant ruler, or to the great Macedonian conquest.  It is possible that this is an overly designed ethnographic description of an ancient wildlife strain in the areas near Himalayas.  According to another legend, Abarimon is mentioned as a landscape in Scythia, a valley of Mount Imaus, (which may be identical to Hindukush or the Himalayan Mountains).Later, Abarimon has been briefly described in Thomas Cooper's Thesaurus Linguae Romanae et Britannicae, as a tribe in the country Tataria . During the Middle Ages, some mapdrawers, after a familiar heliocentric view, have made monsters in the form of Abarimon people and placed them at the outer border of the world."),
+            Legendary::Abath =>  v = String::from("An Abath is a legendary creature resembling a unicorn, first appearing in records in the 16th century.  Accounts of the Abath were brought back by 16th-century European travellers to the Malay Peninsula. Described as female, with a single horn growing from its forehead, it is speculated that these were probably the result of a half-glimpsed Javan or Sumatran rhinoceros. Like the unicorn, a powder made from this horn supposedly served both as an aphrodisiac and as an antidote to poison. However, since the unicorn was invariably represented as male, and since there was only ever one in existence at any time, the Abath seems to have developed independently from the European myths of the one-horned creature."),
+            Legendary::AburaSumashi =>  v = String::from("This spirit, which surprises people on the Kusazumigoe mountain pass, is thought to be the ghost of a human who stole oil.      In the days before electricity, oil was a very valuable commodity, necessary for lighting and heating a house. As such, the theft of oil, particularly from temples and shrines, could lead to punishment via reincarnation as a yōkai.  In modern media the abura-sumashi is often depicted as, 'a squat creature with a straw-coat covered body and a potato-like or stony head,' an appearance inspired by the artwork of Shigeru Mizuki."),
+            Legendary::Acephali =>  v = String::from("Various species of mythical headless men were rumoured, in antiquity and later, to inhabit remote parts of the world. They are variously known as akephaloi (Greek ἀκέφαλοι, 'headless ones') or Blemmyes (Latin: Blemmyae; Greek: βλέμμυες) and described as lacking a head, with their facial features on their chest. These were at first described as inhabitants of ancient Libya or the Nile system (Aethiopia). Later traditions confined their habitat to a particular island in the Brisone River, or shifted it to India.  Blemmyes are said to occur in two types: with eyes on the chest or with the eyes on the shoulders. Epiphagi, a variant name for the headless people of the Brisone, is sometimes used as a term referring strictly to the eyes-on-the-shoulders type. "),
             Legendary::Acheri =>  v = String::from("Acheri – Disease-bringing ghost."),
             Legendary::Achlis =>  v = String::from("Achlis – Curious elk."),
             Legendary::AdarLlwchGwin =>  v = String::from("Adar Llwch Gwin – Giant birds that understand human languages."),
@@ -6068,9 +6076,9 @@ impl Legendary {
             Legendary::Dybbuk =>  v = String::from("Dybbuk that possesses the living"),
             Legendary::DzeeDzeeBonDa =>  v = String::from("DzeeDzeeBonDa – Hideous monster"),
             Legendary::Dzunukwa =>  v = String::from("Dzunukwa – Child-eating hag"),
-            Legendary::EasterBunny =>  v = String::from("EasterBunny – Anthropomorphic lagomorph."),
-            Legendary::EasterBilby =>  v = String::from("EasterBilby – Anthropomorphic bilby."),
-            Legendary::EachUisge =>  v = String::from("EachUisge – Malevolent water horse"),
+            Legendary::EasterBunny =>  v = String::from("The Easter Bunny (also called the Easter Rabbit or Easter Hare) is a folkloric figure and symbol of Easter, depicted as a rabbit—sometimes dressed with clothes—bringing Easter eggs. Originating among German Lutherans, the 'Easter Hare' originally played the role of a judge, evaluating whether children were good or disobedient in behavior at the start of the season of Eastertide, similar to the 'naughty or nice' list made by Santa Claus. As part of the legend, the creature carries colored eggs in its basket, as well as candy, and sometimes toys, to the homes of children. As such, the Easter Bunny again shows similarities to Santa (or the Christkind) and Christmas by bringing gifts to children on the night before a holiday. The custom was first mentioned in Georg Franck von Franckenau's De ovis paschalibus ('About Easter eggs') in 1682, referring to a German tradition of an Easter Hare bringing eggs for the children."),
+            Legendary::EasterBilby =>  v = String::from("Bilbies are native Australian marsupials that are endangered. To raise money and increase awareness of conservation efforts, bilby-shaped chocolates and related merchandise are sold within many stores throughout Australia as an alternative to Easter bunnies.  The first documented use of the Easter Bilby concept was in March 1968 when a 9-year-old girl Rose-Marie Dusting, wrote a story, 'Billy The Aussie Easter Bilby,' which she published as a book 11 years later. The story helped catalyse the public's interest in saving the bilby. In 1991, Nicholas Newland from the 'Foundation for Rabbit-Free Australia' also developed the idea of the Easter Bilby to raise awareness about the environmental damage that feral rabbits cause and to replace the Easter bunny with true native wildlife.  The first Chocolate Easter Bilbies were sold at the Warrawong Sanctuary when it was owned by John Wamsley"),
+            Legendary::EachUisge =>  v = String::from("The each-uisge (Scottish Gaelic: literally 'water horse') is a water spirit in Scottish folklore, known as the each-uisce (anglicized as aughisky or ech-ushkya) in Ireland and cabyll-ushtey on the Isle of Man. It usually takes the form of a horse, and is similar to the kelpie but far more vicious."),
             Legendary::EagleSpirit =>  v = String::from("EagleSpirit – Leadership or guidance totem"),
             Legendary::EbuGogo =>  v = String::from("EbuGogo – Diminutive humanoids, possibly inspired by Homo floresiensis"),
             Legendary::Echidna =>  v = String::from("Echidna"),
@@ -6785,7 +6793,7 @@ impl Legendary {
             Legendary::Sandman =>  v = String::from("Sandman – Nursery spirit that induces sleep in children"),
             Legendary::Sango =>  v = String::from("Sango – Yoruba king of arts, music, dance and entertainment"),
             Legendary::Santelmo =>  v = String::from("Santelmo – Spirits in the form of fireballs that roam around the forest"),
-            Legendary::SantaClaus =>  v = String::from("SantaClaus – Elderly man who delivers gifts to well-behaved children on the night of Christmas Eve"),
+            Legendary::SantaClaus =>  v = String::from("Santa Claus, also known as Father Christmas, Saint Nicholas, Saint Nick, Kris Kringle, or simply Santa, is a legendary character originating in Western Christian culture who is said to bring gifts on Christmas Eve of toys and candy to well-behaved children, and either coal or nothing to naughty children. He is said to accomplish this with the aid of Christmas elves, who make the toys in his workshop at the North Pole, and flying reindeer who pull his sleigh through the air.  The modern character of Santa Claus was based on traditions surrounding the historical Saint Nicholas (a fourth-century Greek bishop and gift-giver of Myra), the English figure of Father Christmas, and the Dutch figure of Sinterklaas (also based on Saint Nicholas).  Santa Claus is generally depicted as a portly, jolly, white-bearded man, often with spectacles, wearing a red coat with white fur collar and cuffs, white-fur-cuffed red trousers, red hat with white fur, and black leather belt and boots, carrying a bag full of gifts for children. He is commonly portrayed as laughing in a way that sounds like 'ho ho ho'. This image became popular in the United States and Canada in the 19th century due to the significant influence of the 1823 poem 'A Visit from St. Nicholas'. Caricaturist and political cartoonist Thomas Nast also played a role in the creation of Santa's image. This image has been maintained and reinforced through song, radio, television, children's books, family Christmas traditions, films, and advertising. "),
             Legendary::Sanziana =>  v = String::from("Sanziana – Nature spirit"),
             Legendary::Sarimanok =>  v = String::from("Sarimanok – Bird of good fortune"),
             Legendary::Sarngika =>  v = String::from("Sarngika – Bird spirit"),
@@ -6919,7 +6927,7 @@ impl Legendary {
             Legendary::Tatzelwurm =>  v = String::from("Tatzelwurm lizard-like creature, often described as having the face of a cat, with a serpent-like body which may be slender or stubby, with four short legs or two forelegs"),
             Legendary::Tatsu =>  v = String::from("Japanese dragonJapanese dragon"),
             Legendary::Taurokampoi =>  v = String::from("Taurokampoi – Fish-tailed bull"),
-            Legendary::Tavara =>  v = String::from("Tavara – Night-demon[citation needed]"),
+            Legendary::Tavara =>  v = String::from("Tavara – Night-demon"),
             Legendary::TejuJagua =>  v = String::from("TejuJagua – Lizard with seven dog heads"),
             Legendary::Tecumbalam =>  v = String::from("Tecumbalam – Bird"),
             Legendary::Tengu =>  v = String::from("Tengu – Anthropomorphic bird"),
@@ -6949,6 +6957,8 @@ impl Legendary {
             Legendary::TofuKozo =>  v = String::from("TofuKozo – Spirit child carrying a block of tofu"),
             Legendary::ToireNoHanakosan =>  v = String::from("ToireNoHanakosan – Ghost who lurks in grade school restroom stalls"),
             Legendary::Tomte =>  v = String::from("Tomte – House spirit"),
+            Legendary::ToothFairy =>  v = String::from("The Tooth Fairy is a fantasy figure of early childhood in Western and Western-influenced cultures. The folklore states that when children lose one of their baby teeth, they should place it underneath their pillow or on their bedside table and the Tooth Fairy will visit while they sleep, replacing the lost tooth with a small payment."),
+            Legendary::The tradition of leaving a tooth under a pillow for the Tooth Fairy or another fantasy figure to collect is practiced in various countries. =>  v = String::from("The tradition of leaving a tooth under a pillow for the Tooth Fairy or another fantasy figure to collect is practiced in various countries."),
             Legendary::Topielec =>  v = String::from("Topielec – Water spirit"),
             Legendary::Totetsu =>  v = String::from("Totetsu – Greed spirit"),
             Legendary::Toyol =>  v = String::from("Toyol – Servant spirit"),
@@ -6985,7 +6995,7 @@ impl Legendary {
             Legendary::UnderwaterPanther =>  v = String::from("UnderwaterPanther – Feline water spirit"),
             Legendary::Undine =>  v = String::from("Undine – Water elemental"),
             Legendary::Unhcegila =>  v = String::from("Unhcegila – Dragon"),
-            Legendary::Unicorn =>  v = String::from("Unicorn – Horse-like creature with the legs of an antelope, the tail of a lion and a single magical healing horn."),
+            Legendary::Unicorn =>  v = String::from("Unicorn – Unicorn that inhabits the African Congo."),
             Legendary::Unktehi =>  v = String::from("Unktehi – Serpentine rain spirit"),
             Legendary::Unktehila =>  v = String::from("Unktehila – Reptilian water monster"),
             Legendary::Upinis =>  v = String::from("Upinis – River spirit"),
@@ -7037,9 +7047,9 @@ impl Legendary {
             Legendary::Wekufe =>  v = String::from("Wekufe – Demon"),
             Legendary::Wendigo =>  v = String::from("Wendigo – Anthropophagous spirit"),
             Legendary::Wentshukumishiteu =>  v = String::from("Wentshukumishiteu – Water spirit"),
-            Legendary::Werecat =>  v = String::from("Werecat – Feline-human shapeshifter"),
-            Legendary::Werehyena =>  v = String::from("Werehyena – Hyena-human shapeshifter"),
-            Legendary::Werewolf =>  v = String::from("Werewolf – Wolf-human shapeshifter"),
+            Legendary::Werecat =>  v = String::from("A werecat (also written in a hyphenated form as were-cat) is an analogy to 'werewolf' for a feline therianthropic creature. "),
+            Legendary::Werehyena =>  v = String::from("Were-hyena is a neologism coined in analogy to werewolf for therianthropy involving hyenas. It is common in the folklore of the Arabian Peninsula, the Levant, North Africa, the Horn of Africa, and the Near East as well as some adjacent territories. Unlike werewolves and other therianthropes, which are usually portrayed as being originally human, some werehyena lore tells of how they can also be hyenas disguised as humans."),
+            Legendary::Werewolf =>  v = String::from("In folklore, a werewolf (Old English: werwulf, 'man-wolf'), or occasionally lycanthrope /ˈlaɪkənˌθroʊp/ (Greek: λυκάνθρωπος lukánthrōpos, 'wolf-human'), is a human with the ability to shapeshift into a wolf (or, especially in modern film, a therianthropic hybrid wolflike creature), either purposely or after being placed under a curse or affliction (often a bite or scratch from another werewolf) with the transformations occurring on the night of a full moon. Early sources for belief in this ability or affliction, called lycanthropy /laɪˈkænθrəpi/, are Petronius (27–66) and Gervase of Tilbury (1150–1228).  The werewolf is a widespread concept in European folklore, existing in many variants, which are related by a common development of a Christian interpretation of underlying European folklore developed during the medieval period. From the early modern period, werewolf beliefs also spread to the New World with colonialism. Belief in werewolves developed in parallel to the belief in witches, in the course of the Late Middle Ages and the Early Modern period. Like the witchcraft trials as a whole, the trial of supposed werewolves emerged in what is now Switzerland (especially the Valais and Vaud) in the early 15th century and spread throughout Europe in the 16th, peaking in the 17th and subsiding by the 18th century.  The persecution of werewolves and the associated folklore is an integral part of the 'witch-hunt' phenomenon, albeit a marginal one, accusations of lycanthropy being involved in only a small fraction of witchcraft trials.  During the early period, accusations of lycanthropy (transformation into a wolf) were mixed with accusations of wolf-riding or wolf-charming. The case of Peter Stumpp (1589) led to a significant peak in both interest in and persecution of supposed werewolves, primarily in French-speaking and German-speaking Europe. The phenomenon persisted longest in Bavaria and Austria, with persecution of wolf-charmers recorded until well after 1650, the final cases taking place in the early 18th century in Carinthia and Styria.  After the end of the witch-trials, the werewolf became of interest in folklore studies and in the emerging Gothic horror genre; werewolf fiction as a genre has pre-modern precedents in medieval romances (e.g. Bisclavret and Guillaume de Palerme) and developed in the 18th century out of the 'semi-fictional' chap book tradition. The trappings of horror literature in the 20th century became part of the horror and fantasy genre of modern popular culture."),
             Legendary::WhiteLady =>  v = String::from("WhiteLady – Ghost of a murdered or mistreated woman"),
             Legendary::Whowie =>  v = String::from("Whowie – Giant frog-headed goanna with six legs"),
             Legendary::WildMan =>  v = String::from("WildMan – Hairy, bipedal, man-like creature"),
