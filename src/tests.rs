@@ -113,6 +113,7 @@ mod tests {
     }
     #[test]
     fn test_basic_class_builder() {
+        //TODO breaking change
         let b:Stats<f64> = Stats::from_class(0.0, Class::Hero);
         assert_eq!(b.xp_next, 10.0)
     }
@@ -125,6 +126,7 @@ mod tests {
         let player:Character = Character::empty();
         let mut enemy:Character = Character::empty();
         // enemy has 5 hp
+        //TODO breaking change
         enemy.stats = Stats::from_class(1.0, enemy.class);
         assert_eq!(enemy.hp_max(), 5.0);
         // now it has one less
@@ -138,6 +140,7 @@ mod tests {
         let mut player:Player = Player::empty();
         let mut enemy:Character = Character::empty();
         // enemy has 5 hp
+        //TODO breaking change
         enemy.stats = Stats::from_class(1.0, enemy.class);
         assert_eq!(enemy.hp_max(), 5.0);
         player.set_atk(1.0);

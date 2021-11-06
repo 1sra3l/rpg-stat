@@ -8,7 +8,7 @@ All have implemented fmt::Display
 
 
 */
-
+use std::fmt;
 use std::fmt::Debug;
 use std::ops::{Add, AddAssign,  Div, DivAssign, Mul, MulAssign, Neg, Rem, RemAssign, Sub, SubAssign};
 extern crate num;
@@ -143,14 +143,14 @@ impl fmt::Display for Element {
     fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
         let v:String;
         match *self {
-            Element::Rock => String::from("Rock"),
-            Element::Plant => String::from("Plant"),
-            Element::Water => String::from("Water"),
-            Element::Fire => String::from("Fire"),
-            Element::Electric => String::from("Electric"),
-            Element::Spirit => String::from("Spirit"),
-            Element::Light => String::from("Light"),
-            Element::Wind => String::from("Wind"),
+            Element::Rock => v = String::from("Rock"),
+            Element::Plant => v = String::from("Plant"),
+            Element::Water => v = String::from("Water"),
+            Element::Fire => v = String::from("Fire"),
+            Element::Electric => v = String::from("Electric"),
+            Element::Spirit => v = String::from("Spirit"),
+            Element::Light => v = String::from("Light"),
+            Element::Wind => v = String::from("Wind"),
         }
         write!(f, "{}", v.as_str())
     }
@@ -251,25 +251,25 @@ impl fmt::Display for Special {
     fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
         let v:String;
         match *self {
-            Special::Toss => "Toss".to_string(),
-            Special::Throw =>"Throw".to_string(),
-            Special::Slash =>"Slash".to_string(),
-            Special::Freeze =>"Freeze".to_string(),
-            Special::Burn =>"Burn".to_string(),
-            Special::Melt =>"Melt".to_string(),
-            Special::Crush =>"Crush".to_string(),
-            Special::Grind =>"Grind".to_string(),
-            Special::Hit =>"Hit".to_string(),
-            Special::Slap =>"Slap".to_string(),
-            Special::Smack =>"Smack".to_string(),
-            Special::Whip =>"whip".to_string(),
-            Special::Slice =>"Slice".to_string(),
-            Special::Tackle => "Tackle".to_string(),
-            Special::Spin => "Spin".to_string(),
-            Special::Blur => "Blur".to_string(),
-            Special::Strike => "Strike".to_string(),
-            Special::Splash => "Splash".to_string(),
-            // Special:: => "".to_string(),
+            Special::Toss => v = "Toss".to_string(),
+            Special::Throw => v = "Throw".to_string(),
+            Special::Slash => v = "Slash".to_string(),
+            Special::Freeze => v = "Freeze".to_string(),
+            Special::Burn => v = "Burn".to_string(),
+            Special::Melt => v = "Melt".to_string(),
+            Special::Crush => v = "Crush".to_string(),
+            Special::Grind => v = "Grind".to_string(),
+            Special::Hit => v = "Hit".to_string(),
+            Special::Slap => v = "Slap".to_string(),
+            Special::Smack => v = "Smack".to_string(),
+            Special::Whip => v = "whip".to_string(),
+            Special::Slice => v = "Slice".to_string(),
+            Special::Tackle => v = "Tackle".to_string(),
+            Special::Spin => v = "Spin".to_string(),
+            Special::Blur => v = "Blur".to_string(),
+            Special::Strike => v = "Strike".to_string(),
+            Special::Splash => v = "Splash".to_string(),
+            // Special:: => v = "".to_string(),
         }
         write!(f, "{}", v.as_str())
     }
@@ -394,21 +394,21 @@ impl fmt::Display for Effect {
     fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
         let v:String;
         match *self {
-            Effect::None => "None".to_string(),
-            Effect::HP => "HP".to_string(),
-            Effect::MP => "MP".to_string(),
-            Effect::XP => "XP".to_string(),
-            Effect::Burn => "Burn".to_string(),
-            Effect::Poison => "Poison".to_string(),
-            Effect::Freeze => "Freeze".to_string(),
-            Effect::Sick => "Sick".to_string(),
-            Effect::Sap => "Sap".to_string(),
-            Effect::Bless => "Bless".to_string(),
-            Effect::Heal => "Heal".to_string(),
-            Effect::Stuck => "Stuck".to_string(),
-            Effect::Bound => "Bound".to_string(),
-            Effect::Blocked => "Blocked".to_string(),
-            Effect::Locked => "Locked".to_string(),
+            Effect::None => v = "None".to_string(),
+            Effect::HP => v = "HP".to_string(),
+            Effect::MP => v = "MP".to_string(),
+            Effect::XP => v = "XP".to_string(),
+            Effect::Burn => v = "Burn".to_string(),
+            Effect::Poison => v = "Poison".to_string(),
+            Effect::Freeze => v = "Freeze".to_string(),
+            Effect::Sick => v = "Sick".to_string(),
+            Effect::Sap => v = "Sap".to_string(),
+            Effect::Bless => v = "Bless".to_string(),
+            Effect::Heal => v = "Heal".to_string(),
+            Effect::Stuck => v = "Stuck".to_string(),
+            Effect::Bound => v = "Bound".to_string(),
+            Effect::Blocked => v = "Blocked".to_string(),
+            Effect::Locked => v = "Locked".to_string(),
         }
         write!(f, "{}", v.as_str())
     }
