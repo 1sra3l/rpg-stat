@@ -4,6 +4,7 @@ mod creature;
 mod body;
 mod legendary;
 mod tests;
+mod types;
 //use crate::stats::Basic as Stats;
 use crate::creature::Person;
 use crate::legendary::Legendary;

@@ -1,13 +1,5 @@
 #!/bin/bash
 
-#while read LINE
-#do
-#    ENUM="${LINE%%,*},"
-#    COMMENT="${LINE#*,}"
-#    echo "    ${COMMENT}
-#    ${ENUM}"
-#
-#done < tmp
 FILE1=tmp1.rs
 FILE2=tmp2.rs
 FILE3=../assets/ini/legendary.ini
@@ -41,6 +33,7 @@ do
     then
         echo "            Legendary::${ENUM2} =>  v = String::from(\"${DESCRIPTION}\")," >> "${FILE2}"
         echo "[${ENUM2}]
+name = \"${ENUM2}\"
 short_description = \"${DESCRIPTION}\"
 long_description = \"\"
 id = $ID
