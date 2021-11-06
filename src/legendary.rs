@@ -4,9 +4,14 @@
 A huge set of creatures from around the world.  This can be iterated through, and will hopefully 
 
 */
+extern crate num;
+use num::NumCast;
 use std::fmt;
 use strum::IntoEnumIterator;
 use strum_macros::EnumIter;
+use crate::stats::{ Builder, Basic, Normal, Advanced };
+
+use std::ops::{Add, AddAssign,  Div, DivAssign, Mul, MulAssign, Neg, Rem, RemAssign, Sub, SubAssign};
 /*
 This is public information from [Wikipedia](https://en.wikipedia.org/wiki/Lists_of_legendary_creatures)
 
@@ -4279,7 +4284,8 @@ impl fmt::Display for Legendary {
 }
 
 impl Legendary {
-    pub fn description(&self) -> String {
+    /// Get a short descriptive string of the `Legendary` creature
+    pub fn short_description(&self) -> String {
         let v:String;
         match *self {
             Legendary::ABaoAQu =>  v = String::from("(Basque) – Bull spirit."),
@@ -5703,4 +5709,63 @@ impl Legendary {
         // We **finally** return the string
         v
     }
+}
+impl<T:Copy 
+    + Default
+    + AddAssign
+    + Add<Output = T>
+    + Div<Output = T>
+    + DivAssign
+    + Mul<Output = T>
+    + MulAssign
+    + Neg<Output = T>
+    + Rem<Output = T>
+    + RemAssign
+    + Sub<Output = T>
+    + SubAssign
+    + std::cmp::PartialOrd
+    + num::NumCast> Builder<T> for Legendary {
+    /// Build a `Basic` stat
+    fn build_basic(&self, id:T, level:T) -> Basic<T>{
+        let mut hp:T = num::cast(10).unwrap();
+        let mut mp:T = num::cast(5).unwrap();
+        let mut xp:T = num::cast(1).unwrap();
+        let mut xp_next:T = num::cast(10).unwrap();
+        let mut gp:T = num::cast(5).unwrap();
+        let mut speed:T = num::cast(5).unwrap();
+        match *self {
+            _=> {},
+        }
+        hp *= level;
+        mp *= level;
+        // TODO fixme:
+        xp *= level;
+        // TODO fixme:
+        xp_next *= level;
+        gp *= level;
+        speed += level;
+        Basic {
+            id:id,
+            xp:xp,
+            xp_next:xp_next,
+            level:level,
+            gp:gp,
+            hp: hp,
+            mp: mp,
+            hp_max: hp,
+            mp_max: mp,
+            speed: speed,
+        }
+        
+    }
+    /*
+    // Build a `Normal` stat
+    fn build_normal(&self) -> Normal<T>{
+        
+    }
+    // Build an `Advanced` stat
+    fn build_advanced(&self) -> Advanced<T>{
+        
+    }
+    */
 }

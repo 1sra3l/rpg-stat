@@ -11,6 +11,29 @@ use crate::class::Basic as ClassBasic;
 use crate::creature::Animal;
 use crate::creature::Person;
 use std::ops::{Add, AddAssign,  Div, DivAssign, Mul, MulAssign, Neg, Rem, RemAssign, Sub, SubAssign};
+pub trait Builder<T:Copy 
+                  + Default
+                  + AddAssign
+                  + Add<Output = T>
+                  + Div<Output = T>
+                  + DivAssign
+                  + Mul<Output = T>
+                  + MulAssign
+                  + Neg<Output = T>
+                  + Rem<Output = T>
+                  + RemAssign
+                  + Sub<Output = T>
+                  + SubAssign
+                  + std::cmp::PartialOrd
+                  + num::NumCast> {
+    /// Build a `Basic` stat
+    fn build_basic(&self, id:T, level:T) -> Basic<T>;
+    // Build a `Normal` stat
+    //fn build_normal(&self) -> Normal<T>;
+    // Build an `Advanced` stat
+    //fn build_advanced(&self) -> Advanced<T>;
+}
+
 /*
 Premade trait for Basic Stat
 You simply define the function `stat()` to return the `Basic<T>` associated with your code.
@@ -456,6 +479,7 @@ pub trait NormalPremade<T:Copy
         res
     }
 }
+
 /*
 # The Normal
 

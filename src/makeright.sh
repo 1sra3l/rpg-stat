@@ -29,8 +29,8 @@ echo "        }
     }
 }" >> "${FILE1}"
 echo "
-impl Legendary {
-    pub fn description(&self) -> String {
+    /// Get a short descriptive string of the \`Legendary\` creature
+    pub fn short_description(&self) -> String {
         let v:String;
         match *self {" > "${FILE2}"
 while read LINE
@@ -55,5 +55,4 @@ echo "            Legendary::${ENUM2} =>  v = String::from(\"${DESCRIPTION}\"),"
 echo "        }
         // We **finally** return the string
         v
-    }
-}" >> "${FILE2}"
+    }" >> "${FILE2}"

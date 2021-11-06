@@ -1,5 +1,6 @@
 #[cfg(test)]
 mod tests {
+    use crate::stats::Builder;
     use crate::stats::Basic as Stats;
     use crate::stats::Normal as StatsNormal;
     use crate::class::Basic as Class;
@@ -145,5 +146,11 @@ mod tests {
         assert_eq!(enemy.hp(), 4.0);
         enemy.heal(5.0);
         assert_eq!(enemy.hp(), 5.0);
+    }
+    #[test]
+    fn legendary_builder() {
+        let sc:Legendary = Legendary::SantaClaus;
+        let stats:Stats<f64> = sc.build_basic(0.0,1.0);
+        assert_eq!(stats.hp,10.0);
     }
 } 
