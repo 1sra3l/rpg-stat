@@ -11,6 +11,13 @@ use crate::class::Basic as ClassBasic;
 use crate::creature::Animal;
 use crate::creature::Person;
 use std::ops::{Add, AddAssign,  Div, DivAssign, Mul, MulAssign, Neg, Rem, RemAssign, Sub, SubAssign};
+
+/*
+# Builder
+
+The builder trait is how I create `rpgstat::stats::{Basic,Normal,Advance}` from enums
+
+*/
 pub trait Builder<T:Copy 
                   + Default
                   + AddAssign
@@ -53,25 +60,33 @@ pub trait BasicPremade<T:Copy
                       + SubAssign
                       + std::cmp::PartialOrd
                       + num::NumCast> {
-    /// # Functions you need to imlement
+    /// # Function you need to imlement
     /// stat returns the `Basic<T>` you created
     fn stat(&self) -> Basic<T>;
+    /// # Function you need to imlement
     /// Set the `Basic<T>` Health Points
     fn set_hp(&mut self, amount:T);
+    /// # Function you need to imlement
     /// Set the `Basic<T>` Mana Points
     fn set_mp(&mut self, amount:T);
+    /// # Function you need to imlement
     /// Set the `Basic<T>` Experience Points
     fn set_xp(&mut self, amount:T);
+    /// # Function you need to imlement
     /// Set the `Basic<T>` Max Health Points
     fn set_hp_max(&mut self, amount:T);
+    /// # Function you need to imlement
     /// Set the `Basic<T>` Max Mana Points
     fn set_mp_max(&mut self, amount:T);
+    /// # Function you need to imlement
     /// Set the `Basic<T>` Next Experience Points
     fn set_xp_next(&mut self, amount:T);
+    /// # Function you need to imlement
     /// Set the `Basic<T>` Gold Points
     fn set_gp(&mut self, amount:T);
-    /// # Predefined functions
     /// Return  the `Basic<T>` id number
+
+// PREMADE FUNCTIONS   
     fn id(&self) -> T {
         self.stat().id
     }
@@ -355,33 +370,44 @@ pub trait NormalPremade<T:Copy
                       + SubAssign
                       + std::cmp::PartialOrd
                       + num::NumCast> {
-    /// # Functions you need to imlement
+    /// # Function you need to imlement
     /// stat returns the `Normal<T>` you created
     fn stat(&self) -> Normal<T>;
+    /// # Function you need to imlement
     /// Set the `Normal<T>` Health Points
     fn set_hp(&mut self, amount:T);
+    /// # Function you need to imlement
     /// Set the `Normal<T>` Mana Points
     fn set_mp(&mut self, amount:T);
+    /// # Function you need to imlement
     /// Set the `Normal<T>` Experience Points
     fn set_xp(&mut self, amount:T);
+    /// # Function you need to imlement
     /// Set the `Normal<T>` Max Health Points
     fn set_hp_max(&mut self, amount:T);
+    /// # Function you need to imlement
     /// Set the `Normal<T>` Max Mana Points
     fn set_mp_max(&mut self, amount:T);
+    /// # Function you need to imlement
     /// Set the `Normal<T>` Next Experience Points
     fn set_xp_next(&mut self, amount:T);
+    /// # Function you need to imlement
     /// Set the `Normal<T>` Gold Points
     fn set_gp(&mut self, amount:T);
+    /// # Function you need to imlement
     /// Set the `Normal<T>` Attack Points
     fn set_atk(&mut self, amount:T);
+    /// # Function you need to imlement
     /// Set the `Normal<T>` Defense Points
     fn set_def(&mut self, amount:T);
+    /// # Function you need to imlement
     /// Set the `Normal<T>` Mana Attack Points
     fn set_m_atk(&mut self, amount:T);
+    /// # Function you need to imlement
     /// Set the `Normal<T>` Mana Defense Points
     fn set_m_def(&mut self, amount:T);
-    
-    /// # Predefined functions
+
+// PREMADE FUNCTIONS   
     /// Return  the `Normal<T>` id number
     fn id(&self) -> T {
         self.stat().id
@@ -908,94 +934,129 @@ pub trait AdvancedPremade<T:Copy
                       + SubAssign
                       + std::cmp::PartialOrd
                       + num::NumCast> {
-    /// # Functions you need to imlement
+    /// # Function you need to imlement
     /// stat returns the `Advanced<T>` you created
     fn stat(&self) -> Advanced<T>;
+    /// # Function you need to imlement
     /// Set the `Advanced<T>` Health Points
     fn set_hp(&mut self, amount:T);
+    /// # Function you need to imlement
     /// Set the `Advanced<T>` Mana Points
     fn set_mp(&mut self, amount:T);
+    /// # Function you need to imlement
     /// Set the `Advanced<T>` Experience Points
     fn set_xp(&mut self, amount:T);
+    /// # Function you need to imlement
     /// Set the `Advanced<T>` Max Health Points
     fn set_hp_max(&mut self, amount:T);
+    /// # Function you need to imlement
     /// Set the `Advanced<T>` Max Mana Points
     fn set_mp_max(&mut self, amount:T);
+    /// # Function you need to imlement
     /// Set the `Advanced<T>` Next Experience Points
     fn set_xp_next(&mut self, amount:T);
+    /// # Function you need to imlement
     /// Set the `Advanced<T>` Gold Points
     fn set_gp(&mut self, amount:T);
+    /// # Function you need to imlement
     /// Set the `Advanced<T>` Attack Points
     fn set_atk(&mut self, amount:T);
+    /// # Function you need to imlement
     /// Set the `Advanced<T>` Defense Points
     fn set_def(&mut self, amount:T);
+    /// # Function you need to imlement
     /// Set the `Advanced<T>` Mana Attack Points
     fn set_m_atk(&mut self, amount:T);
+    /// # Function you need to imlement
     /// Set the `Advanced<T>` Mana Defense Points
     fn set_m_def(&mut self, amount:T);
+
+// PREMADE FUNCTIONS
+    /// Get the id number
     fn id(&self) -> T {
         self.stat().id
     }
+    /// Get the Health Points
     fn hp(&self) -> T {
         self.stat().hp
     }
+    /// Get the Mana Points
     fn mp(&self) -> T {
         self.stat().mp
     }
+    /// Get the Experience Points
     fn xp(&self) -> T {
         self.stat().xp
     }
+    /// Get the Max Health Points
     fn hp_max(&self) -> T {
         self.stat().hp_max
     }
+    /// Get the Max Mana Points
     fn mp_max(&self) -> T {
         self.stat().mp_max
     }
+    /// Get the Experience Points
     fn xp_next(&self) -> T {
         self.stat().xp_next
     }
+    /// Get the Current Level
     fn level(&self) -> T {
         self.stat().level
     }
+    /// Get the Speed
     fn speed(&self) -> T {
         self.stat().level
     }
+    /// Get the Attack Points
     fn atk(&self) -> T {
         self.stat().atk
     }
+    /// Get the Defense Points
     fn def(&self) -> T {
         self.stat().def
     }
+    /// Get the Mana Attack Points
     fn m_atk(&self) -> T {
         self.stat().m_atk
     }
+    /// Get the Mana Defense Points
     fn m_def(&self) -> T {
         self.stat().m_def
     }
+    /// Get the Gold Points
     fn gp(&self) -> T {
         self.stat().gp
     }
+    /// Get the agility Points
     fn agi(&self) -> T {
         self.stat().agility
     }
+    /// Get the strength Points
     fn str(&self) -> T {
         self.stat().strength
     }
+    /// Get the intelligence Points
     fn int(&self) -> T {
         self.stat().intelligence
     }
+    /// Get the dexterity Points
     fn dex(&self) -> T {
         self.stat().dexterity
     }
+    /// Get the constitution Points
     fn con(&self) -> T {
         self.stat().constitution
     }
+    /// Get the charisma Points
     fn char(&self) -> T {
         self.stat().charisma
     }
+    /// Get the wisdom Points
     fn wis(&self) -> T {
         self.stat().wisdom
     }
+    /// Get the Age
     fn age(&self) -> T {
         self.stat().age
     }
@@ -1090,7 +1151,7 @@ pub struct Advanced<T:Copy
     pub m_def:T,
     /// The agility Points
     pub agility:T,
-    /// # The strength Points
+    /// The strength Points
     pub strength:T,
     /// The dexterity Points
     pub dexterity:T,

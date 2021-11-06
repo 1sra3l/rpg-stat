@@ -2,6 +2,7 @@
 
 FILE1=tmp1.rs
 FILE2=tmp2.rs
+FILE3=tmp3.rs
 
 INI_FILE="../assets/ini/legendary.ini"
 OUTPUT="legendary.rs"
@@ -40,7 +41,14 @@ echo "impl Legendary {
     pub fn short_description(&self) -> String {
         let v:String;
         match *self {" > "${FILE2}"
+
 # File 3
+echo "    /// Get a long descriptive string of the \`Legendary\` creature
+    pub fn long_description(&self) -> String {
+        let v:String;
+        match *self {" > "${FILE3}"
+
+# INI file
 echo "# Legendary Creatures from Wikipedia
 " > "${INI_FILE}"
 # increment ID for legendary creature ini
@@ -49,26 +57,35 @@ unset FIRST_TIME
 # read in the info
 while read LINE
 do
-    printf "    $LINE" >> "${OUTPUT}"
     ENUM="${LINE/\/*}"
     # File 1
     if [[ -n $ENUM ]]
     then
+        ENUM="${ENUM/\[*}"
         echo "            Legendary::${ENUM} =>  v = String::from(\"${ENUM}\"),">> "${FILE1}"
-        printf "," >> "${OUTPUT}"
+        echo -n "    $ENUM," >> "${OUTPUT}"
+        LONG_DESC="${LINE/\]}"
+        LONG_DESC="${LONG_DESC/*\[}"
+        #LONG_DESC="${LONG_DESC//}"
+    else
+        echo -n "    $LINE" >> "${OUTPUT}"
     fi
-    # File 2 & 3
+    # File 2 & INI
     if [[ -n $ENUM ]] && [[ -z $FIRST_TIME ]]
     then
         FIRST_TIME="DONE"
+        [[ -z $REAL_NAME ]] && REAL_NAME="${ENUM}"
+        [[ -z ${LONG_DESC} ]] && LONG_DESC="${REAL_NAME}${DESCRIPTION}"
         # File 2
-        echo "            Legendary::${ENUM} =>  v = String::from(\"${DESCRIPTION}\")," >> "${FILE2}"
-
+        echo "            Legendary::${ENUM} =>  v = String::from(\"${REAL_NAME}${DESCRIPTION}\")," >> "${FILE2}"
         # File 3
+        echo "            Legendary::${ENUM} =>  v = String::from(\"${LONG_DESC}\")," >> "${FILE3}"
+
+        # INI file
         echo "[${ENUM}]
-name = \"${ENUM}\"
-short_description = \"${DESCRIPTION}\"
-long_description = \"\"
+name = \"${REAL_NAME}\"
+short_description = \"${REAL_NAME}${DESCRIPTION}\"
+long_description = \"${LONG_DESC}\"
 id = $ID
 hp = 10
 mp = 10
@@ -95,17 +112,21 @@ age = 10
         ID=$(( ID + 1 ))
     fi
 
-    # File 2 & 3
+    # File 2 & INI
     if [[ -n $ENUM ]] && [[ -n $ENUM2 ]]
     then
+        [[ -z $REAL_NAME ]] && REAL_NAME="${ENUM}"
+        [[ -z ${LONG_DESC} ]] && LONG_DESC="${REAL_NAME}${DESCRIPTION}"
         # File 2
-        echo "            Legendary::${ENUM} =>  v = String::from(\"${DESCRIPTION}\")," >> "${FILE2}"
-
+        echo "            Legendary::${ENUM} =>  v = String::from(\"${REAL_NAME}${DESCRIPTION}\")," >> "${FILE2}"
         # File 3
+        echo "            Legendary::${ENUM} =>  v = String::from(\"${LONG_DESC}\")," >> "${FILE3}"
+
+        # INI file
         echo "[${ENUM}]
-name = \"${ENUM}\"
-short_description = \"${DESCRIPTION}\"
-long_description = \"\"
+name = \"${REAL_NAME}\"
+short_description = \"${REAL_NAME}${DESCRIPTION}\"
+long_description = \"${LONG_DESC}\"
 id = $ID
 hp = 10
 mp = 10
@@ -133,6 +154,11 @@ age = 10
     else
         DESCRIPTION="${LINE/*\/\/\/ }"
         DESCRIPTION="${DESCRIPTION//\"/\'}"
+        REAL_NAME="${DESCRIPTION/\]*}"
+        DESCRIPTION="${DESCRIPTION/*\)}"
+        #DESCRIPTION="${DESCRIPTION/\[}"
+        #DESCRIPTION="${DESCRIPTION/\]}"
+        REAL_NAME="${REAL_NAME/\[}"
         export DESCRIPTION
         #echo $DESCRIPTION
     fi
@@ -142,7 +168,7 @@ age = 10
         #echo $ENUM2
         export ENUM2
     fi
-    printf "\n" >> "${OUTPUT}"
+    echo >> "${OUTPUT}"
 done < legendary_list
 echo "}" >> "${OUTPUT}"
 #File 1
@@ -155,12 +181,17 @@ echo "        }
 echo "        }
         // We **finally** return the string
         v
+    }">> "${FILE2}"
+
+echo "        }
+        // We **finally** return the *looooooong* string
+        v
     }
-}" >> "${FILE2}"
+}" >> "${FILE3}"
 
 cp "${OUTPUT}" "${OUTPUT}.tmp"
-cat "${OUTPUT}.tmp" "${FILE1}" "${FILE2}" > "${OUTPUT}"
-rm "${OUTPUT}.tmp" "${FILE1}" "${FILE2}"
+cat "${OUTPUT}.tmp" "${FILE1}" "${FILE2}" "${FILE3}" > "${OUTPUT}"
+rm "${OUTPUT}.tmp" "${FILE1}" "${FILE2}" "${FILE3}"
 
 echo "impl<T:Copy 
     + Default
