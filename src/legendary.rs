@@ -5733,6 +5733,7 @@ impl<T:Copy
         let mut xp_next:T = num::cast(10).unwrap();
         let mut gp:T = num::cast(5).unwrap();
         let mut speed:T = num::cast(5).unwrap();
+        //TODO OR ue legendary.ini + serde
         match *self {
             _=> {},
         }
@@ -5758,14 +5759,103 @@ impl<T:Copy
         }
         
     }
-    /*
     // Build a `Normal` stat
-    fn build_normal(&self) -> Normal<T>{
-        
+    fn build_normal(&self, id:T, level:T) -> Normal<T>{
+        let mut hp:T = num::cast(10).unwrap();
+        let mut mp:T = num::cast(5).unwrap();
+        let mut xp:T = num::cast(1).unwrap();
+        let mut xp_next:T = num::cast(10).unwrap();
+        let mut gp:T = num::cast(5).unwrap();
+        let mut speed:T = num::cast(5).unwrap();
+        let mut atk:T = num::cast(10).unwrap();
+        let mut def:T = num::cast(10).unwrap();
+        let mut m_atk:T = num::cast(10).unwrap();
+        let mut m_def:T = num::cast(10).unwrap();
+        //TODO OR use legendary.ini + serde
+        match *self {
+            _=> {},
+        }
+        hp *= level;
+        mp *= level;
+        // TODO fixme:
+        xp *= level;
+        // TODO fixme:
+        xp_next *= level;
+        gp *= level;
+        speed += level;
+        Normal {
+            id:id,
+            xp:xp,
+            xp_next:xp_next,
+            level:level,
+            gp:gp,
+            hp: hp,
+            mp: mp,
+            hp_max: hp,
+            mp_max: mp,
+            speed: speed,
+            atk:atk,
+            def:def,
+            m_atk:m_atk,
+            m_def:m_def,
+        }
     }
+
     // Build an `Advanced` stat
-    fn build_advanced(&self) -> Advanced<T>{
-        
+    fn build_advanced(&self, id:T, level:T) -> Advanced<T>{
+        let mut hp:T = num::cast(10).unwrap();
+        let mut mp:T = num::cast(5).unwrap();
+        let mut xp:T = num::cast(1).unwrap();
+        let mut xp_next:T = num::cast(10).unwrap();
+        let mut gp:T = num::cast(5).unwrap();
+        let mut speed:T = num::cast(5).unwrap();
+        let mut atk:T = num::cast(10).unwrap();
+        let mut def:T = num::cast(10).unwrap();
+        let mut m_atk:T = num::cast(10).unwrap();
+        let mut m_def:T = num::cast(10).unwrap();
+        let mut agility:T = num::cast(10).unwrap();
+        let mut strength:T = num::cast(10).unwrap();
+        let mut dexterity:T = num::cast(10).unwrap();
+        let mut constitution:T = num::cast(10).unwrap();
+        let mut intelligence:T = num::cast(10).unwrap();
+        let mut charisma:T = num::cast(10).unwrap();
+        let mut wisdom:T = num::cast(10).unwrap();
+        let mut age:T = num::cast(10).unwrap();
+        //TODO OR use legendary.ini + serde
+        match *self {
+            _=> {},
+        }
+        hp *= level;
+        mp *= level;
+        // TODO fixme:
+        xp *= level;
+        // TODO fixme:
+        xp_next *= level;
+        gp *= level;
+        speed += level;
+        Advanced {
+            id:id,
+            xp:xp,
+            xp_next:xp_next,
+            level:level,
+            gp:gp,
+            hp: hp,
+            mp: mp,
+            hp_max: hp,
+            mp_max: mp,
+            speed: speed,
+            atk:atk,
+            def:def,
+            m_atk:m_atk,
+            m_def:m_def,
+            agility:agility,
+            strength:strength,
+            dexterity:dexterity,
+            constitution:constitution,
+            intelligence:intelligence,
+            charisma:charisma,
+            wisdom:wisdom,
+            age:age,
+        }
     }
-    */
 }

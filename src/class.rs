@@ -6,10 +6,15 @@ You can even use the fully `Advanced` version to use the entire class realm.
 */
 use std::fmt;
 use serde::{Deserialize, Serialize};
-use crate::stats::Basic as BasicStats;
-use crate::stats::Normal as NormalStats;
+use std::ops::{Add, AddAssign,  Div, DivAssign, Mul, MulAssign, Neg, Rem, RemAssign, Sub, SubAssign};
 use strum::IntoEnumIterator;
 use strum_macros::EnumIter;
+
+// RPG Stat
+use crate::stats::Basic as BasicStats;
+use crate::stats::Normal as NormalStats;
+use crate::stats::Advanced as AdvancedStats;
+use crate::stats::Builder;
 
 /*
 Alignement allows for the creation of multile outcomes in situations
@@ -62,7 +67,194 @@ impl fmt::Display for Basic {
         write!(f, "{}", v.as_str())
     }
 }
+impl<T:Copy 
+    + Default
+    + AddAssign
+    + Add<Output = T>
+    + Div<Output = T>
+    + DivAssign
+    + Mul<Output = T>
+    + MulAssign
+    + Neg<Output = T>
+    + Rem<Output = T>
+    + RemAssign
+    + Sub<Output = T>
+    + SubAssign
+    + std::cmp::PartialOrd
+    + num::NumCast> Builder<T> for Basic {
+    /// Build a `Basic` stat
+    fn build_basic(&self, id:T, level:T) -> BasicStats<T>{
+        let mut hp:T = num::cast(10).unwrap();
+        let mut mp:T = num::cast(5).unwrap();
+        let mut xp:T = num::cast(1).unwrap();
+        let mut xp_next:T = num::cast(10).unwrap();
+        let mut gp:T = num::cast(5).unwrap();
+        let mut speed:T = num::cast(5).unwrap();
+        //TODO OR ue legendary.ini + serde
+        match *self {
+            Basic::Hero => {
+                xp_next = num::cast(10).unwrap();
+                hp = num::cast(10).unwrap();
+                mp = num::cast(5).unwrap();
+                speed = num::cast(10).unwrap();
+                
+            },
+            Basic::Enemy => {
+                xp = num::cast(1).unwrap();
+                xp_next =num::cast(10).unwrap();
+                hp = num::cast(5).unwrap();
+                mp = num::cast(5).unwrap();
+                speed = num::cast(7).unwrap();
+            },
+        }
+        hp *= level;
+        mp *= level;
+        // TODO fixme:
+        xp *= level;
+        // TODO fixme:
+        xp_next *= level;
+        gp *= level;
+        speed += level;
+        BasicStats {
+            id:id,
+            xp:xp,
+            xp_next:xp_next,
+            level:level,
+            gp:gp,
+            hp: hp,
+            mp: mp,
+            hp_max: hp,
+            mp_max: mp,
+            speed: speed,
+        }
+        
+    }
+    // Build a `Normal` stat
+    fn build_normal(&self, id:T, level:T) -> NormalStats<T>{
+        let mut hp:T = num::cast(10).unwrap();
+        let mut mp:T = num::cast(5).unwrap();
+        let mut xp:T = num::cast(1).unwrap();
+        let mut xp_next:T = num::cast(10).unwrap();
+        let mut gp:T = num::cast(5).unwrap();
+        let mut speed:T = num::cast(5).unwrap();
+        let mut atk:T = num::cast(10).unwrap();
+        let mut def:T = num::cast(10).unwrap();
+        let mut m_atk:T = num::cast(10).unwrap();
+        let mut m_def:T = num::cast(10).unwrap();
+        //TODO OR ue legendary.ini + serde
+        match *self {
+            Basic::Hero => {
+                xp_next = num::cast(10).unwrap();
+                hp = num::cast(10).unwrap();
+                mp = num::cast(5).unwrap();
+                speed = num::cast(10).unwrap();
+                
+            },
+            Basic::Enemy => {
+                xp = num::cast(1).unwrap();
+                xp_next =num::cast(10).unwrap();
+                hp = num::cast(5).unwrap();
+                mp = num::cast(5).unwrap();
+                speed = num::cast(7).unwrap();
+            },
+        }
+        hp *= level;
+        mp *= level;
+        // TODO fixme:
+        xp *= level;
+        // TODO fixme:
+        xp_next *= level;
+        gp *= level;
+        speed += level;
+        NormalStats {
+            id:id,
+            xp:xp,
+            xp_next:xp_next,
+            level:level,
+            gp:gp,
+            hp: hp,
+            mp: mp,
+            hp_max: hp,
+            mp_max: mp,
+            speed: speed,
+            atk:atk,
+            def:def,
+            m_atk:m_atk,
+            m_def:m_def,
+        }
+    }
 
+    // Build an `Advanced` stat
+    fn build_advanced(&self, id:T, level:T) -> AdvancedStats<T>{
+        let mut hp:T = num::cast(10).unwrap();
+        let mut mp:T = num::cast(5).unwrap();
+        let mut xp:T = num::cast(1).unwrap();
+        let mut xp_next:T = num::cast(10).unwrap();
+        let mut gp:T = num::cast(5).unwrap();
+        let mut speed:T = num::cast(5).unwrap();
+        let mut atk:T = num::cast(10).unwrap();
+        let mut def:T = num::cast(10).unwrap();
+        let mut m_atk:T = num::cast(10).unwrap();
+        let mut m_def:T = num::cast(10).unwrap();
+        let mut agility:T = num::cast(10).unwrap();
+        let mut strength:T = num::cast(10).unwrap();
+        let mut dexterity:T = num::cast(10).unwrap();
+        let mut constitution:T = num::cast(10).unwrap();
+        let mut intelligence:T = num::cast(10).unwrap();
+        let mut charisma:T = num::cast(10).unwrap();
+        let mut wisdom:T = num::cast(10).unwrap();
+        let mut age:T = num::cast(10).unwrap();
+        //TODO OR use legendary.ini + serde
+        match *self {
+            Basic::Hero => {
+                xp_next = num::cast(10).unwrap();
+                hp = num::cast(10).unwrap();
+                mp = num::cast(5).unwrap();
+                speed = num::cast(10).unwrap();
+                
+            },
+            Basic::Enemy => {
+                xp = num::cast(1).unwrap();
+                xp_next =num::cast(10).unwrap();
+                hp = num::cast(5).unwrap();
+                mp = num::cast(5).unwrap();
+                speed = num::cast(7).unwrap();
+            },
+        }
+        hp *= level;
+        mp *= level;
+        // TODO fixme:
+        xp *= level;
+        // TODO fixme:
+        xp_next *= level;
+        gp *= level;
+        speed += level;
+        AdvancedStats {
+            id:id,
+            xp:xp,
+            xp_next:xp_next,
+            level:level,
+            gp:gp,
+            hp: hp,
+            mp: mp,
+            hp_max: hp,
+            mp_max: mp,
+            speed: speed,
+            atk:atk,
+            def:def,
+            m_atk:m_atk,
+            m_def:m_def,
+            agility:agility,
+            strength:strength,
+            dexterity:dexterity,
+            constitution:constitution,
+            intelligence:intelligence,
+            charisma:charisma,
+            wisdom:wisdom,
+            age:age,
+        }
+    }
+}
 /*
 # The "Normal" type of class
 
@@ -129,6 +321,359 @@ impl fmt::Display for  Normal{
             Normal::Valkyrie => v = String::from("Valkyrie"),
         }
         write!(f, "{}", v.as_str())
+    }
+}
+impl<T:Copy 
+    + Default
+    + AddAssign
+    + Add<Output = T>
+    + Div<Output = T>
+    + DivAssign
+    + Mul<Output = T>
+    + MulAssign
+    + Neg<Output = T>
+    + Rem<Output = T>
+    + RemAssign
+    + Sub<Output = T>
+    + SubAssign
+    + std::cmp::PartialOrd
+    + num::NumCast> Builder<T> for Normal {
+    /// Build a `Basic` stat
+    fn build_basic(&self, id:T, level:T) -> BasicStats<T>{
+        let mut hp:T = num::cast(10).unwrap();
+        let mut mp:T = num::cast(5).unwrap();
+        let mut xp:T = num::cast(1).unwrap();
+        let mut xp_next:T = num::cast(10).unwrap();
+        let mut gp:T = num::cast(5).unwrap();
+        let mut speed:T = num::cast(5).unwrap();
+        //TODO OR ue legendary.ini + serde
+        match *self {
+            Normal::Alchemist => {
+                hp =  num::cast(40).unwrap();
+                mp =  num::cast(16).unwrap();
+                speed =  num::cast(5).unwrap();
+            },
+            Normal::Archer => {
+                hp =  num::cast(50).unwrap();
+                mp =  num::cast(25).unwrap();
+                speed =  num::cast(5).unwrap();
+            },
+            Normal::Knight => {
+                hp =  num::cast(50).unwrap();
+                mp =  num::cast(20).unwrap();
+                speed =  num::cast(7).unwrap();
+            },
+            Normal::Monk => {
+                hp = num::cast(50).unwrap();
+                mp = num::cast(20).unwrap();
+                speed = num::cast(5).unwrap();
+            },
+            Normal::Elemental => {
+                hp = num::cast(70).unwrap();
+                mp = num::cast(40).unwrap();
+                speed = num::cast(4).unwrap();
+            },
+            Normal::Priest => {
+                hp = num::cast(60).unwrap();
+                mp = num::cast(10).unwrap();
+                speed = num::cast(4).unwrap();
+            },
+            Normal::Soldier => {
+                hp = num::cast(90).unwrap();
+                mp = num::cast(0).unwrap();
+                speed = num::cast(5).unwrap();
+            },
+            Normal::Ranger => {
+                hp = num::cast(40).unwrap();
+                mp = num::cast(70).unwrap();
+                speed = num::cast(8).unwrap();
+            },
+            Normal::Valkyrie => {
+                hp = num::cast(50).unwrap();
+                mp = num::cast(10).unwrap();
+                speed = num::cast(7).unwrap();
+            },
+        }
+        hp *= level;
+        mp *= level;
+        // TODO fixme:
+        xp *= level;
+        // TODO fixme:
+        xp_next *= level;
+        gp *= level;
+        speed += level;
+        BasicStats {
+            id:id,
+            xp:xp,
+            xp_next:xp_next,
+            level:level,
+            gp:gp,
+            hp: hp,
+            mp: mp,
+            hp_max: hp,
+            mp_max: mp,
+            speed: speed,
+        }
+        
+    }
+    // Build a `Normal` stat
+    fn build_normal(&self, id:T, level:T) -> NormalStats<T>{
+        let mut hp:T = num::cast(10).unwrap();
+        let mut mp:T = num::cast(5).unwrap();
+        let mut xp:T = num::cast(1).unwrap();
+        let mut xp_next:T = num::cast(10).unwrap();
+        let mut gp:T = num::cast(5).unwrap();
+        let mut speed:T = num::cast(5).unwrap();
+        let mut atk:T = num::cast(10).unwrap();
+        let mut def:T = num::cast(10).unwrap();
+        let mut m_atk:T = num::cast(10).unwrap();
+        let mut m_def:T = num::cast(10).unwrap();
+        //TODO OR ue legendary.ini + serde
+        match *self {
+            Normal::Alchemist => {
+                hp =  num::cast(40).unwrap();
+                mp =  num::cast(16).unwrap();
+                atk =  num::cast(14).unwrap();
+                def =  num::cast(30).unwrap();
+                m_atk =  num::cast(20).unwrap();
+                m_def =  num::cast(30).unwrap();
+                speed =  num::cast(5).unwrap();
+            },
+            Normal::Archer => {
+                hp =  num::cast(50).unwrap();
+                mp =  num::cast(25).unwrap();
+                atk =  num::cast(15).unwrap();
+                def =  num::cast(10).unwrap();
+                m_atk =  num::cast(15).unwrap();
+                m_def =  num::cast(35).unwrap();
+                speed =  num::cast(5).unwrap();
+            },
+            Normal::Knight => {
+                hp =  num::cast(50).unwrap();
+                mp =  num::cast(20).unwrap();
+                atk =  num::cast(20).unwrap();
+                def =  num::cast(20).unwrap();
+                m_atk =  num::cast(20).unwrap();
+                m_def =  num::cast(20).unwrap();
+                speed =  num::cast(7).unwrap();
+            },
+            Normal::Monk => {
+                hp = num::cast(50).unwrap();
+                mp = num::cast(20).unwrap();
+                atk = num::cast(10).unwrap();
+                def = num::cast(15).unwrap();
+                m_atk = num::cast(5).unwrap();
+                m_def = num::cast(40).unwrap();
+                speed = num::cast(5).unwrap();
+            },
+            Normal::Elemental => {
+                hp = num::cast(70).unwrap();
+                mp = num::cast(40).unwrap();
+                atk = num::cast(1).unwrap();
+                def = num::cast(8).unwrap();
+                m_atk = num::cast(30).unwrap();
+                m_def = num::cast(1).unwrap();
+                speed = num::cast(4).unwrap();
+            },
+            Normal::Priest => {
+                hp = num::cast(60).unwrap();
+                mp = num::cast(10).unwrap();
+                atk = num::cast(20).unwrap();
+                def = num::cast( 10).unwrap();
+                m_atk = num::cast(10).unwrap();
+                m_def = num::cast(40).unwrap();
+                speed = num::cast(4).unwrap();
+            },
+            Normal::Soldier => {
+                hp = num::cast(90).unwrap();
+                mp = num::cast(0).unwrap();
+                atk = num::cast(30).unwrap();
+                def = num::cast(12).unwrap();
+                m_atk = num::cast(0).unwrap();
+                m_def = num::cast(18).unwrap();
+                speed = num::cast(5).unwrap();
+            },
+            Normal::Ranger => {
+                hp = num::cast(40).unwrap();
+                mp = num::cast(70).unwrap();
+                atk = num::cast(15).unwrap();
+                def = num::cast( 9).unwrap();
+                m_atk = num::cast(11).unwrap();
+                m_def = num::cast(30).unwrap();
+                speed = num::cast(8).unwrap();
+            },
+            Normal::Valkyrie => {
+                hp = num::cast(50).unwrap();
+                mp = num::cast(10).unwrap();
+                atk = num::cast(20).unwrap();
+                def = num::cast(20).unwrap();
+                m_atk = num::cast(20).unwrap();
+                m_def = num::cast(30).unwrap();
+                speed = num::cast(7).unwrap();
+            },
+        }
+        hp *= level;
+        mp *= level;
+        // TODO fixme:
+        xp *= level;
+        // TODO fixme:
+        xp_next *= level;
+        gp *= level;
+        speed += level;
+        NormalStats {
+            id:id,
+            xp:xp,
+            xp_next:xp_next,
+            level:level,
+            gp:gp,
+            hp: hp,
+            mp: mp,
+            hp_max: hp,
+            mp_max: mp,
+            speed: speed,
+            atk:atk,
+            def:def,
+            m_atk:m_atk,
+            m_def:m_def,
+        }
+    }
+
+    // Build an `Advanced` stat
+    fn build_advanced(&self, id:T, level:T) -> AdvancedStats<T>{
+        let mut hp:T = num::cast(10).unwrap();
+        let mut mp:T = num::cast(5).unwrap();
+        let mut xp:T = num::cast(1).unwrap();
+        let mut xp_next:T = num::cast(10).unwrap();
+        let mut gp:T = num::cast(5).unwrap();
+        let mut speed:T = num::cast(5).unwrap();
+        let mut atk:T = num::cast(10).unwrap();
+        let mut def:T = num::cast(10).unwrap();
+        let mut m_atk:T = num::cast(10).unwrap();
+        let mut m_def:T = num::cast(10).unwrap();
+        let mut agility:T = num::cast(10).unwrap();
+        let mut strength:T = num::cast(10).unwrap();
+        let mut dexterity:T = num::cast(10).unwrap();
+        let mut constitution:T = num::cast(10).unwrap();
+        let mut intelligence:T = num::cast(10).unwrap();
+        let mut charisma:T = num::cast(10).unwrap();
+        let mut wisdom:T = num::cast(10).unwrap();
+        let mut age:T = num::cast(10).unwrap();
+        //TODO OR use legendary.ini + serde
+        match *self {
+           Normal::Alchemist => {
+                hp =  num::cast(40).unwrap();
+                mp =  num::cast(16).unwrap();
+                atk =  num::cast(14).unwrap();
+                def =  num::cast(30).unwrap();
+                m_atk =  num::cast(20).unwrap();
+                m_def =  num::cast(30).unwrap();
+                speed =  num::cast(5).unwrap();
+            },
+            Normal::Archer => {
+                hp =  num::cast(50).unwrap();
+                mp =  num::cast(25).unwrap();
+                atk =  num::cast(15).unwrap();
+                def =  num::cast(10).unwrap();
+                m_atk =  num::cast(15).unwrap();
+                m_def =  num::cast(35).unwrap();
+                speed =  num::cast(5).unwrap();
+            },
+            Normal::Knight => {
+                hp =  num::cast(50).unwrap();
+                mp =  num::cast(20).unwrap();
+                atk =  num::cast(20).unwrap();
+                def =  num::cast(20).unwrap();
+                m_atk =  num::cast(20).unwrap();
+                m_def =  num::cast(20).unwrap();
+                speed =  num::cast(7).unwrap();
+            },
+            Normal::Monk => {
+                hp = num::cast(50).unwrap();
+                mp = num::cast(20).unwrap();
+                atk = num::cast(10).unwrap();
+                def = num::cast(15).unwrap();
+                m_atk = num::cast(5).unwrap();
+                m_def = num::cast(40).unwrap();
+                speed = num::cast(5).unwrap();
+            },
+            Normal::Elemental => {
+                hp = num::cast(70).unwrap();
+                mp = num::cast(40).unwrap();
+                atk = num::cast(1).unwrap();
+                def = num::cast(8).unwrap();
+                m_atk = num::cast(30).unwrap();
+                m_def = num::cast(1).unwrap();
+                speed = num::cast(4).unwrap();
+            },
+            Normal::Priest => {
+                hp = num::cast(60).unwrap();
+                mp = num::cast(10).unwrap();
+                atk = num::cast(20).unwrap();
+                def = num::cast( 10).unwrap();
+                m_atk = num::cast(10).unwrap();
+                m_def = num::cast(40).unwrap();
+                speed = num::cast(4).unwrap();
+            },
+            Normal::Soldier => {
+                hp = num::cast(90).unwrap();
+                mp = num::cast(0).unwrap();
+                atk = num::cast(30).unwrap();
+                def = num::cast(12).unwrap();
+                m_atk = num::cast(0).unwrap();
+                m_def = num::cast(18).unwrap();
+                speed = num::cast(5).unwrap();
+            },
+            Normal::Ranger => {
+                hp = num::cast(40).unwrap();
+                mp = num::cast(70).unwrap();
+                atk = num::cast(15).unwrap();
+                def = num::cast( 9).unwrap();
+                m_atk = num::cast(11).unwrap();
+                m_def = num::cast(30).unwrap();
+                speed = num::cast(8).unwrap();
+            },
+            Normal::Valkyrie => {
+                hp = num::cast(50).unwrap();
+                mp = num::cast(10).unwrap();
+                atk = num::cast(20).unwrap();
+                def = num::cast(20).unwrap();
+                m_atk = num::cast(20).unwrap();
+                m_def = num::cast(30).unwrap();
+                speed = num::cast(7).unwrap();
+            },
+        }
+        hp *= level;
+        mp *= level;
+        // TODO fixme:
+        xp *= level;
+        // TODO fixme:
+        xp_next *= level;
+        gp *= level;
+        speed += level;
+        AdvancedStats {
+            id:id,
+            xp:xp,
+            xp_next:xp_next,
+            level:level,
+            gp:gp,
+            hp: hp,
+            mp: mp,
+            hp_max: hp,
+            mp_max: mp,
+            speed: speed,
+            atk:atk,
+            def:def,
+            m_atk:m_atk,
+            m_def:m_def,
+            agility:agility,
+            strength:strength,
+            dexterity:dexterity,
+            constitution:constitution,
+            intelligence:intelligence,
+            charisma:charisma,
+            wisdom:wisdom,
+            age:age,
+        }
     }
 }
 /*

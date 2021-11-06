@@ -29,9 +29,9 @@ pub trait Builder<T:Copy
     /// Build a `Basic` stat
     fn build_basic(&self, id:T, level:T) -> Basic<T>;
     // Build a `Normal` stat
-    //fn build_normal(&self) -> Normal<T>;
+    fn build_normal(&self, id:T, level:T) -> Normal<T>;
     // Build an `Advanced` stat
-    //fn build_advanced(&self) -> Advanced<T>;
+    fn build_advanced(&self, id:T, level:T) -> Advanced<T>;
 }
 
 /*
@@ -980,6 +980,9 @@ pub trait AdvancedPremade<T:Copy
     }
     fn str(&self) -> T {
         self.stat().strength
+    }
+    fn int(&self) -> T {
+        self.stat().intelligence
     }
     fn dex(&self) -> T {
         self.stat().dexterity
