@@ -1,8 +1,12 @@
 #!/bin/bash
 
+# Temporary files 
 FILE1=tmp1.rs
 FILE2=tmp2.rs
 FILE3=tmp3.rs
+FILE4=tmp4.rs
+FILE5=tmp5.rs
+FILE6=tmp6.rs
 
 INI_FILE="assets/ini/legendary.ini"
 OUTPUT="src/legendary.rs"
@@ -47,6 +51,71 @@ echo "    /// Get a long descriptive string of the \`Legendary\` creature
     pub fn long_description(&self) -> String {
         let v:String;
         match *self {" > "${FILE3}"
+# File 4
+echo "impl<T:Copy 
+    + Default
+    + AddAssign
+    + Add<Output = T>
+    + Div<Output = T>
+    + DivAssign
+    + Mul<Output = T>
+    + MulAssign
+    + Neg<Output = T>
+    + Rem<Output = T>
+    + RemAssign
+    + Sub<Output = T>
+    + SubAssign
+    + std::cmp::PartialOrd
+    + num::NumCast> Builder<T> for Legendary {
+    /// Build a \`Basic\` stat
+    fn build_basic(&self, id:T, level:T) -> Basic<T>{
+        let mut hp:T = num::cast($hp).unwrap();
+        let mut mp:T = num::cast($mp).unwrap();
+        let mut xp:T = num::cast($xp).unwrap();
+        let mut xp_next:T = num::cast($xp_next).unwrap();
+        let mut gp:T = num::cast($gp).unwrap();
+        let mut speed:T = num::cast($speed).unwrap();
+
+        match *self {" > "${FILE4}"
+
+# File 5
+echo "    // Build a \`Normal\` stat
+    fn build_normal(&self, id:T, level:T) -> Normal<T>{
+        let mut hp:T = num::cast($hp).unwrap();
+        let mut mp:T = num::cast($mp).unwrap();
+        let mut xp:T = num::cast($xp).unwrap();
+        let mut xp_next:T = num::cast($xp_next).unwrap();
+        let mut gp:T = num::cast($gp).unwrap();
+        let mut speed:T = num::cast($speed).unwrap();
+        let mut atk:T = num::cast($atk).unwrap();
+        let mut def:T = num::cast($def).unwrap();
+        let mut m_atk:T = num::cast($m_atk).unwrap();
+        let mut m_def:T = num::cast($m_def).unwrap();
+
+        match *self {" > "${FILE5}"
+
+# File 6
+echo "    // Build an \`Advanced\` stat
+    fn build_advanced(&self, id:T, level:T) -> Advanced<T>{
+        let mut hp:T = num::cast(10).unwrap();
+        let mut mp:T = num::cast(5).unwrap();
+        let mut xp:T = num::cast(1).unwrap();
+        let mut xp_next:T = num::cast(10).unwrap();
+        let mut gp:T = num::cast(5).unwrap();
+        let mut speed:T = num::cast(5).unwrap();
+        let mut atk:T = num::cast(10).unwrap();
+        let mut def:T = num::cast(10).unwrap();
+        let mut m_atk:T = num::cast(10).unwrap();
+        let mut m_def:T = num::cast(10).unwrap();
+        let mut agility:T = num::cast(10).unwrap();
+        let mut strength:T = num::cast(10).unwrap();
+        let mut dexterity:T = num::cast(10).unwrap();
+        let mut constitution:T = num::cast(10).unwrap();
+        let mut intelligence:T = num::cast(10).unwrap();
+        let mut charisma:T = num::cast(10).unwrap();
+        let mut wisdom:T = num::cast(10).unwrap();
+        let mut age:T = num::cast(10).unwrap();
+" > "${FILE6}"
 
 # INI file
 echo "# Legendary Creatures from Wikipedia
@@ -57,6 +126,25 @@ unset FIRST_TIME
 # read in the info
 while read LINE
 do
+    # Reset stats to default
+    hp=10
+    mp=10
+    xp=10
+    xp_next=10
+    gp=10
+    speed=10
+    atk=10
+    def=10
+    m_atk=10
+    m_def=10
+    agi=10
+    str=10
+    int=10
+    dex=10
+    con=10
+    char=10
+    wis=10
+    age=10
     ENUM="${LINE/\/*}"
     # File 1
     if [[ -n $ENUM ]]
@@ -87,26 +175,26 @@ name = \"${REAL_NAME}\"
 short_description = \"${REAL_NAME}${DESCRIPTION}\"
 long_description = \"${LONG_DESC}\"
 id = $ID
-hp = 10
-mp = 10
-xp = 10
-hp_max = 10
-mp_max = 10
-xp_next = 10
-gp = 10
-speed = 10
-atk = 10
-def = 10
-m_atk = 10
-m_def = 10
-agi = 10
-str = 10
-int = 10
-dex = 10
-con = 10
-char = 10
-wis = 10
-age = 10
+hp = $hp
+mp = $mp
+xp = $xp
+hp_max = $hp
+mp_max = $mp
+xp_next = $xp_next
+gp = $gp
+speed = $speed
+atk = $atk
+def = $def
+m_atk = $m_atk
+m_def = $m_def
+agi = $agi
+str = $str
+int = $int
+dex = $dex
+con = $con
+char = $char
+wis = $wis
+age = $age
 " >> "${INI_FILE}"
         # increment ID
         ID=$(( ID + 1 ))
@@ -128,26 +216,26 @@ name = \"${REAL_NAME}\"
 short_description = \"${REAL_NAME}${DESCRIPTION}\"
 long_description = \"${LONG_DESC}\"
 id = $ID
-hp = 10
-mp = 10
-xp = 10
-hp_max = 10
-mp_max = 10
-xp_next = 10
-gp = 10
-speed = 10
-atk = 10
-def = 10
-m_atk = 10
-m_def = 10
-agi = 10
-str = 10
-int = 10
-dex = 10
-con = 10
-char = 10
-wis = 10
-age = 10
+hp = $hp
+mp = $mp
+xp = $xp
+hp_max = $hp
+mp_max = $mp
+xp_next = $xp_next
+gp = $gp
+speed = $speed
+atk = $atk
+def = $def
+m_atk = $m_atk
+m_def = $m_def
+agi = $agi
+str = $str
+int = $int
+dex = $dex
+con = $con
+char = $char
+wis = $wis
+age = $age
 " >> "${INI_FILE}"
         # increment ID
         ID=$(( ID + 1 ))
@@ -191,7 +279,7 @@ echo "        }
 
 cp "${OUTPUT}" "${OUTPUT}.tmp"
 cat "${OUTPUT}.tmp" "${FILE1}" "${FILE2}" "${FILE3}" > "${OUTPUT}"
-rm "${OUTPUT}.tmp" "${FILE1}" "${FILE2}" "${FILE3}"
+rm "${OUTPUT}.tmp" "${FILE1}" "${FILE2}" "${FILE3}" "${FILE4}" "${FILE5}" "${FILE6}"
 
 echo "impl<T:Copy 
     + Default

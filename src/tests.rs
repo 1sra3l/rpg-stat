@@ -7,6 +7,13 @@ mod tests {
     use crate::stats::BasicPremade as BasicPremade;
     use crate::stats::NormalPremade as NormalPremade;
     use crate::legendary::Legendary;
+    use crate::types::Special;
+
+    #[test]
+    fn special_type(){
+        let grind:Special = Special::Grind;
+        assert_eq!(grind.mp_cost(),7.0);
+    }
     // used in tests below
     pub struct Character {
         pub name:String,

@@ -2155,7 +2155,7 @@ pub enum Legendary {
     Sagari,
     /// [](https://en.wikipedia.org/wiki/)(Japanese) – Haunted pillar, installed upside-down
     Sakabashira,
-    /// [](https://en.wikipedia.org/wiki/)(Alchemy) – Fire elemental
+    /// [Salamander](https://en.wikipedia.org/wiki/Salamanders_in_folklore)(Alchemy) – Fire elemental
     Salamander,
     /// [](https://en.wikipedia.org/wiki/)(Japanese) – Shark-man servant of the dragon king of the sea
     Samebito,
@@ -2499,8 +2499,6 @@ pub enum Legendary {
     Tomte,
     /// [Tooth fairy](https://en.wikipedia.org/wiki/Tooth_fairy) a mythical creature who gives out money in exchange for teeth.
     ToothFairy,
-    
-    The tradition of leaving a tooth under a pillow for the Tooth Fairy or another fantasy figure to collect is practiced in various countries.,
     /// [](https://en.wikipedia.org/wiki/)(Slavic) – Water spirit
     Topielec,
     /// [](https://en.wikipedia.org/wiki/)(Japanese) – Greed spirit
@@ -2599,11 +2597,11 @@ pub enum Legendary {
     Vahana,
     /// [](https://en.wikipedia.org/wiki/)(Indian) – Deadly snake
     Vaibhavi,
-    /// [](https://en.wikipedia.org/wiki/)(Norse) – Female spirit that leads souls of dead warriors to Valhalla
+    /// [Valkyrie](https://en.wikipedia.org/wiki/Valkyrie)(Norse) – Female spirit that leads souls of dead warriors to Valhalla
     Valkyrie,
-    /// [](https://en.wikipedia.org/wiki/)(Romanian) – Female nature spirit
+    /// [Vâlvă](https://en.wikipedia.org/wiki/Vâlvă)(Romanian) – Female nature spirit
     Valva,
-    /// [](https://en.wikipedia.org/wiki/)(Danish) – Supernatural raven
+    /// [Valravn](https://en.wikipedia.org/wiki/Valravn)(Danish) – Supernatural raven
     Valravn,
     /// [](https://en.wikipedia.org/wiki/)(Slavic) – Reanimated corpse that feeds on blood
     Vampire,
@@ -2713,7 +2711,7 @@ pub enum Legendary {
     Wyvern,
     /// [](https://en.wikipedia.org/wiki/)(Asturian) – Female water spirit
     Xana,
-    /// [](https://en.wikipedia.org/wiki/)(Greek)
+    /// [Scamander](https://en.wikipedia.org/wiki/Scamander)(Greek) - Xanthus, the gods' name for Scamander, the great river of Troy and its patron god.
     Xanthus,
     /// [](https://en.wikipedia.org/wiki/)(Mayan) – Bird
     Xecotcovach,
@@ -4103,7 +4101,6 @@ impl fmt::Display for Legendary {
             Legendary::ToireNoHanakosan =>  v = String::from("ToireNoHanakosan"),
             Legendary::Tomte =>  v = String::from("Tomte"),
             Legendary::ToothFairy =>  v = String::from("ToothFairy"),
-            Legendary::The tradition of leaving a tooth under a pillow for the Tooth Fairy or another fantasy figure to collect is practiced in various countries. =>  v = String::from("The tradition of leaving a tooth under a pillow for the Tooth Fairy or another fantasy figure to collect is practiced in various countries."),
             Legendary::Topielec =>  v = String::from("Topielec"),
             Legendary::Totetsu =>  v = String::from("Totetsu"),
             Legendary::Toyol =>  v = String::from("Toyol"),
@@ -5531,7 +5528,6 @@ impl Legendary {
             Legendary::ToireNoHanakosan =>  v = String::from("ToireNoHanakosan – Ghost who lurks in grade school restroom stalls"),
             Legendary::Tomte =>  v = String::from("Tomte – House spirit"),
             Legendary::ToothFairy =>  v = String::from("Tooth fairy a mythical creature who gives out money in exchange for teeth."),
-            Legendary::The tradition of leaving a tooth under a pillow for the Tooth Fairy or another fantasy figure to collect is practiced in various countries. =>  v = String::from("The tradition of leaving a tooth under a pillow for the Tooth Fairy or another fantasy figure to collect is practiced in various countries."),
             Legendary::Topielec =>  v = String::from("Topielec – Water spirit"),
             Legendary::Totetsu =>  v = String::from("Totetsu – Greed spirit"),
             Legendary::Toyol =>  v = String::from("Toyol – Servant spirit"),
@@ -5582,7 +5578,7 @@ impl Legendary {
             Legendary::Vahana =>  v = String::from("Vahana – Divine mounts"),
             Legendary::Vaibhavi =>  v = String::from("Vaibhavi – Deadly snake"),
             Legendary::Valkyrie =>  v = String::from("Valkyrie – Female spirit that leads souls of dead warriors to Valhalla"),
-            Legendary::Valva =>  v = String::from("Valva – Female nature spirit"),
+            Legendary::Valva =>  v = String::from("Vâlvă – Female nature spirit"),
             Legendary::Valravn =>  v = String::from("Valravn – Supernatural raven"),
             Legendary::Vampire =>  v = String::from("Vampire – Reanimated corpse that feeds on blood"),
             Legendary::Vanara =>  v = String::from("Vanara – Human-ape hybrid"),
@@ -5638,7 +5634,7 @@ impl Legendary {
             Legendary::Wyrm =>  v = String::from("English dragonEnglish dragon"),
             Legendary::Wyvern =>  v = String::from("Wyvern – Flying reptile, usually with two legs and two wings"),
             Legendary::Xana =>  v = String::from("Xana – Female water spirit"),
-            Legendary::Xanthus =>  v = String::from("Xanthus"),
+            Legendary::Xanthus =>  v = String::from("Scamander - Xanthus, the gods' name for Scamander, the great river of Troy and its patron god."),
             Legendary::Xecotcovach =>  v = String::from("Xecotcovach – Bird"),
             Legendary::Xelhua =>  v = String::from("Xelhua – Giant"),
             Legendary::Xiao =>  v = String::from("Xiao – Ape or four-winged bird"),
@@ -6786,7 +6782,7 @@ impl Legendary {
             Legendary::Saci =>  v = String::from("Saci – One-legged nature spirit"),
             Legendary::Sagari =>  v = String::from("Sagari – Horse head that dangles from trees on Kyūshū"),
             Legendary::Sakabashira =>  v = String::from("Sakabashira – Haunted pillar, installed upside-down"),
-            Legendary::Salamander =>  v = String::from("Salamander – Fire elemental"),
+            Legendary::Salamander =>  v = String::from("The salamander is an amphibian of the order Urodela which, as with many real creatures, often has been ascribed fantastic and sometimes occult qualities by pre-modern authors (as in the allegorical descriptions of animals in medieval bestiaries) not possessed by the real organism. The legendary salamander is often depicted as a typical salamander in shape with a lizard-like form, but is usually ascribed an affinity with fire, sometimes specifically elemental fire. "),
             Legendary::Samebito =>  v = String::from("Samebito – Shark-man servant of the dragon king of the sea"),
             Legendary::Samodiva =>  v = String::from("Samodiva – Nature spirit"),
             Legendary::Sampati =>  v = String::from("Sampati – The demigod Jatayu's brother"),
@@ -6957,8 +6953,7 @@ impl Legendary {
             Legendary::TofuKozo =>  v = String::from("TofuKozo – Spirit child carrying a block of tofu"),
             Legendary::ToireNoHanakosan =>  v = String::from("ToireNoHanakosan – Ghost who lurks in grade school restroom stalls"),
             Legendary::Tomte =>  v = String::from("Tomte – House spirit"),
-            Legendary::ToothFairy =>  v = String::from("The Tooth Fairy is a fantasy figure of early childhood in Western and Western-influenced cultures. The folklore states that when children lose one of their baby teeth, they should place it underneath their pillow or on their bedside table and the Tooth Fairy will visit while they sleep, replacing the lost tooth with a small payment."),
-            Legendary::The tradition of leaving a tooth under a pillow for the Tooth Fairy or another fantasy figure to collect is practiced in various countries. =>  v = String::from("The tradition of leaving a tooth under a pillow for the Tooth Fairy or another fantasy figure to collect is practiced in various countries."),
+            Legendary::ToothFairy =>  v = String::from("The Tooth Fairy is a fantasy figure of early childhood in Western and Western-influenced cultures. The folklore states that when children lose one of their baby teeth, they should place it underneath their pillow or on their bedside table and the Tooth Fairy will visit while they sleep, replacing the lost tooth with a small payment.  The tradition of leaving a tooth under a pillow for the Tooth Fairy or another fantasy figure to collect is practiced in various countries."),
             Legendary::Topielec =>  v = String::from("Topielec – Water spirit"),
             Legendary::Totetsu =>  v = String::from("Totetsu – Greed spirit"),
             Legendary::Toyol =>  v = String::from("Toyol – Servant spirit"),
@@ -7008,9 +7003,9 @@ impl Legendary {
             Legendary::Vadatajs =>  v = String::from("Vadatajs – Spirit that misleads people"),
             Legendary::Vahana =>  v = String::from("Vahana – Divine mounts"),
             Legendary::Vaibhavi =>  v = String::from("Vaibhavi – Deadly snake"),
-            Legendary::Valkyrie =>  v = String::from("Valkyrie – Female spirit that leads souls of dead warriors to Valhalla"),
-            Legendary::Valva =>  v = String::from("Valva – Female nature spirit"),
-            Legendary::Valravn =>  v = String::from("Valravn – Supernatural raven"),
+            Legendary::Valkyrie =>  v = String::from("In Norse mythology, a valkyrie (/vælˈkɪəri, -ˈkaɪri, vɑːl-, ˈvælkəri/; from Old Norse valkyrja, 'chooser of the slain') is one of a host of female figures who choose those who may die in battle and those who may live. Selecting among half of those who die in battle (the other half go to the goddess Freyja's afterlife field Fólkvangr), the valkyries take their chosen to the afterlife hall of the slain, Valhalla, ruled over by the god Odin. There, the deceased warriors become einherjar (Old Norse 'single (or once) fighters'). When the einherjar are not preparing for the events of Ragnarök, the valkyries bear them mead. Valkyries also appear as lovers of heroes and other mortals, where they are sometimes described as the daughters of royalty, sometimes accompanied by ravens and sometimes connected to swans or horses.  Valkyries are attested in the Poetic Edda (a book of poems compiled in the 13th century from earlier traditional sources), the Prose Edda, the Heimskringla (both by Snorri Sturluson) and the Njáls saga (one of the Sagas of Icelanders), all written—or compiled—in the 13th century. They appear throughout the poetry of skalds, in a 14th-century charm, and in various runic inscriptions.  The Old English cognate terms wælcyrge and wælcyrie appear in several Old English manuscripts, and scholars have explored whether the terms appear in Old English by way of Norse influence, or reflect a tradition also native among the Anglo-Saxon pagans. Scholarly theories have been proposed about the relation between the valkyries, the Norns, and the dísir, all of which are supernatural figures associated with fate. Archaeological excavations throughout Scandinavia have uncovered amulets theorized as depicting valkyries. In modern culture, valkyries have been the subject of works of art, musical works, comic books, video games and poetry.@50,10,1,10,10,7,20,20,20,30,10,10,10,10,10,10,10,10@"),
+            Legendary::Valva =>  v = String::from("Vâlvă (plural vâlve) is a female spirit mentioned in the Romanian folklore. The Vâlve are believed to walk over the hilltops at night, and are subdivided into Vâlve Albe ('White Vâlve'), who are considered beneficial, and Vâlve Negre ('Black Vâlve' or 'Dark Vâlve'), who are considered evil. In certain contexts, they are believed to have human form (especially when they came to protect villages from a storm). They may also appear under various guises, such as shadows or black cats. They also have the ability to shapeshift."),
+            Legendary::Valravn =>  v = String::from("In Danish folklore, a valravn (Danish 'raven of the slain') is a supernatural raven. The ravens appear in traditional Danish folksongs, where they are described as originating from ravens who consume the bodies of the dead on the battlefield, as capable of turning into the form of a knight after consuming the heart of a child, and, alternately, as half-wolf and half-raven creatures."),
             Legendary::Vampire =>  v = String::from("Vampire – Reanimated corpse that feeds on blood"),
             Legendary::Vanara =>  v = String::from("Vanara – Human-ape hybrid"),
             Legendary::Vantoase =>  v = String::from("Vantoase – Female weather spirit"),
@@ -7065,7 +7060,7 @@ impl Legendary {
             Legendary::Wyrm =>  v = String::from("English dragonEnglish dragon"),
             Legendary::Wyvern =>  v = String::from("Wyvern – Flying reptile, usually with two legs and two wings"),
             Legendary::Xana =>  v = String::from("Xana – Female water spirit"),
-            Legendary::Xanthus =>  v = String::from("Xanthus"),
+            Legendary::Xanthus =>  v = String::from("Scamander fought on the side of the Trojans during the Trojan War (Iliad XX, 73/74; XXI), after the Greek hero Achilles insulted him. Scamander was also said to have attempted to kill Achilles three times, and the hero was only saved due to the intervention of Hera, Athena and Hephaestus. In this context, he is the personification of the Scamander River that flowed from Mount Ida across the plain beneath the city of Troy, joining the Hellespont north of the city. The Achaeans, according to Homer, had set up their camp near its mouth, and their battles with the Trojans were fought on the plain of Scamander. In Iliad XXII (149ff), Homer states that the river had two springs: one produced warm water; the other yielded cold water, regardless of the season.  According to Homer, he was called Xanthos by gods and Scamander by men, which might indicate that the former name refers to the god and the latter one to the river itself."),
             Legendary::Xecotcovach =>  v = String::from("Xecotcovach – Bird"),
             Legendary::Xelhua =>  v = String::from("Xelhua – Giant"),
             Legendary::Xiao =>  v = String::from("Xiao – Ape or four-winged bird"),
