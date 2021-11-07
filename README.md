@@ -34,6 +34,81 @@ The Stats are broken down into categories `Basic`, `Normal`, and `Advanced`
  * wisdom
  * age
 
+## Premade
+
+```rs:no_run
+use rpgstat::class::Basic as Class;
+use rpgstat::stats::Normal as StatsNormal;
+use rpgstat::stats::NormalPremade as NormalPremade;
+use rpgstat::stats::Builder;
+
+// make your struct
+    pub struct Entity {
+        pub name:String,
+        pub stats:StatsNormal<f64>,
+        pub class:Class,
+    }
+    impl Entity {
+        pub fn empty() -> Self {
+            Entity {
+                name:String::from(""),
+                stats:StatsNormal::default(),
+                class:Class::Hero,
+            }
+        }
+    }
+    // implement normal premade
+    impl NormalPremade<f64> for Entity {
+        fn stat(&self) -> StatsNormal<f64> {
+            self.stats
+        }
+        fn set_hp(&mut self, amount:f64) {
+            self.stats.hp = amount
+        }
+        fn set_mp(&mut self, amount:f64) {
+            self.stats.mp = amount
+        }
+        fn set_xp(&mut self, amount:f64) {
+            self.stats.xp = amount
+        }
+        fn set_hp_max(&mut self, amount:f64) {
+            self.stats.hp = amount
+        }
+        fn set_mp_max(&mut self, amount:f64) {
+            self.stats.mp = amount
+        }
+        fn set_xp_next(&mut self, amount:f64) {
+            self.stats.xp_next = amount
+        }
+        fn set_gp(&mut self, amount:f64) {
+            self.stats.gp = amount
+        }
+        fn set_atk(&mut self, amount:f64) {
+            self.stats.atk = amount
+        }
+        fn set_m_atk(&mut self, amount:f64) {
+            self.stats.m_atk = amount
+        }
+         fn set_def(&mut self, amount:f64) {
+            self.stats.def = amount
+        }
+        fn set_m_def(&mut self, amount:f64) {
+            self.stats.m_def = amount
+        }
+    }
+    // more code
+    
+    fn test_fight() {
+        let player:Entity = Entity::empty();
+        let mut enemy:Entity = Entity::empty();
+        enemy.stats = enemy.class.build_normal(1.0, 1.0);
+        // yeah this makes the HP back to the starting value
+        enemy.damage(1.0);
+        enemy.heal(1.0);
+    }
+    
+    //more code
+```
 
 ## Builder
 Since the 1.X version `rpg-stat` has come with a `Builder` trait.

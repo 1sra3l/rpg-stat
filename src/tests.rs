@@ -134,7 +134,7 @@ mod tests {
         let mut enemy:Character = Character::empty();
         // enemy has 5 hp
         //TODO breaking change
-        enemy.stats = Stats::from_class(1.0, enemy.class);
+        enemy.stats = enemy.class.build_basic(1.0,1.0);
         assert_eq!(enemy.hp_max(), 5.0);
         // now it has one less
         enemy.damage(1.0);
