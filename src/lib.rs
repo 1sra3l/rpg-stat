@@ -214,9 +214,9 @@ fn hero_stats () -> Stats<f64> {
     // make the hero enum
     let hero:Class = Class::Alchemist;
     // this number only matters if you want
-    let id:f64 = 0;
+    let id:f64 = 0.0;
     // this effects the stats returned
-    let level:f64 = 1;
+    let level:f64 = 1.0;
     // use the basic `Builder`
     let hero_stats:Stats<f64> = hero.build_basic(id, level);
     // that was easy!
