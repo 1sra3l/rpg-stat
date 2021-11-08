@@ -8,6 +8,8 @@ mod tests {
     use crate::stats::NormalPremade as NormalPremade;
     use crate::legendary::Legendary;
     use crate::types::Special;
+    use std::fs::File;
+    use std::io::Read;
     use toml::*;
 
     #[test]
@@ -166,22 +168,21 @@ mod tests {
     }
     #[test]
     fn serde_test_0(){
-        let toml_str = "[Hero]
-id=0
-hp=10
-mp=10
-xp=1
-hp_max=10
-mp_max=10
-xp_next=10
-gp=10
-speed=10";
-        //let decoded: Stats<f64> = toml::from_str(toml_str).unwrap();
-        //assert_eq!(decoded.hp, 10.0);
+        let filename = "assets/characters/EasterBilby.ini";
+        match File::open(filename) {
+            Ok(mut file) => {
+                let mut content = String::new();
+                file.read_to_string(&mut content).unwrap();
+                let decoded: Stats<f64> = toml::from_str(content.as_str()).unwrap();
+                assert_eq!(decoded.hp, 10.0);
+            },
+            Err(e) => println!("Error:{} opening File:{}", e, filename),
+        }
     }
+    #[test]
     fn serde_test_1() {
-        //let sc:Legendary = Legendary::SantaClaus;
-        //let stats:Stats<f64> = sc.build_basic(0.0,1.0);
-        //let toml = toml::to_string(&stats).unwrap();
+        let sc:Legendary = Legendary::SantaClaus;
+        let stats:Stats<f64> = sc.build_basic(0.0,1.0);
+        let toml = toml::to_string(&stats).unwrap();
     }
 } 
