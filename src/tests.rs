@@ -11,6 +11,7 @@ mod tests {
     use std::fs::File;
     use std::io::Read;
     use toml::*;
+    use serde::{Deserialize, Serialize};
 
     #[test]
     fn special_type(){
@@ -18,6 +19,7 @@ mod tests {
         assert_eq!(grind.mp_cost(),7.0);
     }
     // used in tests below
+    #[derive(Clone, PartialEq, Debug, Serialize, Deserialize)]
     pub struct Character {
         pub name:String,
         pub stats:Stats<f64>,
@@ -184,5 +186,18 @@ mod tests {
         let sc:Legendary = Legendary::SantaClaus;
         let stats:Stats<f64> = sc.build_basic(0.0,1.0);
         let toml = toml::to_string(&stats).unwrap();
+    }
+    #[test]
+    fn serde_test_2(){
+        let filename = "assets/characters/EasterBilby.ini";
+        match File::open(filename) {
+            Ok(mut file) => {
+                let mut content = String::new();
+                file.read_to_string(&mut content).unwrap();
+                let decoded: Character = toml::from_str(content.as_str()).unwrap();
+                assert_eq!(decoded.hp(), 10.0);
+            },
+            Err(e) => println!("Error:{} opening File:{}", e, filename),
+        }
     }
 } 

@@ -34,7 +34,43 @@ The Stats are broken down into categories `Basic`, `Normal`, and `Advanced`
  * wisdom
  * age
 
+## Serde + TOML/INI
 
+Yes you can use serde with any of the assets/characters/ files provided.  You can use them in your custom structs.
+You can implement Premade Stats to have `mystruct.hp()` instead of something like below `mystruct.stats.hp`
+
+
+```
+use std::fs::File;
+use std::io::Read;
+use toml::*;
+use serde::{Deserialize, Serialize};
+use rpgstat::legendary::Legendary;
+use rpgstat::stats::Basic as Stats;
+use rpgstat::stats::Builder;
+
+#[derive(Serialize, Deserialize)]
+pub struct Character {
+    pub name:String,
+    pub stats:Stats<f64>,
+}
+let filename = "assets/characters/EasterBilby.ini";
+    match File::open(filename) {
+    Ok(mut file) => {
+        let mut content = String::new();
+        file.read_to_string(&mut content).unwrap();
+        let decoded: Stats<f64> = toml::from_str(content.as_str()).unwrap();
+        assert_eq!(decoded.hp, 10.0);
+        let decoded2: Character = toml::from_str(content.as_str()).unwrap();
+        assert_eq!(decoded2.stats.hp, 10.0);
+        let sc:Legendary = Legendary::SantaClaus;
+        let stats:Stats<f64> = sc.build_basic(0.0,1.0);
+        let toml = toml::to_string(&stats).unwrap();
+
+    },
+    Err(e) => println!("Error:{} opening File:{}", e, filename),
+}
+```
 ## Builder
 Since the 1.X version `rpg-stat` has come with a `Builder` trait.
 The builder trait is being implemented for all the enumerations like the `rpgstat::class::*` as well as `rpgstat::creature::*`
