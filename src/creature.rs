@@ -2,6 +2,22 @@
 # Creature Types
 
 This encompasses all the different humanoids, as well as enemy creatures, and even pets
+
+```
+use rpgstat::stats::Basic as Stats;
+use rpgstat::class::Basic as Class;
+// this is the thing we need!
+use rpgstat::stats::Builder;
+let bear:Animal = Animal::Bear;
+// this number only matters if you want
+let id:f64 = 0;
+// this effects the stats returned
+let level:f64 = 1;
+// use the basic `Builder`
+let bear_stats:Stats<f64> = bear.build_basic(id, level);
+```
+
+
 */
 use std::fmt;
 use strum::IntoEnumIterator;

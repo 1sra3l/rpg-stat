@@ -41,7 +41,7 @@ Since the 1.X version `rpg-stat` has come with a `Builder` trait.
 The builder trait is being implemented for all the enumerations like the `rpgstat::class::*` as well as `rpgstat::creature::*`
 
 This allows you to do:
-```rs:no_run
+```
 // feel free to use `Normal` or `Advanced` instead of `Basic`
 use rpgstat::stats::Basic as Stats;
 use rpgstat::class::Basic as Class;
@@ -67,9 +67,9 @@ fn hero_stats () -> Stats<f64> {
     // make the hero enum
     let hero:Class = Class::Hero;
     // this number only matters if you want
-    let id:f64 = 0;
+    let id:f64 = 0.0;
     // this effects the stats returned
-    let level:f64 = 1;
+    let level:f64 = 1.0;
     // use the basic `Builder`
     let hero_stats:Stats<f64> = hero.build_basic(id, level);
     // that was easy!
@@ -82,7 +82,7 @@ fn hero_stats () -> Stats<f64> {
 ## Build your own!
 If you are not into making stats from things I made, you can implement your own builder:
 
-```rs:no_run
+```
 use crate::stats::Basic as BasicStats;
 use crate::stats::Normal as NormalStats;
 use crate::stats::Advanced as AdvancedStats;
@@ -120,12 +120,40 @@ impl<T:Copy
     /// Build a `Basic` stat
     fn build_basic(&self, id:T, level:T) -> BasicStats<T>{
         match *self {
-            // make basic 
+            // make basic
+            BasicStats {
+                id: Default::default(),
+                xp: Default::default(),
+                xp_next: Default::default(),
+                level: Default::default(),
+                gp: Default::default(),
+                hp: Default::default(),
+                mp: Default::default(),
+                hp_max: Default::default(),
+                mp_max: Default::default(),
+                speed: Default::default(),
+            }
         }
     }
     fn build_normal(&self, id:T, level:T) -> NormalStats<T>{
         match *self {
             // make normal
+            NormalStats {
+                id: Default::default(),
+                xp: Default::default(),
+                xp_next: Default::default(),
+                level: Default::default(),
+                gp: Default::default(),
+                hp: Default::default(),
+                mp: Default::default(),
+                hp_max: Default::default(),
+                mp_max: Default::default(),
+                speed: Default::default(),
+                atk:Default::default(),
+                def:Default::default(),
+                m_atk:Default::default(),
+                m_def:Default::default(),
+            }
         }
     }
     fn build_advanced(&self, id:T, level:T) -> AdvancedStats<T>{
@@ -133,6 +161,30 @@ impl<T:Copy
             // make advanced
             // TODO make Tux destroy the other characters stats
             // well maybe not Pepper since she gives out free paint brushes...
+            AdvancedStats {
+                id: Default::default(),
+                xp: Default::default(),
+                xp_next: Default::default(),
+                level: Default::default(),
+                gp: Default::default(),
+                hp: Default::default(),
+                mp: Default::default(),
+                hp_max: Default::default(),
+                mp_max: Default::default(),
+                speed: Default::default(),
+                atk:Default::default(),
+                def:Default::default(),
+                m_atk:Default::default(),
+                m_def:Default::default(),
+                agility:Default::default(),
+                strength:Default::default(),
+                dexterity:Default::default(),
+                constitution:Default::default(),
+                intelligence:Default::default(),
+                charisma:Default::default(),
+                wisdom:Default::default(),
+                age:Default::default(),
+            }
         }
     }
 
@@ -151,7 +203,7 @@ The `Normal` class includes a range of character classes for a battle game.
 
 The stat `Builder` is implemented for all the classes and can be used easily:
 
-```rs:no_run
+```
 use rpgstat::stats::Normal as Stats;
 use rpgstat::class::Normal as Class;
 // *Use this*
@@ -182,7 +234,7 @@ So far `Animal` is complete.
  
 # Legendary
 This contains the basics to use any creature from [Wikipedia's Legendary Creatures](https://en.wikipedia.org/wiki/Lists_of_legendary_creatures) and create `Basic`, `Normal` or `Advanced` stats.
-```rs:no_run
+```
 let sc:Legendary = Legendary::SantaClaus;
 let stats:Stats<f64> = sc.build_basic(0.0,1.0);
 assert_eq!(stats.hp, 10.0);
@@ -205,7 +257,7 @@ These are Elements similar to what you'd find in any game with type differences.
 
 These are names of `Special` moves.  There is also an `mp_cost()` calculator for the special.
 
-```rs:no_run
+```
 let grind:Special = Special::Grind;
 assert_eq!(grind.mp_cost(),7.0);
 

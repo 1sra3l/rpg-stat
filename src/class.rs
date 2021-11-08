@@ -3,6 +3,74 @@
 
 This abstraction can be as `Basic` as `Hero` or `Enemy`
 You can even use the fully `Advanced` version to use the entire class realm.
+
+## Builder
+
+Make anything pretty easily from built in classes `Basic`, `Normal`, and `Advanced`
+
+```
+use rpgstat::stat::Builder;
+use rpgstat::stat::Basic as Stat;
+use rpgstat::class::Basic as Class;
+let class:Class = Class::Hero;
+let stat:Stat<f64> = class.build_basic();
+```
+
+### Build a `Basic` stat
+
+This is what the code does for `Hero`
+
+```
+let hp:T = num::cast(10).unwrap();
+let mp:T = num::cast(5).unwrap();
+let xp:T = num::cast(1).unwrap();
+let xp_next:T = num::cast(10).unwrap();
+let gp:T = num::cast(5).unwrap();
+let speed:T = num::cast(10).unwrap();
+```
+
+### Build a `Normal` stat
+
+This is what the code does for `Hero`
+
+```
+let hp:T = num::cast(10).unwrap();
+let mp:T = num::cast(5).unwrap();
+let xp:T = num::cast(1).unwrap();
+let xp_next:T = num::cast(10).unwrap();
+let gp:T = num::cast(5).unwrap();
+let speed:T = num::cast(10).unwrap();
+let atk:T = num::cast(10).unwrap();
+let def:T = num::cast(10).unwrap();
+let m_atk:T = num::cast(10).unwrap();
+let m_def:T = num::cast(10).unwrap();
+```
+
+### Build a `Advanced` stat
+
+This is what the code does for `Hero`
+
+```
+let hp:T = num::cast(10).unwrap();
+let mp:T = num::cast(5).unwrap();
+let xp:T = num::cast(1).unwrap();
+let xp_next:T = num::cast(10).unwrap();
+let gp:T = num::cast(5).unwrap();
+let speed:T = num::cast(10).unwrap();
+let atk:T = num::cast(10).unwrap();
+let def:T = num::cast(10).unwrap();
+let m_atk:T = num::cast(10).unwrap();
+let m_def:T = num::cast(10).unwrap();
+let mut agility:T = num::cast(10).unwrap();
+let mut strength:T = num::cast(10).unwrap();
+let mut dexterity:T = num::cast(10).unwrap();
+let mut constitution:T = num::cast(10).unwrap();
+let mut intelligence:T = num::cast(10).unwrap();
+let mut charisma:T = num::cast(10).unwrap();
+let mut wisdom:T = num::cast(10).unwrap();
+let mut age:T = num::cast(10).unwrap();
+```
+
 */
 use std::fmt;
 use serde::{Deserialize, Serialize};
@@ -18,6 +86,9 @@ use crate::stats::Builder;
 
 /*
 Alignement allows for the creation of multile outcomes in situations
+
+This is a WIP currently
+
 */
 #[derive(Clone, PartialEq, Copy, Debug, Serialize, Deserialize, EnumIter)]
 pub enum Alignment {
@@ -43,7 +114,22 @@ impl fmt::Display for Alignment {
 }
 
 /*
+# Basic Class
+
 Default to making an `Enemy`, because there are honestly few `Hero`s in games
+
+## Builder
+
+Make anything pretty easily from built in classes
+
+```
+use rpgstat::stat::Builder;
+use rpgstat::stat::Basic as Stat;
+use rpgstat::class::Basic as Class;
+let class:Class = Class::Hero;
+let stat:Stat<f64> = class.build_basic();
+```
+
 */
 #[derive(Clone, PartialEq, Copy, Debug, Serialize, Deserialize, EnumIter)]
 pub enum Basic {
@@ -82,23 +168,15 @@ impl<T:Copy
     + SubAssign
     + std::cmp::PartialOrd
     + num::NumCast> Builder<T> for Basic {
-    /// Build a `Basic` stat
     fn build_basic(&self, id:T, level:T) -> BasicStats<T>{
         let mut hp:T = num::cast(10).unwrap();
         let mut mp:T = num::cast(5).unwrap();
         let mut xp:T = num::cast(1).unwrap();
         let mut xp_next:T = num::cast(10).unwrap();
         let mut gp:T = num::cast(5).unwrap();
-        let mut speed:T = num::cast(5).unwrap();
-        //TODO OR ue legendary.ini + serde
+        let mut speed:T = num::cast(10).unwrap();
         match *self {
-            Basic::Hero => {
-                xp_next = num::cast(10).unwrap();
-                hp = num::cast(10).unwrap();
-                mp = num::cast(5).unwrap();
-                speed = num::cast(10).unwrap();
-                
-            },
+            Basic::Hero => {},
             Basic::Enemy => {
                 xp = num::cast(1).unwrap();
                 xp_next =num::cast(10).unwrap();
@@ -129,27 +207,19 @@ impl<T:Copy
         }
         
     }
-    // Build a `Normal` stat
     fn build_normal(&self, id:T, level:T) -> NormalStats<T>{
         let mut hp:T = num::cast(10).unwrap();
         let mut mp:T = num::cast(5).unwrap();
         let mut xp:T = num::cast(1).unwrap();
         let mut xp_next:T = num::cast(10).unwrap();
         let mut gp:T = num::cast(5).unwrap();
-        let mut speed:T = num::cast(5).unwrap();
+        let mut speed:T = num::cast(10).unwrap();
         let mut atk:T = num::cast(10).unwrap();
         let mut def:T = num::cast(10).unwrap();
         let mut m_atk:T = num::cast(10).unwrap();
         let mut m_def:T = num::cast(10).unwrap();
-        //TODO OR ue legendary.ini + serde
         match *self {
-            Basic::Hero => {
-                xp_next = num::cast(10).unwrap();
-                hp = num::cast(10).unwrap();
-                mp = num::cast(5).unwrap();
-                speed = num::cast(10).unwrap();
-                
-            },
+            Basic::Hero => {},
             Basic::Enemy => {
                 xp = num::cast(1).unwrap();
                 xp_next =num::cast(10).unwrap();
@@ -183,15 +253,13 @@ impl<T:Copy
             m_def:m_def,
         }
     }
-
-    // Build an `Advanced` stat
     fn build_advanced(&self, id:T, level:T) -> AdvancedStats<T>{
         let mut hp:T = num::cast(10).unwrap();
         let mut mp:T = num::cast(5).unwrap();
         let mut xp:T = num::cast(1).unwrap();
         let mut xp_next:T = num::cast(10).unwrap();
         let mut gp:T = num::cast(5).unwrap();
-        let mut speed:T = num::cast(5).unwrap();
+        let mut speed:T = num::cast(10).unwrap();
         let mut atk:T = num::cast(10).unwrap();
         let mut def:T = num::cast(10).unwrap();
         let mut m_atk:T = num::cast(10).unwrap();
@@ -204,15 +272,8 @@ impl<T:Copy
         let mut charisma:T = num::cast(10).unwrap();
         let mut wisdom:T = num::cast(10).unwrap();
         let mut age:T = num::cast(10).unwrap();
-        //TODO OR use legendary.ini + serde
         match *self {
-            Basic::Hero => {
-                xp_next = num::cast(10).unwrap();
-                hp = num::cast(10).unwrap();
-                mp = num::cast(5).unwrap();
-                speed = num::cast(10).unwrap();
-                
-            },
+            Basic::Hero => {},
             Basic::Enemy => {
                 xp = num::cast(1).unwrap();
                 xp_next =num::cast(10).unwrap();
@@ -262,22 +323,19 @@ This can be used in combination with `Basic` if both sides are the same, to prov
 
 To use this alone something like `Soldier` could be the enemies in that scenario, or however one sees fit.
 
-Not all variants need to be processed, so feel free to ignore the ones you don't like and extend it via something like:
+You can couple these things with `Alignment` to produce variations on Monks, Elementals, Alchemists, etc..
 
-```rs:no_run
-   match normal {
-    Adept => (), //whatever you want
-    Archer => (), //whatever you want
-    // etc ...
-    _=> {
-        // my stuff is cool
-    },
-   
-   }
+## Builder
+
+Make anything pretty easily from built in classes
 
 ```
-
-You can couple these things with `Alignment` to produce variations on Monks, Elementals, Alchemists, etc..
+use rpgstat::stat::Builder;
+use rpgstat::stat::Normal as Stat;
+use rpgstat::class::Normal as Class;
+let class:Class = Class::Archer;
+let stat:Stat<f64> = class.build_normal();
+```
 
 */
 #[derive(Clone, PartialEq, Copy, Debug, Serialize, Deserialize, EnumIter)]
@@ -346,7 +404,6 @@ impl<T:Copy
         let mut xp_next:T = num::cast(10).unwrap();
         let mut gp:T = num::cast(5).unwrap();
         let mut speed:T = num::cast(5).unwrap();
-        //TODO OR ue legendary.ini + serde
         match *self {
             Normal::Alchemist => {
                 hp =  num::cast(40).unwrap();
@@ -428,7 +485,6 @@ impl<T:Copy
         let mut def:T = num::cast(10).unwrap();
         let mut m_atk:T = num::cast(10).unwrap();
         let mut m_def:T = num::cast(10).unwrap();
-        //TODO OR ue legendary.ini + serde
         match *self {
             Normal::Alchemist => {
                 hp =  num::cast(40).unwrap();
@@ -680,6 +736,18 @@ impl<T:Copy
 The Advanced group includes more support type characters.  Thhese classes can be used primarily for NPC type characters in games as well as the `Normal` types also included in `Advanced`
 
 You can couple these things with `Alignment` to produce variations on Monks, Elementals, Alchemists, etc..
+
+## Builder
+
+Make anything pretty easily from built in classes
+
+```
+use rpgstat::stat::Builder;
+use rpgstat::stat::Advanced as Stat;
+use rpgstat::class::Advanced as Class;
+let class:Class = Class::Artisan;
+let stat:Stat<f64> = class.build_advanced();
+```
 */
 pub enum Advanced {
     /// The goal is to discover new things without needing to get into fights
