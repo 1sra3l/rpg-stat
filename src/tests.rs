@@ -8,6 +8,7 @@ mod tests {
     use crate::stats::NormalPremade as NormalPremade;
     use crate::legendary::Legendary;
     use crate::types::Special;
+    use toml::*;
 
     #[test]
     fn special_type(){
@@ -162,5 +163,25 @@ mod tests {
         let sc:Legendary = Legendary::SantaClaus;
         let stats:Stats<f64> = sc.build_basic(0.0,1.0);
         assert_eq!(stats.hp,10.0);
+    }
+    #[test]
+    fn serde_test_0(){
+        let toml_str = "[Hero]
+id=0
+hp=10
+mp=10
+xp=1
+hp_max=10
+mp_max=10
+xp_next=10
+gp=10
+speed=10";
+        //let decoded: Stats<f64> = toml::from_str(toml_str).unwrap();
+        //assert_eq!(decoded.hp, 10.0);
+    }
+    fn serde_test_1() {
+        //let sc:Legendary = Legendary::SantaClaus;
+        //let stats:Stats<f64> = sc.build_basic(0.0,1.0);
+        //let toml = toml::to_string(&stats).unwrap();
     }
 } 

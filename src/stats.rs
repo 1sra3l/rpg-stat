@@ -4,6 +4,7 @@
 This contains the basic structures for the entire statistics library
 */
 use std::default::Default;
+use serde::{Deserialize, Serialize};
 extern crate num;
 use num::NumCast;
 use crate::class::Normal as ClassNormal;
@@ -153,7 +154,7 @@ pub trait BasicPremade<T:Copy
 
 This basic model of stats is easy to work with for beginners, but powerful enough to be used by the most experienced.
 */
-#[derive( Debug, Clone, Copy, PartialEq)]
+#[derive( Debug, Clone, Copy, PartialEq, Serialize, Deserialize)]
 pub struct Basic<T:Copy 
                  + Default
                  + AddAssign
@@ -511,7 +512,7 @@ pub trait NormalPremade<T:Copy
 
 This model provides fine tuning of attack and defense without needing all the fine tuning of a full stat sheet
 */
-#[derive( Debug, Clone, Copy, PartialEq)]
+#[derive( Debug, Clone, Copy, PartialEq, Serialize, Deserialize)]
 pub struct Normal<T:Copy 
                  + Default
                  + AddAssign
@@ -1105,7 +1106,7 @@ pub trait AdvancedPremade<T:Copy
 # The Advanced stat model
 The entire stat sheet for fine tuned algorithms using all the information possible!
 */
-#[derive( Debug, Clone, Copy, PartialEq)]
+#[derive( Debug, Clone, Copy, PartialEq, Serialize, Deserialize)]
 pub struct Advanced<T:Copy 
                  + Default
                  + AddAssign

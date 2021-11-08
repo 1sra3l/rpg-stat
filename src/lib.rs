@@ -45,6 +45,7 @@ This allows you to do:
 // feel free to use `Normal` or `Advanced` instead of `Basic`
 use rpgstat::stats::Basic as Stats;
 use rpgstat::class::Basic as Class;
+use rpgstat::creature::Animal;
 // this is the thing we need!
 use rpgstat::stats::Builder;
 
@@ -53,9 +54,9 @@ fn bear_stats () -> Stats<f64> {
     // make the bear enum
     let bear:Animal = Animal::Bear;
     // this number only matters if you want
-    let id:f64 = 0;
+    let id:f64 = 0.0;
     // this effects the stats returned
-    let level:f64 = 1;
+    let level:f64 = 1.0;
     // use the basic `Builder`
     let bear_stats:Stats<f64> = bear.build_basic(id, level);
     // that was easy!
@@ -83,10 +84,11 @@ fn hero_stats () -> Stats<f64> {
 If you are not into making stats from things I made, you can implement your own builder:
 
 ```
-use crate::stats::Basic as BasicStats;
-use crate::stats::Normal as NormalStats;
-use crate::stats::Advanced as AdvancedStats;
-use crate::stats::Builder;
+use rpgstat::stats::Basic as BasicStats;
+use rpgstat::stats::Normal as NormalStats;
+use rpgstat::stats::Advanced as AdvancedStats;
+use rpgstat::stats::Builder;
+use std::ops::{Add, AddAssign,  Div, DivAssign, Mul, MulAssign, Neg, Rem, RemAssign, Sub, SubAssign};
 
 // gee maybe I should make stats for these awesome libre characters
 pub enum MyAwesomeThing {
@@ -121,6 +123,7 @@ impl<T:Copy
     fn build_basic(&self, id:T, level:T) -> BasicStats<T>{
         match *self {
             // make basic
+            _=>
             BasicStats {
                 id: Default::default(),
                 xp: Default::default(),
@@ -132,11 +135,12 @@ impl<T:Copy
                 hp_max: Default::default(),
                 mp_max: Default::default(),
                 speed: Default::default(),
-            }
+            },
         }
     }
     fn build_normal(&self, id:T, level:T) -> NormalStats<T>{
         match *self {
+            _=>
             // make normal
             NormalStats {
                 id: Default::default(),
@@ -153,7 +157,7 @@ impl<T:Copy
                 def:Default::default(),
                 m_atk:Default::default(),
                 m_def:Default::default(),
-            }
+            },
         }
     }
     fn build_advanced(&self, id:T, level:T) -> AdvancedStats<T>{
@@ -161,6 +165,7 @@ impl<T:Copy
             // make advanced
             // TODO make Tux destroy the other characters stats
             // well maybe not Pepper since she gives out free paint brushes...
+            _=>
             AdvancedStats {
                 id: Default::default(),
                 xp: Default::default(),
@@ -184,10 +189,10 @@ impl<T:Copy
                 charisma:Default::default(),
                 wisdom:Default::default(),
                 age:Default::default(),
-            }
+            },
         }
     }
-
+}
 ```
 
 
@@ -218,7 +223,7 @@ fn hero_stats () -> Stats<f64> {
     // this effects the stats returned
     let level:f64 = 1.0;
     // use the basic `Builder`
-    let hero_stats:Stats<f64> = hero.build_basic(id, level);
+    let hero_stats:Stats<f64> = hero.build_normal(id, level);
     // that was easy!
     hero_stats
 }
@@ -235,6 +240,10 @@ So far `Animal` is complete.
 # Legendary
 This contains the basics to use any creature from [Wikipedia's Legendary Creatures](https://en.wikipedia.org/wiki/Lists_of_legendary_creatures) and create `Basic`, `Normal` or `Advanced` stats.
 ```
+use rpgstat::legendary::Legendary;
+use rpgstat::stats::Basic as Stats;
+// this is the thing we need!
+use rpgstat::stats::Builder;
 let sc:Legendary = Legendary::SantaClaus;
 let stats:Stats<f64> = sc.build_basic(0.0,1.0);
 assert_eq!(stats.hp, 10.0);
@@ -258,6 +267,7 @@ These are Elements similar to what you'd find in any game with type differences.
 These are names of `Special` moves.  There is also an `mp_cost()` calculator for the special.
 
 ```
+use rpgstat::types::Special;
 let grind:Special = Special::Grind;
 assert_eq!(grind.mp_cost(),7.0);
 
@@ -298,3 +308,4 @@ pub mod class;
 pub mod creature;
 pub mod legendary;
 pub mod body;
+pub mod types;

@@ -9,11 +9,12 @@ You can even use the fully `Advanced` version to use the entire class realm.
 Make anything pretty easily from built in classes `Basic`, `Normal`, and `Advanced`
 
 ```
-use rpgstat::stat::Builder;
-use rpgstat::stat::Basic as Stat;
+use rpgstat::stats::Builder;
+use rpgstat::stats::Basic as Stat;
 use rpgstat::class::Basic as Class;
+
 let class:Class = Class::Hero;
-let stat:Stat<f64> = class.build_basic();
+let stat:Stat<f64> = class.build_basic(0.0, 1.0);
 ```
 
 ### Build a `Basic` stat
@@ -21,6 +22,7 @@ let stat:Stat<f64> = class.build_basic();
 This is what the code does for `Hero`
 
 ```
+type T = f64;
 let hp:T = num::cast(10).unwrap();
 let mp:T = num::cast(5).unwrap();
 let xp:T = num::cast(1).unwrap();
@@ -34,6 +36,7 @@ let speed:T = num::cast(10).unwrap();
 This is what the code does for `Hero`
 
 ```
+type T = f64;
 let hp:T = num::cast(10).unwrap();
 let mp:T = num::cast(5).unwrap();
 let xp:T = num::cast(1).unwrap();
@@ -51,6 +54,7 @@ let m_def:T = num::cast(10).unwrap();
 This is what the code does for `Hero`
 
 ```
+type T = f64;
 let hp:T = num::cast(10).unwrap();
 let mp:T = num::cast(5).unwrap();
 let xp:T = num::cast(1).unwrap();
@@ -126,6 +130,7 @@ Make anything pretty easily from built in classes
 use rpgstat::stat::Builder;
 use rpgstat::stat::Basic as Stat;
 use rpgstat::class::Basic as Class;
+
 let class:Class = Class::Hero;
 let stat:Stat<f64> = class.build_basic();
 ```
@@ -333,6 +338,7 @@ Make anything pretty easily from built in classes
 use rpgstat::stat::Builder;
 use rpgstat::stat::Normal as Stat;
 use rpgstat::class::Normal as Class;
+
 let class:Class = Class::Archer;
 let stat:Stat<f64> = class.build_normal();
 ```
@@ -745,6 +751,7 @@ Make anything pretty easily from built in classes
 use rpgstat::stat::Builder;
 use rpgstat::stat::Advanced as Stat;
 use rpgstat::class::Advanced as Class;
+use rpgstat::stats::Builder;
 let class:Class = Class::Artisan;
 let stat:Stat<f64> = class.build_advanced();
 ```
