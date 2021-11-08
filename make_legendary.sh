@@ -8,7 +8,7 @@ FILE4=tmp4.rs
 FILE5=tmp5.rs
 FILE6=tmp6.rs
 
-INI_FILE="assets/ini/legendary.ini"
+INI_FILE="assets/character/"
 OUTPUT="src/legendary.rs"
 echo "/*!
 # Legendary Creatures
@@ -117,9 +117,7 @@ echo "    // Build an \`Advanced\` stat
         let mut age:T = num::cast(10).unwrap();
 " > "${FILE6}"
 
-# INI file
-echo "# Legendary Creatures from Wikipedia
-" > "${INI_FILE}"
+
 # increment ID for legendary creature ini
 ID=0
 unset FIRST_TIME
@@ -195,7 +193,7 @@ con = $con
 char = $char
 wis = $wis
 age = $age
-" >> "${INI_FILE}"
+" >> "${INI_FILE}${ENUM}.ini"
         # increment ID
         ID=$(( ID + 1 ))
     fi
@@ -236,7 +234,7 @@ con = $con
 char = $char
 wis = $wis
 age = $age
-" >> "${INI_FILE}"
+" >> "${INI_FILE}${ENUM}.ini"
         # increment ID
         ID=$(( ID + 1 ))
     else

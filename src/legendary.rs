@@ -1049,8 +1049,8 @@ pub enum Legendary {
     Harpy,
     /// [](https://en.wikipedia.org/wiki/)(Norse) – undead being who cannot leave its burial mound
     Haugbui,
-    /// [](https://en.wikipedia.org/wiki/)(Norse) – saltwater spirit
-    Havsrå,
+    /// [Havsrå](https://en.wikipedia.org/wiki/)(Norse) – saltwater spirit
+    Havsra,
     /// [](https://en.wikipedia.org/wiki/)(Manipuri mythology) – celestial maidens, daughters of the Sky God Soraren
     Helloi,
     /// [](https://en.wikipedia.org/wiki/)(European) – humanoid spirit who haunts or kills
@@ -1133,8 +1133,8 @@ pub enum Legendary {
     Houri,
     /// [](https://en.wikipedia.org/wiki/)(Norse) – giant, who in eagle form, creates the wind by beating his wings
     Hraesvelg,
-    /// [](https://en.wikipedia.org/wiki/)(Norse) – frost giants who are the main inhabitants of either Jotunheim or Niflheim
-    Hrímþursar,
+    /// [Hrímþursar](https://en.wikipedia.org/wiki/)(Norse) – frost giants who are the main inhabitants of either Jotunheim or Niflheim
+    Hrimpursar,
     /// [](https://en.wikipedia.org/wiki/)(Mayan) – human-deer hybrid
     Huaychivo,
     /// [](https://en.wikipedia.org/wiki/)(Norse) – pair of ravens associated with the Norse god Odin whose names mean Thought and Memory.
@@ -2277,8 +2277,8 @@ pub enum Legendary {
     Shunoban,
     /// [](https://en.wikipedia.org/wiki/)(Japanese) – Ruler of the Oni
     ShutenDoji,
-    /// [](https://en.wikipedia.org/wiki/)(Irish and Scottish) – Ancestral or nature spirit
-    Sídhe,
+    /// [Sídhe](https://en.wikipedia.org/wiki/)(Irish and Scottish) – Ancestral or nature spirit
+    Sidhe,
     /// [](https://en.wikipedia.org/wiki/)(Philippine) – Goat-like vampire
     Sigbin,
     /// [](https://en.wikipedia.org/wiki/)(Greek) – Bald, fat, thick-lipped, and flat-nosed followers of Dionysus
@@ -2623,8 +2623,8 @@ pub enum Legendary {
     VeriSelen,
     /// [](https://en.wikipedia.org/wiki/)(Hindu) – Corpses possessed by vampiric spirits
     Vetala,
-    /// [](https://en.wikipedia.org/wiki/)(Catalan) – Dragon with breasts and an eagle's beak
-    Víbria,
+    /// [Víbria](https://en.wikipedia.org/wiki/)(Catalan) – Dragon with breasts and an eagle's beak
+    Vibria,
     /// [](https://en.wikipedia.org/wiki/)(German) – Gluttonous dog-cat-fox hybrid
     Vielfras,
     /// [](https://en.wikipedia.org/wiki/)(Slavic) – Weather spirit
@@ -2635,8 +2635,8 @@ pub enum Legendary {
     Virunas,
     /// [](https://en.wikipedia.org/wiki/)(Mayan) – Mystical dragon
     VisionSerpent,
-    /// [](https://en.wikipedia.org/wiki/)(Norse) – Rooster that sits atop the tree
-    Vídopnir,
+    /// [Vídopnir](https://en.wikipedia.org/wiki/)(Norse) – Rooster that sits atop the tree
+    Vidopnir,
     /// [](https://en.wikipedia.org/wiki/)(Slavic) – Male water spirit
     Vodyanoy,
     /// [](https://en.wikipedia.org/wiki/)(Greek) – Undead wolf-human hybrid
@@ -2817,8 +2817,8 @@ pub enum Legendary {
     Zamzummim,
     /// [](https://en.wikipedia.org/wiki/)(Albanian) – Mountain fairy who bless warriors
     ZanaEMalit,
-    /// [](https://en.wikipedia.org/wiki/)(Romanian) – Nature spirit
-    Zână,
+    /// [Zână](https://en.wikipedia.org/wiki/)(Romanian) – Nature spirit
+    Zana,
     /// [](https://en.wikipedia.org/wiki/)(Japanese) – House spirit
     ZashikiWarashi,
     /// [](https://en.wikipedia.org/wiki/)(Romanian) – Wolf-headed dragon
@@ -3376,7 +3376,7 @@ impl fmt::Display for Legendary {
             Legendary::Harionago =>  v = String::from("Harionago"),
             Legendary::Harpy =>  v = String::from("Harpy"),
             Legendary::Haugbui =>  v = String::from("Haugbui"),
-            Legendary::Havsrå =>  v = String::from("Havsrå"),
+            Legendary::Havsra =>  v = String::from("Havsra"),
             Legendary::Helloi =>  v = String::from("Helloi"),
             Legendary::HeadlessHorseman =>  v = String::from("HeadlessHorseman"),
             Legendary::HeadlessMule =>  v = String::from("HeadlessMule"),
@@ -3418,7 +3418,7 @@ impl fmt::Display for Legendary {
             Legendary::Hotoke =>  v = String::from("Hotoke"),
             Legendary::Houri =>  v = String::from("Houri"),
             Legendary::Hraesvelg =>  v = String::from("Hraesvelg"),
-            Legendary::Hrímþursar =>  v = String::from("Hrímþursar"),
+            Legendary::Hrimpursar =>  v = String::from("Hrimpursar"),
             Legendary::Huaychivo =>  v = String::from("Huaychivo"),
             Legendary::HuginnAndMuninn =>  v = String::from("HuginnAndMuninn"),
             Legendary::Huldufolk =>  v = String::from("Huldufolk"),
@@ -3990,7 +3990,7 @@ impl fmt::Display for Legendary {
             Legendary::ShugMonkey =>  v = String::from("ShugMonkey"),
             Legendary::Shunoban =>  v = String::from("Shunoban"),
             Legendary::ShutenDoji =>  v = String::from("ShutenDoji"),
-            Legendary::Sídhe =>  v = String::from("Sídhe"),
+            Legendary::Sidhe =>  v = String::from("Sidhe"),
             Legendary::Sigbin =>  v = String::from("Sigbin"),
             Legendary::Sileni =>  v = String::from("Sileni"),
             Legendary::Simargl =>  v = String::from("Simargl"),
@@ -4163,13 +4163,13 @@ impl fmt::Display for Legendary {
             Legendary::Veli =>  v = String::from("Veli"),
             Legendary::VeriSelen =>  v = String::from("VeriSelen"),
             Legendary::Vetala =>  v = String::from("Vetala"),
-            Legendary::Víbria =>  v = String::from("Víbria"),
+            Legendary::Vibria =>  v = String::from("Vibria"),
             Legendary::Vielfras =>  v = String::from("Vielfras"),
             Legendary::Vila =>  v = String::from("Vila"),
             Legendary::Vilkacis =>  v = String::from("Vilkacis"),
             Legendary::Virunas =>  v = String::from("Virunas"),
             Legendary::VisionSerpent =>  v = String::from("VisionSerpent"),
-            Legendary::Vídopnir =>  v = String::from("Vídopnir"),
+            Legendary::Vidopnir =>  v = String::from("Vidopnir"),
             Legendary::Vodyanoy =>  v = String::from("Vodyanoy"),
             Legendary::Vrykolakas =>  v = String::from("Vrykolakas"),
             Legendary::Vaettir =>  v = String::from("Vaettir"),
@@ -4260,7 +4260,7 @@ impl fmt::Display for Legendary {
             Legendary::Zaltys =>  v = String::from("Zaltys"),
             Legendary::Zamzummim =>  v = String::from("Zamzummim"),
             Legendary::ZanaEMalit =>  v = String::from("ZanaEMalit"),
-            Legendary::Zână =>  v = String::from("Zână"),
+            Legendary::Zana =>  v = String::from("Zana"),
             Legendary::ZashikiWarashi =>  v = String::from("ZashikiWarashi"),
             Legendary::Zburator =>  v = String::from("Zburator"),
             Legendary::Zduhac =>  v = String::from("Zduhac"),
@@ -4803,7 +4803,7 @@ impl Legendary {
             Legendary::Harionago =>  v = String::from("Harionago – humanoid female with barbed, prehensile hair"),
             Legendary::Harpy =>  v = String::from("Harpy – birdlike human-headed death spirit"),
             Legendary::Haugbui =>  v = String::from("Haugbui – undead being who cannot leave its burial mound"),
-            Legendary::Havsrå =>  v = String::from("Havsrå – saltwater spirit"),
+            Legendary::Havsra =>  v = String::from("Havsrå – saltwater spirit"),
             Legendary::Helloi =>  v = String::from("Helloi – celestial maidens, daughters of the Sky God Soraren"),
             Legendary::HeadlessHorseman =>  v = String::from("HeadlessHorseman – humanoid spirit who haunts or kills"),
             Legendary::HeadlessMule =>  v = String::from("HeadlessMule – fire-spewing, headless, spectral mule"),
@@ -4845,7 +4845,7 @@ impl Legendary {
             Legendary::Hotoke =>  v = String::from("Hotoke – deceased person"),
             Legendary::Houri =>  v = String::from("Houri – heavenly beings"),
             Legendary::Hraesvelg =>  v = String::from("Hraesvelg – giant, who in eagle form, creates the wind by beating his wings"),
-            Legendary::Hrímþursar =>  v = String::from("Hrímþursar – frost giants who are the main inhabitants of either Jotunheim or Niflheim"),
+            Legendary::Hrimpursar =>  v = String::from("Hrímþursar – frost giants who are the main inhabitants of either Jotunheim or Niflheim"),
             Legendary::Huaychivo =>  v = String::from("Huaychivo – human-deer hybrid"),
             Legendary::HuginnAndMuninn =>  v = String::from("HuginnAndMuninn – pair of ravens associated with the Norse god Odin whose names mean Thought and Memory."),
             Legendary::Huldufolk =>  v = String::from("Huldufolk – secret mound/rock dwelling elves"),
@@ -5417,7 +5417,7 @@ impl Legendary {
             Legendary::ShugMonkey =>  v = String::from("ShugMonkey – Dog/monkey"),
             Legendary::Shunoban =>  v = String::from("Shunoban – Red-faced ghoul"),
             Legendary::ShutenDoji =>  v = String::from("ShutenDoji – Ruler of the Oni"),
-            Legendary::Sídhe =>  v = String::from("Sídhe – Ancestral or nature spirit"),
+            Legendary::Sidhe =>  v = String::from("Sídhe – Ancestral or nature spirit"),
             Legendary::Sigbin =>  v = String::from("Sigbin – Goat-like vampire"),
             Legendary::Sileni =>  v = String::from("Sileni – Bald, fat, thick-lipped, and flat-nosed followers of Dionysus"),
             Legendary::Simargl =>  v = String::from("Simargl – Winged dog"),
@@ -5590,13 +5590,13 @@ impl Legendary {
             Legendary::Veli =>  v = String::from("Veli – Ghost, shade, formed after a death of a human"),
             Legendary::VeriSelen =>  v = String::from("Chuvash dragonChuvash dragon"),
             Legendary::Vetala =>  v = String::from("Vetala – Corpses possessed by vampiric spirits"),
-            Legendary::Víbria =>  v = String::from("Víbria – Dragon with breasts and an eagle's beak"),
+            Legendary::Vibria =>  v = String::from("Víbria – Dragon with breasts and an eagle's beak"),
             Legendary::Vielfras =>  v = String::from("Vielfras – Gluttonous dog-cat-fox hybrid"),
             Legendary::Vila =>  v = String::from("Vila – Weather spirit"),
             Legendary::Vilkacis =>  v = String::from("Vilkacis – Animalistic, werewolf-like monster"),
             Legendary::Virunas =>  v = String::from("Virunas – Handsome demon"),
             Legendary::VisionSerpent =>  v = String::from("VisionSerpent – Mystical dragon"),
-            Legendary::Vídopnir =>  v = String::from("Vídopnir – Rooster that sits atop the tree"),
+            Legendary::Vidopnir =>  v = String::from("Vídopnir – Rooster that sits atop the tree"),
             Legendary::Vodyanoy =>  v = String::from("Vodyanoy – Male water spirit"),
             Legendary::Vrykolakas =>  v = String::from("Vrykolakas – Undead wolf-human hybrid"),
             Legendary::Vaettir =>  v = String::from("Vaettir – Nature spirit"),
@@ -5687,7 +5687,7 @@ impl Legendary {
             Legendary::Zaltys =>  v = String::from("Zaltys – Serpentine fertility spirit"),
             Legendary::Zamzummim =>  v = String::from("Zamzummim – Giant"),
             Legendary::ZanaEMalit =>  v = String::from("ZanaEMalit – Mountain fairy who bless warriors"),
-            Legendary::Zână =>  v = String::from("Zână – Nature spirit"),
+            Legendary::Zana =>  v = String::from("Zână – Nature spirit"),
             Legendary::ZashikiWarashi =>  v = String::from("ZashikiWarashi – House spirit"),
             Legendary::Zburator =>  v = String::from("Zburator – Wolf-headed dragon"),
             Legendary::Zduhac =>  v = String::from("Zduhac – Disembodied, heroic spirit"),
@@ -6229,7 +6229,7 @@ impl Legendary {
             Legendary::Harionago =>  v = String::from("Harionago – humanoid female with barbed, prehensile hair"),
             Legendary::Harpy =>  v = String::from("Harpy – birdlike human-headed death spirit"),
             Legendary::Haugbui =>  v = String::from("Haugbui – undead being who cannot leave its burial mound"),
-            Legendary::Havsrå =>  v = String::from("Havsrå – saltwater spirit"),
+            Legendary::Havsra =>  v = String::from("Havsrå – saltwater spirit"),
             Legendary::Helloi =>  v = String::from("Helloi – celestial maidens, daughters of the Sky God Soraren"),
             Legendary::HeadlessHorseman =>  v = String::from("HeadlessHorseman – humanoid spirit who haunts or kills"),
             Legendary::HeadlessMule =>  v = String::from("HeadlessMule – fire-spewing, headless, spectral mule"),
@@ -6271,7 +6271,7 @@ impl Legendary {
             Legendary::Hotoke =>  v = String::from("Hotoke – deceased person"),
             Legendary::Houri =>  v = String::from("Houri – heavenly beings"),
             Legendary::Hraesvelg =>  v = String::from("Hraesvelg – giant, who in eagle form, creates the wind by beating his wings"),
-            Legendary::Hrímþursar =>  v = String::from("Hrímþursar – frost giants who are the main inhabitants of either Jotunheim or Niflheim"),
+            Legendary::Hrimpursar =>  v = String::from("Hrímþursar – frost giants who are the main inhabitants of either Jotunheim or Niflheim"),
             Legendary::Huaychivo =>  v = String::from("Huaychivo – human-deer hybrid"),
             Legendary::HuginnAndMuninn =>  v = String::from("HuginnAndMuninn – pair of ravens associated with the Norse god Odin whose names mean Thought and Memory."),
             Legendary::Huldufolk =>  v = String::from("Huldufolk – secret mound/rock dwelling elves"),
@@ -6843,7 +6843,7 @@ impl Legendary {
             Legendary::ShugMonkey =>  v = String::from("ShugMonkey – Dog/monkey"),
             Legendary::Shunoban =>  v = String::from("Shunoban – Red-faced ghoul"),
             Legendary::ShutenDoji =>  v = String::from("ShutenDoji – Ruler of the Oni"),
-            Legendary::Sídhe =>  v = String::from("Sídhe – Ancestral or nature spirit"),
+            Legendary::Sidhe =>  v = String::from("Sídhe – Ancestral or nature spirit"),
             Legendary::Sigbin =>  v = String::from("Sigbin – Goat-like vampire"),
             Legendary::Sileni =>  v = String::from("Sileni – Bald, fat, thick-lipped, and flat-nosed followers of Dionysus"),
             Legendary::Simargl =>  v = String::from("Simargl – Winged dog"),
@@ -7016,13 +7016,13 @@ impl Legendary {
             Legendary::Veli =>  v = String::from("Veli – Ghost, shade, formed after a death of a human"),
             Legendary::VeriSelen =>  v = String::from("Chuvash dragonChuvash dragon"),
             Legendary::Vetala =>  v = String::from("Vetala – Corpses possessed by vampiric spirits"),
-            Legendary::Víbria =>  v = String::from("Víbria – Dragon with breasts and an eagle's beak"),
+            Legendary::Vibria =>  v = String::from("Víbria – Dragon with breasts and an eagle's beak"),
             Legendary::Vielfras =>  v = String::from("Vielfras – Gluttonous dog-cat-fox hybrid"),
             Legendary::Vila =>  v = String::from("Vila – Weather spirit"),
             Legendary::Vilkacis =>  v = String::from("Vilkacis – Animalistic, werewolf-like monster"),
             Legendary::Virunas =>  v = String::from("Virunas – Handsome demon"),
             Legendary::VisionSerpent =>  v = String::from("VisionSerpent – Mystical dragon"),
-            Legendary::Vídopnir =>  v = String::from("Vídopnir – Rooster that sits atop the tree"),
+            Legendary::Vidopnir =>  v = String::from("Vídopnir – Rooster that sits atop the tree"),
             Legendary::Vodyanoy =>  v = String::from("Vodyanoy – Male water spirit"),
             Legendary::Vrykolakas =>  v = String::from("Vrykolakas – Undead wolf-human hybrid"),
             Legendary::Vaettir =>  v = String::from("Vaettir – Nature spirit"),
@@ -7113,7 +7113,7 @@ impl Legendary {
             Legendary::Zaltys =>  v = String::from("Zaltys – Serpentine fertility spirit"),
             Legendary::Zamzummim =>  v = String::from("Zamzummim – Giant"),
             Legendary::ZanaEMalit =>  v = String::from("ZanaEMalit – Mountain fairy who bless warriors"),
-            Legendary::Zână =>  v = String::from("Zână – Nature spirit"),
+            Legendary::Zana =>  v = String::from("Zână – Nature spirit"),
             Legendary::ZashikiWarashi =>  v = String::from("ZashikiWarashi – House spirit"),
             Legendary::Zburator =>  v = String::from("Zburator – Wolf-headed dragon"),
             Legendary::Zduhac =>  v = String::from("Zduhac – Disembodied, heroic spirit"),
