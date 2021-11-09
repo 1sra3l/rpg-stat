@@ -1,6 +1,6 @@
 [package]
 name = "rpg-stat"
-version = "1.1.8"
+version = "1.1.9"
 edition = "2018"
 authors = ["Israel Dahl <israeldahl@protonmail.com>"]
 description = "A library to computer stats for RPG game development"

@@ -19,6 +19,13 @@ mod tests {
         let grind:Special = Special::Grind;
         assert_eq!(grind.mp_cost(),7.0);
     }
+    // used in effectiveness test below
+    #[derive(Clone, PartialEq, Debug, Serialize, Deserialize)]
+    pub struct OccasionalEnemy {
+        pub name:String,
+        pub stats:Stats<f64>,
+        pub effectiveness:Effectiveness<f64>,
+    }
     // used in tests below
     #[derive(Clone, PartialEq, Debug, Serialize, Deserialize)]
     pub struct Character {
@@ -209,5 +216,20 @@ mod tests {
          player.set_hp(100.0);
         let effectiveness:Effectiveness<f64> = Effectiveness::Half(player.hp());
         assert_eq!(50.0, effectiveness.value());
+    }
+    #[test]
+    fn effectiveness_test_1(){
+        let filename = "assets/characters/Aatxe.ini";
+        match File::open(filename) {
+            Ok(mut file) => {
+                let mut content = String::new();
+                file.read_to_string(&mut content).unwrap();
+                let decoded: OccasionalEnemy = toml::from_str(content.as_str()).unwrap();
+                assert_eq!(decoded.stats.hp, 10.0);
+                assert_eq!(decoded.effectiveness, Effectiveness::Double(50.0));
+                assert_eq!(decoded.name, String::from("Easter Bilby"));
+            },
+            Err(e) => println!("Error:{} opening File:{}", e, filename),
+        }
     }
 } 
