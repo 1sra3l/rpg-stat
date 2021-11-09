@@ -8,6 +8,7 @@ mod tests {
     use crate::stats::NormalPremade as NormalPremade;
     use crate::legendary::Legendary;
     use crate::types::Special;
+    use crate::types::Effectiveness;
     use std::fs::File;
     use std::io::Read;
     use toml::*;
@@ -177,6 +178,7 @@ mod tests {
                 file.read_to_string(&mut content).unwrap();
                 let decoded: Stats<f64> = toml::from_str(content.as_str()).unwrap();
                 assert_eq!(decoded.hp, 10.0);
+                assert_eq!(decoded.id, 358.0);
             },
             Err(e) => println!("Error:{} opening File:{}", e, filename),
         }
@@ -196,8 +198,16 @@ mod tests {
                 file.read_to_string(&mut content).unwrap();
                 let decoded: Character = toml::from_str(content.as_str()).unwrap();
                 assert_eq!(decoded.hp(), 10.0);
+                assert_eq!(decoded.name, String::from("Easter Bilby"));
             },
             Err(e) => println!("Error:{} opening File:{}", e, filename),
         }
+    }
+    #[test]
+    fn effectiveness_test_0(){
+         let mut player:Player = Player::empty();
+         player.set_hp(100.0);
+        let effectiveness:Effectiveness<f64> = Effectiveness::Half(player.hp());
+        assert_eq!(50.0, effectiveness.value());
     }
 } 

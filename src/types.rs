@@ -10,13 +10,144 @@ All have implemented fmt::Display
 */
 use std::fmt;
 use std::fmt::Debug;
-use std::ops::{Add, AddAssign,  Div, DivAssign, Mul, MulAssign, Neg, Rem, RemAssign, Sub, SubAssign};
+use std::fmt::Display;
+use std::ops::{Add, AddAssign, Div, DivAssign, Mul, MulAssign, Neg, Rem, RemAssign, Sub, SubAssign};
 extern crate num;
 use num::NumCast;
+use serde::{Deserialize, Serialize};
 use strum::IntoEnumIterator;
 use strum_macros::EnumIter;
-
-#[derive(Debug, Clone, Copy, PartialEq, Eq, EnumIter)]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, EnumIter, Deserialize, Serialize)]
+pub enum Effectiveness<T:Copy 
+                 + Default
+                 + Display
+                 + AddAssign
+                 + Add<Output = T>
+                 + Div<Output = T>
+                 + DivAssign
+                 + Mul<Output = T>
+                 + MulAssign
+                 + Neg<Output = T>
+                 + Rem<Output = T>
+                 + RemAssign
+                 + Sub<Output = T>
+                 + SubAssign
+                 + std::cmp::PartialOrd
+                 + num::NumCast> {
+    
+    Double(T),
+    HalfExtra(T),
+    Half(T),
+    Normal(T),
+    None(T),
+}
+impl<T:Copy
+    + Display
+    + Default
+    + AddAssign
+    + Add<Output = T>
+    + Div<Output = T>
+    + DivAssign
+    + Mul<Output = T>
+    + MulAssign
+    + Neg<Output = T>
+    + Rem<Output = T>
+    + RemAssign
+    + Sub<Output = T>
+    + SubAssign
+    + std::cmp::PartialOrd
+    + num::NumCast> Effectiveness<T> {
+    pub fn value(&self) -> T {
+        let mut result:T = Default::default();
+        match *self {
+            Effectiveness::Double(input) => {
+                result = input + input;
+                return result
+            },
+            Effectiveness::HalfExtra(input) => {
+                let half:T = input / num::cast(2).unwrap();
+                result = input + half;
+                return result
+            },
+            Effectiveness::Normal(input) => {
+                return input
+            },
+            Effectiveness::Half(input) => {
+                let half:T = input / num::cast(2).unwrap();
+                return half
+            },
+            Effectiveness::None(input) => {
+                return result
+            },
+        }
+    }
+}
+impl<T:Copy
+    + Display
+    + Default
+    + AddAssign
+    + Add<Output = T>
+    + Div<Output = T>
+    + DivAssign
+    + Mul<Output = T>
+    + MulAssign
+    + Neg<Output = T>
+    + Rem<Output = T>
+    + RemAssign
+    + Sub<Output = T>
+    + SubAssign
+    + std::cmp::PartialOrd
+    + num::NumCast> Default for Effectiveness<T> {
+    /// Default to empty
+    fn default() -> Self {
+        Self::None(Default::default())
+    }
+}
+impl<T:Copy 
+    + Default
+    + Display
+    + AddAssign
+    + Add<Output = T>
+    + Div<Output = T>
+    + DivAssign
+    + Mul<Output = T>
+    + MulAssign
+    + Neg<Output = T>
+    + Rem<Output = T>
+    + RemAssign
+    + Sub<Output = T>
+    + SubAssign
+    + std::cmp::PartialOrd
+    + num::NumCast> fmt::Display for Effectiveness<T> {
+    fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
+        let v:String;
+        let mut value:T = Default::default();
+        match *self {
+            Effectiveness::Double(input) => {
+                v = String::from("Double");
+                value = input;
+            },
+            Effectiveness::HalfExtra(input) => {
+                v = String::from("HalfExtra");
+                value = input;
+            },
+            Effectiveness::Half(input) => {
+                v = String::from("Half");
+                value = input;
+            },
+            Effectiveness::Normal(input) => {
+                v = String::from("Normal");
+                value = input;
+            },
+            Effectiveness::None(input) => {
+                v = String::from("None");
+                value = input;
+            },
+        }
+        write!(f, "{}({})", v.as_str(), value)
+    }
+}
+#[derive(Debug, Clone, Copy, PartialEq, Eq, EnumIter, Deserialize, Serialize)]
 /// This is the 'stage' of life the creature is in
 /// Stages of life are similar to Pokemon evolution,
 /// however our creatures cannot change species randomly
@@ -105,8 +236,7 @@ impl<T:Copy
     }
 }
 
-#[derive(Debug, Clone, Copy, PartialEq, Eq, EnumIter)]
-#[allow(dead_code)]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, EnumIter, Deserialize, Serialize)]
 //
 //  ```                        
 //    ------   _  __ __     
@@ -132,6 +262,7 @@ pub enum Element {
     Spirit,
     Light,
     Wind,
+    None,
 }
 impl Default for Element {
     /// Default to empty
@@ -151,6 +282,7 @@ impl fmt::Display for Element {
             Element::Spirit => v = String::from("Spirit"),
             Element::Light => v = String::from("Light"),
             Element::Wind => v = String::from("Wind"),
+            Element::None => v = String::from("None"),
         }
         write!(f, "{}", v.as_str())
     }
@@ -174,6 +306,7 @@ impl Element {
             Element::Light => return Element::Rock,
             Element::Wind => return Element::Spirit,
             Element::Rock => return Element::Light,
+            _=> return Element::None
         }
     }
 
@@ -194,13 +327,15 @@ impl Element {
             return Element::Light
         } else if creature_type == "wind" {
             return Element::Wind
-        } else {
+        } else if creature_type == "rock" {
             return Element::Rock
+        } else {
+            return Element::None
         }
     }
 }
 
-#[derive(Debug, Clone, Copy, PartialEq, Eq, EnumIter)]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, EnumIter, Deserialize, Serialize)]
 /// Specials are just types of attack, coupled with the `Element`
 /// These enums are used in determining the effects of the attack and which animations to use
 pub enum Special {
@@ -346,7 +481,7 @@ impl Special {
     }
 }
 
-#[derive(Debug, Clone, Copy, PartialEq, Eq, EnumIter)]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, EnumIter, Deserialize, Serialize)]
 /// This enum defines our different types of attack/item/special effects
 pub enum Effect
 {
