@@ -17,6 +17,81 @@ use num::NumCast;
 use serde::{Deserialize, Serialize};
 use strum::IntoEnumIterator;
 use strum_macros::EnumIter;
+use rand::{thread_rng, Rng};
+/*
+# Rate
+
+This can be used to determine the Rate at which enemies/items appear in areas, or can be used for the Rate effectiveness of an attack/item/etc
+
+To find a random true/false value simple call `worked()` on your enum
+*/
+#[derive(Debug, Clone, Copy, PartialEq, Eq, EnumIter, Deserialize, Serialize)]
+pub enum Rate {
+    /// 100%
+    Always,
+    /// 90%
+    Usually,
+    /// 75%
+    Often,
+    /// 50%
+    Some,
+    /// 25%
+    Hardly,
+    /// 10%
+    Barely,
+    /// 0%
+    Never,
+}
+impl Rate {
+    pub fn random_rate(value:u32) -> u32 {
+        let mut rng = thread_rng();
+        let n: u32 = rng.gen_range(0..value);
+        n
+    }
+    /*
+    
+    */
+    pub fn worked(&self) -> bool {
+        match *self {
+            Rate::Always => return true, // 100%
+            Rate::Usually => {
+                if Self::random_rate(9) > 1 {
+                    return true
+                }
+                return false
+            },
+            Rate::Often => { // 75%
+                if Self::random_rate(3) > 0 {
+                    return true
+                }
+                return false
+            },
+            Rate::Some => { // 50%
+                if Self::random_rate(1) == 1 {
+                    return true
+                }
+                return false
+            },
+            Rate::Hardly => {
+                if Self::random_rate(3) == 0 {
+                    return true
+                }
+                return false
+            },
+            Rate::Barely => {
+                if Self::random_rate(9) == 0 {
+                    return true
+                }
+                return false
+            },
+            Rate::Never => return false, // 0%
+        }
+    }
+}
+
+/*
+# Effectiveness
+*/
 #[derive(Debug, Clone, Copy, PartialEq, Eq, EnumIter, Deserialize, Serialize)]
 pub enum Effectiveness<T:Copy 
                  + Default

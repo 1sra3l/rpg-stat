@@ -9,6 +9,7 @@ mod types;
 use crate::creature::Person;
 use crate::legendary::Legendary;
 use crate::stats::Builder;
+use crate::types::Rate;
 
 fn main() {
     let h:Person = Person::Elf;
@@ -16,4 +17,13 @@ fn main() {
     println!("{}\n{:?}", h, s);
     let sc:Legendary = Legendary::SantaClaus;
     sc.build_basic(0.0,1.0);
+    let r = Rate::Often;
+    for _i in 0..30 {
+        if r.worked() {
+            println!("worked");
+        }
+        else {
+            println!("failed");
+        }
+    }
 }
