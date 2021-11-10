@@ -311,13 +311,15 @@ The goal will be to move all the information into `legendary.ini` to be read in,
 
 # Types
 
-General abstractions for Elemental types
+This includes various enums related to the type of character you have
+`use rpgstat::types::Basic as Type`
+ * `Basic` is the basic type `Good` or `Bad`
+ * `Normal` has elemental types
+ * `Advanced` has elemental types
 
-
-## Element
-
-These are Elements similar to what you'd find in any game with type differences.  The function `opposite_from_type()` can be used to find weakness/strength
-
+```
+//TODO add stats::Builder
+```
 
 # Special
 
@@ -330,10 +332,42 @@ let grind:Special = Special::Grind;
 ```
 
 # Effect
+This composes the various Effects in-game related to a character's Stats
 
-The goal with effect will be to operate on stats, and likely implement a `Builder` to make it easy.
+
+# Attributes
+
+These are definitions of abstract terms into code
+
+## Rate
+Rate of occurance
+```
+use rpgstat::attributes::Rate;
+let yes:Rate = Rate::Always;
+assert_eq!(yes.worked(), true);
+let no:Rate = Rate::None;
+assert_eq!(no.worked(), false);
+let hmmm:Rate = Rate::Some;
+// who knows....
+```
+
+## Effectiveness
+
+
+```
+use rpgstat::attributes::Effectiveness;
+let hp:i32 = 50;
+// later on we use an item and check the effectiveness of it
+assert_eq!(Effectiveness::Half(hp).value(), 25);
+
+```
 
 ## Stage
+
+```
+use rpgstat::attributes::Stage;
+
+```
 This includes the `Stage<T>` of life.  This is similar to things like "evolution" in creature raising games, but based on reality.  In real life no creature evolves randomly in front of someone, however they do get older and change their "form".  There are eight forms:
  * Baby
  * Toddler
@@ -344,8 +378,12 @@ This includes the `Stage<T>` of life.  This is similar to things like "evolution
  * Older
  * Old
 
+
 ```
 use rpgstat::attributes::Stage;
+let stage:Stage<i32> = Stage::stage(15);
+//
+assert_eq!(stage, Stage::Teen(15));
 
 ```
 

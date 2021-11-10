@@ -3,6 +3,37 @@
 
 These are definitions of abstract terms into code
 
+## Rate
+Rate of occurance
+```
+use rpgstat::attributes::Rate;
+let yes:Rate = Rate::Always;
+assert_eq!(yes.worked(), true);
+let no:Rate = Rate::None;
+assert_eq!(no.worked(), false);
+let hmmm:Rate = Rate::Some;
+// who knows....
+```
+
+## Effectiveness
+
+
+```
+use rpgstat::attributes::Effectiveness;
+let hp:i32 = 50;
+// later on we use an item and check the effectiveness of it
+assert_eq!(Effectiveness::Half(hp).value(), 25);
+
+```
+
+## Stage
+```
+use rpgstat::attributes::Stage;
+let stage:Stage<i32> = Stage::stage(15);
+//
+assert_eq!(stage, Stage::Teen(15));
+
+```
 */
 use std::fmt;
 use std::fmt::Debug;

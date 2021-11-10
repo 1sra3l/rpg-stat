@@ -3,10 +3,17 @@
 [![Documentation](https://docs.rs/rpg-stat/badge.svg)](https://docs.rs/rpg-stat)
 [![Crates.io](https://img.shields.io/crates/v/rpg-stat.svg)](https://crates.io/crates/rpg-stat)
 
+Cargo.toml
+
+`rpgstat="2.0"`
+
 # Stats
+
 The Stats are broken down into categories `Basic`, `Normal`, and `Advanced`
 
 `Basic` contains only the most needed for a generic game
+Your file needs:
+`use rpgstat::stats::Basic as Stats`
  * id
  * xp
  * xp_next
@@ -19,12 +26,16 @@ The Stats are broken down into categories `Basic`, `Normal`, and `Advanced`
  * speed
 
 `Normal` includes a few more for the generic RPG battle system as well as everything in `Basic`
+Your file needs:
+`use rpgstat::stats::Normal as Stats`
  * atk
  * def
  * m_atk
  * m_def
 
 `Advanced` contains the finer details seen in tabletop RPG stats as well as everything in `Normal` and `Basic`
+Your file needs:
+`use rpgstat::stats::Advanced as Stats`
  * agility
  * strength
  * dexterity
@@ -40,7 +51,7 @@ Yes you can use serde with any of the assets/characters/ files provided.  You ca
 You can implement Premade Stats to have `mystruct.hp()` instead of something like below `mystruct.stats.hp`
 
 
-```
+```rs
 use std::fs::File;
 use std::io::Read;
 use toml::*;
@@ -76,7 +87,7 @@ Since the 1.X version `rpg-stat` has come with a `Builder` trait.
 The builder trait is being implemented for all the enumerations like the `rpgstat::class::*` as well as `rpgstat::creature::*`
 
 This allows you to do:
-```
+```rs
 // feel free to use `Normal` or `Advanced` instead of `Basic`
 use rpgstat::stats::Basic as Stats;
 use rpgstat::class::Basic as Class;
@@ -118,7 +129,7 @@ fn hero_stats () -> Stats<f64> {
 ## Build your own!
 If you are not into making stats from things I made, you can implement your own builder:
 
-```
+```rs
 use rpgstat::stats::Basic as BasicStats;
 use rpgstat::stats::Normal as NormalStats;
 use rpgstat::stats::Advanced as AdvancedStats;
@@ -236,14 +247,20 @@ impl<T:Copy
 The Classes are broken down into categories `Basic`, `Normal`, and `Advanced`
 
 The `Basic` class is either `Hero` or `Enemy`
+Your file needs:
+`use rpgstat::class::Basic as Class`
 
 The `Normal` class includes a range of character classes for a battle game.
+Your file needs:
+`use rpgstat::class::Normal as Class`
 
 `Advanced` includes more characters for a game with interactive roles, not simply a game of battle.
+Your file needs:
+`use rpgstat::class::Advanced as Class`
 
 The stat `Builder` is implemented for all the classes and can be used easily:
 
-```
+```rs
 use rpgstat::stats::Normal as Stats;
 use rpgstat::class::Normal as Class;
 // *Use this*
@@ -274,12 +291,14 @@ So far `Animal` is complete.
  
 # Legendary
 This contains the basics to use any creature from [Wikipedia's Legendary Creatures](https://en.wikipedia.org/wiki/Lists_of_legendary_creatures) and create `Basic`, `Normal` or `Advanced` stats.
-```
+```rs
 use rpgstat::legendary::Legendary;
+// we want basic stats
 use rpgstat::stats::Basic as Stats;
 // this is the thing we need!
 use rpgstat::stats::Builder;
 let sc:Legendary = Legendary::SantaClaus;
+// remember build_*(id,level); if you are copy/paste XD
 let stats:Stats<f64> = sc.build_basic(0.0,1.0);
 assert_eq!(stats.hp, 10.0);
 ```
@@ -291,28 +310,63 @@ The goal will be to move all the information into `legendary.ini` to be read in,
 
 # Types
 
-General abstractions for Element, Special, and Effect.
+This includes various enums related to the type of character you have
+`use rpgstat::types::Basic as Type`
+ * `Basic` is the basic type `Good` or `Bad`
+ * `Normal` has elemental types
+ * `Advanced` has elemental types
 
-## Element
-
-These are Elements similar to what you'd find in any game with type differences.  The function `opposite_from_type()` can be used to find weakness/strength
-
-## Special
-
-These are names of `Special` moves.  There is also an `mp_cost()` calculator for the special.
-
+```rs
+//TODO add stats::Builder
 ```
-use rpgstat::types::Special;
+
+# Special
+
+These are names of `Special` moves.
+
+```rs
+use rpgstat::special::Normal as Special;
 let grind:Special = Special::Grind;
-assert_eq!(grind.mp_cost(),7.0);
 
 ```
 
-## Effect
+# Effect
+This composes the various Effects in-game related to a character's Stats
 
-The goal with effect will be to operate on stats, and likely implement a `Builder` to make it easy.
+
+# Attributes
+
+These are definitions of abstract terms into code
+
+## Rate
+Rate of occurance
+```rs
+use rpgstat::attributes::Rate;
+let yes:Rate = Rate::Always;
+assert_eq!(yes.worked(), true);
+let no:Rate = Rate::None;
+assert_eq!(no.worked(), false);
+let hmmm:Rate = Rate::Some;
+// who knows....
+```
+
+## Effectiveness
+
+
+```rs
+use rpgstat::attributes::Effectiveness;
+let hp:i32 = 50;
+// later on we use an item and check the effectiveness of it
+assert_eq!(Effectiveness::Half(hp).value(), 25);
+
+```
 
 ## Stage
+
+```rs
+use rpgstat::attributes::Stage;
+
+```
 This includes the `Stage<T>` of life.  This is similar to things like "evolution" in creature raising games, but based on reality.  In real life no creature evolves randomly in front of someone, however they do get older and change their "form".  There are eight forms:
  * Baby
  * Toddler
@@ -322,7 +376,15 @@ This includes the `Stage<T>` of life.  This is similar to things like "evolution
  * Grown
  * Older
  * Old
-I intend to make a simpler version of this, and may move this to a separate file
+
+
+```rs
+use rpgstat::attributes::Stage;
+let stage:Stage<i32> = Stage::stage(15);
+// Yup 15 is teen
+assert_eq!(stage, Stage::Teen(15));
+
+```
 
 # Body
 This is to collect all the information about armor, stats, status, etc, based on each body part.  This will be some serious numeric control over the simulation.
