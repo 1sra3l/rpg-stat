@@ -4,10 +4,17 @@
 [![Documentation](https://docs.rs/rpg-stat/badge.svg)](https://docs.rs/rpg-stat)
 [![Crates.io](https://img.shields.io/crates/v/rpg-stat.svg)](https://crates.io/crates/rpg-stat)
 
+Cargo.toml
+
+`rpgstat="2.0"`
+
 # Stats
+
 The Stats are broken down into categories `Basic`, `Normal`, and `Advanced`
 
 `Basic` contains only the most needed for a generic game
+Your file needs:
+`use rpgstat::stats::Basic as Stats`
  * id
  * xp
  * xp_next
@@ -20,12 +27,16 @@ The Stats are broken down into categories `Basic`, `Normal`, and `Advanced`
  * speed
 
 `Normal` includes a few more for the generic RPG battle system as well as everything in `Basic`
+Your file needs:
+`use rpgstat::stats::Normal as Stats`
  * atk
  * def
  * m_atk
  * m_def
 
 `Advanced` contains the finer details seen in tabletop RPG stats as well as everything in `Normal` and `Basic`
+Your file needs:
+`use rpgstat::stats::Advanced as Stats`
  * agility
  * strength
  * dexterity
@@ -237,10 +248,16 @@ impl<T:Copy
 The Classes are broken down into categories `Basic`, `Normal`, and `Advanced`
 
 The `Basic` class is either `Hero` or `Enemy`
+Your file needs:
+`use rpgstat::class::Basic as Class`
 
 The `Normal` class includes a range of character classes for a battle game.
+Your file needs:
+`use rpgstat::class::Normal as Class`
 
 `Advanced` includes more characters for a game with interactive roles, not simply a game of battle.
+Your file needs:
+`use rpgstat::class::Advanced as Class`
 
 The stat `Builder` is implemented for all the classes and can be used easily:
 
@@ -277,10 +294,12 @@ So far `Animal` is complete.
 This contains the basics to use any creature from [Wikipedia's Legendary Creatures](https://en.wikipedia.org/wiki/Lists_of_legendary_creatures) and create `Basic`, `Normal` or `Advanced` stats.
 ```
 use rpgstat::legendary::Legendary;
+// we want basic stats
 use rpgstat::stats::Basic as Stats;
 // this is the thing we need!
 use rpgstat::stats::Builder;
 let sc:Legendary = Legendary::SantaClaus;
+// remember build_*(id,level); if you are copy/paste XD
 let stats:Stats<f64> = sc.build_basic(0.0,1.0);
 assert_eq!(stats.hp, 10.0);
 ```
@@ -292,24 +311,25 @@ The goal will be to move all the information into `legendary.ini` to be read in,
 
 # Types
 
-General abstractions for Element, Special, and Effect.
+General abstractions for Elemental types
+
 
 ## Element
 
 These are Elements similar to what you'd find in any game with type differences.  The function `opposite_from_type()` can be used to find weakness/strength
 
-## Special
 
-These are names of `Special` moves.  There is also an `mp_cost()` calculator for the special.
+# Special
+
+These are names of `Special` moves.
 
 ```
-use rpgstat::types::Special;
+use rpgstat::special::Normal as Special;
 let grind:Special = Special::Grind;
-assert_eq!(grind.mp_cost(),7.0);
 
 ```
 
-## Effect
+# Effect
 
 The goal with effect will be to operate on stats, and likely implement a `Builder` to make it easy.
 
@@ -323,7 +343,11 @@ This includes the `Stage<T>` of life.  This is similar to things like "evolution
  * Grown
  * Older
  * Old
-I intend to make a simpler version of this, and may move this to a separate file
+
+```
+use rpgstat::attributes::Stage;
+
+```
 
 # Body
 This is to collect all the information about armor, stats, status, etc, based on each body part.  This will be some serious numeric control over the simulation.
@@ -345,3 +369,9 @@ pub mod creature;
 pub mod legendary;
 pub mod body;
 pub mod types;
+pub mod random;
+//pub mod equation;
+pub mod npc;
+pub mod special;
+pub mod attributes;
+pub mod effect;

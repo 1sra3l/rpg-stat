@@ -1,0 +1,33 @@
+name: rpgstat
+version: "2.0.0"
+author: Israel Dahl <israeldahl@protonmail.com>
+about: Command line interface for the RPG stat library written in rust.
+settings:
+    - ArgRequiredElseHelp
+subcommands:
+    - stats:
+        about: ""
+        args:       
+            - Basic_stat:
+                about: "The basic Stat"
+                short: b
+                long: basic
+        
+    - class:
+        about: ""
+        args:       
+            - Basic_class:
+                about: "The basic class"
+                short: b
+                long: basic
+    - type:
+        about: "The Types part of the spec"
+        args:
+            - Rate:
+                long: rate
+                short: r
+                about: "Random rate value"
+            - Element:
+                long: element
+                short: e
+                about: "The elemental part of the library"

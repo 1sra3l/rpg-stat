@@ -1,8 +1,137 @@
 /*!
 # Stats
 
-This contains the basic structures for the entire statistics library
-*/
+This contains the basic structures for the statistics library
+
+## `Basic` contains only the most needed for a generic game
+
+### id
+this can be used in any way to ID the stats
+
+### xp
+The experience points the stats currently hold
+
+### xp_next
+the amount needed to reach the next level
+
+### level
+the level of proficiency of the stats
+
+### gp
+the currency the stats currently have
+
+### hp
+the current health in the stats
+
+### mp
+the current mana in the stats
+
+### hp_max
+the total health possible
+
+### mp_max
+the total mana possible
+
+### speed
+the speed the stats move at
+
+## `Normal` includes a few more for the generic RPG battle system as well as everything in `Basic`
+
+### atk
+used specifically in battle as the attack variable
+
+### def
+used specifically in battle as the defense variable
+
+### m_atk
+used specifically in battle as the mana attack variable
+
+### m_def
+used specifically in battle as the mana defense variable
+
+## `Advanced` contains the finer details seen in tabletop RPG stats as well as everything in `Normal` and `Basic`
+
+### agility
+
+Fight mechanics:
+ * Increases dodge
+ * Increases accuracy
+
+Story mechanics:
+ * Increases success rate
+ * Increases options
+ * Decreases confrontation rate
+
+### strength
+
+Fight mechanics:
+ * Increases attack
+ * Increases defense
+
+Story mechanics:
+ * Increases confrontations
+ * Increases special item finds
+ * Increases success rate
+
+### dexterity
+
+Fight mechanics:
+ * Increases accuracy
+
+Story mechanics:
+ * Increases options
+ * Decreases confrontation rate
+
+### constitution
+
+Fight mechanics:
+ * Increases dodge
+ * Increases defense
+
+Story mechanics:
+ * Increases success rate
+ * Decreases confrontation rate
+
+### intelligence
+
+Fight mechanics:
+ * Increases accuracy
+
+Story mechanics:
+ * Increases confrontations
+ * Increases special item finds
+ * Increases success rate
+
+### charisma
+
+Fight mechanics:
+ * Increases dodge
+
+Story mechanics:
+ * Increases options
+ * Increases reward
+ * Decreases confrontation rate
+
+### wisdom
+
+Fight mechanics:
+ * Increases leveling
+
+Story mechanics:
+ * Increases reward
+ * Decreases confrontation rate
+
+### age
+
+Age is really to allow things to grow through a Stage
+
+Fight mechanics:
+ * Items, Weapons, Armor, etc may be formulated for specific age ranges and prevent users who are too young or old to use them.
+
+Story mechanics:
+ * Age can influence story mechanics but this would be a choice
+
+ */
 use std::default::Default;
 use serde::{Deserialize, Serialize};
 extern crate num;

@@ -1,23 +1,38 @@
 #[cfg(test)]
 mod tests {
+// This library
+    // stats
     use crate::stats::Builder;
     use crate::stats::Basic as Stats;
     use crate::stats::Normal as StatsNormal;
-    use crate::class::Basic as Class;
     use crate::stats::BasicPremade as BasicPremade;
     use crate::stats::NormalPremade as NormalPremade;
+    
+    // class
+    use crate::class::Basic as Class;
+    
+    // legendary
     use crate::legendary::Legendary;
-    use crate::types::Special;
-    use crate::types::Effectiveness;
+    
+    // special
+    use crate::special::ManaCost;
+    use crate::special::Normal as Special;
+
+    //atributes
+    use crate::attributes::Effectiveness;
+    //use crate::equation::Equation;
+
+// imported libraries
     use std::fs::File;
     use std::io::Read;
     use toml::*;
     use serde::{Deserialize, Serialize};
+    
 
     #[test]
     fn special_type(){
         let grind:Special = Special::Grind;
-        assert_eq!(grind.mp_cost(),7.0);
+        //assert_eq!(grind.mp_cost(),7);
     }
     // used in effectiveness test below
     #[derive(Clone, PartialEq, Debug, Serialize, Deserialize)]
