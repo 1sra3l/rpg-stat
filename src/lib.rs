@@ -408,7 +408,7 @@ pub mod legendary;
 pub mod body;
 pub mod types;
 pub mod random;
-//pub mod equation;
+pub mod equation;
 pub mod npc;
 pub mod special;
 pub mod attributes;

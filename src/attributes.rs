@@ -175,7 +175,7 @@ impl<T:Copy
                 let half:T = input / num::cast(2).unwrap();
                 return half
             },
-            Effectiveness::None(input) => {
+            Effectiveness::None(_input) => {
                 return result
             },
         }

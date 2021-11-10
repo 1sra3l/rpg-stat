@@ -29,18 +29,17 @@ mod tests;
 mod types;
 mod npc;
 mod random;
-//mod equation;
+mod equation;
 mod special;
 mod attributes;
 mod effect;
 
 //use crate::stats::Basic as Stats;
-use crate::creature::Person;
-use crate::legendary::Legendary;
-use crate::stats::Builder;
-use crate::attributes::Rate;
+//use crate::creature::Person;
+//use crate::legendary::Legendary;
+//use crate::stats::Builder;
+//use crate::attributes::Rate;
 extern crate clap;
-use std::path::PathBuf;
 use clap::{App, load_yaml};
 
 fn main() {

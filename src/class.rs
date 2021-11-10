@@ -65,14 +65,14 @@ let atk:T = num::cast(10).unwrap();
 let def:T = num::cast(10).unwrap();
 let m_atk:T = num::cast(10).unwrap();
 let m_def:T = num::cast(10).unwrap();
-let mut agility:T = num::cast(10).unwrap();
-let mut strength:T = num::cast(10).unwrap();
-let mut dexterity:T = num::cast(10).unwrap();
-let mut constitution:T = num::cast(10).unwrap();
-let mut intelligence:T = num::cast(10).unwrap();
-let mut charisma:T = num::cast(10).unwrap();
-let mut wisdom:T = num::cast(10).unwrap();
-let mut age:T = num::cast(10).unwrap();
+let agility:T = num::cast(10).unwrap();
+let strength:T = num::cast(10).unwrap();
+let dexterity:T = num::cast(10).unwrap();
+let constitution:T = num::cast(10).unwrap();
+let intelligence:T = num::cast(10).unwrap();
+let charisma:T = num::cast(10).unwrap();
+let wisdom:T = num::cast(10).unwrap();
+let age:T = num::cast(10).unwrap();
 ```
 
 */
@@ -481,16 +481,16 @@ impl<T:Copy
     }
     // Build a `Normal` stat
     fn build_normal(&self, id:T, level:T) -> NormalStats<T>{
-        let mut hp:T = num::cast(10).unwrap();
-        let mut mp:T = num::cast(5).unwrap();
+        let mut hp:T;
+        let mut mp:T;
         let mut xp:T = num::cast(1).unwrap();
         let mut xp_next:T = num::cast(10).unwrap();
         let mut gp:T = num::cast(5).unwrap();
-        let mut speed:T = num::cast(5).unwrap();
-        let mut atk:T = num::cast(10).unwrap();
-        let mut def:T = num::cast(10).unwrap();
-        let mut m_atk:T = num::cast(10).unwrap();
-        let mut m_def:T = num::cast(10).unwrap();
+        let mut speed:T;
+        let mut atk:T;
+        let mut def:T;
+        let mut m_atk:T;
+        let mut m_def:T;
         match *self {
             Normal::Alchemist => {
                 hp =  num::cast(40).unwrap();

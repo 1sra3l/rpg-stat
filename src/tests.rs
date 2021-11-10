@@ -20,7 +20,7 @@ mod tests {
 
     //atributes
     use crate::attributes::Effectiveness;
-    //use crate::equation::Equation;
+    use crate::equation::Equation;
 
 // imported libraries
     use std::fs::File;
@@ -32,7 +32,7 @@ mod tests {
     #[test]
     fn special_type(){
         let grind:Special = Special::Grind;
-        //assert_eq!(grind.mp_cost(),7);
+        //assert_eq!(grind.mp_cost(), 7);
     }
     // used in effectiveness test below
     #[derive(Clone, PartialEq, Debug, Serialize, Deserialize)]
@@ -40,6 +40,13 @@ mod tests {
         pub name:String,
         pub stats:Stats<f64>,
         pub effectiveness:Effectiveness<f64>,
+    }
+    // used in  test below
+    #[derive(Clone, PartialEq, Debug, Serialize, Deserialize)]
+    pub struct EquationalEnemy {
+        pub name:String,
+        pub stats:StatsNormal<f64>,
+        pub equation:Equation<f64>,
     }
     // used in tests below
     #[derive(Clone, PartialEq, Debug, Serialize, Deserialize)]
@@ -158,14 +165,14 @@ mod tests {
     }
     #[test]
     fn fight_test_0() {
-        let player:Character = Character::empty();
+        let mut player:Player = Player::empty();
+        player.set_atk(1.0);
         let mut enemy:Character = Character::empty();
         // enemy has 5 hp
-        //TODO breaking change
         enemy.stats = enemy.class.build_basic(1.0,1.0);
         assert_eq!(enemy.hp_max(), 5.0);
         // now it has one less
-        enemy.damage(1.0);
+        enemy.damage(player.atk());
         assert_eq!(enemy.hp(), 4.0);
         enemy.heal(5.0);
         assert_eq!(enemy.hp(), 5.0);
@@ -175,8 +182,7 @@ mod tests {
         let mut player:Player = Player::empty();
         let mut enemy:Character = Character::empty();
         // enemy has 5 hp
-        //TODO breaking change
-        enemy.stats = Stats::from_class(1.0, enemy.class);
+        enemy.stats = enemy.class.build_basic(1.0,1.0);
         assert_eq!(enemy.hp_max(), 5.0);
         player.set_atk(1.0);
         // now it has one less
@@ -209,7 +215,7 @@ mod tests {
     fn serde_test_1() {
         let sc:Legendary = Legendary::SantaClaus;
         let stats:Stats<f64> = sc.build_basic(0.0,1.0);
-        let toml = toml::to_string(&stats).unwrap();
+        let _toml = toml::to_string(&stats).unwrap();
     }
     #[test]
     fn serde_test_2(){
@@ -234,7 +240,7 @@ mod tests {
     }
     #[test]
     fn effectiveness_test_1(){
-        let filename = "assets/characters/Aatxe.ini";
+        let filename = "assets/characters/a_test.ini";
         match File::open(filename) {
             Ok(mut file) => {
                 let mut content = String::new();
@@ -242,7 +248,24 @@ mod tests {
                 let decoded: OccasionalEnemy = toml::from_str(content.as_str()).unwrap();
                 assert_eq!(decoded.stats.hp, 10.0);
                 assert_eq!(decoded.effectiveness, Effectiveness::Double(50.0));
-                assert_eq!(decoded.name, String::from("Easter Bilby"));
+                assert_eq!(decoded.name, String::from("test"));
+            },
+            Err(e) => println!("Error:{} opening File:{}", e, filename),
+        }
+    }
+    #[test]
+    fn equation_test() {
+        let filename = "assets/characters/a_test.ini";
+        match File::open(filename) {
+            Ok(mut file) => {
+                let mut content = String::new();
+                file.read_to_string(&mut content).unwrap();
+                let decoded: EquationalEnemy = toml::from_str(content.as_str()).unwrap();
+                assert_eq!(decoded.stats.hp, 10.0);
+                let res:f64 = decoded.equation.result();
+                let calc:f64 = decoded.stats.atk * 2.0;
+                //equation="atk * 2"
+                assert_eq!(res, calc);
             },
             Err(e) => println!("Error:{} opening File:{}", e, filename),
         }

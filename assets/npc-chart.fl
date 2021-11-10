@@ -1,0 +1,476 @@
+# data file for the Fltk User Interface Designer (fluid)
+version 1.0307
+header_name {.h}
+code_name {.cxx}
+class UserInterface {open
+} {
+  Function {make_window()} {open
+  } {
+    Fl_Window {} {
+      label {NPC Chart - rpgstat} open
+      xywh {429 69 740 610} type Double color 18 visible
+    } {
+      Fl_Group {} {
+        label {Story Characters} open selected
+        xywh {10 35 230 515} box FLAT_BOX color 106 labelfont 1 labelsize 24 labelcolor 56 align 5
+      } {
+        Fl_Box {} {
+          label Advice
+          xywh {25 45 100 35} box FLAT_BOX color 94 labelcolor 56
+        }
+        Fl_Box {} {
+          label Details
+          xywh {25 82 100 35} box FLAT_BOX color 94 labelcolor 56
+        }
+        Fl_Box {} {
+          label Dreams
+          xywh {25 120 100 35} box FLAT_BOX color 94 labelcolor 56
+        }
+        Fl_Box {} {
+          label Events
+          xywh {25 157 100 35} box FLAT_BOX color 94 labelcolor 56
+        }
+        Fl_Box {} {
+          label Fourth
+          xywh {25 195 100 35} box FLAT_BOX color 94 labelcolor 56
+        }
+        Fl_Box {} {
+          label Greeting
+          xywh {25 232 100 45} box FLAT_BOX color 94 labelcolor 56
+        }
+        Fl_Box {} {
+          label Hint
+          xywh {25 280 100 35} box FLAT_BOX color 94 labelcolor 56
+        }
+        Fl_Box {} {
+          label Jokes
+          xywh {25 317 100 35} box FLAT_BOX color 94 labelcolor 56
+        }
+        Fl_Box {} {
+          label Problems
+          xywh {25 355 100 35} box FLAT_BOX color 94 labelcolor 56
+        }
+        Fl_Box {} {
+          label Quest
+          xywh {25 392 100 35} box FLAT_BOX color 94 labelcolor 56
+        }
+        Fl_Box {} {
+          label Quotes
+          xywh {25 430 100 35} box FLAT_BOX color 94 labelcolor 56
+        }
+        Fl_Box {} {
+          label SmallTalk
+          xywh {25 467 100 35} box FLAT_BOX color 94 labelcolor 56
+        }
+        Fl_Box {} {
+          label Surroundings
+          xywh {25 505 100 35} box FLAT_BOX color 94 labelcolor 56
+        }
+        Fl_Box {} {
+          xywh {135 45 35 35} box FLAT_BOX color 1 labelcolor 56
+        }
+        Fl_Box {} {
+          xywh {135 83 35 35} box FLAT_BOX color 1 labelcolor 56
+        }
+        Fl_Box {} {
+          xywh {135 121 35 35} box FLAT_BOX color 56 labelcolor 56
+        }
+        Fl_Box {} {
+          xywh {135 160 35 35} box FLAT_BOX color 1 labelcolor 56
+        }
+        Fl_Box {} {
+          xywh {135 198 35 35} box FLAT_BOX color 56 labelcolor 56
+        }
+        Fl_Box {} {
+          xywh {135 236 35 35} box FLAT_BOX color 1 labelcolor 56
+        }
+        Fl_Box {} {
+          xywh {135 275 35 35} box FLAT_BOX color 2 labelcolor 56
+        }
+        Fl_Box {} {
+          xywh {135 313 35 35} box FLAT_BOX color 1 labelcolor 56
+        }
+        Fl_Box {} {
+          xywh {135 351 35 35} box FLAT_BOX color 56 labelcolor 56
+        }
+        Fl_Box {} {
+          xywh {135 390 35 35} box FLAT_BOX color 2 labelcolor 56
+        }
+        Fl_Box {} {
+          xywh {135 428 35 35} box FLAT_BOX color 1 labelcolor 56
+        }
+        Fl_Box {} {
+          xywh {135 466 35 35} box FLAT_BOX color 1 labelcolor 56
+        }
+        Fl_Box {} {
+          xywh {135 505 35 35} box FLAT_BOX color 1 labelcolor 56
+        }
+        Fl_Box {} {
+          xywh {175 45 35 35} box FLAT_BOX color 152 labelcolor 56
+        }
+        Fl_Box {} {
+          xywh {175 83 35 35} box FLAT_BOX color 152 labelcolor 56
+        }
+        Fl_Box {} {
+          xywh {175 121 35 35} box FLAT_BOX color 56 labelcolor 56
+        }
+        Fl_Box {} {
+          xywh {175 160 35 35} box FLAT_BOX color 152 labelcolor 56
+        }
+        Fl_Box {} {
+          xywh {175 198 35 35} box FLAT_BOX color 56 labelcolor 56
+        }
+        Fl_Box {} {
+          xywh {175 236 35 35} box FLAT_BOX color 56 labelcolor 56
+        }
+        Fl_Box {} {
+          xywh {175 275 35 35} box FLAT_BOX color 3 labelcolor 56
+        }
+        Fl_Box {} {
+          xywh {175 313 35 35} box FLAT_BOX color 152 labelcolor 56
+        }
+        Fl_Box {} {
+          xywh {175 351 35 35} box FLAT_BOX color 56 labelcolor 56
+        }
+        Fl_Box {} {
+          xywh {175 390 35 35} box FLAT_BOX color 3 labelcolor 56
+        }
+        Fl_Box {} {
+          xywh {175 428 35 35} box FLAT_BOX color 152 labelcolor 56
+        }
+        Fl_Box {} {
+          xywh {175 466 35 35} box FLAT_BOX color 152 labelcolor 56
+        }
+        Fl_Box {} {
+          xywh {175 505 35 35} box FLAT_BOX color 91 labelcolor 56
+        }
+      }
+      Fl_Group {} {
+        label {Random Characters} open
+        xywh {252 35 230 515} box FLAT_BOX color 107 labelfont 1 labelsize 20 labelcolor 56 align 5
+      } {
+        Fl_Box {} {
+          label Advice
+          xywh {267 45 100 35} box FLAT_BOX color 94 labelcolor 56
+        }
+        Fl_Box {} {
+          label Details
+          xywh {267 82 100 35} box FLAT_BOX color 94 labelcolor 56
+        }
+        Fl_Box {} {
+          label Dreams
+          xywh {267 120 100 35} box FLAT_BOX color 94 labelcolor 56
+        }
+        Fl_Box {} {
+          label Events
+          xywh {267 157 100 35} box FLAT_BOX color 94 labelcolor 56
+        }
+        Fl_Box {} {
+          label Fourth
+          xywh {267 195 100 35} box FLAT_BOX color 94 labelcolor 56
+        }
+        Fl_Box {} {
+          label Greeting
+          xywh {267 232 100 45} box FLAT_BOX color 94 labelcolor 56
+        }
+        Fl_Box {} {
+          label Hint
+          xywh {267 280 100 35} box FLAT_BOX color 94 labelcolor 56
+        }
+        Fl_Box {} {
+          label Jokes
+          xywh {267 317 100 35} box FLAT_BOX color 94 labelcolor 56
+        }
+        Fl_Box {} {
+          label Problems
+          xywh {267 355 100 35} box FLAT_BOX color 94 labelcolor 56
+        }
+        Fl_Box {} {
+          label Quest
+          xywh {267 392 100 35} box FLAT_BOX color 94 labelcolor 56
+        }
+        Fl_Box {} {
+          label Quotes
+          xywh {267 430 100 35} box FLAT_BOX color 94 labelcolor 56
+        }
+        Fl_Box {} {
+          label SmallTalk
+          xywh {267 467 100 35} box FLAT_BOX color 94 labelcolor 56
+        }
+        Fl_Box {} {
+          label Surroundings
+          xywh {267 505 100 35} box FLAT_BOX color 94 labelcolor 56
+        }
+        Fl_Box {} {
+          xywh {377 45 35 35} box FLAT_BOX color 91 labelcolor 56
+        }
+        Fl_Box {} {
+          xywh {377 83 35 35} box FLAT_BOX color 91 labelcolor 56
+        }
+        Fl_Box {} {
+          xywh {377 121 35 35} box FLAT_BOX color 56 labelcolor 56
+        }
+        Fl_Box {} {
+          xywh {377 160 35 35} box FLAT_BOX color 91 labelcolor 56
+        }
+        Fl_Box {} {
+          xywh {377 198 35 35} box FLAT_BOX color 56 labelcolor 56
+        }
+        Fl_Box {} {
+          xywh {377 236 35 35} box FLAT_BOX color 2 labelcolor 56
+        }
+        Fl_Box {} {
+          xywh {377 275 35 35} box FLAT_BOX color 1 labelcolor 56
+        }
+        Fl_Box {} {
+          xywh {377 313 35 35} box FLAT_BOX color 91 labelcolor 56
+        }
+        Fl_Box {} {
+          xywh {377 351 35 35} box FLAT_BOX color 56 labelcolor 56
+        }
+        Fl_Box {} {
+          xywh {377 390 35 35} box FLAT_BOX color 1 labelcolor 56
+        }
+        Fl_Box {} {
+          xywh {377 428 35 35} box FLAT_BOX color 91 labelcolor 56
+        }
+        Fl_Box {} {
+          xywh {377 466 35 35} box FLAT_BOX color 91 labelcolor 56
+        }
+        Fl_Box {} {
+          xywh {377 505 35 35} box FLAT_BOX color 91 labelcolor 56
+        }
+        Fl_Box {} {
+          xywh {417 45 35 35} box FLAT_BOX color 152 labelcolor 56
+        }
+        Fl_Box {} {
+          xywh {417 83 35 35} box FLAT_BOX color 152 labelcolor 56
+        }
+        Fl_Box {} {
+          xywh {417 121 35 35} box FLAT_BOX color 91 labelcolor 56
+        }
+        Fl_Box {} {
+          xywh {417 160 35 35} box FLAT_BOX color 152 labelcolor 56
+        }
+        Fl_Box {} {
+          xywh {417 198 35 35} box FLAT_BOX color 1 labelcolor 56
+        }
+        Fl_Box {} {
+          xywh {417 236 35 35} box FLAT_BOX color 56 labelcolor 56
+        }
+        Fl_Box {} {
+          xywh {417 275 35 35} box FLAT_BOX color 56 labelcolor 56
+        }
+        Fl_Box {} {
+          xywh {417 313 35 35} box FLAT_BOX color 152 labelcolor 56
+        }
+        Fl_Box {} {
+          xywh {417 351 35 35} box FLAT_BOX color 91 labelcolor 56
+        }
+        Fl_Box {} {
+          xywh {417 390 35 35} box FLAT_BOX color 3 labelcolor 56
+        }
+        Fl_Box {} {
+          xywh {417 428 35 35} box FLAT_BOX color 152 labelcolor 56
+        }
+        Fl_Box {} {
+          xywh {417 466 35 35} box FLAT_BOX color 152 labelcolor 56
+        }
+        Fl_Box {} {
+          xywh {417 505 35 35} box FLAT_BOX color 2 labelcolor 56
+        }
+      }
+      Fl_Group {} {
+        label {Open World} open
+        xywh {495 35 230 515} box FLAT_BOX color 155 labelfont 1 labelsize 24 labelcolor 56
+      } {
+        Fl_Box {} {
+          label Advice
+          xywh {510 45 100 35} box FLAT_BOX color 94 labelcolor 56
+        }
+        Fl_Box {} {
+          label Details
+          xywh {510 82 100 35} box FLAT_BOX color 94 labelcolor 56
+        }
+        Fl_Box {} {
+          label Dreams
+          xywh {510 120 100 35} box FLAT_BOX color 94 labelcolor 56
+        }
+        Fl_Box {} {
+          label Events
+          xywh {510 157 100 35} box FLAT_BOX color 94 labelcolor 56
+        }
+        Fl_Box {} {
+          label Fourth
+          xywh {510 195 100 35} box FLAT_BOX color 94 labelcolor 56
+        }
+        Fl_Box {} {
+          label Greeting
+          xywh {510 232 100 45} box FLAT_BOX color 94 labelcolor 56
+        }
+        Fl_Box {} {
+          label Hint
+          xywh {510 280 100 35} box FLAT_BOX color 94 labelcolor 56
+        }
+        Fl_Box {} {
+          label Jokes
+          xywh {510 317 100 35} box FLAT_BOX color 94 labelcolor 56
+        }
+        Fl_Box {} {
+          label Problems
+          xywh {510 355 100 35} box FLAT_BOX color 94 labelcolor 56
+        }
+        Fl_Box {} {
+          label Quest
+          xywh {510 392 100 35} box FLAT_BOX color 94 labelcolor 56
+        }
+        Fl_Box {} {
+          label Quotes
+          xywh {510 430 100 35} box FLAT_BOX color 94 labelcolor 56
+        }
+        Fl_Box {} {
+          label SmallTalk
+          xywh {510 467 100 35} box FLAT_BOX color 94 labelcolor 56
+        }
+        Fl_Box {} {
+          label Surroundings
+          xywh {510 505 100 35} box FLAT_BOX color 94 labelcolor 56
+        }
+        Fl_Box {} {
+          xywh {620 45 35 35} box FLAT_BOX color 1 labelcolor 56
+        }
+        Fl_Box {} {
+          xywh {620 83 35 35} box FLAT_BOX color 1 labelcolor 56
+        }
+        Fl_Box {} {
+          xywh {620 121 35 35} box FLAT_BOX color 56 labelcolor 56
+        }
+        Fl_Box {} {
+          xywh {620 160 35 35} box FLAT_BOX color 2 labelcolor 56
+        }
+        Fl_Box {} {
+          xywh {620 198 35 35} box FLAT_BOX color 56 labelcolor 56
+        }
+        Fl_Box {} {
+          xywh {620 236 35 35} box FLAT_BOX color 2 labelcolor 56
+        }
+        Fl_Box {} {
+          xywh {620 275 35 35} box FLAT_BOX color 2 labelcolor 56
+        }
+        Fl_Box {} {
+          xywh {620 313 35 35} box FLAT_BOX color 1 labelcolor 56
+        }
+        Fl_Box {} {
+          xywh {620 351 35 35} box FLAT_BOX color 56 labelcolor 56
+        }
+        Fl_Box {} {
+          xywh {620 390 35 35} box FLAT_BOX color 152 labelcolor 56
+        }
+        Fl_Box {} {
+          xywh {620 428 35 35} box FLAT_BOX color 1 labelcolor 56
+        }
+        Fl_Box {} {
+          xywh {620 466 35 35} box FLAT_BOX color 2 labelcolor 56
+        }
+        Fl_Box {} {
+          xywh {620 505 35 35} box FLAT_BOX color 1 labelcolor 56
+        }
+        Fl_Box {} {
+          xywh {660 45 35 35} box FLAT_BOX color 160 labelcolor 56
+        }
+        Fl_Box {} {
+          xywh {660 83 35 35} box FLAT_BOX color 160 labelcolor 56
+        }
+        Fl_Box {} {
+          xywh {660 121 35 35} box FLAT_BOX color 1 labelcolor 56
+        }
+        Fl_Box {} {
+          xywh {660 160 35 35} box FLAT_BOX color 1 labelcolor 56
+        }
+        Fl_Box {} {
+          xywh {660 198 35 35} box FLAT_BOX color 1 labelcolor 56
+        }
+        Fl_Box {} {
+          xywh {660 236 35 35} box FLAT_BOX color 1 labelcolor 56
+        }
+        Fl_Box {} {
+          xywh {660 275 35 35} box FLAT_BOX color 3 labelcolor 56
+        }
+        Fl_Box {} {
+          xywh {660 313 35 35} box FLAT_BOX color 160 labelcolor 56
+        }
+        Fl_Box {} {
+          xywh {660 351 35 35} box FLAT_BOX color 1 labelcolor 56
+        }
+        Fl_Box {} {
+          xywh {660 390 35 35} box FLAT_BOX color 3 labelcolor 56
+        }
+        Fl_Box {} {
+          xywh {660 428 35 35} box FLAT_BOX color 160 labelcolor 56
+        }
+        Fl_Box {} {
+          xywh {660 466 35 35} box FLAT_BOX color 1 labelcolor 56
+        }
+        Fl_Box {} {
+          xywh {660 505 35 35} box FLAT_BOX color 160 labelcolor 56
+        }
+      }
+      Fl_Box {} {
+        label {70%}
+        xywh {155 565 35 35} box FLAT_BOX color 152 labelcolor 26
+      }
+      Fl_Box {} {
+        label {90%}
+        xywh {470 565 35 35} box FLAT_BOX color 63 labelcolor 56
+      }
+      Fl_Box {} {
+        label {95%}
+        xywh {110 565 35 35} box FLAT_BOX color 63 labelcolor 56
+      }
+      Fl_Box {} {
+        label {First Encounter}
+        xywh {5 555 95 50} color 142 labelfont 1 labelcolor 56 align 128
+      }
+      Fl_Box {} {
+        label {Second Encounter}
+        xywh {370 555 95 50} color 142 labelfont 1 labelcolor 56 align 128
+      }
+      Fl_Box {} {
+        label {60%}
+        xywh {515 565 35 35} box FLAT_BOX color 152 labelcolor 26
+      }
+      Fl_Box {} {
+        label {50%}
+        xywh {200 565 35 35} box FLAT_BOX color 3 labelcolor 56
+      }
+      Fl_Box {} {
+        label {30%}
+        xywh {245 565 35 35} box FLAT_BOX color 91 labelcolor 56
+      }
+      Fl_Box {} {
+        label {10%}
+        xywh {290 565 35 35} box FLAT_BOX color 1 labelcolor 26
+      }
+      Fl_Box {} {
+        label {1%}
+        xywh {335 565 35 35} box FLAT_BOX color 56 labelcolor 17
+      }
+      Fl_Box {} {
+        label {40%}
+        xywh {560 565 35 35} box FLAT_BOX color 3 labelcolor 56
+      }
+      Fl_Box {} {
+        label {10%}
+        xywh {605 565 35 35} box FLAT_BOX color 91 labelcolor 56
+      }
+      Fl_Box {} {
+        label {1%}
+        xywh {650 565 35 35} box FLAT_BOX color 1 labelcolor 56
+      }
+      Fl_Box {} {
+        label {0%}
+        xywh {695 565 35 35} box FLAT_BOX color 56 labelcolor 17
+      }
+    }
+  }
+}
