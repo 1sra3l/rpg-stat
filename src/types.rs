@@ -9,6 +9,15 @@ This includes various enums related to the type of character you have
 
 `Advanced` has elemental types
 
+# Effectiveness
+
+`Basic` has no need for effectiveness against types.
+
+`Normal` implements this according to the chart:
+
+![Alt text](https://github.com/1sra3l/rpg-stat/assets/type-effectiveness-chart.png?raw=true "Type Effectiveness")
+
+
 */
 use std::fmt;
 use std::fmt::Debug;
@@ -19,6 +28,9 @@ use num::NumCast;
 use serde::{Deserialize, Serialize};
 use strum::IntoEnumIterator;
 use strum_macros::EnumIter;
+
+//our stuff
+use crate::attributes::Effectiveness;
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, EnumIter, Deserialize, Serialize)]
 /*
@@ -73,6 +85,140 @@ pub enum Normal {
     Light,
     Wind,
     None,
+}
+impl Normal {
+    ///  Plant Effectiveness against a target
+    pub fn plant(other:Normal, value:i32) -> Effectiveness<i32> {
+        match other {
+            Normal::Rock => return Effectiveness::HalfExtra(value),
+            Normal::Water => return Effectiveness::Half(value),
+            Normal::Fire => return Effectiveness::None(value),
+            Normal::Light => return Effectiveness::Double(value),
+            Normal::Wind => return Effectiveness::Half(value),
+            _=> {},
+        }
+        Effectiveness::Normal(value)
+    }
+    /// Rock Effectiveness against a target
+    pub fn rock(other:Normal, value:i32) -> Effectiveness<i32> {
+        match other {
+            Normal::Plant => return Effectiveness::Half(value),
+            Normal::Water => return Effectiveness::HalfExtra(value),
+            Normal::Fire => return Effectiveness::Double(value),
+            Normal::Electric => return Effectiveness::Double(value),
+            Normal::Light => return Effectiveness::Half(value),
+            Normal::Wind => return Effectiveness::None(value),
+            _=> {},
+        }
+        Effectiveness::Normal(value)
+    }
+    /// Water Effectiveness against a target
+    pub fn water(other:Normal, value:i32) -> Effectiveness<i32> {
+        match other {
+            Normal::Rock => return Effectiveness::Double(value),
+            Normal::Plant => return Effectiveness::HalfExtra(value),
+            Normal::Fire => return Effectiveness::Double(value),
+            Normal::Electric => return Effectiveness::Half(value),
+            Normal::Light => return Effectiveness::None(value),
+            Normal::Wind => return Effectiveness::Half(value),
+            _=> {},
+        }
+        Effectiveness::Normal(value)
+    }
+    /// Fire Effectiveness against a target
+    pub fn fire(other:Normal, value:i32) -> Effectiveness<i32> {
+        match other {
+            Normal::Rock => return Effectiveness::Half(value),
+            Normal::Plant => return Effectiveness::Double(value),
+            Normal::Water => return Effectiveness::HalfExtra(value),
+            Normal::Spirit => return Effectiveness::None(value),
+            Normal::Wind => return Effectiveness::Half(value),
+            _=> {},
+        }
+        Effectiveness::Normal(value)
+    }
+    /// Electric Effectiveness against a target
+    pub fn electric(other:Normal, value:i32) -> Effectiveness<i32> {
+        match other {
+            Normal::Rock => return Effectiveness::Half(value),
+            Normal::Plant => return Effectiveness::HalfExtra(value),
+            Normal::Water => return Effectiveness::Double(value),
+            Normal::Light => return Effectiveness::None(value),
+            Normal::Wind => return Effectiveness::Half(value),
+            _=> {},
+        }
+        Effectiveness::Normal(value)
+    }
+    /// Spirit Effectiveness against a target
+    pub fn spirit(other:Normal, value:i32) -> Effectiveness<i32> {
+        match other {
+            Normal::Water => return Effectiveness::None(value),
+            Normal::Fire => return Effectiveness::Double(value),
+            Normal::Electric => return Effectiveness::Half(value),
+            Normal::Spirit => return Effectiveness::HalfExtra(value),
+            Normal::Light => return Effectiveness::Half(value),
+            Normal::Wind => return Effectiveness::Double(value),
+            Normal::None => return Effectiveness::None(value),
+            _=> {},
+        }
+        Effectiveness::Normal(value)
+    }
+    /// Light Effectiveness against a target
+    pub fn light(other:Normal, value:i32) -> Effectiveness<i32> {
+        match other {
+            Normal::Rock => return Effectiveness::Double(value),
+                    Normal::Plant => return Effectiveness::None(value),
+                    Normal::Water => return Effectiveness::Double(value),
+                    Normal::Fire => return Effectiveness::None(value),
+                    Normal::Electric => return Effectiveness::Half(value),
+                    Normal::Wind => return Effectiveness::HalfExtra(value),
+                    Normal::None => return Effectiveness::Half(value),
+            _=> {},
+        }
+        Effectiveness::Normal(value)
+    }
+    ///  Effectiveness against a target
+    pub fn wind(other:Normal, value:i32) -> Effectiveness<i32> {
+        match other {
+            Normal::Rock => return Effectiveness::Double(value),
+            Normal::Plant => return Effectiveness::Half(value),
+            Normal::Water => return Effectiveness::Double(value),
+            Normal::Fire => return Effectiveness::None(value),
+            Normal::Spirit => return Effectiveness::Half(value),
+            Normal::Wind => return Effectiveness::HalfExtra(value),
+            _=> {},
+        }
+        Effectiveness::Normal(value)
+    }
+    ///  Effectiveness against a target
+    pub fn none(other:Normal, value:i32) -> Effectiveness<i32> {
+        match other {
+            Normal::Water => return Effectiveness::Half(value),
+            Normal::Fire => return Effectiveness::Half(value),
+            Normal::Electric => return Effectiveness::Half(value),
+            Normal::Spirit => return Effectiveness::None(value),
+            Normal::Light => return Effectiveness::None(value),
+            Normal::Wind => return Effectiveness::Half(value),
+            _=> {},
+        }
+        Effectiveness::Normal(value)
+    }
+    
+    /// Match current Type to find effectiveness of the value
+    pub fn effectiveness(&self, other:Normal, value:i32) -> Effectiveness<i32> {
+        match *self {
+            Normal::Rock => return Normal::rock(other, value),
+            Normal::Plant => return Normal::plant(other, value),
+            Normal::Water => return Normal::water(other, value),
+            Normal::Fire => return Normal::fire(other, value),
+            Normal::Electric => return Normal::electric(other, value),
+            Normal::Spirit => return Normal::spirit(other, value),
+            Normal::Light => return Normal::light(other, value),
+            Normal::Wind => return Normal::wind(other, value),
+            Normal::None => return Normal::none(other, value),
+        }
+        Effectiveness::Normal(value)
+    }
 }
 impl Default for Normal {
     /// Default to empty
