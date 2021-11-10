@@ -15,7 +15,9 @@ This includes various enums related to the type of character you have
 
 `Normal` implements this according to the chart:
 
-![Alt text](https://github.com/1sra3l/rpg-stat/assets/type-effectiveness-chart.png?raw=true "Type Effectiveness")
+<div>
+<img src="https://raw.githubusercontent.com/1sra3l/rpg-stat/main/assets/type-effectiveness-chart.png" />
+</div>
 
 
 */
