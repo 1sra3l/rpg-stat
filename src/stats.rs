@@ -631,7 +631,7 @@ pub trait NormalPremade<T:Copy
         let mut res = val * val;
         let mut def = other.def;
         def += val;
-        res = res / def;
+        res /= def;
         res
     }
 }
@@ -1227,7 +1227,7 @@ pub trait AdvancedPremade<T:Copy
         let mut res = val * val;
         let mut def = other.def;
         def += val;
-        res = res / def;
+        res /= def;
         res
     }
 }

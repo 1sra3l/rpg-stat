@@ -27,62 +27,47 @@ use num::NumCast;
 // Work around it
 struct MyType(Basic);
 // here it is.
-impl<T:Copy 
-    + Default
-    + Display
-    + AddAssign
-    + Add<Output = T>
-    + Div<Output = T>
-    + DivAssign
-    + Mul<Output = T>
-    + MulAssign
-    + Neg<Output = T>
-    + Rem<Output = T>
-    + RemAssign
-    + Sub<Output = T>
-    + SubAssign
-    + std::cmp::PartialOrd
-    + num::NumCast> Compare<T> for MyType {
+impl Compare for MyType {
     type Type = Basic;
     // Plant Effectiveness against a target
-    fn plant(other:Basic, value:T) -> Effectiveness<T> {
-        Effectiveness::Normal(value)
+    fn plant(other:Basic) -> Effectiveness {
+        Effectiveness::Normal
     }
     /// Rock Effectiveness against a target
-    fn rock(other:Basic, value:T) -> Effectiveness<T> {
-        Effectiveness::Normal(value)
+    fn rock(other:Basic) -> Effectiveness {
+        Effectiveness::Normal
     }
     /// Water Effectiveness against a target
-    fn water(other:Basic, value:T) -> Effectiveness<T> {
-        Effectiveness::Normal(value)
+    fn water(other:Basic) -> Effectiveness {
+        Effectiveness::Normal
     }
     /// Fire Effectiveness against a target
-    fn fire(other:Basic, value:T) -> Effectiveness<T> {
-        Effectiveness::Normal(value)
+    fn fire(other:Basic) -> Effectiveness {
+        Effectiveness::Normal
     }
     /// Electric Effectiveness against a target
-    fn electric(other:Basic, value:T) -> Effectiveness<T> {
-        Effectiveness::Normal(value)
+    fn electric(other:Basic) -> Effectiveness {
+        Effectiveness::Normal
     }
     /// Spirit Effectiveness against a target
-    fn spirit(other:Basic, value:T) -> Effectiveness<T> {
-        Effectiveness::Normal(value)
+    fn spirit(other:Basic) -> Effectiveness {
+        Effectiveness::Normal
     }
     /// Light Effectiveness against a target
-    fn light(other:Basic, value:T) -> Effectiveness<T> {
-        Effectiveness::Normal(value)
+    fn light(other:Basic) -> Effectiveness {
+        Effectiveness::Normal
     }
     /// Wind Effectiveness against a target
-    fn wind(other:Basic, value:T) -> Effectiveness<T> {
-        Effectiveness::Normal(value)
+    fn wind(other:Basic) -> Effectiveness {
+        Effectiveness::Normal
     }
     /// None Effectiveness against a target
-    fn none(other:Basic, value:T) -> Effectiveness<T> {
-        Effectiveness::Normal(value)
+    fn none(other:Basic) -> Effectiveness {
+        Effectiveness::Normal
     }
     ///  Effectiveness against a target
-    fn effectiveness(&self, other:Basic, value:T) -> Effectiveness<T> {
-        Effectiveness::Normal(value)
+    fn effectiveness(&self, other:Basic) -> Effectiveness {
+        Effectiveness::Normal
     }
 }
 ```
@@ -114,43 +99,28 @@ use crate::attributes::Effectiveness;
 # Compare
 This trait is used by `Normal` and `Advanced`
 */
-pub trait Compare<T:Copy 
-                 + Default
-                 + Display
-                 + AddAssign
-                 + Add<Output = T>
-                 + Div<Output = T>
-                 + DivAssign
-                 + Mul<Output = T>
-                 + MulAssign
-                 + Neg<Output = T>
-                 + Rem<Output = T>
-                 + RemAssign
-                 + Sub<Output = T>
-                 + SubAssign
-                 + std::cmp::PartialOrd
-                 + num::NumCast> {
+pub trait Compare {
     type Type;
     // Plant Effectiveness against a target
-    fn plant(other:Self::Type, value:T) -> Effectiveness<T>;
+    fn plant(other:Self::Type) -> Effectiveness;
     /// Rock Effectiveness against a target
-    fn rock(other:Self::Type, value:T) -> Effectiveness<T>;
+    fn rock(other:Self::Type) -> Effectiveness;
     /// Water Effectiveness against a target
-    fn water(other:Self::Type, value:T) -> Effectiveness<T>;
+    fn water(other:Self::Type) -> Effectiveness;
     /// Fire Effectiveness against a target
-    fn fire(other:Self::Type, value:T) -> Effectiveness<T>;
+    fn fire(other:Self::Type) -> Effectiveness;
     /// Electric Effectiveness against a target
-    fn electric(other:Self::Type, value:T) -> Effectiveness<T>;
+    fn electric(other:Self::Type) -> Effectiveness;
     /// Spirit Effectiveness against a target
-    fn spirit(other:Self::Type, value:T) -> Effectiveness<T>;
+    fn spirit(other:Self::Type) -> Effectiveness;
     /// Light Effectiveness against a target
-    fn light(other:Self::Type, value:T) -> Effectiveness<T>;
+    fn light(other:Self::Type) -> Effectiveness;
     /// Wind Effectiveness against a target
-    fn wind(other:Self::Type, value:T) -> Effectiveness<T>;
+    fn wind(other:Self::Type) -> Effectiveness;
     /// None Effectiveness against a target
-    fn none(other:Self::Type, value:T) -> Effectiveness<T>;
+    fn none(other:Self::Type) -> Effectiveness;
     ///  Effectiveness against a target
-    fn effectiveness(&self, other:Self::Type, value:T) -> Effectiveness<T>;
+    fn effectiveness(&self, other:Self::Type) -> Effectiveness;
 }
 #[derive(Debug, Clone, Copy, PartialEq, Eq, EnumIter, Deserialize, Serialize)]
 ///  `Basic`
@@ -234,143 +204,128 @@ impl fmt::Display for Normal {
         write!(f, "{}", v.as_str())
     }
 }
-impl<T:Copy 
-    + Default
-    + Display
-    + AddAssign
-    + Add<Output = T>
-    + Div<Output = T>
-    + DivAssign
-    + Mul<Output = T>
-    + MulAssign
-    + Neg<Output = T>
-    + Rem<Output = T>
-    + RemAssign
-    + Sub<Output = T>
-    + SubAssign
-    + std::cmp::PartialOrd
-    + num::NumCast> Compare<T> for Normal {
+impl Compare for Normal {
     type Type = Normal;
     ///  Plant Effectiveness against a target
-    fn plant(other:Normal, value:T) -> Effectiveness<T> {
+    fn plant(other:Normal) -> Effectiveness {
         match other {
-            Normal::Rock => return Effectiveness::HalfExtra(value),
-            Normal::Water => return Effectiveness::Half(value),
-            Normal::Fire => return Effectiveness::None(value),
-            Normal::Light => return Effectiveness::Double(value),
-            Normal::Wind => return Effectiveness::Half(value),
-            _=> return Effectiveness::Normal(value),
+            Normal::Rock => Effectiveness::HalfExtra,
+            Normal::Water => Effectiveness::Half,
+            Normal::Fire => Effectiveness::None,
+            Normal::Light => Effectiveness::Double,
+            Normal::Wind => Effectiveness::Half,
+            _=> Effectiveness::Normal,
         }
     }
     /// Rock Effectiveness against a target
-    fn rock(other:Normal, value:T) -> Effectiveness<T> {
+    fn rock(other:Normal) -> Effectiveness {
         match other {
-            Normal::Plant => return Effectiveness::Half(value),
-            Normal::Water => return Effectiveness::HalfExtra(value),
-            Normal::Fire => return Effectiveness::Double(value),
-            Normal::Electric => return Effectiveness::Double(value),
-            Normal::Light => return Effectiveness::Half(value),
-            Normal::Wind => return Effectiveness::None(value),
-            _=> return Effectiveness::Normal(value),
+            Normal::Plant => Effectiveness::Half,
+            Normal::Water => Effectiveness::HalfExtra,
+            Normal::Fire => Effectiveness::Double,
+            Normal::Electric => Effectiveness::Double,
+            Normal::Light => Effectiveness::Half,
+            Normal::Wind => Effectiveness::None,
+            _=> Effectiveness::Normal,
         }
     }
     /// Water Effectiveness against a target
-    fn water(other:Normal, value:T) -> Effectiveness<T> {
+    fn water(other:Normal) -> Effectiveness {
         match other {
-            Normal::Rock => return Effectiveness::Double(value),
-            Normal::Plant => return Effectiveness::HalfExtra(value),
-            Normal::Fire => return Effectiveness::Double(value),
-            Normal::Electric => return Effectiveness::Half(value),
-            Normal::Light => return Effectiveness::None(value),
-            Normal::Wind => return Effectiveness::Half(value),
-            _=> return Effectiveness::Normal(value),
+            Normal::Rock => Effectiveness::Double,
+            Normal::Plant => Effectiveness::HalfExtra,
+            Normal::Fire => Effectiveness::Double,
+            Normal::Electric => Effectiveness::Half,
+            Normal::Light => Effectiveness::None,
+            Normal::Wind => Effectiveness::Half,
+            _=> Effectiveness::Normal,
         }
     }
     /// Fire Effectiveness against a target
-    fn fire(other:Normal, value:T) -> Effectiveness<T> {
+    fn fire(other:Normal) -> Effectiveness {
         match other {
-            Normal::Rock => return Effectiveness::Half(value),
-            Normal::Plant => return Effectiveness::Double(value),
-            Normal::Water => return Effectiveness::HalfExtra(value),
-            Normal::Spirit => return Effectiveness::None(value),
-            Normal::Wind => return Effectiveness::Half(value),
-            _=> return Effectiveness::Normal(value),
+            Normal::Rock => Effectiveness::Half,
+            Normal::Plant => Effectiveness::Double,
+            Normal::Water => Effectiveness::HalfExtra,
+            Normal::Spirit => Effectiveness::None,
+            Normal::Wind => Effectiveness::Half,
+            _=> Effectiveness::Normal,
         }
     }
     /// Electric Effectiveness against a target
-    fn electric(other:Normal, value:T) -> Effectiveness<T> {
+    fn electric(other:Normal) -> Effectiveness {
         match other {
-            Normal::Rock => return Effectiveness::Half(value),
-            Normal::Plant => return Effectiveness::HalfExtra(value),
-            Normal::Water => return Effectiveness::Double(value),
-            Normal::Light => return Effectiveness::None(value),
-            Normal::Wind => return Effectiveness::Half(value),
-            _=> return Effectiveness::Normal(value),
+            Normal::Rock => Effectiveness::Half,
+            Normal::Plant => Effectiveness::HalfExtra,
+            Normal::Water => Effectiveness::Double,
+            Normal::Light => Effectiveness::None,
+            Normal::Wind => Effectiveness::Half,
+            _=> Effectiveness::Normal,
         }
     }
     /// Spirit Effectiveness against a target
-    fn spirit(other:Normal, value:T) -> Effectiveness<T> {
+    fn spirit(other:Normal) -> Effectiveness {
         match other {
-            Normal::Water => return Effectiveness::None(value),
-            Normal::Fire => return Effectiveness::Double(value),
-            Normal::Electric => return Effectiveness::Half(value),
-            Normal::Spirit => return Effectiveness::HalfExtra(value),
-            Normal::Light => return Effectiveness::Half(value),
-            Normal::Wind => return Effectiveness::Double(value),
-            Normal::None => return Effectiveness::None(value),
-            _=> return Effectiveness::Normal(value),
+            Normal::Water => Effectiveness::None,
+            Normal::Fire => Effectiveness::Double,
+            Normal::Electric => Effectiveness::Half,
+            Normal::Spirit => Effectiveness::HalfExtra,
+            Normal::Light => Effectiveness::Half,
+            Normal::Wind => Effectiveness::Double,
+            Normal::None => Effectiveness::None,
+            _=> Effectiveness::Normal,
         }
     }
     /// Light Effectiveness against a target
-    fn light(other:Normal, value:T) -> Effectiveness<T> {
+    fn light(other:Normal) -> Effectiveness {
         match other {
-            Normal::Rock => return Effectiveness::Double(value),
-            Normal::Plant => return Effectiveness::None(value),
-            Normal::Water => return Effectiveness::Double(value),
-            Normal::Fire => return Effectiveness::None(value),
-            Normal::Electric => return Effectiveness::Half(value),
-            Normal::Wind => return Effectiveness::HalfExtra(value),
-            Normal::None => return Effectiveness::Half(value),
-            _=> return Effectiveness::Normal(value),
+            Normal::Rock => Effectiveness::Double,
+            Normal::Plant => Effectiveness::None,
+            Normal::Water => Effectiveness::Double,
+            Normal::Fire => Effectiveness::None,
+            Normal::Electric => Effectiveness::Half,
+            Normal::Wind => Effectiveness::HalfExtra,
+            Normal::None => Effectiveness::Half,
+            _=> Effectiveness::Normal,
         }
     }
     ///  Effectiveness against a target
-    fn wind(other:Normal, value:T) -> Effectiveness<T> {
+    fn wind(other:Normal) -> Effectiveness {
         match other {
-            Normal::Rock => return Effectiveness::Double(value),
-            Normal::Plant => return Effectiveness::Half(value),
-            Normal::Water => return Effectiveness::Double(value),
-            Normal::Fire => return Effectiveness::None(value),
-            Normal::Spirit => return Effectiveness::Half(value),
-            Normal::Wind => return Effectiveness::HalfExtra(value),
-            _=> return Effectiveness::Normal(value),
+            Normal::Rock => Effectiveness::Double,
+            Normal::Plant => Effectiveness::Half,
+            Normal::Water => Effectiveness::Double,
+            Normal::Fire => Effectiveness::None,
+            Normal::Spirit => Effectiveness::Half,
+            Normal::Wind => Effectiveness::HalfExtra,
+            _=> Effectiveness::Normal,
         }
     }
     ///  Effectiveness against a target
-    fn none(other:Normal, value:T) -> Effectiveness<T> {
+    fn none(other:Normal) -> Effectiveness {
         match other {
-            Normal::Water => return Effectiveness::Half(value),
-            Normal::Fire => return Effectiveness::Half(value),
-            Normal::Electric => return Effectiveness::Half(value),
-            Normal::Spirit => return Effectiveness::None(value),
-            Normal::Light => return Effectiveness::None(value),
-            Normal::Wind => return Effectiveness::Half(value),
-            _=> return Effectiveness::Normal(value),
+            Normal::Water => Effectiveness::Half,
+            Normal::Fire => Effectiveness::Half,
+            Normal::Electric => Effectiveness::Half,
+            Normal::Spirit => Effectiveness::None,
+            Normal::Light => Effectiveness::None,
+            Normal::Wind => Effectiveness::Half,
+            _=> Effectiveness::Normal,
         }
     }
     
     /// Match current Type to find effectiveness of the value
-    fn effectiveness(&self, other:Normal, value:T) -> Effectiveness<T> {
+    fn effectiveness(&self, other:Normal) -> Effectiveness {
         match *self {
-            Normal::Rock => return Normal::rock(other, value),
-            Normal::Plant => return Normal::plant(other, value),
-            Normal::Water => return Normal::water(other, value),
-            Normal::Fire => return Normal::fire(other, value),
-            Normal::Electric => return Normal::electric(other, value),
-            Normal::Spirit => return Normal::spirit(other, value),
-            Normal::Light => return Normal::light(other, value),
-            Normal::Wind => return Normal::wind(other, value),
-            Normal::None => return Normal::none(other, value),
+            Normal::Rock => Normal::rock(other),
+            Normal::Plant => Normal::plant(other),
+            Normal::Water => Normal::water(other),
+            Normal::Fire => Normal::fire(other),
+            Normal::Electric => Normal::electric(other),
+            Normal::Spirit => Normal::spirit(other),
+            Normal::Light => Normal::light(other),
+            Normal::Wind => Normal::wind(other),
+            Normal::None => Normal::none(other),
         }
     }
 }
@@ -425,143 +380,128 @@ impl fmt::Display for Advanced {
         write!(f, "{}", v.as_str())
     }
 }
-impl<T:Copy 
-    + Default
-    + Display
-    + AddAssign
-    + Add<Output = T>
-    + Div<Output = T>
-    + DivAssign
-    + Mul<Output = T>
-    + MulAssign
-    + Neg<Output = T>
-    + Rem<Output = T>
-    + RemAssign
-    + Sub<Output = T>
-    + SubAssign
-    + std::cmp::PartialOrd
-    + num::NumCast> Compare<T> for Advanced {
+impl Compare for Advanced {
     type Type = Advanced;
     ///  Plant Effectiveness against a target
-    fn plant(other:Advanced, value:T) -> Effectiveness<T> {
+    fn plant(other:Advanced) -> Effectiveness {
         match other {
-            Advanced::Rock => return Effectiveness::HalfExtra(value),
-            Advanced::Water => return Effectiveness::Half(value),
-            Advanced::Fire => return Effectiveness::None(value),
-            Advanced::Light => return Effectiveness::Double(value),
-            Advanced::Wind => return Effectiveness::Half(value),
-            _=> return Effectiveness::Normal(value),
+            Advanced::Rock => Effectiveness::HalfExtra,
+            Advanced::Water => Effectiveness::Half,
+            Advanced::Fire => Effectiveness::None,
+            Advanced::Light => Effectiveness::Double,
+            Advanced::Wind => Effectiveness::Half,
+            _=> Effectiveness::Normal,
         }
     }
     /// Rock Effectiveness against a target
-    fn rock(other:Advanced, value:T) -> Effectiveness<T> {
+    fn rock(other:Advanced) -> Effectiveness {
         match other {
-            Advanced::Plant => return Effectiveness::Half(value),
-            Advanced::Water => return Effectiveness::HalfExtra(value),
-            Advanced::Fire => return Effectiveness::Double(value),
-            Advanced::Electric => return Effectiveness::Double(value),
-            Advanced::Light => return Effectiveness::Half(value),
-            Advanced::Wind => return Effectiveness::None(value),
-            _=> return Effectiveness::Normal(value),
+            Advanced::Plant => Effectiveness::Half,
+            Advanced::Water => Effectiveness::HalfExtra,
+            Advanced::Fire => Effectiveness::Double,
+            Advanced::Electric => Effectiveness::Double,
+            Advanced::Light => Effectiveness::Half,
+            Advanced::Wind => Effectiveness::None,
+            _=> Effectiveness::Normal,
         }
     }
     /// Water Effectiveness against a target
-    fn water(other:Advanced, value:T) -> Effectiveness<T> {
+    fn water(other:Advanced) -> Effectiveness {
         match other {
-            Advanced::Rock => return Effectiveness::Double(value),
-            Advanced::Plant => return Effectiveness::HalfExtra(value),
-            Advanced::Fire => return Effectiveness::Double(value),
-            Advanced::Electric => return Effectiveness::Half(value),
-            Advanced::Light => return Effectiveness::None(value),
-            Advanced::Wind => return Effectiveness::Half(value),
-            _=> return Effectiveness::Normal(value),
+            Advanced::Rock => Effectiveness::Double,
+            Advanced::Plant => Effectiveness::HalfExtra,
+            Advanced::Fire => Effectiveness::Double,
+            Advanced::Electric => Effectiveness::Half,
+            Advanced::Light => Effectiveness::None,
+            Advanced::Wind => Effectiveness::Half,
+            _=> Effectiveness::Normal,
         }
     }
     /// Fire Effectiveness against a target
-    fn fire(other:Advanced, value:T) -> Effectiveness<T> {
+    fn fire(other:Advanced) -> Effectiveness {
         match other {
-            Advanced::Rock => return Effectiveness::Half(value),
-            Advanced::Plant => return Effectiveness::Double(value),
-            Advanced::Water => return Effectiveness::HalfExtra(value),
-            Advanced::Spirit => return Effectiveness::None(value),
-            Advanced::Wind => return Effectiveness::Half(value),
-            _=> return Effectiveness::Normal(value),
+            Advanced::Rock => Effectiveness::Half,
+            Advanced::Plant => Effectiveness::Double,
+            Advanced::Water => Effectiveness::HalfExtra,
+            Advanced::Spirit => Effectiveness::None,
+            Advanced::Wind => Effectiveness::Half,
+            _=> Effectiveness::Normal,
         }
     }
     /// Electric Effectiveness against a target
-    fn electric(other:Advanced, value:T) -> Effectiveness<T> {
+    fn electric(other:Advanced) -> Effectiveness {
         match other {
-            Advanced::Rock => return Effectiveness::Half(value),
-            Advanced::Plant => return Effectiveness::HalfExtra(value),
-            Advanced::Water => return Effectiveness::Double(value),
-            Advanced::Light => return Effectiveness::None(value),
-            Advanced::Wind => return Effectiveness::Half(value),
-            _=> return Effectiveness::Normal(value),
+            Advanced::Rock => Effectiveness::Half,
+            Advanced::Plant => Effectiveness::HalfExtra,
+            Advanced::Water => Effectiveness::Double,
+            Advanced::Light => Effectiveness::None,
+            Advanced::Wind => Effectiveness::Half,
+            _=> Effectiveness::Normal,
         }
     }
     /// Spirit Effectiveness against a target
-    fn spirit(other:Advanced, value:T) -> Effectiveness<T> {
+    fn spirit(other:Advanced) -> Effectiveness {
         match other {
-            Advanced::Water => return Effectiveness::None(value),
-            Advanced::Fire => return Effectiveness::Double(value),
-            Advanced::Electric => return Effectiveness::Half(value),
-            Advanced::Spirit => return Effectiveness::HalfExtra(value),
-            Advanced::Light => return Effectiveness::Half(value),
-            Advanced::Wind => return Effectiveness::Double(value),
-            Advanced::None => return Effectiveness::None(value),
-            _=> return Effectiveness::Normal(value),
+            Advanced::Water => Effectiveness::None,
+            Advanced::Fire => Effectiveness::Double,
+            Advanced::Electric => Effectiveness::Half,
+            Advanced::Spirit => Effectiveness::HalfExtra,
+            Advanced::Light => Effectiveness::Half,
+            Advanced::Wind => Effectiveness::Double,
+            Advanced::None => Effectiveness::None,
+            _=> Effectiveness::Normal,
         }
     }
     /// Light Effectiveness against a target
-    fn light(other:Advanced, value:T) -> Effectiveness<T> {
+    fn light(other:Advanced) -> Effectiveness {
         match other {
-            Advanced::Rock => return Effectiveness::Double(value),
-            Advanced::Plant => return Effectiveness::None(value),
-            Advanced::Water => return Effectiveness::Double(value),
-            Advanced::Fire => return Effectiveness::None(value),
-            Advanced::Electric => return Effectiveness::Half(value),
-            Advanced::Wind => return Effectiveness::HalfExtra(value),
-            Advanced::None => return Effectiveness::Half(value),
-            _=> return Effectiveness::Normal(value),
+            Advanced::Rock => Effectiveness::Double,
+            Advanced::Plant => Effectiveness::None,
+            Advanced::Water => Effectiveness::Double,
+            Advanced::Fire => Effectiveness::None,
+            Advanced::Electric => Effectiveness::Half,
+            Advanced::Wind => Effectiveness::HalfExtra,
+            Advanced::None => Effectiveness::Half,
+            _=> Effectiveness::Normal,
         }
     }
     ///  Effectiveness against a target
-    fn wind(other:Advanced, value:T) -> Effectiveness<T> {
+    fn wind(other:Advanced) -> Effectiveness {
         match other {
-            Advanced::Rock => return Effectiveness::Double(value),
-            Advanced::Plant => return Effectiveness::Half(value),
-            Advanced::Water => return Effectiveness::Double(value),
-            Advanced::Fire => return Effectiveness::None(value),
-            Advanced::Spirit => return Effectiveness::Half(value),
-            Advanced::Wind => return Effectiveness::HalfExtra(value),
-            _=> return Effectiveness::Normal(value),
+            Advanced::Rock => Effectiveness::Double,
+            Advanced::Plant => Effectiveness::Half,
+            Advanced::Water => Effectiveness::Double,
+            Advanced::Fire => Effectiveness::None,
+            Advanced::Spirit => Effectiveness::Half,
+            Advanced::Wind => Effectiveness::HalfExtra,
+            _=> Effectiveness::Normal,
         }
     }
     ///  Effectiveness against a target
-    fn none(other:Advanced, value:T) -> Effectiveness<T> {
+    fn none(other:Advanced) -> Effectiveness {
         match other {
-            Advanced::Water => return Effectiveness::Half(value),
-            Advanced::Fire => return Effectiveness::Half(value),
-            Advanced::Electric => return Effectiveness::Half(value),
-            Advanced::Spirit => return Effectiveness::None(value),
-            Advanced::Light => return Effectiveness::None(value),
-            Advanced::Wind => return Effectiveness::Half(value),
-            _=> return Effectiveness::Normal(value),
+            Advanced::Water => Effectiveness::Half,
+            Advanced::Fire => Effectiveness::Half,
+            Advanced::Electric => Effectiveness::Half,
+            Advanced::Spirit => Effectiveness::None,
+            Advanced::Light => Effectiveness::None,
+            Advanced::Wind => Effectiveness::Half,
+            _=> Effectiveness::Normal,
         }
     }
     
     /// Match current Type to find effectiveness of the value
-    fn effectiveness(&self, other:Advanced, value:T) -> Effectiveness<T> {
+    fn effectiveness(&self, other:Advanced) -> Effectiveness {
         match *self {
-            Advanced::Rock => return Advanced::rock(other, value),
-            Advanced::Plant => return Advanced::plant(other, value),
-            Advanced::Water => return Advanced::water(other, value),
-            Advanced::Fire => return Advanced::fire(other, value),
-            Advanced::Electric => return Advanced::electric(other, value),
-            Advanced::Spirit => return Advanced::spirit(other, value),
-            Advanced::Light => return Advanced::light(other, value),
-            Advanced::Wind => return Advanced::wind(other, value),
-            Advanced::None => return Advanced::none(other, value),
+            Advanced::Rock => Advanced::rock(other),
+            Advanced::Plant => Advanced::plant(other),
+            Advanced::Water => Advanced::water(other),
+            Advanced::Fire => Advanced::fire(other),
+            Advanced::Electric => Advanced::electric(other),
+            Advanced::Spirit => Advanced::spirit(other),
+            Advanced::Light => Advanced::light(other),
+            Advanced::Wind => Advanced::wind(other),
+            Advanced::None => Advanced::none(other),
         }
     }
 }

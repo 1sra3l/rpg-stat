@@ -167,13 +167,13 @@ impl Script {
         if self.half() {
             return String::from("Math is way more exciting than people really think it is...")
         }
-        return String::from("Aren't role playing games fascinating!")
+        String::from("Aren't role playing games fascinating!")
     }
     pub fn speak(&self) -> Option<String> {
         if self.finished {
             return None
         }
-        if self.file != String::from("") {
+        if self.file != *"" {
             if !self.random {
                 // look at lines
                 // look at conversation type
@@ -215,17 +215,12 @@ impl NPC {
 
     /// Make a generic conversation NPC
     pub fn basic() -> Self where Self:Sized {
-        let mut conversations:Vec<Conversation> = vec![];
-        conversations.push(Conversation::SmallTalk);
-        conversations.push(Conversation::Surroundings);
-        conversations.push(Conversation::Quotes);
-        conversations.push(Conversation::Details);
-        conversations.push(Conversation::Advice);
+        let conversations:Vec<Conversation> = vec![ Conversation::SmallTalk, Conversation::Surroundings,  Conversation::Quotes, Conversation::Details, Conversation::Advice ];
         NPC {
             state:State::Ordered,
             purpose:Purpose::Random,
             meet:Conversation::Greeting,
-            conversations:conversations,
+            conversations,
         }
     }
 }

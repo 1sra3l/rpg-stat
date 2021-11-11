@@ -10,34 +10,34 @@ pub trait Random {
         if self.random_rate(1) == 1 {
             return true
         }
-        return false
+        false
     }
     /// 
     fn usually(&self) -> bool {
         if self.random_rate(9) > 1 {
             return true
         }
-        return false
+        false
     }
     /// 
     fn often(&self) -> bool {
         if self.random_rate(3) > 0 {
             return true
         }
-        return false
+        false
     }
     /// 
     fn hardly(&self) -> bool {
         if self.random_rate(3) == 0 {
             return true
         }
-        return false
+        false
     }
     /// 
     fn barely(&self) -> bool {
         if self.random_rate(9) == 0 {
             return true
         }
-        return false
+        false
     }
 }

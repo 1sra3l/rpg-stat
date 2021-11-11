@@ -35,7 +35,7 @@ impl fmt::Display for Basic {
             Basic::Some(thing) =>{
                 v = String::from("Some(");
                 v.push_str(thing.to_owned().as_str());
-                v.push_str(")");
+                v.push(')');
             },
         }
         write!(f, "{}", v.as_str())

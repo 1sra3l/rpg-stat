@@ -354,10 +354,10 @@ let hmmm:Rate = Rate::Some;
 
 
 ```rs
-use rpgstat::attributes::Effectiveness;
+use rpgstat::attributes::{Effectiveness, Value};
 let hp:i32 = 50;
 // later on we use an item and check the effectiveness of it
-assert_eq!(Effectiveness::Half(hp).value(), 25);
+assert_eq!(Effectiveness::Half.value(hp), 25);
 
 ```
 

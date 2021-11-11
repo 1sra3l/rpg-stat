@@ -19,10 +19,10 @@ let hmmm:Rate = Rate::Some;
 
 
 ```
-use rpgstat::attributes::Effectiveness;
+use rpgstat::attributes::{Effectiveness, Value};
 let hp:i32 = 50;
 // later on we use an item and check the effectiveness of it
-assert_eq!(Effectiveness::Half(hp).value(), 25);
+assert_eq!(Effectiveness::Half.value(hp), 25);
 
 ```
 
@@ -77,23 +77,23 @@ impl Rate {
     */
     pub fn worked(&self) -> bool {
         match *self {
-            Rate::Always => return true, // 100%
+            Rate::Always => true, // 100%
             Rate::Usually => {
-                return self.usually()
+                self.usually()
             },
             Rate::Often => { // 75%
-                return self.often()
+                self.often()
             },
             Rate::Some => { // 50%
-                return self.half()
+                self.half()
             },
             Rate::Hardly => {
-                return self.hardly()
+                self.hardly()
             },
             Rate::Barely => {
-                return self.barely()
+                self.barely()
             },
-            Rate::None => return false, // 0%
+            Rate::None => false, // 0%
         }
     }
 }
@@ -117,28 +117,13 @@ impl fmt::Display for Rate {
 # Effectiveness
 */
 #[derive(Debug, Clone, Copy, PartialEq, Eq, EnumIter, Deserialize, Serialize)]
-pub enum Effectiveness<T:Copy 
-                 + Default
-                 + Display
-                 + AddAssign
-                 + Add<Output = T>
-                 + Div<Output = T>
-                 + DivAssign
-                 + Mul<Output = T>
-                 + MulAssign
-                 + Neg<Output = T>
-                 + Rem<Output = T>
-                 + RemAssign
-                 + Sub<Output = T>
-                 + SubAssign
-                 + std::cmp::PartialOrd
-                 + num::NumCast> {
+pub enum Effectiveness {
     
-    Double(T),
-    HalfExtra(T),
-    Half(T),
-    Normal(T),
-    None(T),
+    Double,
+    HalfExtra,
+    Half,
+    Normal,
+    None,
 }
 impl<T:Copy
     + Display
@@ -155,95 +140,49 @@ impl<T:Copy
     + Sub<Output = T>
     + SubAssign
     + std::cmp::PartialOrd
-    + num::NumCast> Effectiveness<T> {
-    pub fn value(&self) -> T {
+    + num::NumCast> Value<T> for Effectiveness {
+    fn value(&self, input:T) -> T {
         let mut result:T = Default::default();
         match *self {
-            Effectiveness::Double(input) => {
+            Effectiveness::Double => {
                 result = input + input;
-                return result
+                result
             },
-            Effectiveness::HalfExtra(input) => {
+            Effectiveness::HalfExtra => {
                 let half:T = input / num::cast(2).unwrap();
                 result = input + half;
-                return result
+                result
             },
-            Effectiveness::Normal(input) => {
-                return input
+            Effectiveness::Normal => {
+                input
             },
-            Effectiveness::Half(input) => {
+            Effectiveness::Half => {
                 let half:T = input / num::cast(2).unwrap();
-                return half
+                half
             },
-            Effectiveness::None(_input) => {
-                return result
+            Effectiveness::None => {
+                num::cast(0).unwrap()
             },
         }
     }
 }
-impl<T:Copy
-    + Display
-    + Default
-    + AddAssign
-    + Add<Output = T>
-    + Div<Output = T>
-    + DivAssign
-    + Mul<Output = T>
-    + MulAssign
-    + Neg<Output = T>
-    + Rem<Output = T>
-    + RemAssign
-    + Sub<Output = T>
-    + SubAssign
-    + std::cmp::PartialOrd
-    + num::NumCast> Default for Effectiveness<T> {
+impl Default for Effectiveness {
     /// Default to empty
     fn default() -> Self {
-        Self::None(Default::default())
+        Self::None
     }
 }
-impl<T:Copy 
-    + Default
-    + Display
-    + AddAssign
-    + Add<Output = T>
-    + Div<Output = T>
-    + DivAssign
-    + Mul<Output = T>
-    + MulAssign
-    + Neg<Output = T>
-    + Rem<Output = T>
-    + RemAssign
-    + Sub<Output = T>
-    + SubAssign
-    + std::cmp::PartialOrd
-    + num::NumCast> fmt::Display for Effectiveness<T> {
+impl fmt::Display for Effectiveness {
     fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
         let v:String;
-        let mut value:T = Default::default();
         match *self {
-            Effectiveness::Double(input) => {
-                v = String::from("Double");
-                value = input;
-            },
-            Effectiveness::HalfExtra(input) => {
-                v = String::from("HalfExtra");
-                value = input;
-            },
-            Effectiveness::Half(input) => {
-                v = String::from("Half");
-                value = input;
-            },
-            Effectiveness::Normal(input) => {
-                v = String::from("Normal");
-                value = input;
-            },
-            Effectiveness::None(input) => {
-                v = String::from("None");
-                value = input;
-            },
+            Effectiveness::Double => v = String::from("Double"),
+            Effectiveness::HalfExtra => v = String::from("HalfExtra"),
+            Effectiveness::Half => v = String::from("Half"),
+            Effectiveness::Normal => v = String::from("Normal"),
+            Effectiveness::None => v = String::from("None"),
         }
-        write!(f, "{}({})", v.as_str(), value)
+        write!(f, "{}", v.as_str())
     }
 }
 #[derive(Debug, Clone, Copy, PartialEq, Eq, EnumIter, Deserialize, Serialize)]
@@ -315,22 +254,41 @@ impl<T:Copy
     /// The stage the Kreature is at is determined by their 'age'
     pub fn stage(age:T) -> Stage<T> {
         if age < num::cast(2).unwrap() {
-            return Stage::Baby(age)
+            Stage::Baby(age)
         } else if age < num::cast(4).unwrap() {
-            return Stage::Toddler(age)
+            Stage::Toddler(age)
         } else if age < num::cast(13).unwrap() {
-            return Stage::Kid(age)
+            Stage::Kid(age)
         } else if age < num::cast(20).unwrap() {
-            return Stage::Teen(age)
+            Stage::Teen(age)
         } else if age < num::cast(40).unwrap() {
-            return Stage::Young(age)
+            Stage::Young(age)
         } else if age < num::cast(65).unwrap() {
-            return Stage::Grown(age)
+            Stage::Grown(age)
         } else if age < num::cast(85).unwrap() {
-            return Stage::Older(age)
+            Stage::Older(age)
         } else {
-            return Stage::Old(age)
+            Stage::Old(age)
         }
         
     }
+}
+
+pub trait Value<T:Copy
+    + Display
+    + Default
+    + AddAssign
+    + Add<Output = T>
+    + Div<Output = T>
+    + DivAssign
+    + Mul<Output = T>
+    + MulAssign
+    + Neg<Output = T>
+    + Rem<Output = T>
+    + RemAssign
+    + Sub<Output = T>
+    + SubAssign
+    + std::cmp::PartialOrd
+    + num::NumCast> {
+    fn value(&self, input:T) -> T;
 }
