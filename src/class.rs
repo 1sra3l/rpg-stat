@@ -79,7 +79,7 @@ let age:T = num::cast(10).unwrap();
 use std::fmt;
 use serde::{Deserialize, Serialize};
 use std::ops::{Add, AddAssign,  Div, DivAssign, Mul, MulAssign, Neg, Rem, RemAssign, Sub, SubAssign};
-use strum::IntoEnumIterator;
+//use strum::IntoEnumIterator;
 use strum_macros::EnumIter;
 
 // RPG Stat
@@ -94,6 +94,7 @@ Alignement allows for the creation of multile outcomes in situations
 This is a WIP currently
 
 */
+#[allow(unused)]
 #[derive(Clone, PartialEq, Copy, Debug, Serialize, Deserialize, EnumIter)]
 pub enum Alignment {
     Light,
@@ -136,6 +137,7 @@ let stat:Stat<f64> = class.build_basic();
 ```
 
 */
+#[allow(unused)]
 #[derive(Clone, PartialEq, Copy, Debug, Serialize, Deserialize, EnumIter)]
 pub enum Basic {
     /// Obviously the protagonist
@@ -219,10 +221,10 @@ impl<T:Copy
         let mut xp_next:T = num::cast(10).unwrap();
         let mut gp:T = num::cast(5).unwrap();
         let mut speed:T = num::cast(10).unwrap();
-        let mut atk:T = num::cast(10).unwrap();
-        let mut def:T = num::cast(10).unwrap();
-        let mut m_atk:T = num::cast(10).unwrap();
-        let mut m_def:T = num::cast(10).unwrap();
+        let atk:T = num::cast(10).unwrap();
+        let def:T = num::cast(10).unwrap();
+        let m_atk:T = num::cast(10).unwrap();
+        let m_def:T = num::cast(10).unwrap();
         match *self {
             Basic::Hero => {},
             Basic::Enemy => {
@@ -265,18 +267,18 @@ impl<T:Copy
         let mut xp_next:T = num::cast(10).unwrap();
         let mut gp:T = num::cast(5).unwrap();
         let mut speed:T = num::cast(10).unwrap();
-        let mut atk:T = num::cast(10).unwrap();
-        let mut def:T = num::cast(10).unwrap();
-        let mut m_atk:T = num::cast(10).unwrap();
-        let mut m_def:T = num::cast(10).unwrap();
-        let mut agility:T = num::cast(10).unwrap();
-        let mut strength:T = num::cast(10).unwrap();
-        let mut dexterity:T = num::cast(10).unwrap();
-        let mut constitution:T = num::cast(10).unwrap();
-        let mut intelligence:T = num::cast(10).unwrap();
-        let mut charisma:T = num::cast(10).unwrap();
-        let mut wisdom:T = num::cast(10).unwrap();
-        let mut age:T = num::cast(10).unwrap();
+        let atk:T = num::cast(10).unwrap();
+        let def:T = num::cast(10).unwrap();
+        let m_atk:T = num::cast(10).unwrap();
+        let m_def:T = num::cast(10).unwrap();
+        let agility:T = num::cast(10).unwrap();
+        let strength:T = num::cast(10).unwrap();
+        let dexterity:T = num::cast(10).unwrap();
+        let constitution:T = num::cast(10).unwrap();
+        let intelligence:T = num::cast(10).unwrap();
+        let charisma:T = num::cast(10).unwrap();
+        let wisdom:T = num::cast(10).unwrap();
+        let age:T = num::cast(10).unwrap();
         match *self {
             Basic::Hero => {},
             Basic::Enemy => {
@@ -344,6 +346,7 @@ let stat:Stat<f64> = class.build_normal();
 ```
 
 */
+#[allow(unused)]
 #[derive(Clone, PartialEq, Copy, Debug, Serialize, Deserialize, EnumIter)]
 pub enum Normal {
     /// Full of concotions to both heal and harm.
@@ -404,12 +407,12 @@ impl<T:Copy
     + num::NumCast> Builder<T> for Normal {
     /// Build a `Basic` stat
     fn build_basic(&self, id:T, level:T) -> BasicStats<T>{
-        let mut hp:T = num::cast(10).unwrap();
-        let mut mp:T = num::cast(5).unwrap();
+        let mut hp:T;
+        let mut mp:T;
         let mut xp:T = num::cast(1).unwrap();
         let mut xp_next:T = num::cast(10).unwrap();
         let mut gp:T = num::cast(5).unwrap();
-        let mut speed:T = num::cast(5).unwrap();
+        let mut speed:T;
         match *self {
             Normal::Alchemist => {
                 hp =  num::cast(40).unwrap();
@@ -582,6 +585,10 @@ impl<T:Copy
         xp_next *= level;
         gp *= level;
         speed += level;
+        atk += level;
+        m_atk += level;
+        def += level;
+        m_def += level;
         NormalStats {
             id,
             xp,
@@ -602,25 +609,24 @@ impl<T:Copy
 
     // Build an `Advanced` stat
     fn build_advanced(&self, id:T, level:T) -> AdvancedStats<T>{
-        let mut hp:T = num::cast(10).unwrap();
-        let mut mp:T = num::cast(5).unwrap();
+        let mut hp:T;
+        let mut mp:T;
         let mut xp:T = num::cast(1).unwrap();
         let mut xp_next:T = num::cast(10).unwrap();
         let mut gp:T = num::cast(5).unwrap();
-        let mut speed:T = num::cast(5).unwrap();
-        let mut atk:T = num::cast(10).unwrap();
-        let mut def:T = num::cast(10).unwrap();
-        let mut m_atk:T = num::cast(10).unwrap();
-        let mut m_def:T = num::cast(10).unwrap();
-        let mut agility:T = num::cast(10).unwrap();
-        let mut strength:T = num::cast(10).unwrap();
-        let mut dexterity:T = num::cast(10).unwrap();
-        let mut constitution:T = num::cast(10).unwrap();
-        let mut intelligence:T = num::cast(10).unwrap();
-        let mut charisma:T = num::cast(10).unwrap();
-        let mut wisdom:T = num::cast(10).unwrap();
-        let mut age:T = num::cast(10).unwrap();
-        //TODO OR use legendary.ini + serde
+        let mut speed:T;
+        let mut atk:T;
+        let mut def:T;
+        let mut m_atk:T;
+        let mut m_def:T;
+        let mut agility:T;
+        let mut strength:T;
+        let mut dexterity:T;
+        let mut constitution:T;
+        let mut intelligence:T;
+        let mut charisma:T;
+        let mut wisdom:T;
+        let age:T;
         match *self {
            Normal::Alchemist => {
                 hp =  num::cast(40).unwrap();
@@ -630,6 +636,14 @@ impl<T:Copy
                 m_atk =  num::cast(20).unwrap();
                 m_def =  num::cast(30).unwrap();
                 speed =  num::cast(5).unwrap();
+                agility = num::cast(10).unwrap();
+                strength = num::cast(10).unwrap();
+                dexterity = num::cast(10).unwrap();
+                constitution = num::cast(10).unwrap();
+                intelligence = num::cast(10).unwrap();
+                charisma = num::cast(10).unwrap();
+                wisdom = num::cast(10).unwrap();
+                age = num::cast(40).unwrap();
             },
             Normal::Archer => {
                 hp =  num::cast(50).unwrap();
@@ -639,6 +653,14 @@ impl<T:Copy
                 m_atk =  num::cast(15).unwrap();
                 m_def =  num::cast(35).unwrap();
                 speed =  num::cast(5).unwrap();
+                agility = num::cast(10).unwrap();
+                strength = num::cast(10).unwrap();
+                dexterity = num::cast(10).unwrap();
+                constitution = num::cast(10).unwrap();
+                intelligence = num::cast(10).unwrap();
+                charisma = num::cast(10).unwrap();
+                wisdom = num::cast(10).unwrap();
+                age = num::cast(40).unwrap();
             },
             Normal::Knight => {
                 hp =  num::cast(50).unwrap();
@@ -648,6 +670,14 @@ impl<T:Copy
                 m_atk =  num::cast(20).unwrap();
                 m_def =  num::cast(20).unwrap();
                 speed =  num::cast(7).unwrap();
+                agility = num::cast(10).unwrap();
+                strength = num::cast(10).unwrap();
+                dexterity = num::cast(10).unwrap();
+                constitution = num::cast(10).unwrap();
+                intelligence = num::cast(10).unwrap();
+                charisma = num::cast(10).unwrap();
+                wisdom = num::cast(10).unwrap();
+                age = num::cast(40).unwrap();
             },
             Normal::Monk => {
                 hp = num::cast(50).unwrap();
@@ -657,6 +687,14 @@ impl<T:Copy
                 m_atk = num::cast(5).unwrap();
                 m_def = num::cast(40).unwrap();
                 speed = num::cast(5).unwrap();
+                agility = num::cast(10).unwrap();
+                strength = num::cast(10).unwrap();
+                dexterity = num::cast(10).unwrap();
+                constitution = num::cast(10).unwrap();
+                intelligence = num::cast(10).unwrap();
+                charisma = num::cast(10).unwrap();
+                wisdom = num::cast(10).unwrap();
+                age = num::cast(40).unwrap();
             },
             Normal::Elemental => {
                 hp = num::cast(70).unwrap();
@@ -666,6 +704,14 @@ impl<T:Copy
                 m_atk = num::cast(30).unwrap();
                 m_def = num::cast(1).unwrap();
                 speed = num::cast(4).unwrap();
+                agility = num::cast(10).unwrap();
+                strength = num::cast(10).unwrap();
+                dexterity = num::cast(10).unwrap();
+                constitution = num::cast(10).unwrap();
+                intelligence = num::cast(10).unwrap();
+                charisma = num::cast(10).unwrap();
+                wisdom = num::cast(10).unwrap();
+                age = num::cast(40).unwrap();
             },
             Normal::Priest => {
                 hp = num::cast(60).unwrap();
@@ -675,6 +721,14 @@ impl<T:Copy
                 m_atk = num::cast(10).unwrap();
                 m_def = num::cast(40).unwrap();
                 speed = num::cast(4).unwrap();
+                agility = num::cast(10).unwrap();
+                strength = num::cast(10).unwrap();
+                dexterity = num::cast(10).unwrap();
+                constitution = num::cast(10).unwrap();
+                intelligence = num::cast(10).unwrap();
+                charisma = num::cast(10).unwrap();
+                wisdom = num::cast(10).unwrap();
+                age = num::cast(40).unwrap();
             },
             Normal::Soldier => {
                 hp = num::cast(90).unwrap();
@@ -684,6 +738,14 @@ impl<T:Copy
                 m_atk = num::cast(0).unwrap();
                 m_def = num::cast(18).unwrap();
                 speed = num::cast(5).unwrap();
+                agility = num::cast(10).unwrap();
+                strength = num::cast(10).unwrap();
+                dexterity = num::cast(10).unwrap();
+                constitution = num::cast(10).unwrap();
+                intelligence = num::cast(10).unwrap();
+                charisma = num::cast(10).unwrap();
+                wisdom = num::cast(10).unwrap();
+                age = num::cast(40).unwrap();
             },
             Normal::Ranger => {
                 hp = num::cast(40).unwrap();
@@ -693,6 +755,14 @@ impl<T:Copy
                 m_atk = num::cast(11).unwrap();
                 m_def = num::cast(30).unwrap();
                 speed = num::cast(8).unwrap();
+                agility = num::cast(10).unwrap();
+                strength = num::cast(10).unwrap();
+                dexterity = num::cast(10).unwrap();
+                constitution = num::cast(10).unwrap();
+                intelligence = num::cast(10).unwrap();
+                charisma = num::cast(10).unwrap();
+                wisdom = num::cast(10).unwrap();
+                age = num::cast(40).unwrap();
             },
             Normal::Valkyrie => {
                 hp = num::cast(50).unwrap();
@@ -702,6 +772,14 @@ impl<T:Copy
                 m_atk = num::cast(20).unwrap();
                 m_def = num::cast(30).unwrap();
                 speed = num::cast(7).unwrap();
+                agility = num::cast(10).unwrap();
+                strength = num::cast(10).unwrap();
+                dexterity = num::cast(10).unwrap();
+                constitution = num::cast(10).unwrap();
+                intelligence = num::cast(10).unwrap();
+                charisma = num::cast(10).unwrap();
+                wisdom = num::cast(10).unwrap();
+                age = num::cast(40).unwrap();
             },
         }
         hp *= level;
@@ -712,6 +790,18 @@ impl<T:Copy
         xp_next *= level;
         gp *= level;
         speed += level;
+        speed += level;
+        atk += level;
+        m_atk += level;
+        def += level;
+        m_def += level;
+        agility += level;
+        strength += level;
+        dexterity += level;
+        constitution += level;
+        intelligence += level;
+        charisma += level;
+        wisdom += level;
         AdvancedStats {
             id,
             xp,
@@ -756,6 +846,7 @@ let class:Class = Class::Artisan;
 let stat:Stat<f64> = class.build_advanced();
 ```
 */
+#[allow(unused)]
 pub enum Advanced {
     /// The goal is to discover new things without needing to get into fights
     Adventurer,

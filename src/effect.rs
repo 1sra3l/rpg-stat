@@ -6,12 +6,12 @@ This composes the various Effects in-game related to a character's Stats
 */
 use std::fmt;
 use std::fmt::Debug;
-use std::fmt::Display;
-use std::ops::{Add, AddAssign, Div, DivAssign, Mul, MulAssign, Neg, Rem, RemAssign, Sub, SubAssign};
+//use std::fmt::Display;
+//use std::ops::{Add, AddAssign, Div, DivAssign, Mul, MulAssign, Neg, Rem, RemAssign, Sub, SubAssign};
 extern crate num;
-use num::NumCast;
+//use num::NumCast;
 use serde::{Deserialize, Serialize};
-use strum::IntoEnumIterator;
+//use strum::IntoEnumIterator;
 use strum_macros::EnumIter;
 /*
 # Basic 

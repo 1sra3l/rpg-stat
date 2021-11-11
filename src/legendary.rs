@@ -5,9 +5,9 @@ A huge set of creatures from around the world.  This can be iterated through, an
 
 */
 extern crate num;
-use num::NumCast;
+//use num::NumCast;
 use std::fmt;
-use strum::IntoEnumIterator;
+//use strum::IntoEnumIterator;
 use strum_macros::EnumIter;
 use crate::stats::{ Builder, Basic, Normal, Advanced };
 
@@ -4286,6 +4286,7 @@ impl fmt::Display for Legendary {
 }
 impl Legendary {
     /// Get a short descriptive string of the `Legendary` creature
+    #[allow(dead_code)]
     pub fn short_description(&self) -> String {
         let v:String;
         match *self {
@@ -5712,6 +5713,7 @@ impl Legendary {
         v
     }
     /// Get a long descriptive string of the `Legendary` creature
+    #[allow(dead_code)]
     pub fn long_description(&self) -> String {
         let v:String;
         match *self {
@@ -7161,10 +7163,7 @@ impl<T:Copy
         let mut xp_next:T = num::cast(10).unwrap();
         let mut gp:T = num::cast(5).unwrap();
         let mut speed:T = num::cast(5).unwrap();
-        //TODO OR ue legendary.ini + serde
-        match *self {
-            _=> {},
-        }
+        //match *self {}
         hp *= level;
         mp *= level;
         // TODO fixme:
@@ -7174,16 +7173,16 @@ impl<T:Copy
         gp *= level;
         speed += level;
         Basic {
-            id:id,
-            xp:xp,
-            xp_next:xp_next,
-            level:level,
-            gp:gp,
-            hp: hp,
-            mp: mp,
+            id,
+            xp,
+            xp_next,
+            level,
+            gp,
+            hp,
+            mp,
             hp_max: hp,
             mp_max: mp,
-            speed: speed,
+            speed,
         }
         
     }
@@ -7199,10 +7198,7 @@ impl<T:Copy
         let mut def:T = num::cast(10).unwrap();
         let mut m_atk:T = num::cast(10).unwrap();
         let mut m_def:T = num::cast(10).unwrap();
-        //TODO OR use legendary.ini + serde
-        match *self {
-            _=> {},
-        }
+        //match *self {}
         hp *= level;
         mp *= level;
         // TODO fixme:
@@ -7211,21 +7207,25 @@ impl<T:Copy
         xp_next *= level;
         gp *= level;
         speed += level;
+        atk += level;
+        m_atk += level;
+        def += level;
+        m_def += level;
         Normal {
-            id:id,
-            xp:xp,
-            xp_next:xp_next,
-            level:level,
-            gp:gp,
-            hp: hp,
-            mp: mp,
+            id,
+            xp,
+            xp_next,
+            level,
+            gp,
+            hp,
+            mp,
             hp_max: hp,
             mp_max: mp,
-            speed: speed,
-            atk:atk,
-            def:def,
-            m_atk:m_atk,
-            m_def:m_def,
+            speed,
+            atk,
+            def,
+            m_atk,
+            m_def,
         }
     }
 
@@ -7248,11 +7248,8 @@ impl<T:Copy
         let mut intelligence:T = num::cast(10).unwrap();
         let mut charisma:T = num::cast(10).unwrap();
         let mut wisdom:T = num::cast(10).unwrap();
-        let mut age:T = num::cast(10).unwrap();
-        //TODO OR use legendary.ini + serde
-        match *self {
-            _=> {},
-        }
+        let age:T = num::cast(10).unwrap();
+        //match *self {}
         hp *= level;
         mp *= level;
         // TODO fixme:
@@ -7261,29 +7258,41 @@ impl<T:Copy
         xp_next *= level;
         gp *= level;
         speed += level;
+        atk += level;
+        m_atk += level;
+        def += level;
+        m_def += level;
+        agility += level;
+        strength += level;
+        dexterity += level;
+        constitution += level;
+        intelligence += level;
+        charisma += level;
+        wisdom += level;
+
         Advanced {
-            id:id,
-            xp:xp,
-            xp_next:xp_next,
-            level:level,
-            gp:gp,
-            hp: hp,
-            mp: mp,
+            id,
+            xp,
+            xp_next,
+            level,
+            gp,
+            hp,
+            mp,
             hp_max: hp,
             mp_max: mp,
-            speed: speed,
-            atk:atk,
-            def:def,
-            m_atk:m_atk,
-            m_def:m_def,
-            agility:agility,
-            strength:strength,
-            dexterity:dexterity,
-            constitution:constitution,
-            intelligence:intelligence,
-            charisma:charisma,
-            wisdom:wisdom,
-            age:age,
+            speed,
+            atk,
+            def,
+            m_atk,
+            m_def,
+            agility,
+            strength,
+            dexterity,
+            constitution,
+            intelligence,
+            charisma,
+            wisdom,
+            age,
         }
     }
 }

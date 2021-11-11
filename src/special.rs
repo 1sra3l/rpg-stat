@@ -4,12 +4,12 @@
 */
 use std::fmt;
 use std::fmt::Debug;
-use std::fmt::Display;
+//use std::fmt::Display;
 use std::ops::{Add, AddAssign, Div, DivAssign, Mul, MulAssign, Neg, Rem, RemAssign, Sub, SubAssign};
 extern crate num;
-use num::NumCast;
+//use num::NumCast;
 use serde::{Deserialize, Serialize};
-use strum::IntoEnumIterator;
+//use strum::IntoEnumIterator;
 use strum_macros::EnumIter;
 // TODO Advanced
 #[derive(Debug, Clone, PartialEq, Eq, EnumIter, Deserialize, Serialize)]
@@ -134,7 +134,7 @@ impl<T:Copy
     + SubAssign
     + std::cmp::PartialOrd
     + num::NumCast> ManaCost<T> for Normal{
-    fn mp_cost(&self) -> T {
+    fn mp_cost(&self, _input:T) -> T {
         let one:T = num::cast(1).unwrap();
         let five:T = num::cast(5).unwrap();
         let seven:T = num::cast(7).unwrap();
@@ -165,52 +165,7 @@ impl<T:Copy
         }
     }
 }
-impl Normal {
-    /// Get a special from a string (for saving/loading)
-    /// 
-    /// **Note:** *It does not matter what case comes into the function, everything is converted to lowercase via `to_lowercase()`*
-    pub fn from_string(special:String) -> Normal {
-        special.to_lowercase();
-        if special == "toss" {
-            return Normal::Toss
-        } else if special == "throw" {
-            return Normal::Throw
-        } else if special == "slash" {
-            return Normal::Slash
-        } else if special == "freeze" {
-            return Normal::Freeze
-        } else if special == "burn" {
-            return Normal::Burn
-        } else if special == "melt" {
-            return Normal::Melt
-        } else if special == "crush" {
-            return Normal::Crush
-        } else if special == "grind" {
-            return Normal::Grind
-        } else if special == "hit" {
-            return Normal::Hit
-        } else if special == "slap" {
-            return Normal::Slap
-        } else if special == "smack" {
-            return Normal::Smack
-        } else if special == "whip" {
-            return Normal::Whip
-        } else if special == "slice" {
-            return Normal::Slice
-        } else if special == "spin" {
-            return Normal::Spin
-        } else if special == "blur" {
-            return Normal::Blur
-        } else if special == "strike" {
-            return Normal::Strike
-        } else if special == "splash" {
-            return Normal::Splash
-        } else if special == "tackle" {
-            return Normal::Tackle
-        }
-        Normal::None
-    }
-}
+
 /*
 # Advanced 
 
@@ -306,5 +261,5 @@ pub trait ManaCost<T:Copy
                       + SubAssign
                       + std::cmp::PartialOrd
                       + num::NumCast> {
-    fn mp_cost(&self) -> T;
+    fn mp_cost(&self, _input:T) -> T;
 }

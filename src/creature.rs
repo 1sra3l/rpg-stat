@@ -21,7 +21,7 @@ let bear_stats:Stats<f64> = bear.build_basic(id, level);
 
 */
 use std::fmt;
-use strum::IntoEnumIterator;
+//use strum::IntoEnumIterator;
 use strum_macros::EnumIter;
 use std::ops::{Add, AddAssign,  Div, DivAssign, Mul, MulAssign, Neg, Rem, RemAssign, Sub, SubAssign};
 use serde::{Deserialize, Serialize};
@@ -94,9 +94,12 @@ pub enum Animal {
     Bear,
     /// a bird
     Bird,
-
-    //Boar,Dog,Fox,
-
+    /// a boar
+    Boar,
+    /// a dog
+    Dog,
+    /// a fox
+    Fox,
     /// an insect
     Insect,
     /// a lion
@@ -120,7 +123,6 @@ impl Default for Animal {
 impl fmt::Display for Animal {
     fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
         let v:String;
-        // Animal:: => v = String::from(""),
         match *self {
             Animal::Crocodile => v = String::from("Crocodile"),
             Animal::Bear => v = String::from("Bear"),
@@ -132,6 +134,10 @@ impl fmt::Display for Animal {
             Animal::Snake => v = String::from("Snake"),
             Animal::Tiger => v = String::from("Tiger"),
             Animal::Wolf => v = String::from("Wolf"),
+            Animal::Boar => v = String::from("Boar"),
+            Animal::Fox => v = String::from("Fox"),
+            Animal::Dog => v = String::from("Dog"),
+            //Animal:: => v = String::from(""),
             
         }
         write!(f, "{}", v.as_str())
@@ -218,7 +224,10 @@ impl<T:Copy
                 mp += num::cast(12).unwrap();
                 xp += num::cast(7).unwrap();
             }
-            
+            Animal::Boar => {},
+            Animal::Fox => {},
+            Animal::Dog => {},
+            //Animal:: => {},
         }
         hp *= level;
         mp *= level;
@@ -229,16 +238,16 @@ impl<T:Copy
         gp *= level;
         speed += level;
         Basic {
-            id:id,
-            xp:xp,
-            xp_next:xp_next,
-            level:level,
-            gp:gp,
-            hp: hp,
-            mp: mp,
+            id,
+            xp,
+            xp_next,
+            level,
+            gp,
+            hp,
+            mp,
             hp_max: hp,
             mp_max: mp,
-            speed: speed,
+            speed,
         }
         
     }
@@ -349,7 +358,10 @@ impl<T:Copy
                 m_def += num::cast(10).unwrap();
                 speed += num::cast(9).unwrap();
             }
-            
+            Animal::Boar => {},
+            Animal::Fox => {},
+            Animal::Dog => {},
+            //Animal:: => {},
         }
         hp *= level;
         mp *= level;
@@ -360,20 +372,20 @@ impl<T:Copy
         gp *= level;
         speed += level;
         Normal {
-            id:id,
-            xp:xp,
-            xp_next:xp_next,
-            level:level,
-            gp:gp,
-            hp: hp,
-            mp: mp,
+            id,
+            xp,
+            xp_next,
+            level,
+            gp,
+            hp,
+            mp,
             hp_max: hp,
             mp_max: mp,
-            speed: speed,
-            atk:atk,
-            def:def,
-            m_atk:m_atk,
-            m_def:m_def,
+            speed,
+            atk,
+            def,
+            m_atk,
+            m_def,
         }
     }
 
@@ -412,6 +424,14 @@ impl<T:Copy
                 def += num::cast(1).unwrap();
                 m_atk += num::cast(1).unwrap();
                 m_def += num::cast(1).unwrap();
+                agility = num::cast(10).unwrap();
+                strength = num::cast(10).unwrap();
+                dexterity = num::cast(10).unwrap();
+                constitution = num::cast(10).unwrap();
+                intelligence = num::cast(10).unwrap();
+                charisma = num::cast(10).unwrap();
+                wisdom = num::cast(10).unwrap();
+                age = num::cast(40).unwrap();
             }
             Animal::Rabbit => {
                 speed += num::cast(2).unwrap();
@@ -422,6 +442,14 @@ impl<T:Copy
                 def += num::cast(2).unwrap();
                 m_atk += num::cast(2).unwrap();
                 m_def += num::cast(7).unwrap();
+                agility = num::cast(10).unwrap();
+                strength = num::cast(10).unwrap();
+                dexterity = num::cast(10).unwrap();
+                constitution = num::cast(10).unwrap();
+                intelligence = num::cast(10).unwrap();
+                charisma = num::cast(10).unwrap();
+                wisdom = num::cast(10).unwrap();
+                age = num::cast(40).unwrap();
             }
             Animal::Wolf => {
                 speed += num::cast(3).unwrap();
@@ -433,6 +461,14 @@ impl<T:Copy
                 def += num::cast(5).unwrap();
                 m_atk += num::cast(3).unwrap();
                 m_def += num::cast(5).unwrap();
+                agility = num::cast(10).unwrap();
+                strength = num::cast(10).unwrap();
+                dexterity = num::cast(10).unwrap();
+                constitution = num::cast(10).unwrap();
+                intelligence = num::cast(10).unwrap();
+                charisma = num::cast(10).unwrap();
+                wisdom = num::cast(10).unwrap();
+                age = num::cast(40).unwrap();
             }
             Animal::Crocodile => {
                 speed -= num::cast(1).unwrap();
@@ -444,6 +480,14 @@ impl<T:Copy
                 def += num::cast(7).unwrap();
                 m_atk += num::cast(3).unwrap();
                 m_def += num::cast(1).unwrap();
+                agility = num::cast(10).unwrap();
+                strength = num::cast(10).unwrap();
+                dexterity = num::cast(10).unwrap();
+                constitution = num::cast(10).unwrap();
+                intelligence = num::cast(10).unwrap();
+                charisma = num::cast(10).unwrap();
+                wisdom = num::cast(10).unwrap();
+                age = num::cast(40).unwrap();
             }
             Animal::Insect => {
                 hp -= num::cast(2).unwrap();
@@ -452,6 +496,14 @@ impl<T:Copy
                 def += num::cast(3).unwrap();
                 m_atk += num::cast(1).unwrap();
                 m_def += num::cast(1).unwrap();
+                agility = num::cast(10).unwrap();
+                strength = num::cast(10).unwrap();
+                dexterity = num::cast(10).unwrap();
+                constitution = num::cast(10).unwrap();
+                intelligence = num::cast(10).unwrap();
+                charisma = num::cast(10).unwrap();
+                wisdom = num::cast(10).unwrap();
+                age = num::cast(40).unwrap();
             }
             Animal::Lion => {
                 hp += num::cast(10).unwrap();
@@ -462,6 +514,14 @@ impl<T:Copy
                 def += num::cast(9).unwrap();
                 m_atk += num::cast(5).unwrap();
                 m_def += num::cast(8).unwrap();
+                agility = num::cast(10).unwrap();
+                strength = num::cast(10).unwrap();
+                dexterity = num::cast(10).unwrap();
+                constitution = num::cast(10).unwrap();
+                intelligence = num::cast(10).unwrap();
+                charisma = num::cast(10).unwrap();
+                wisdom = num::cast(10).unwrap();
+                age = num::cast(40).unwrap();
             }
             Animal::Tiger => {
                 hp += num::cast(9).unwrap();
@@ -472,6 +532,14 @@ impl<T:Copy
                 def += num::cast(5).unwrap();
                 m_atk += num::cast(5).unwrap();
                 m_def += num::cast(12).unwrap();
+                agility = num::cast(10).unwrap();
+                strength = num::cast(10).unwrap();
+                dexterity = num::cast(10).unwrap();
+                constitution = num::cast(10).unwrap();
+                intelligence = num::cast(10).unwrap();
+                charisma = num::cast(10).unwrap();
+                wisdom = num::cast(10).unwrap();
+                age = num::cast(40).unwrap();
             }
             Animal::Bear => {
                 hp += num::cast(15).unwrap();
@@ -481,6 +549,14 @@ impl<T:Copy
                 def += num::cast(12).unwrap();
                 m_atk += num::cast(2).unwrap();
                 m_def += num::cast(5).unwrap();
+                agility = num::cast(10).unwrap();
+                strength = num::cast(10).unwrap();
+                dexterity = num::cast(10).unwrap();
+                constitution = num::cast(10).unwrap();
+                intelligence = num::cast(10).unwrap();
+                charisma = num::cast(10).unwrap();
+                wisdom = num::cast(10).unwrap();
+                age = num::cast(40).unwrap();
             }
             Animal::Bird => {
                 hp += num::cast(2).unwrap();
@@ -490,7 +566,19 @@ impl<T:Copy
                 def += num::cast(1).unwrap();
                 m_atk += num::cast(8).unwrap();
                 m_def += num::cast(10).unwrap();
+                agility = num::cast(10).unwrap();
+                strength = num::cast(10).unwrap();
+                dexterity = num::cast(10).unwrap();
+                constitution = num::cast(10).unwrap();
+                intelligence = num::cast(10).unwrap();
+                charisma = num::cast(10).unwrap();
+                wisdom = num::cast(10).unwrap();
+                age = num::cast(40).unwrap();
             }
+            Animal::Boar => {},
+            Animal::Fox => {},
+            Animal::Dog => {},
+            //Animal:: => {},
             
         }
         hp *= level;
@@ -502,28 +590,28 @@ impl<T:Copy
         gp *= level;
         speed += level;
         Advanced {
-            id:id,
-            xp:xp,
-            xp_next:xp_next,
-            level:level,
-            gp:gp,
-            hp: hp,
-            mp: mp,
+            id,
+            xp,
+            xp_next,
+            level,
+            gp,
+            hp,
+            mp,
             hp_max: hp,
             mp_max: mp,
-            speed: speed,
-            atk:atk,
-            def:def,
-            m_atk:m_atk,
-            m_def:m_def,
-            agility:agility,
-            strength:strength,
-            dexterity:dexterity,
-            constitution:constitution,
-            intelligence:intelligence,
-            charisma:charisma,
-            wisdom:wisdom,
-            age:age,
+            speed,
+            atk,
+            def,
+            m_atk,
+            m_def,
+            agility,
+            strength,
+            dexterity,
+            constitution,
+            intelligence,
+            charisma,
+            wisdom,
+            age,
         }
     }
 }

@@ -7,9 +7,10 @@ mod tests {
     use crate::stats::Normal as StatsNormal;
     use crate::stats::BasicPremade as BasicPremade;
     use crate::stats::NormalPremade as NormalPremade;
-    
+    //use crate::creature::Animal;
     // class
     use crate::class::Basic as Class;
+    //use crate::class::Normal as NormalClass;
     
     // legendary
     use crate::legendary::Legendary;
@@ -19,13 +20,13 @@ mod tests {
     use crate::special::Normal as Special;
 
     //atributes
-    use crate::attributes::{Effectiveness, Value};
+    use crate::attributes::{Effectiveness, Value, Rate};
     use crate::equation::Equation;
 
 // imported libraries
-    use std::fs::File;
-    use std::io::Read;
-    use toml::*;
+    //use std::fs::File;
+    //use std::io::Read;
+    //use toml::*;
     use serde::{Deserialize, Serialize};
     const INI_FILE:&str = r#"name="test"
 class="Hero"
@@ -59,7 +60,7 @@ age = 10"#;
     #[test]
     fn special_type(){
         let grind:Special = Special::Grind;
-        //assert_eq!(grind.mp_cost(), 7);
+        assert_eq!(grind.mp_cost(0), 7);
     }
     // used in effectiveness test below
     #[derive(Clone, PartialEq, Debug, Serialize, Deserialize)]
@@ -184,7 +185,7 @@ age = 10"#;
     #[test]
     fn test_basic_class_builder() {
         //TODO breaking change
-        let b:Stats<f64> = Stats::from_class(0.0, Class::Hero);
+        let b:Stats<f64> = Class::Hero.build_basic(1.0,1.0);
         assert_eq!(b.xp_next, 10.0)
     }
     #[test]
@@ -204,6 +205,7 @@ age = 10"#;
         assert_eq!(enemy.hp(), 4.0);
         enemy.heal(5.0);
         assert_eq!(enemy.hp(), 5.0);
+        
     }
     #[test]
     fn fight_test_1() {
@@ -252,6 +254,8 @@ age = 10"#;
          player.set_hp(100.0);
         let effectiveness:Effectiveness = Effectiveness::Half;
         assert_eq!(50.0, effectiveness.value(player.hp()));
+        let r:Rate = Rate::Always;
+        assert_eq!(true, r.worked());
     }
     #[test]
     fn effectiveness_test_1(){

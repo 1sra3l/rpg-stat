@@ -1,6 +1,8 @@
+#[allow(dead_code)]
 pub struct Part<T> {
     pub size:T,
 }
+#[allow(dead_code)]
 pub struct Body<T> {
     pub head:Part<T>,
     pub torso:Part<T>,

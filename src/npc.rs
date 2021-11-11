@@ -9,12 +9,12 @@ We also provide `AI` Logic as well.
 */
 use std::fmt;
 use std::fmt::Debug;
-use std::fmt::Display;
-use std::ops::{Add, AddAssign, Div, DivAssign, Mul, MulAssign, Neg, Rem, RemAssign, Sub, SubAssign};
+//use std::fmt::Display;
+//use std::ops::{Add, AddAssign, Div, DivAssign, Mul, MulAssign, Neg, Rem, RemAssign, Sub, SubAssign};
 extern crate num;
-use num::NumCast;
+//use num::NumCast;
 use serde::{Deserialize, Serialize};
-use strum::IntoEnumIterator;
+//use strum::IntoEnumIterator;
 use strum_macros::EnumIter;
 
 use crate::random::Random;
@@ -154,6 +154,7 @@ pub struct Script {
 impl Random for Script{}
 impl Script {
     /// Make a generic conversation script
+    #[allow(dead_code)]
     pub fn empty() -> Self where Self:Sized {
         Script {
             lines:vec![],
@@ -163,12 +164,14 @@ impl Script {
             finished:false,
         }
     }
+    #[allow(dead_code)]
     pub fn default_words(&self)-> String {
         if self.half() {
             return String::from("Math is way more exciting than people really think it is...")
         }
         String::from("Aren't role playing games fascinating!")
     }
+    #[allow(dead_code)]
     pub fn speak(&self) -> Option<String> {
         if self.finished {
             return None
@@ -190,6 +193,7 @@ impl Script {
 # NPC
 This holds our Non-Player Characters
 */
+#[allow(clippy::upper_case_acronyms)]
 #[derive(Debug, Clone, PartialEq, Eq, Deserialize, Serialize)]
 pub struct NPC {
     /// Whether the NPC is on task
@@ -204,6 +208,7 @@ pub struct NPC {
 impl NPC {
 
     /// Make an empty conversation NPC
+    #[allow(dead_code)]
     pub fn empty() -> Self where Self:Sized {
         NPC {
             state:State::Broken,

@@ -380,10 +380,10 @@ This includes the `Stage<T>` of life.  This is similar to things like "evolution
 
 
 ```
-use rpgstat::attributes::Stage;
-let stage:Stage<i32> = Stage::stage(15);
+use rpgstat::attributes::{Stage, Value};
+let stage:Stage = Stage::Baby.value(15);
 //
-assert_eq!(stage, Stage::Teen(15));
+assert_eq!(stage, Stage::Teen);
 
 ```
 

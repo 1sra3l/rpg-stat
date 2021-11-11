@@ -43,6 +43,7 @@ extern crate clap;
 use clap::{App, load_yaml};
 
 fn main() {
+    //TODO make unused warnings go away by putting things here
     let yaml = load_yaml!("cli.yaml");
     let matches = App::from(yaml).get_matches();
 

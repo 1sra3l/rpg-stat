@@ -4,8 +4,8 @@ use std::fmt::Display;
 use serde::{Deserialize, Serialize};
 use std::ops::{Add, AddAssign, Div, DivAssign, Mul, MulAssign, Neg, Rem, RemAssign, Sub, SubAssign};
 extern crate num;
-use num::NumCast;
-use strum::IntoEnumIterator;
+//use num::NumCast;
+//use strum::IntoEnumIterator;
 use strum_macros::EnumIter;
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, EnumIter, Deserialize, Serialize)]
@@ -51,6 +51,7 @@ impl<T:Copy
     + std::cmp::PartialEq
     + num::NumCast> Equation<T> {
     /// 
+    #[allow(dead_code)]
     pub fn result(&self) -> T {
         match *self {
             Equation::AddRight(op, val) => {
@@ -149,6 +150,7 @@ impl<T:Copy
     + std::cmp::PartialEq
     + num::NumCast> Operation<T> {
     /// 
+    #[allow(dead_code)]
     pub fn result(&self) -> T {
         match *self {
             Operation::Add(a, b) => {

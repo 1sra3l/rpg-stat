@@ -28,10 +28,10 @@ assert_eq!(Effectiveness::Half.value(hp), 25);
 
 ## Stage
 ```
-use rpgstat::attributes::Stage;
-let stage:Stage<i32> = Stage::stage(15);
+use rpgstat::attributes::{Stage, Value};
+let stage:Stage = Stage::Baby.value(15);
 //
-assert_eq!(stage, Stage::Teen(15));
+assert_eq!(stage, Stage::Teen);
 
 ```
 */
@@ -40,9 +40,9 @@ use std::fmt::Debug;
 use std::fmt::Display;
 use std::ops::{Add, AddAssign, Div, DivAssign, Mul, MulAssign, Neg, Rem, RemAssign, Sub, SubAssign};
 extern crate num;
-use num::NumCast;
+//use num::NumCast;
 use serde::{Deserialize, Serialize};
-use strum::IntoEnumIterator;
+//use strum::IntoEnumIterator;
 use strum_macros::EnumIter;
 use crate::random::Random;
 
@@ -78,21 +78,11 @@ impl Rate {
     pub fn worked(&self) -> bool {
         match *self {
             Rate::Always => true, // 100%
-            Rate::Usually => {
-                self.usually()
-            },
-            Rate::Often => { // 75%
-                self.often()
-            },
-            Rate::Some => { // 50%
-                self.half()
-            },
-            Rate::Hardly => {
-                self.hardly()
-            },
-            Rate::Barely => {
-                self.barely()
-            },
+            Rate::Usually => self.usually(),
+            Rate::Often => self.often(),
+            Rate::Some => self.half(), // 50%
+            Rate::Hardly => self.hardly(),
+            Rate::Barely => self.barely(),
             Rate::None => false, // 0%
         }
     }
@@ -141,28 +131,17 @@ impl<T:Copy
     + SubAssign
     + std::cmp::PartialOrd
     + num::NumCast> Value<T> for Effectiveness {
-    fn value(&self, input:T) -> T {
-        let mut result:T = Default::default();
+    type Type = T;
+    fn value(&self, input:T) -> Self::Type {
         match *self {
-            Effectiveness::Double => {
-                result = input + input;
-                result
-            },
+            Effectiveness::Double => input + input,
             Effectiveness::HalfExtra => {
                 let half:T = input / num::cast(2).unwrap();
-                result = input + half;
-                result
+                input + half
             },
-            Effectiveness::Normal => {
-                input
-            },
-            Effectiveness::Half => {
-                let half:T = input / num::cast(2).unwrap();
-                half
-            },
-            Effectiveness::None => {
-                num::cast(0).unwrap()
-            },
+            Effectiveness::Normal => input,
+            Effectiveness::Half => input / num::cast(2).unwrap(),
+            Effectiveness::None => num::cast(0).unwrap(),
         }
     }
 }
@@ -191,52 +170,26 @@ impl fmt::Display for Effectiveness {
 /// however our creatures cannot change species randomly
 /// Using a life stage is based in real life, rather than
 /// the random changing into some other species thing
-pub enum Stage<T:Copy 
-                 + Default
-                 + AddAssign
-                 + Add<Output = T>
-                 + Div<Output = T>
-                 + DivAssign
-                 + Mul<Output = T>
-                 + MulAssign
-                 + Neg<Output = T>
-                 + Rem<Output = T>
-                 + RemAssign
-                 + Sub<Output = T>
-                 + SubAssign
-                 + std::cmp::PartialOrd
-                 + num::NumCast> {
-    Baby(T),
-    Toddler(T),
-    Kid(T),
-    Teen(T),
-    Young(T),
-    Grown(T),
-    Older(T),
-    Old(T),
+pub enum Stage {
+    Baby,
+    Toddler,
+    Kid,
+    Teen,
+    Young,
+    Grown,
+    Older,
+    Old,
 }
-impl<T:Copy 
-    + Default
-    + AddAssign
-    + Add<Output = T>
-    + Div<Output = T>
-    + DivAssign
-    + Mul<Output = T>
-    + MulAssign
-    + Neg<Output = T>
-    + Rem<Output = T>
-    + RemAssign
-    + Sub<Output = T>
-    + SubAssign
-    + std::cmp::PartialOrd
-    + num::NumCast> Default for Stage<T> {
+impl Stage {
     /// Default to empty
+    #[allow(dead_code)]
     fn default() -> Self {
-        Self::Teen(num::cast(15).unwrap())
+        Self::Teen
     }
 }
 impl<T:Copy 
     + Default
+    + Display
     + AddAssign
     + Add<Output = T>
     + Div<Output = T>
@@ -249,26 +202,27 @@ impl<T:Copy
     + Sub<Output = T>
     + SubAssign
     + std::cmp::PartialOrd
-    + num::NumCast> Stage<T> {
+    + num::NumCast> Value<T> for Stage {
     /// Get the Life stage of the Kreature
     /// The stage the Kreature is at is determined by their 'age'
-    pub fn stage(age:T) -> Stage<T> {
+    type Type = Stage;
+    fn value(&self, age:T) -> Self::Type {
         if age < num::cast(2).unwrap() {
-            Stage::Baby(age)
+            Stage::Baby
         } else if age < num::cast(4).unwrap() {
-            Stage::Toddler(age)
+            Stage::Toddler
         } else if age < num::cast(13).unwrap() {
-            Stage::Kid(age)
+            Stage::Kid
         } else if age < num::cast(20).unwrap() {
-            Stage::Teen(age)
+            Stage::Teen
         } else if age < num::cast(40).unwrap() {
-            Stage::Young(age)
+            Stage::Young
         } else if age < num::cast(65).unwrap() {
-            Stage::Grown(age)
+            Stage::Grown
         } else if age < num::cast(85).unwrap() {
-            Stage::Older(age)
+            Stage::Older
         } else {
-            Stage::Old(age)
+            Stage::Old
         }
         
     }
@@ -290,5 +244,6 @@ pub trait Value<T:Copy
     + SubAssign
     + std::cmp::PartialOrd
     + num::NumCast> {
-    fn value(&self, input:T) -> T;
+    type Type;
+    fn value(&self, input:T) -> Self::Type;
 }
