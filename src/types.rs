@@ -72,11 +72,7 @@ impl Compare for MyType {
 }
 ```
 
-`Normal` implements this according to the chart:
-
-<div>
-<img src="https://raw.githubusercontent.com/1sra3l/rpg-stat/main/assets/type-effectiveness-chart.png" />
-</div>
+`Normal` implements this, see the `Compare` trait
 
 This can be compared easily using the Compare trait
 
@@ -154,21 +150,43 @@ impl fmt::Display for Basic {
     }
 }
 
-///  `Normal`
-///```rs:no_run
-///    ------   _  __ __     
-///      |  \ / |) |_ |_     
-///      |   |  |  |_ _/     
-///```
-/// 
-/// * rock     - earth type  
-/// * plant    - green type  
-/// * water    - liquid type 
-/// * fire     - lava type   
-/// * electric - lightning type
-/// * spirit   - holy type    
-/// * light    - laser type   
-/// * wind     - tornado type 
+/* # `Normal`
+```rs:no_run
+    ------   _  __ __     
+      |  \ / |) |_ |_     
+      |   |  |  |_ _/     
+```
+ 
+ * rock     - earth type  
+ * plant    - green type  
+ * water    - liquid type 
+ * fire     - lava type   
+ * electric - lightning type
+ * spirit   - holy type    
+ * light    - laser type   
+ * wind     - tornado type
+
+## Compare
+
+Implemented according to this chart:
+<div>
+<img src="https://raw.githubusercontent.com/1sra3l/rpg-stat/main/assets/type-effectiveness-chart.png" />
+</div>
+
+```
+use rpgstat::types::Normal as Type;
+// to check effectiveness
+use rpgstat::types::Compare;
+// need effectiveness too!
+use rpgstat::attributes::Effectiveness;
+
+let rock = Type::Rock;
+let wind = Type::Wind;
+assert_eq!(rock.effectiveness(wind), Effectiveness::None);
+assert_eq!(wind.effectiveness(rock), Effectiveness::Double);
+
+```
+*/
 #[derive(Debug, Clone, Copy, PartialEq, Eq, EnumIter, Deserialize, Serialize)]
 pub enum Normal {
     Rock,

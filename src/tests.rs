@@ -184,7 +184,6 @@ age = 10"#;
     }
     #[test]
     fn test_basic_class_builder() {
-        //TODO breaking change
         let b:Stats<f64> = Class::Hero.build_basic(1.0,1.0);
         assert_eq!(b.xp_next, 10.0)
     }

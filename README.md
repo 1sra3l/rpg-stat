@@ -7,6 +7,10 @@ Cargo.toml
 
 `rpgstat="2.0"`
 
+This is fairly exhaustive and links to most things you can use.
+The library is **stil a WIP** as the battle system is rudimentary in the current form.  [TOML](https://crates.io/crates/toml) format with [serde](https://crates.io/crates/serde) is supported.
+
+
 # Stats
 
 The Stats are broken down into categories `Basic`, `Normal`, and `Advanced`
@@ -81,6 +85,60 @@ let filename = "assets/characters/EasterBilby.ini";
     },
     Err(e) => println!("Error:{} opening File:{}", e, filename),
 }
+```
+
+## Custom toml/ini with serde
+
+```rs
+use serde::{Deserialize, Serialize};
+use rpgstat::attributes::{Effectiveness, Value};
+use rpgstat::class::Basic as Class;
+use rpgstat::stats::Basic as Stats;
+
+// example program
+const INI_FILE:&str = r#"name="test"
+class="Hero"
+effectiveness="None"
+image="/path/to/file"
+[stats]
+id = 1
+hp = 10
+mp = 10
+xp = 10
+level = 1
+hp_max = 10
+mp_max = 10
+xp_next = 10
+gp = 10
+speed = 10
+atk = 10
+def = 10
+m_atk = 10
+m_def = 10
+agi = 10
+str = 10
+int = 10
+dex = 10
+con = 10
+char = 10
+wis = 10
+age = 10"#;
+
+#[derive(Clone, PartialEq, Debug, Serialize, Deserialize)]
+pub struct OccasionalEnemy {
+    pub name:String,
+    pub image:String,
+    pub stats:Stats<f64>,
+    pub effectiveness:Effectiveness,
+    pub class:Class,
+}
+let decoded: OccasionalEnemy = toml::from_str(INI_FILE).unwrap();
+assert_eq!(decoded.stats.hp, 10.0);
+assert_eq!(decoded.effectiveness, Effectiveness::None);
+// Value trait used here:
+assert_eq!(0.0, Effectiveness::None.value(decoded.stats.hp));
+assert_eq!(decoded.name, String::from("test"));
+assert_eq!(decoded.class.to_string(), String::from("Hero"));
 ```
 ## Builder
 Since the 1.X version `rpg-stat` has come with a `Builder` trait.
@@ -285,9 +343,7 @@ fn hero_stats () -> Stats<f64> {
 # Creatures
  This contains all manner of creatures.  We have `Animal` creatures, `Person` creatures, and even `Monster` creatures
 
-I would like to implement `Builder` for all the enums
-
-So far `Animal` is complete.
+I have implemented `Builder` for `Animal`
  
 # Legendary
 This contains the basics to use any creature from [Wikipedia's Legendary Creatures](https://en.wikipedia.org/wiki/Lists_of_legendary_creatures) and create `Basic`, `Normal` or `Advanced` stats.
@@ -302,22 +358,38 @@ let sc:Legendary = Legendary::SantaClaus;
 let stats:Stats<f64> = sc.build_basic(0.0,1.0);
 assert_eq!(stats.hp, 10.0);
 ```
-Eventually I would like to curate unique stats for each creature and have a full `long_description()` available for every creature.
+Eventually I would like to curate unique stats for each creature and have a full `long_description()` available for every creature.  This may change, however.
 
 As it stands you can still battle the `ToothFairy` against the `EasterBilby`, they will just have the exact same stats to start.  Feel free to modify them.
 
-The goal will be to move all the information into `legendary.ini` to be read in, but there are well over 1000 creatures.
+The goal will be to read all the information from the individual files *eventually*.
 
 # Types
 
 This includes various enums related to the type of character you have
+
 `use rpgstat::types::Basic as Type`
+
  * `Basic` is the basic type `Good` or `Bad`
  * `Normal` has elemental types
  * `Advanced` has elemental types
 
+## Compare
+
+The Compare trait is implemented for `Normal`
+according to this chart:
+ 
 ```rs
-//TODO add stats::Builder
+use rpgstat::types::Normal as Type;
+// to check effectiveness
+use rpgstat::types::Compare;
+// need effectiveness too!
+use rpgstat::attributes::Effectiveness;
+
+let rock = Type::Rock;
+let wind = Type::Wind;
+assert_eq!(rock.effectiveness(wind), Effectiveness::None);
+assert_eq!(wind.effectiveness(rock), Effectiveness::Double);
 ```
 
 # Special
@@ -327,7 +399,14 @@ These are names of `Special` moves.
 ```rs
 use rpgstat::special::Normal as Special;
 let grind:Special = Special::Grind;
+```
 
+You can get the prebuilt `mp_cost()`:
+```rs
+use rpgstat::special::ManaCost;
+use rpgstat::special::Normal as Special;
+let grind:Special = Special::Grind;
+assert_eq!(grind.mp_cost(0), 7);
 ```
 
 # Effect
@@ -352,6 +431,22 @@ let hmmm:Rate = Rate::Some;
 
 ## Effectiveness
 
+This effectiveness can be stored in a struct and you could implement a wrapper for `value(T)`:
+```rs
+use rpgstat::attributes::{Effectiveness, Value};
+
+pub struct Item {
+    pub name:String,
+    pub amount:i32,
+    pub effectiveness:Effectiveness,
+}
+impl Item {
+    // much easier to use now!
+    pub fn value(&self) -> i32 {
+        self.effectiveness.value(self.amount)
+    }
+}
+```
 
 ```rs
 use rpgstat::attributes::{Effectiveness, Value};

@@ -17,6 +17,7 @@ let hmmm:Rate = Rate::Some;
 
 ## Effectiveness
 
+We can easily find the value of an effectiveness:
 
 ```
 use rpgstat::attributes::{Effectiveness, Value};
@@ -24,6 +25,22 @@ let hp:i32 = 50;
 // later on we use an item and check the effectiveness of it
 assert_eq!(Effectiveness::Half.value(hp), 25);
 
+```
+This effectiveness can be stored in a struct and you could implement a wrapper for `value(T)`:
+```
+use rpgstat::attributes::{Effectiveness, Value};
+
+pub struct Item {
+    pub name:String,
+    pub amount:i32,
+    pub effectiveness:Effectiveness,
+}
+impl Item {
+    // much easier to use now!
+    pub fn value(&self) -> i32 {
+        self.effectiveness.value(self.amount)
+    }
+}
 ```
 
 ## Stage
@@ -52,6 +69,13 @@ use crate::random::Random;
 This can be used to determine the Rate at which enemies/items appear in areas, or can be used for the Rate effectiveness of an attack/item/etc
 
 To find a random true/false value simple call `worked()` on your enum
+
+```
+use rpgstat::attributes::Rate;
+let yes:Rate = Rate::Always;
+assert_eq!(yes.worked(), true);
+```
+
 */
 #[derive(Debug, Clone, Copy, PartialEq, Eq, EnumIter, Deserialize, Serialize)]
 pub enum Rate {
@@ -105,6 +129,14 @@ impl fmt::Display for Rate {
 
 /*
 # Effectiveness
+
+```rs
+use rpgstat::attributes::{Effectiveness, Value};
+let hp:i32 = 50;
+// later on we use an item and check the effectiveness of it
+assert_eq!(Effectiveness::Half.value(hp), 25);
+
+```
 */
 #[derive(Debug, Clone, Copy, PartialEq, Eq, EnumIter, Deserialize, Serialize)]
 pub enum Effectiveness {
