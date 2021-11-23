@@ -74,40 +74,6 @@ let stats:Stats<f64> = Stats::empty::<f64>();
 ## Serde + TOML/INI
 
 Yes you can use serde with any of the assets/characters/ files provided.  You can use them in your custom structs.
-You can implement Premade Stats to have `mystruct.hp()` instead of something like below `mystruct.stats.hp`
-
-
-```
-use std::fs::File;
-use std::io::Read;
-use toml::*;
-use serde::{Deserialize, Serialize};
-use rpgstat::legendary::Legendary;
-use rpgstat::stats::Basic as Stats;
-use rpgstat::stats::Builder;
-
-#[derive(Serialize, Deserialize)]
-pub struct Character {
-    pub name:String,
-    pub stats:Stats<f64>,
-}
-let filename = "assets/characters/EasterBilby.ini";
-match File::open(filename) {
-    Ok(mut file) => {
-        let mut content = String::new();
-        file.read_to_string(&mut content).unwrap();
-        let decoded: Stats<f64> = toml::from_str(content.as_str()).unwrap();
-        assert_eq!(decoded.hp, 10.0);
-        let decoded2: Character = toml::from_str(content.as_str()).unwrap();
-        assert_eq!(decoded2.stats.hp, 10.0);
-        let sc:Legendary = Legendary::SantaClaus;
-        let stats:Stats<f64> = sc.build_basic(0.0,1.0);
-        let toml = toml::to_string(&stats).unwrap();
-
-    },
-    Err(e) => println!("Error:{} opening File:{}", e, filename),
-}
-```
 
 ## Custom toml/ini with serde
 
@@ -196,120 +162,9 @@ fn hero_stats () -> Stats<f64> {
 If you are not into making stats from things I made, you can implement your own builder:
 ```toml
 num = "0.2"
-rpg-stat = "3.0"
+rpg-stat = "4.0"
 toml = "0.5"
 ```
-
-```
-use rpgstat::stats::Basic as BasicStats;
-use rpgstat::stats::Normal as NormalStats;
-use rpgstat::stats::Advanced as AdvancedStats;
-use rpgstat::stats::Builder;
-use std::ops::{Add, AddAssign,  Div, DivAssign, Mul, MulAssign, Neg, Rem, RemAssign, Sub, SubAssign};
-
-// gee maybe I should make stats for these awesome libre characters
-pub enum MyAwesomeThing {
-    Tux,
-    Pepper,
-    Gnu,
-    Kiki,
-    Sara,
-    Konqi,
-    Suzanne,
-    Xue,
-    Wilber,
-    Pidgin,
-}
-
-impl<T:Copy 
-    + Default
-    + AddAssign
-    + Add<Output = T>
-    + Div<Output = T>
-    + DivAssign
-    + Mul<Output = T>
-    + MulAssign
-    + Neg<Output = T>
-    + Rem<Output = T>
-    + RemAssign
-    + Sub<Output = T>
-    + SubAssign
-    + std::cmp::PartialOrd
-    + num::NumCast> Builder<T> for MyAwesomeThing {
-
-    fn build_basic(&self, id:T, level:T) -> BasicStats<T>{
-        match *self {
-            // make basic
-            _=>
-            BasicStats {
-                id: Default::default(),
-                xp: Default::default(),
-                xp_next: Default::default(),
-                level: Default::default(),
-                gp: Default::default(),
-                hp: Default::default(),
-                mp: Default::default(),
-                hp_max: Default::default(),
-                mp_max: Default::default(),
-                speed: Default::default(),
-            },
-        }
-    }
-    fn build_normal(&self, id:T, level:T) -> NormalStats<T>{
-        match *self {
-            _=>
-            // make normal
-            NormalStats {
-                id: Default::default(),
-                xp: Default::default(),
-                xp_next: Default::default(),
-                level: Default::default(),
-                gp: Default::default(),
-                hp: Default::default(),
-                mp: Default::default(),
-                hp_max: Default::default(),
-                mp_max: Default::default(),
-                speed: Default::default(),
-                atk:Default::default(),
-                def:Default::default(),
-                m_atk:Default::default(),
-                m_def:Default::default(),
-            },
-        }
-    }
-    fn build_advanced(&self, id:T, level:T) -> AdvancedStats<T>{
-        match *self {
-            // make advanced
-            _=>
-            AdvancedStats {
-                id: Default::default(),
-                xp: Default::default(),
-                xp_next: Default::default(),
-                level: Default::default(),
-                gp: Default::default(),
-                hp: Default::default(),
-                mp: Default::default(),
-                hp_max: Default::default(),
-                mp_max: Default::default(),
-                speed: Default::default(),
-                atk:Default::default(),
-                def:Default::default(),
-                m_atk:Default::default(),
-                m_def:Default::default(),
-                agility:Default::default(),
-                strength:Default::default(),
-                dexterity:Default::default(),
-                constitution:Default::default(),
-                intelligence:Default::default(),
-                charisma:Default::default(),
-                wisdom:Default::default(),
-                age:Default::default(),
-            },
-        }
-    }
-}
-```
-
 
 # Classes
 
@@ -453,7 +308,7 @@ assert_eq!(Effectiveness::Half.value(hp), 25);
 use rpgstat::attributes::Stage;
 
 ```
-This includes the `Stage<T>` of life.  This is similar to things like "evolution" in creature raising games, but based on reality.  In real life no creature evolves randomly in front of someone, however they do get older and change their "form".  There are eight forms:
+This includes the `Stage` of life.  This is similar to things like "evolution" in creature raising games, but based on reality.  In real life no creature evolves randomly in front of someone, however they do get older and change their "form".  There are eight forms:
  * Baby
  * Toddler
  * Kid
@@ -462,15 +317,6 @@ This includes the `Stage<T>` of life.  This is similar to things like "evolution
  * Grown
  * Older
  * Old
-
-
-```
-use rpgstat::attributes::Stage;
-let stage:Stage<i32> = Stage::current(15);
-// Yup 15 is teen
-assert_eq!(stage, Stage::Teen(15));
-
-```
 
 # Body
 This is to collect all the information about armor, stats, status, etc, based on each body part.  This will be some serious numeric control over the simulation.

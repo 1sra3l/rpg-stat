@@ -97,8 +97,8 @@ fn fltk_main() {
 }
 
 fn main() {
-    fltk_main();
-    return;
+    //fltk_main();
+    //return;
     let yaml = load_yaml!("cli.yaml");
     let matches = App::from(yaml).get_matches();
 
