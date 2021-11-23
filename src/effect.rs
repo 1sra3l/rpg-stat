@@ -13,11 +13,21 @@ extern crate num;
 use serde::{Deserialize, Serialize};
 //use strum::IntoEnumIterator;
 use strum_macros::EnumIter;
+#[cfg(feature = "fltkform")]
+use fltk::{prelude::*, *};
+#[cfg(feature = "fltkform")]
+use fltk_form_derive::*;
+#[cfg(feature = "fltkform")]
+use fltk_form::{FltkForm, HasProps};
+
+use crate::random::*;
+
 /*
 # Basic 
 
 */
 #[derive(Debug, Clone, Copy, PartialEq, Eq, EnumIter, Deserialize, Serialize)]
+#[cfg_attr(feature = "fltkform", derive(FltkForm))]
 pub enum Basic {
     /// no effect aka a player or something else that should not have an effect, like a key
     None,
@@ -53,6 +63,7 @@ impl fmt::Display for Basic {
 
 */
 #[derive(Debug, Clone, Copy, PartialEq, Eq, EnumIter, Deserialize, Serialize)]
+#[cfg_attr(feature = "fltkform", derive(FltkForm))]
 pub enum Normal {
     /// no effect aka a player or something else that should not have an effect, like a key
     None,
@@ -126,6 +137,7 @@ impl fmt::Display for Normal {
 */
 //TODO more effects
 #[derive(Debug, Clone, Copy, PartialEq, Eq, EnumIter, Deserialize, Serialize)]
+#[cfg_attr(feature = "fltkform", derive(FltkForm))]
 pub enum Advanced {
     /// no effect aka a player or something else that should not have an effect, like a key
     None,

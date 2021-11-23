@@ -7,13 +7,10 @@ mod tests {
     use crate::stats::Normal as StatsNormal;
     use crate::stats::BasicPremade as BasicPremade;
     use crate::stats::NormalPremade as NormalPremade;
-    //use crate::creature::Animal;
     // class
     use crate::class::Basic as Class;
     //use crate::class::Normal as NormalClass;
     
-    // legendary
-    use crate::legendary::Legendary;
     
     // special
     use crate::special::ManaCost;
@@ -221,27 +218,7 @@ age = 10"#;
         assert_eq!(enemy.hp(), 5.0);
     }
     #[test]
-    fn legendary_builder() {
-        let sc:Legendary = Legendary::SantaClaus;
-        let stats:Stats<f64> = sc.build_basic(0.0,1.0);
-        assert_eq!(stats.hp,10.0);
-    }
-    #[test]
     fn serde_test_0(){
-        //let decoded:StatsNormal<f64> = toml::from_str(INI_FILE).unwrap();
-        //assert_eq!(decoded.hp, 10.0);
-        //assert_eq!(decoded.id, 1.0);
-    }
-    #[test]
-    fn serde_test_1() {
-        let sc:Legendary = Legendary::SantaClaus;
-        let stats:Stats<f64> = sc.build_basic(0.0,1.0);
-        let toml = toml::to_string(&stats).unwrap();
-        let stats_2:Stats<f64> = toml::from_str(&toml).unwrap();
-        assert_eq!(stats.hp, stats_2.hp);
-    }
-    #[test]
-    fn serde_test_2(){
         let decoded: Character = toml::from_str(INI_FILE).unwrap();
         assert_eq!(decoded.hp(), 10.0);
         assert_eq!(decoded.name, String::from("test"));

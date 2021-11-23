@@ -8,7 +8,7 @@ FILE4=tmp4.rs
 FILE5=tmp5.rs
 FILE6=tmp6.rs
 
-INI_FILE="assets/character/"
+TOML_FILE="assets/legendary/"
 OUTPUT="src/legendary.rs"
 echo "/*!
 # Legendary Creatures
@@ -168,11 +168,7 @@ do
         echo "            Legendary::${ENUM} =>  v = String::from(\"${LONG_DESC}\")," >> "${FILE3}"
 
         # INI file
-        echo "[${ENUM}]
-name = \"${REAL_NAME}\"
-short_description = \"${REAL_NAME}${DESCRIPTION}\"
-long_description = \"${LONG_DESC}\"
-id = $ID
+        echo "id = $ID
 hp = $hp
 mp = $mp
 xp = $xp
@@ -181,19 +177,22 @@ mp_max = $mp
 xp_next = $xp_next
 gp = $gp
 speed = $speed
+level = 0
 atk = $atk
 def = $def
 m_atk = $m_atk
 m_def = $m_def
-agi = $agi
-str = $str
-int = $int
-dex = $dex
-con = $con
-char = $char
-wis = $wis
+agility = $agi
+strength = $str
+intelligence = $int
+dexterity = $dex
+constitution = $con
+charisma = $char
+wisdom = $wis
 age = $age
-" >> "${INI_FILE}${ENUM}.ini"
+name = \"${REAL_NAME}\"
+short_description = \"${REAL_NAME}${DESCRIPTION}\"
+long_description = \"${LONG_DESC}\"" > "${TOML_FILE}${ENUM}.toml"
         # increment ID
         ID=$(( ID + 1 ))
     fi
@@ -209,11 +208,7 @@ age = $age
         echo "            Legendary::${ENUM} =>  v = String::from(\"${LONG_DESC}\")," >> "${FILE3}"
 
         # INI file
-        echo "[${ENUM}]
-name = \"${REAL_NAME}\"
-short_description = \"${REAL_NAME}${DESCRIPTION}\"
-long_description = \"${LONG_DESC}\"
-id = $ID
+        echo "id = $ID
 hp = $hp
 mp = $mp
 xp = $xp
@@ -222,19 +217,22 @@ mp_max = $mp
 xp_next = $xp_next
 gp = $gp
 speed = $speed
+level = 0
 atk = $atk
 def = $def
 m_atk = $m_atk
 m_def = $m_def
-agi = $agi
-str = $str
-int = $int
-dex = $dex
-con = $con
-char = $char
-wis = $wis
+agility = $agi
+strength = $str
+intelligence = $int
+dexterity = $dex
+constitution = $con
+charisma = $char
+wisdom = $wis
 age = $age
-" >> "${INI_FILE}${ENUM}.ini"
+name = \"${REAL_NAME}\"
+short_description = \"${REAL_NAME}${DESCRIPTION}\"
+long_description = \"${LONG_DESC}\"" > "${TOML_FILE}${ENUM}.toml"
         # increment ID
         ID=$(( ID + 1 ))
     else
@@ -275,8 +273,8 @@ echo "        }
     }
 }" >> "${FILE3}"
 
-cp "${OUTPUT}" "${OUTPUT}.tmp"
-cat "${OUTPUT}.tmp" "${FILE1}" "${FILE2}" "${FILE3}" > "${OUTPUT}"
+#cp "${OUTPUT}" "${OUTPUT}.tmp"
+#cat "${OUTPUT}.tmp" "${FILE1}" "${FILE2}" "${FILE3}" > "${OUTPUT}"
 rm "${OUTPUT}.tmp" "${FILE1}" "${FILE2}" "${FILE3}" "${FILE4}" "${FILE5}" "${FILE6}"
 
 echo "impl<T:Copy 

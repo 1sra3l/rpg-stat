@@ -81,6 +81,18 @@ use serde::{Deserialize, Serialize};
 use std::ops::{Add, AddAssign,  Div, DivAssign, Mul, MulAssign, Neg, Rem, RemAssign, Sub, SubAssign};
 //use strum::IntoEnumIterator;
 use strum_macros::EnumIter;
+use std::fmt::Debug;
+
+#[cfg(feature = "fltkform")]
+use fltk::{prelude::*, *};
+#[cfg(feature = "fltkform")]
+use fltk_form_derive::*;
+#[cfg(feature = "fltkform")]
+use fltk_form::{FltkForm, HasProps};
+#[cfg(feature = "fltkform")]
+use std::collections::HashMap;
+#[cfg(feature = "fltkform")]
+use std::mem::transmute;
 
 // RPG Stat
 use crate::stats::Basic as BasicStats;
@@ -96,6 +108,7 @@ This is a WIP currently
 */
 #[allow(unused)]
 #[derive(Clone, PartialEq, Copy, Debug, Serialize, Deserialize, EnumIter)]
+#[cfg_attr(feature = "fltkform", derive(FltkForm))]
 pub enum Alignment {
     Light,
     Dark,
@@ -139,6 +152,7 @@ let stat:Stat<f64> = class.build_basic();
 */
 #[allow(unused)]
 #[derive(Clone, PartialEq, Copy, Debug, Serialize, Deserialize, EnumIter)]
+#[cfg_attr(feature = "fltkform", derive(FltkForm))]
 pub enum Basic {
     /// Obviously the protagonist
     Hero,
@@ -160,8 +174,9 @@ impl fmt::Display for Basic {
         write!(f, "{}", v.as_str())
     }
 }
-impl<T:Copy 
+impl<T:Copy
     + Default
+    + Debug
     + AddAssign
     + Add<Output = T>
     + Div<Output = T>
@@ -348,6 +363,7 @@ let stat:Stat<f64> = class.build_normal();
 */
 #[allow(unused)]
 #[derive(Clone, PartialEq, Copy, Debug, Serialize, Deserialize, EnumIter)]
+#[cfg_attr(feature = "fltkform", derive(FltkForm))]
 pub enum Normal {
     /// Full of concotions to both heal and harm.
     Alchemist,
@@ -390,8 +406,9 @@ impl fmt::Display for  Normal{
         write!(f, "{}", v.as_str())
     }
 }
-impl<T:Copy 
+impl<T:Copy
     + Default
+    + Debug
     + AddAssign
     + Add<Output = T>
     + Div<Output = T>
@@ -847,6 +864,8 @@ let stat:Stat<f64> = class.build_advanced();
 ```
 */
 #[allow(unused)]
+#[derive(Clone, PartialEq, Copy, Debug, Serialize, Deserialize, EnumIter)]
+#[cfg_attr(feature = "fltkform", derive(FltkForm))]
 pub enum Advanced {
     /// The goal is to discover new things without needing to get into fights
     Adventurer,

@@ -1,617 +1,510 @@
 /*!
-# Creature Types
-
-This encompasses all the different humanoids, as well as enemy creatures, and even pets
-
-```
-use rpgstat::stats::Basic as Stats;
-use rpgstat::class::Basic as Class;
-use rpgstat::creature::Animal;
-use rpgstat::stats::Builder;
-
-let bear:Animal = Animal::Bear;
-// this number only matters if you want
-let id:f64 = 0.0;
-// this effects the stats returned
-let level:f64 = 1.0;
-// use the basic `Builder`
-let bear_stats:Stats<f64> = bear.build_basic(id, level);
-```
-
-
+# Creature Stats
 */
 use std::fmt;
 //use strum::IntoEnumIterator;
 use strum_macros::EnumIter;
 use std::ops::{Add, AddAssign,  Div, DivAssign, Mul, MulAssign, Neg, Rem, RemAssign, Sub, SubAssign};
 use serde::{Deserialize, Serialize};
+use std::fmt::Debug;
 
-use crate::stats::{ Builder, Basic, Normal, Advanced };
+// #Normal
+// #Special
+use crate::special::Normal as Special;
+use crate::special::ManaCost;
+use crate::item::Item;
+use crate::item::Normal as MyItem;
+// #Condition
+use crate::effect::Normal as Condition;
+// #Element
+use crate::types::Normal as Element;
+use crate::attributes::{Stage, Rate, Effectiveness};
+use crate::random::*;
 
-#[derive(Clone, PartialEq, Copy, Debug, EnumIter, Serialize, Deserialize)]
-/// The Person class of creature types
-pub enum Person {
-    /// These little guys rock!
-    Dwarf,
-    /// What would a heroic journey be without an elf or two
-    Elf,
-    /// Winged small humanoids
-    Fairy,
-    /// Large brutes often subjugating humans
-    Giant,
-    /// Little lovers of nature and engineering
-    Gnome,
-    /// Obviously we'd like to be heroic
-    Human,
-    /// Mermaid and Merman
-    Mer,
-    /// Shape shifter
-    Selkie,
-    /// If you end up with a nagging one, sorry, but they are super helpful in a boss fight!
-    Sprite,
+#[cfg(feature = "fltkform")]
+use fltk::{prelude::*, *};
+#[cfg(feature = "fltkform")]
+use fltk_form_derive::*;
+#[cfg(feature = "fltkform")]
+use fltk_form::{FltkForm, HasProps};
+
+/*
+# Creature Stats
+
+These stats exist for the sole purpose of raising and training creatures
+This stat is
+*/
+#[derive( Debug, Clone, PartialEq, Serialize, Deserialize)]
+#[cfg_attr(feature = "fltkform", derive(FltkForm))]
+pub struct Stats {
+    /// Identification number
+    pub id:u32,
+    /// Name of creature
+    pub name:String,
+    /// Current Stage
+    pub form:Stage,
+    ///
+    pub condition:Condition,
+    pub element1:Element,
+    pub element2:Element,
+    pub rate:f64,
+    /// this is the owner's id
+    pub owner:u32,
+    /// level cycle xp (for display)
+    pub xp:f64,
+    /// Total XP
+    pub total_xp:f64,
+    /// Experience points for leveling Health Points
+    pub hp_xp:f64,
+    /// Experience points for leveling Attack
+    pub atk_xp:f64,
+    /// Experience points for leveling Defense
+    pub def_xp:f64,
+    /// Experience points for leveling Speed
+    pub speed_xp:f64,
+    /// Experience points for leveling Special
+    pub special_xp:f64,
+    /// Current level
+    pub level:f64,
+    /// Maximum Health Points
+    pub hp_max:f64,
+    /// Current Health Points
+    pub hp:f64,
+    /// Attack power
+    pub atk:f64,
+    /// Defense capability
+    pub def:f64,
+    /// Speed of creature in battle, or as they move
+    pub speed:f64,
+    /// 
+    pub special:f64,
+    /// Putting a file name here generates a picture
+    pub image:String,
+    /// [Special Move](@TODO@)
+    pub move0:Special,
+    /// Mana Points for Special move 0
+    pub move0_mp:f64,
+    /// [Special Move](@TODO@)
+    pub move1:Special,
+    /// Mana Points for Special move 1
+    pub move1_mp:f64,
+    /// [Special Move](@TODO@)
+    pub move2:Special,
+    /// Mana Points for Special move 2
+    pub move2_mp:f64,
+    /// [Special Move](@TODO@)
+    pub move3:Special,
+    /// Mana Points for Special move 3
+    pub move3_mp:f64,
+    /// [Special Move](@TODO@)
+    pub move4:Special,
+    /// Mana Points for Special move 4
+    pub move4_mp:f64,
+    /// [MyItem type](@todo@)
+    pub item0:MyItem,
+    /// Number of items in slot 0
+    pub items0:f64,
+    /// [MyItem type](@todo@)
+    pub item1:MyItem,
+    /// Number of items in slot 1
+    pub items1:f64,
+    /// [MyItem type](@todo@)
+    pub item2:MyItem,
+    /// Number of items in slot 2
+    pub items2:f64,
+    /// [MyItem type](@todo@)
+    pub item3:MyItem,
+    /// Number of items in slot 3
+    pub items3:f64,
+    /// [MyItem type](@todo@)
+    pub item4:MyItem,
+    /// Number of items in slot 4
+    pub items4:f64,
 }
-impl Default for Person {
-    fn default() -> Self {
-        Self::Human
+impl  Default for Stats {
+    fn default() -> Self where Self:Sized {
+        Self::new()
     }
 }
-impl fmt::Display for Person {
-    fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
-        let v:String;
-        match *self {
-            Person::Dwarf => v = String::from("Dwarf"),
-            Person::Elf => v = String::from("Elf"),
-            Person::Fairy => v = String::from("Fairy"),
-            Person::Giant => v = String::from("Giant"),
-            Person::Gnome => v = String::from("Gnome"),
-            Person::Human => v = String::from("Human"),
-            Person::Mer => v = String::from("Mer"),
-            Person::Selkie => v = String::from("Selkie"),
-            Person::Sprite => v = String::from("Sprite"),
-        }
-        write!(f, "{}", v.as_str())
-    }
-}
-///  The various monsters
-#[derive(Clone, PartialEq, Copy, Debug, EnumIter)]
-pub enum Monster {
-    Dragon,
-    Golem,
-    Ogre,
-    Orc,
-    Undead,
-    Werewolf,
-    Yeti,
-}
-
-
-#[derive(Clone, PartialEq, Copy, Debug, EnumIter)]
-/// The various animals you encounter
-pub enum Animal {
-    /// a crocodile
-    Crocodile,
-    /// a bear
-    Bear,
-    /// a bird
-    Bird,
-    /// a boar
-    Boar,
-    /// a dog
-    Dog,
-    /// a fox
-    Fox,
-    /// an insect
-    Insect,
-    /// a lion
-    Lion,
-    /// a rabbit
-    Rabbit,
-    /// a rat
-    Rat,
-    /// a snake
-    Snake,
-    /// a tiger
-    Tiger,
-    /// a wolf
-    Wolf,
-}
-impl Default for Animal {
-    fn default() -> Self {
-        Self::Rat
-    }
-}
-impl fmt::Display for Animal {
-    fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
-        let v:String;
-        match *self {
-            Animal::Crocodile => v = String::from("Crocodile"),
-            Animal::Bear => v = String::from("Bear"),
-            Animal::Bird => v = String::from("Bird"),
-            Animal::Insect => v = String::from("Insect"),
-            Animal::Lion => v = String::from("Lion"),
-            Animal::Rabbit => v = String::from("Rabbit"),
-            Animal::Rat => v = String::from("Rat"),
-            Animal::Snake => v = String::from("Snake"),
-            Animal::Tiger => v = String::from("Tiger"),
-            Animal::Wolf => v = String::from("Wolf"),
-            Animal::Boar => v = String::from("Boar"),
-            Animal::Fox => v = String::from("Fox"),
-            Animal::Dog => v = String::from("Dog"),
-            //Animal:: => v = String::from(""),
+impl Random for Stats {
+    type Type = Stats;
+    fn random_type(&self) -> Self::Type {
+        let mut elem = Element::Rock;
+        elem = elem.random_type();
+        let hp = self.random(10.0,50.0);
+        let atk = self.random(5.0,50.0);
+        let def = self.random(5.0,50.0);
+        let speed = self.random(5.0,50.0);
+        let special = self.random(5.0,50.0);
+        let form = Stage::Teen;
+        let spec = Special::None;
+        let item = MyItem::None;
+        let move0 = spec.random_type();
+        let move1 = spec.random_type();
+        Stats {
+            id:self.random_rate(100),
+            name:random_creature_name(),
+            form:form.random_type(),
+            condition:Condition::None,
+            element1:elem,
+            element2:Element::None,
+            rate:self.random(5.0,90.0),
+            move0:move0,
+            move0_mp:move0.mp_total(0.0),
+            move1:move1,
+            move1_mp:move1.mp_total(0.0),
+            move2:spec,
+            move2_mp:0.0,
+            move3:spec,
+            move3_mp:0.0,
+            move4:spec,
+            move4_mp:0.0,
+            item0:item,
+            items0:0.0,
+            item1:item,
+            items1:0.0,
+            item2:item,
+            items2:0.0,
+            item3:item,
+            items3:0.0,
+            item4:item,
+            items4:0.0,
+            owner:0,
+            xp:0.0,
+            total_xp:0.0,
+            hp_xp:hp,
+            atk_xp:atk,
+            def_xp:def,
+            speed_xp:speed,
+            special_xp:special,
+            level:0.0,
+            hp_max:hp,
+            hp:hp,
+            atk:atk,
+            def:def,
+            speed:speed,
+            special:special,
+            image:String::from(""),
             
         }
-        write!(f, "{}", v.as_str())
     }
+    
 }
-impl<T:Copy 
-    + Default
-    + AddAssign
-    + Add<Output = T>
-    + Div<Output = T>
-    + DivAssign
-    + Mul<Output = T>
-    + MulAssign
-    + Neg<Output = T>
-    + Rem<Output = T>
-    + RemAssign
-    + Sub<Output = T>
-    + SubAssign
-    + std::cmp::PartialOrd
-    + num::NumCast> Builder<T> for Animal {
-    /// Build a `Basic` stat
-    fn build_basic(&self, id:T, level:T) -> Basic<T>{
-        let mut hp:T = num::cast(10).unwrap();
-        let mut mp:T = num::cast(5).unwrap();
-        let mut xp:T = num::cast(1).unwrap();
-        let mut xp_next:T = num::cast(10).unwrap();
-        let mut gp:T = num::cast(5).unwrap();
-        let mut speed:T = num::cast(5).unwrap();
-        //TODO OR ue legendary.ini + serde
-        match *self {
-            Animal::Rat => {
-                gp += num::cast(2).unwrap();
-            }
-            Animal::Snake => {
-                speed += num::cast(2).unwrap();
-                mp += num::cast(1).unwrap();
-                hp += num::cast(1).unwrap();
-                xp += num::cast(1).unwrap();
-                gp += num::cast(1).unwrap();
-            }
-            Animal::Rabbit => {
-                speed += num::cast(2).unwrap();
-                hp += num::cast(2).unwrap();
-                mp += num::cast(2).unwrap();
-                xp += num::cast(2).unwrap();
-            }
-            Animal::Wolf => {
-                speed += num::cast(3).unwrap();
-                hp += num::cast(3).unwrap();
-                mp += num::cast(3).unwrap();
-                xp += num::cast(3).unwrap();
-                gp += num::cast(2).unwrap();
-            }
-            Animal::Crocodile => {
-                speed -= num::cast(1).unwrap();
-                hp += num::cast(5).unwrap();
-                mp += num::cast(5).unwrap();
-                xp += num::cast(5).unwrap();
-                gp += num::cast(4).unwrap();
-            }
-            Animal::Insect => {
-                hp -= num::cast(2).unwrap();
-                mp += num::cast(4).unwrap();
-            }
-            Animal::Lion => {
-                hp += num::cast(10).unwrap();
-                speed += num::cast(7).unwrap();
-                mp += num::cast(4).unwrap();
-                xp += num::cast(9).unwrap();
-            }
-            Animal::Tiger => {
-                hp += num::cast(9).unwrap();
-                speed += num::cast(9).unwrap();
-                mp += num::cast(7).unwrap();
-                xp += num::cast(7).unwrap();
-            }
-            Animal::Bear => {
-                hp += num::cast(15).unwrap();
-                mp += num::cast(10).unwrap();
-                xp += num::cast(10).unwrap();
-            }
-            Animal::Bird => {
-                hp += num::cast(2).unwrap();
-                mp += num::cast(12).unwrap();
-                xp += num::cast(7).unwrap();
-            }
-            Animal::Boar => {},
-            Animal::Fox => {},
-            Animal::Dog => {},
-            //Animal:: => {},
+impl Stats {
+    pub fn heal(&mut self, value:f64) -> bool {
+        if value < 0.0 {
+            return false;
         }
-        hp *= level;
-        mp *= level;
-        // TODO fixme:
-        xp *= level;
-        // TODO fixme:
-        xp_next *= level;
-        gp *= level;
-        speed += level;
-        Basic {
-            id,
-            xp,
-            xp_next,
-            level,
-            gp,
-            hp,
-            mp,
-            hp_max: hp,
-            mp_max: mp,
-            speed,
+        self.hp += value;
+        if self.hp > self.hp_max {
+            self.hp = self.hp_max;
         }
-        
+        true
     }
-    // Build a `Normal` stat
-    fn build_normal(&self, id:T, level:T) -> Normal<T>{
-        let mut hp:T = num::cast(10).unwrap();
-        let mut mp:T = num::cast(5).unwrap();
-        let mut xp:T = num::cast(1).unwrap();
-        let mut xp_next:T = num::cast(10).unwrap();
-        let mut gp:T = num::cast(5).unwrap();
-        let mut speed:T = num::cast(5).unwrap();
-        let mut atk:T = num::cast(10).unwrap();
-        let mut def:T = num::cast(10).unwrap();
-        let mut m_atk:T = num::cast(10).unwrap();
-        let mut m_def:T = num::cast(10).unwrap();
-        //TODO OR use legendary.ini + serde
-        match *self {
-            Animal::Rat => {
-                gp += num::cast(2).unwrap();
+    pub fn next(&self) -> f64 {
+        self.level * 20.0
+    }
+    pub fn level_up(&mut self) {
+        println!("xp:{} next:{} total:{}", self.xp, self.next(), self.total_xp);
+        self.total_xp += self.xp;
+        if self.xp > self.next() {
+            if self.hp_xp > self.hp_max {
+               self.hp_max = self.hp_xp; 
+            } else {
+                self.hp_xp += self.level;
             }
-            Animal::Snake => {
-                speed += num::cast(2).unwrap();
-                mp += num::cast(1).unwrap();
-                hp += num::cast(1).unwrap();
-                xp += num::cast(1).unwrap();
-                gp += num::cast(1).unwrap();
-                atk += num::cast(1).unwrap();
-                def += num::cast(1).unwrap();
-                m_atk += num::cast(1).unwrap();
-                m_def += num::cast(1).unwrap();
+            if self.atk_xp > self.atk {
+                self.atk = self.atk_xp; 
+            } else {
+                self.atk_xp += self.level;
             }
-            Animal::Rabbit => {
-                speed += num::cast(2).unwrap();
-                hp += num::cast(2).unwrap();
-                mp += num::cast(2).unwrap();
-                xp += num::cast(2).unwrap();
-                atk += num::cast(2).unwrap();
-                def += num::cast(2).unwrap();
-                m_atk += num::cast(2).unwrap();
-                m_def += num::cast(7).unwrap();
+            if self.def_xp > self.def {
+                self.def = self.def_xp; 
+            } else {
+                self.def_xp += self.level;
             }
-            Animal::Wolf => {
-                speed += num::cast(3).unwrap();
-                hp += num::cast(3).unwrap();
-                mp += num::cast(3).unwrap();
-                xp += num::cast(3).unwrap();
-                gp += num::cast(2).unwrap();
-                atk += num::cast(10).unwrap();
-                def += num::cast(5).unwrap();
-                m_atk += num::cast(3).unwrap();
-                m_def += num::cast(5).unwrap();
+            if self.speed_xp > self.speed {
+                self.speed = self.speed_xp; 
+            } else {
+                self.speed_xp += self.level;
             }
-            Animal::Crocodile => {
-                speed -= num::cast(1).unwrap();
-                hp += num::cast(5).unwrap();
-                mp += num::cast(5).unwrap();
-                xp += num::cast(5).unwrap();
-                gp += num::cast(4).unwrap();
-                atk += num::cast(7).unwrap();
-                def += num::cast(7).unwrap();
-                m_atk += num::cast(3).unwrap();
-                m_def += num::cast(1).unwrap();
+            if self.special_xp > self.special {
+                self.special = self.special_xp; 
+            } else {
+                self.special_xp += self.level;
             }
-            Animal::Insect => {
-                hp -= num::cast(2).unwrap();
-                mp += num::cast(4).unwrap();
-                atk += num::cast(2).unwrap();
-                def += num::cast(3).unwrap();
-                m_atk += num::cast(1).unwrap();
-                m_def += num::cast(1).unwrap();
-            }
-            Animal::Lion => {
-                hp += num::cast(10).unwrap();
-                speed += num::cast(7).unwrap();
-                mp += num::cast(4).unwrap();
-                xp += num::cast(9).unwrap();
-                atk += num::cast(11).unwrap();
-                def += num::cast(9).unwrap();
-                m_atk += num::cast(5).unwrap();
-                m_def += num::cast(8).unwrap();
-            }
-            Animal::Tiger => {
-                hp += num::cast(9).unwrap();
-                speed += num::cast(9).unwrap();
-                mp += num::cast(7).unwrap();
-                xp += num::cast(7).unwrap();
-                atk += num::cast(12).unwrap();
-                def += num::cast(5).unwrap();
-                m_atk += num::cast(5).unwrap();
-                m_def += num::cast(12).unwrap();
-            }
-            Animal::Bear => {
-                hp += num::cast(15).unwrap();
-                mp += num::cast(10).unwrap();
-                xp += num::cast(10).unwrap();
-                atk += num::cast(18).unwrap();
-                def += num::cast(12).unwrap();
-                m_atk += num::cast(2).unwrap();
-                m_def += num::cast(5).unwrap();
-            }
-            Animal::Bird => {
-                hp += num::cast(2).unwrap();
-                mp += num::cast(12).unwrap();
-                xp += num::cast(7).unwrap();
-                atk += num::cast(11).unwrap();
-                def += num::cast(1).unwrap();
-                m_atk += num::cast(8).unwrap();
-                m_def += num::cast(10).unwrap();
-                speed += num::cast(9).unwrap();
-            }
-            Animal::Boar => {},
-            Animal::Fox => {},
-            Animal::Dog => {},
-            //Animal:: => {},
+            self.level += 1.0;
+            self.xp = 0.0;
         }
-        hp *= level;
-        mp *= level;
-        // TODO fixme:
-        xp *= level;
-        // TODO fixme:
-        xp_next *= level;
-        gp *= level;
-        speed += level;
-        Normal {
-            id,
-            xp,
-            xp_next,
-            level,
-            gp,
-            hp,
-            mp,
-            hp_max: hp,
-            mp_max: mp,
-            speed,
-            atk,
-            def,
-            m_atk,
-            m_def,
+        println!("level:{}",self.level);
+    }
+    pub fn new() -> Self {
+        Stats {
+            id:0,
+            name:String::from(""),
+            form:Stage::Baby,
+            condition:Condition::None,
+            element1:Element::None,
+            element2:Element::None,
+            rate:0.0,
+            item0:MyItem::None,
+            items0:0.0,
+            item1:MyItem::None,
+            items1:0.0,
+            item2:MyItem::None,
+            items2:0.0,
+            item3:MyItem::None,
+            items3:0.0,
+            item4:MyItem::None,
+            items4:0.0,
+            move0:Special::None,
+            move0_mp:0.0,
+            move1:Special::None,
+            move1_mp:0.0,
+            move2:Special::None,
+            move2_mp:0.0,
+            move3:Special::None,
+            move3_mp:0.0,
+            move4:Special::None,
+            move4_mp:0.0,
+            owner:0,
+            xp:0.0,
+            total_xp:0.0,
+            hp_xp:0.0,
+            atk_xp:0.0,
+            def_xp:0.0,
+            speed_xp:0.0,
+            special_xp:0.0,
+            level:0.0,
+            hp_max:0.0,
+            hp:0.0,
+            atk:0.0,
+            def:0.0,
+            speed:0.0,
+            special:0.0,
+            image:String::from(""),
+        }
+    }
+    pub fn restore_mp(&mut self, move_number:u32, value:f64) -> bool {
+        match move_number {
+            0 => {
+                self.move0_mp += value;
+                let limit = self.move0.mp_total(0.0);
+                if self.move0_mp > limit {
+                    self.move0_mp = limit;
+                }
+                return true;
+            },
+            1 => {
+                self.move1_mp += value;
+                let limit = self.move1.mp_total(0.0);
+                if self.move1_mp > limit {
+                    self.move1_mp = limit;
+                }
+                return true;
+            },
+            2 => {
+                self.move2_mp += value;
+                let limit = self.move2.mp_total(0.0);
+                if self.move2_mp > limit {
+                    self.move2_mp = limit;
+                }
+                return true;
+            },
+            3 => {
+                self.move3_mp += value;
+                let limit = self.move3.mp_total(0.0);
+                if self.move3_mp > limit {
+                    self.move3_mp = limit;
+                }
+                return true;
+            },
+            4 => {
+                self.move4_mp += value;
+                let limit = self.move4.mp_total(0.0);
+                if self.move4_mp > limit {
+                    self.move4_mp = limit;
+                }
+                return true;
+            },
+            _=> return false,
+        }
+    }
+    pub fn moves(&self) -> Vec<Special> {
+        let mut vec:Vec<Special> = vec![];
+        if self.move0 != Special::None {
+            vec.push(self.move0);
+        }
+        if self.move1 != Special::None {
+            vec.push(self.move1);
+        }
+        if self.move2 != Special::None {
+            vec.push(self.move2);
+        }
+        if self.move3 != Special::None {
+            vec.push(self.move3);
+        }
+        if self.move4 != Special::None {
+            vec.push(self.move4);
+        }
+        vec
+    }
+    pub fn add_move(&mut self, special:Special) -> bool {
+        if self.move0 != Special::None {
+            self.move0 = special;
+            return true;
+        }
+        if self.move1 != Special::None {
+            self.move1 = special;
+            return true;
+        }
+        if self.move2 != Special::None {
+            self.move2 = special;
+            return true;
+        }
+        if self.move3 != Special::None {
+            self.move3 = special;
+            return true;
+        }
+        if self.move4 != Special::None {
+            self.move4 = special;
+            return true;
+        }
+        false
+    }
+    pub fn remove_move(&mut self, move_number:u32) -> bool {
+        match move_number {
+            0 => {
+                self.move0 = Special::None;
+                return true;
+            },
+            1 => {
+                self.move1 = Special::None;
+                return true;
+            },
+            2 => {
+                self.move2 = Special::None;
+                return true;
+            },
+            3 => {
+                self.move3 = Special::None;
+                return true;
+            },
+            4 => {
+                self.move4 = Special::None;
+                return true;
+            },
+            _=> false,
+        }
+    }
+    pub fn get_move(&mut self, move_number:u32) -> Special {
+        match move_number {
+            0 => self.move0,
+            1 => self.move1,
+            2 => self.move2,
+            3 => self.move3,
+            _=> self.move4,
+        }
+    }
+    pub fn items(&self) -> Vec<MyItem> {
+        let mut vec:Vec<MyItem> = vec![];
+        if self.item0 != MyItem::None {
+            vec.push(self.item0);
+        }
+        if self.item1 != MyItem::None {
+            vec.push(self.item1);
+        }
+        if self.item2 != MyItem::None {
+            vec.push(self.item2);
+        }
+        if self.item3 != MyItem::None {
+            vec.push(self.item3);
+        }
+        if self.item4 != MyItem::None {
+            vec.push(self.item4);
+        }
+        vec
+    }
+    pub fn add_item(&mut self, special:MyItem) -> bool {
+        if self.item0 != MyItem::None {
+            self.item0 = special;
+            return true;
+        }
+        if self.item1 != MyItem::None {
+            self.item1 = special;
+            return true;
+        }
+        if self.item2 != MyItem::None {
+            self.item2 = special;
+            return true;
+        }
+        if self.item3 != MyItem::None {
+            self.item3 = special;
+            return true;
+        }
+        if self.item4 != MyItem::None {
+            self.item4 = special;
+            return true;
+        }
+        false
+    }
+    pub fn remove_item(&mut self, item_number:u32) -> bool {
+        match item_number {
+            0 => {
+                self.item0 = MyItem::None;
+                return true;
+            },
+            1 => {
+                self.item1 = MyItem::None;
+                return true;
+            },
+            2 => {
+                self.item2 = MyItem::None;
+                return true;
+            },
+            3 => {
+                self.item3 = MyItem::None;
+                return true;
+            },
+            4 => {
+                self.item4 = MyItem::None;
+                return true;
+            },
+            _=> false,
+        }
+    }
+    pub fn get_item(&self, item_number:u32) -> MyItem {
+        match item_number {
+            0 => self.item0,
+            1 => self.item1,
+            2 => self.item2,
+            3 => self.item3,
+            _=> self.item4,
         }
     }
 
-    // Build an `Advanced` stat
-    fn build_advanced(&self, id:T, level:T) -> Advanced<T>{
-        let mut hp:T = num::cast(10).unwrap();
-        let mut mp:T = num::cast(5).unwrap();
-        let mut xp:T = num::cast(1).unwrap();
-        let mut xp_next:T = num::cast(10).unwrap();
-        let mut gp:T = num::cast(5).unwrap();
-        let mut speed:T = num::cast(5).unwrap();
-        let mut atk:T = num::cast(10).unwrap();
-        let mut def:T = num::cast(10).unwrap();
-        let mut m_atk:T = num::cast(10).unwrap();
-        let mut m_def:T = num::cast(10).unwrap();
-        let mut agility:T = num::cast(10).unwrap();
-        let mut strength:T = num::cast(10).unwrap();
-        let mut dexterity:T = num::cast(10).unwrap();
-        let mut constitution:T = num::cast(10).unwrap();
-        let mut intelligence:T = num::cast(10).unwrap();
-        let mut charisma:T = num::cast(10).unwrap();
-        let mut wisdom:T = num::cast(10).unwrap();
-        let mut age:T = num::cast(10).unwrap();
-        //TODO OR use legendary.ini + serde
-        match *self {
-            Animal::Rat => {
-                gp += num::cast(2).unwrap();
-            }
-            Animal::Snake => {
-                speed += num::cast(2).unwrap();
-                mp += num::cast(1).unwrap();
-                hp += num::cast(1).unwrap();
-                xp += num::cast(1).unwrap();
-                gp += num::cast(1).unwrap();
-                atk += num::cast(1).unwrap();
-                def += num::cast(1).unwrap();
-                m_atk += num::cast(1).unwrap();
-                m_def += num::cast(1).unwrap();
-                agility = num::cast(10).unwrap();
-                strength = num::cast(10).unwrap();
-                dexterity = num::cast(10).unwrap();
-                constitution = num::cast(10).unwrap();
-                intelligence = num::cast(10).unwrap();
-                charisma = num::cast(10).unwrap();
-                wisdom = num::cast(10).unwrap();
-                age = num::cast(40).unwrap();
-            }
-            Animal::Rabbit => {
-                speed += num::cast(2).unwrap();
-                hp += num::cast(2).unwrap();
-                mp += num::cast(2).unwrap();
-                xp += num::cast(2).unwrap();
-                atk += num::cast(2).unwrap();
-                def += num::cast(2).unwrap();
-                m_atk += num::cast(2).unwrap();
-                m_def += num::cast(7).unwrap();
-                agility = num::cast(10).unwrap();
-                strength = num::cast(10).unwrap();
-                dexterity = num::cast(10).unwrap();
-                constitution = num::cast(10).unwrap();
-                intelligence = num::cast(10).unwrap();
-                charisma = num::cast(10).unwrap();
-                wisdom = num::cast(10).unwrap();
-                age = num::cast(40).unwrap();
-            }
-            Animal::Wolf => {
-                speed += num::cast(3).unwrap();
-                hp += num::cast(3).unwrap();
-                mp += num::cast(3).unwrap();
-                xp += num::cast(3).unwrap();
-                gp += num::cast(2).unwrap();
-                atk += num::cast(10).unwrap();
-                def += num::cast(5).unwrap();
-                m_atk += num::cast(3).unwrap();
-                m_def += num::cast(5).unwrap();
-                agility = num::cast(10).unwrap();
-                strength = num::cast(10).unwrap();
-                dexterity = num::cast(10).unwrap();
-                constitution = num::cast(10).unwrap();
-                intelligence = num::cast(10).unwrap();
-                charisma = num::cast(10).unwrap();
-                wisdom = num::cast(10).unwrap();
-                age = num::cast(40).unwrap();
-            }
-            Animal::Crocodile => {
-                speed -= num::cast(1).unwrap();
-                hp += num::cast(5).unwrap();
-                mp += num::cast(5).unwrap();
-                xp += num::cast(5).unwrap();
-                gp += num::cast(4).unwrap();
-                atk += num::cast(7).unwrap();
-                def += num::cast(7).unwrap();
-                m_atk += num::cast(3).unwrap();
-                m_def += num::cast(1).unwrap();
-                agility = num::cast(10).unwrap();
-                strength = num::cast(10).unwrap();
-                dexterity = num::cast(10).unwrap();
-                constitution = num::cast(10).unwrap();
-                intelligence = num::cast(10).unwrap();
-                charisma = num::cast(10).unwrap();
-                wisdom = num::cast(10).unwrap();
-                age = num::cast(40).unwrap();
-            }
-            Animal::Insect => {
-                hp -= num::cast(2).unwrap();
-                mp += num::cast(4).unwrap();
-                atk += num::cast(2).unwrap();
-                def += num::cast(3).unwrap();
-                m_atk += num::cast(1).unwrap();
-                m_def += num::cast(1).unwrap();
-                agility = num::cast(10).unwrap();
-                strength = num::cast(10).unwrap();
-                dexterity = num::cast(10).unwrap();
-                constitution = num::cast(10).unwrap();
-                intelligence = num::cast(10).unwrap();
-                charisma = num::cast(10).unwrap();
-                wisdom = num::cast(10).unwrap();
-                age = num::cast(40).unwrap();
-            }
-            Animal::Lion => {
-                hp += num::cast(10).unwrap();
-                speed += num::cast(7).unwrap();
-                mp += num::cast(4).unwrap();
-                xp += num::cast(9).unwrap();
-                atk += num::cast(11).unwrap();
-                def += num::cast(9).unwrap();
-                m_atk += num::cast(5).unwrap();
-                m_def += num::cast(8).unwrap();
-                agility = num::cast(10).unwrap();
-                strength = num::cast(10).unwrap();
-                dexterity = num::cast(10).unwrap();
-                constitution = num::cast(10).unwrap();
-                intelligence = num::cast(10).unwrap();
-                charisma = num::cast(10).unwrap();
-                wisdom = num::cast(10).unwrap();
-                age = num::cast(40).unwrap();
-            }
-            Animal::Tiger => {
-                hp += num::cast(9).unwrap();
-                speed += num::cast(9).unwrap();
-                mp += num::cast(7).unwrap();
-                xp += num::cast(7).unwrap();
-                atk += num::cast(12).unwrap();
-                def += num::cast(5).unwrap();
-                m_atk += num::cast(5).unwrap();
-                m_def += num::cast(12).unwrap();
-                agility = num::cast(10).unwrap();
-                strength = num::cast(10).unwrap();
-                dexterity = num::cast(10).unwrap();
-                constitution = num::cast(10).unwrap();
-                intelligence = num::cast(10).unwrap();
-                charisma = num::cast(10).unwrap();
-                wisdom = num::cast(10).unwrap();
-                age = num::cast(40).unwrap();
-            }
-            Animal::Bear => {
-                hp += num::cast(15).unwrap();
-                mp += num::cast(10).unwrap();
-                xp += num::cast(10).unwrap();
-                atk += num::cast(18).unwrap();
-                def += num::cast(12).unwrap();
-                m_atk += num::cast(2).unwrap();
-                m_def += num::cast(5).unwrap();
-                agility = num::cast(10).unwrap();
-                strength = num::cast(10).unwrap();
-                dexterity = num::cast(10).unwrap();
-                constitution = num::cast(10).unwrap();
-                intelligence = num::cast(10).unwrap();
-                charisma = num::cast(10).unwrap();
-                wisdom = num::cast(10).unwrap();
-                age = num::cast(40).unwrap();
-            }
-            Animal::Bird => {
-                hp += num::cast(2).unwrap();
-                mp += num::cast(12).unwrap();
-                xp += num::cast(7).unwrap();
-                atk += num::cast(11).unwrap();
-                def += num::cast(1).unwrap();
-                m_atk += num::cast(8).unwrap();
-                m_def += num::cast(10).unwrap();
-                agility = num::cast(10).unwrap();
-                strength = num::cast(10).unwrap();
-                dexterity = num::cast(10).unwrap();
-                constitution = num::cast(10).unwrap();
-                intelligence = num::cast(10).unwrap();
-                charisma = num::cast(10).unwrap();
-                wisdom = num::cast(10).unwrap();
-                age = num::cast(40).unwrap();
-            }
-            Animal::Boar => {},
-            Animal::Fox => {},
-            Animal::Dog => {},
-            //Animal:: => {},
-            
+    pub fn use_item(&mut self, item_number:u32) -> bool {
+        let item:MyItem;
+        match item_number {
+            0 => item = self.item0,
+            1 => item = self.item1,
+            2 => item = self.item2,
+            3 => item = self.item3,
+            4=> item = self.item4,
+            _=> return false,
         }
-        hp *= level;
-        mp *= level;
-        // TODO fixme:
-        xp *= level;
-        // TODO fixme:
-        xp_next *= level;
-        gp *= level;
-        speed += level;
-        Advanced {
-            id,
-            xp,
-            xp_next,
-            level,
-            gp,
-            hp,
-            mp,
-            hp_max: hp,
-            mp_max: mp,
-            speed,
-            atk,
-            def,
-            m_atk,
-            m_def,
-            agility,
-            strength,
-            dexterity,
-            constitution,
-            intelligence,
-            charisma,
-            wisdom,
-            age,
+        let val = item.value();
+        match item {
+            MyItem::Hp => return self.heal(val),
+            MyItem::Mp => return self.restore_mp(item_number, val),
+            MyItem::Heal => self.condition = Condition::None,
+            MyItem::Exp => self.xp += val,
+            MyItem::Def => self.def += val,
+            MyItem::Atk => self.atk += val,
+            MyItem::Speed => self.speed += val,
+            MyItem::Special => self.special += val,
+            _=> return false,
         }
+        return true
     }
 }

@@ -138,27 +138,40 @@ extern crate num;
 //use num::NumCast;
 use std::ops::{Add, AddAssign,  Div, DivAssign, Mul, MulAssign, Neg, Rem, RemAssign, Sub, SubAssign};
 
+use std::fmt::Debug;
+#[cfg(feature = "fltkform")]
+use fltk::{prelude::*, *};
+#[cfg(feature = "fltkform")]
+use fltk_form_derive::*;
+#[cfg(feature = "fltkform")]
+use fltk_form::{FltkForm, HasProps};
+#[cfg(feature = "fltkform")]
+use std::collections::HashMap;
+#[cfg(feature = "fltkform")]
+use std::mem::transmute;
+
 /*
 # Builder
 
 The builder trait is how I create `rpgstat::stats::{Basic,Normal,Advance}` from enums
 
 */
-pub trait Builder<T:Copy 
-                  + Default
-                  + AddAssign
-                  + Add<Output = T>
-                  + Div<Output = T>
-                  + DivAssign
-                  + Mul<Output = T>
-                  + MulAssign
-                  + Neg<Output = T>
-                  + Rem<Output = T>
-                  + RemAssign
-                  + Sub<Output = T>
-                  + SubAssign
-                  + std::cmp::PartialOrd
-                  + num::NumCast> {
+pub trait Builder <T:Copy
+    + Default
+    + Debug
+    + AddAssign
+    + Add<Output = T>
+    + Div<Output = T>
+    + DivAssign
+    + Mul<Output = T>
+    + MulAssign
+    + Neg<Output = T>
+    + Rem<Output = T>
+    + RemAssign
+    + Sub<Output = T>
+    + SubAssign
+    + std::cmp::PartialOrd
+    + num::NumCast> {
     /// Build a `Basic` stat
     fn build_basic(&self, id:T, level:T) -> Basic<T>;
     // Build a `Normal` stat
@@ -171,21 +184,22 @@ pub trait Builder<T:Copy
 Premade trait for Basic Stat
 You simply define the function `stat()` to return the `Basic<T>` associated with your code.
 */
-pub trait BasicPremade<T:Copy 
-                      + Default
-                      + AddAssign
-                      + Add<Output = T>
-                      + Div<Output = T>
-                      + DivAssign
-                      + Mul<Output = T>
-                      + MulAssign
-                      + Neg<Output = T>
-                      + Rem<Output = T>
-                      + RemAssign
-                      + Sub<Output = T>
-                      + SubAssign
-                      + std::cmp::PartialOrd
-                      + num::NumCast> {
+pub trait BasicPremade<T:Copy
+    + Default
+    + Debug
+    + AddAssign
+    + Add<Output = T>
+    + Div<Output = T>
+    + DivAssign
+    + Mul<Output = T>
+    + MulAssign
+    + Neg<Output = T>
+    + Rem<Output = T>
+    + RemAssign
+    + Sub<Output = T>
+    + SubAssign
+    + std::cmp::PartialOrd
+    + num::NumCast> {
     /// # Function you need to imlement
     /// stat returns the `Basic<T>` you created
     fn stat(&self) -> Basic<T>;
@@ -279,22 +293,24 @@ pub trait BasicPremade<T:Copy
 
 This basic model of stats is easy to work with for beginners, but powerful enough to be used by the most experienced.
 */
+
 #[derive( Debug, Clone, Copy, PartialEq, Serialize, Deserialize)]
-pub struct Basic<T:Copy 
-                 + Default
-                 + AddAssign
-                 + Add<Output = T>
-                 + Div<Output = T>
-                 + DivAssign
-                 + Mul<Output = T>
-                 + MulAssign
-                 + Neg<Output = T>
-                 + Rem<Output = T>
-                 + RemAssign
-                 + Sub<Output = T>
-                 + SubAssign
-                 + std::cmp::PartialOrd
-                 + num::NumCast> {
+pub struct Basic<T:Copy
+    + Default
+    + Debug
+    + AddAssign
+    + Add<Output = T>
+    + Div<Output = T>
+    + DivAssign
+    + Mul<Output = T>
+    + MulAssign
+    + Neg<Output = T>
+    + Rem<Output = T>
+    + RemAssign
+    + Sub<Output = T>
+    + SubAssign
+    + std::cmp::PartialOrd
+    + num::NumCast> {
     /// Identification Number
     pub id:T,
     /// Experience Points
@@ -316,8 +332,9 @@ pub struct Basic<T:Copy
     /// your currency points
     pub gp:T,
 }
-impl<T:Copy 
+impl<T:Copy
     + Default
+    + Debug
     + AddAssign
     + Add<Output = T>
     + Div<Output = T>
@@ -348,8 +365,9 @@ impl<T:Copy
         }
     }
 }
-impl<T:Copy 
+impl<T:Copy
     + Default
+    + Debug
     + AddAssign
     + Add<Output = T>
     + Div<Output = T>
@@ -373,21 +391,22 @@ impl<T:Copy
 Premade trait for Normal Stat
 You simply define the function `stat()` to return the `Normal<T>` associated with your code.
 */
-pub trait NormalPremade<T:Copy 
-                      + Default
-                      + AddAssign
-                      + Add<Output = T>
-                      + Div<Output = T>
-                      + DivAssign
-                      + Mul<Output = T>
-                      + MulAssign
-                      + Neg<Output = T>
-                      + Rem<Output = T>
-                      + RemAssign
-                      + Sub<Output = T>
-                      + SubAssign
-                      + std::cmp::PartialOrd
-                      + num::NumCast> {
+pub trait NormalPremade<T:Copy
+    + Default
+    + Debug
+    + AddAssign
+    + Add<Output = T>
+    + Div<Output = T>
+    + DivAssign
+    + Mul<Output = T>
+    + MulAssign
+    + Neg<Output = T>
+    + Rem<Output = T>
+    + RemAssign
+    + Sub<Output = T>
+    + SubAssign
+    + std::cmp::PartialOrd
+    + num::NumCast> {
     /// # Function you need to imlement
     /// stat returns the `Normal<T>` you created
     fn stat(&self) -> Normal<T>;
@@ -517,8 +536,7 @@ pub trait NormalPremade<T:Copy
     fn attack(&self, other:Normal<T>) -> T {
         let val = self.atk();
         let mut res = val * val;
-        let mut def = other.def;
-        def += val;
+        let def = other.def + val;
         res /= def;
         res
     }
@@ -530,21 +548,22 @@ pub trait NormalPremade<T:Copy
 This model provides fine tuning of attack and defense without needing all the fine tuning of a full stat sheet
 */
 #[derive( Debug, Clone, Copy, PartialEq, Serialize, Deserialize)]
-pub struct Normal<T:Copy 
-                 + Default
-                 + AddAssign
-                 + Add<Output = T>
-                 + Div<Output = T>
-                 + DivAssign
-                 + Mul<Output = T>
-                 + MulAssign
-                 + Neg<Output = T>
-                 + Rem<Output = T>
-                 + RemAssign
-                 + Sub<Output = T>
-                 + SubAssign
-                 + std::cmp::PartialOrd
-                 + num::NumCast> {
+pub struct Normal<T:Copy
+    + Default
+    + Debug
+    + AddAssign
+    + Add<Output = T>
+    + Div<Output = T>
+    + DivAssign
+    + Mul<Output = T>
+    + MulAssign
+    + Neg<Output = T>
+    + Rem<Output = T>
+    + RemAssign
+    + Sub<Output = T>
+    + SubAssign
+    + std::cmp::PartialOrd
+    + num::NumCast> {
     /// Identification Number
     pub id:T,
     // Name
@@ -577,8 +596,9 @@ pub struct Normal<T:Copy
     pub m_def:T,
 
 }
-impl<T:Copy 
+impl<T:Copy
     + Default
+    + Debug
     + AddAssign
     + Add<Output = T>
     + Div<Output = T>
@@ -615,8 +635,9 @@ impl<T:Copy
     }
 }
 
-impl<T:Copy 
+impl<T:Copy
     + Default
+    + Debug
     + AddAssign
     + Add<Output = T>
     + Div<Output = T>
@@ -639,21 +660,22 @@ impl<T:Copy
 Premade trait for Advanced Stat
 You simply define the function `stat()` to return the `Advanced<T>` associated with your code.
 */
-pub trait AdvancedPremade<T:Copy 
-                      + Default
-                      + AddAssign
-                      + Add<Output = T>
-                      + Div<Output = T>
-                      + DivAssign
-                      + Mul<Output = T>
-                      + MulAssign
-                      + Neg<Output = T>
-                      + Rem<Output = T>
-                      + RemAssign
-                      + Sub<Output = T>
-                      + SubAssign
-                      + std::cmp::PartialOrd
-                      + num::NumCast> {
+pub trait AdvancedPremade<T:Copy
+    + Default
+    + Debug
+    + AddAssign
+    + Add<Output = T>
+    + Div<Output = T>
+    + DivAssign
+    + Mul<Output = T>
+    + MulAssign
+    + Neg<Output = T>
+    + Rem<Output = T>
+    + RemAssign
+    + Sub<Output = T>
+    + SubAssign
+    + std::cmp::PartialOrd
+    + num::NumCast> {
     /// # Function you need to imlement
     /// stat returns the `Advanced<T>` you created
     fn stat(&self) -> Advanced<T>;
@@ -826,21 +848,22 @@ pub trait AdvancedPremade<T:Copy
 The entire stat sheet for fine tuned algorithms using all the information possible!
 */
 #[derive( Debug, Clone, Copy, PartialEq, Serialize, Deserialize)]
-pub struct Advanced<T:Copy 
-                 + Default
-                 + AddAssign
-                 + Add<Output = T>
-                 + Div<Output = T>
-                 + DivAssign
-                 + Mul<Output = T>
-                 + MulAssign
-                 + Neg<Output = T>
-                 + Rem<Output = T>
-                 + RemAssign
-                 + Sub<Output = T>
-                 + SubAssign
-                 + std::cmp::PartialOrd
-                 + num::NumCast> {
+pub struct Advanced<T:Copy
+    + Default
+    + Debug
+    + AddAssign
+    + Add<Output = T>
+    + Div<Output = T>
+    + DivAssign
+    + Mul<Output = T>
+    + MulAssign
+    + Neg<Output = T>
+    + Rem<Output = T>
+    + RemAssign
+    + Sub<Output = T>
+    + SubAssign
+    + std::cmp::PartialOrd
+    + num::NumCast> {
     /// Identification Number
     pub id:T,
     /// Experience Points
@@ -887,8 +910,9 @@ pub struct Advanced<T:Copy
     pub age:T,
     
 }
-impl<T:Copy 
+impl<T:Copy
     + Default
+    + Debug
     + AddAssign
     + Add<Output = T>
     + Div<Output = T>
@@ -930,8 +954,9 @@ impl<T:Copy
         }
     }
 }
-impl<T:Copy 
+impl<T:Copy
     + Default
+    + Debug
     + AddAssign
     + Add<Output = T>
     + Div<Output = T>

@@ -6,10 +6,24 @@
 
 Cargo.toml
 
-`rpgstat="2.0"`
+`rpgstat="4.0"`
 
 This is fairly exhaustive and links to most things you can use.
-The library is **stil a WIP** as the battle system is rudimentary in the current form.  [TOML](https://crates.io/crates/toml) format with [serde](https://crates.io/crates/serde) is supported.
+The library is **still a WIP** as the battle system is rudimentary in the current form.  [TOML](https://crates.io/crates/toml) format with [serde](https://crates.io/crates/serde) is supported.
+
+# **breaking changes**
+A choice was made to remove data from this library and move it to a [repo]() as it became too much information for the scope of this crate, very quickly.
+
+This breaks **all** previous usage using `rpgstat::creature::*;`
+This breaks **all** previous usage using `rpgstat::legendary::*;`
+
+But adds quite a bit, by removing so much!
+
+Using the `--feature fltkform` you can now build a GUI without coding!  It does require [FLTK](https://github.com/fltk-rs/) which has many incredible features built in.
+
+## Only SPECIFIC stats are supported for FLTK
+
+This is due to limitations of abstraction
 
 
 # Stats
@@ -50,6 +64,13 @@ Your file needs:
  * wisdom
  * age
 
+You can easily **ANY** of build these to populate however you like:
+```
+// choose Normal or Basic if you'd rather...
+use rpgstat::stats::Advanced as Stats;
+let stats:Stats<f64> = Stats::empty::<f64>();
+```
+
 ## Serde + TOML/INI
 
 Yes you can use serde with any of the assets/characters/ files provided.  You can use them in your custom structs.
@@ -71,7 +92,7 @@ pub struct Character {
     pub stats:Stats<f64>,
 }
 let filename = "assets/characters/EasterBilby.ini";
-    match File::open(filename) {
+match File::open(filename) {
     Ok(mut file) => {
         let mut content = String::new();
         file.read_to_string(&mut content).unwrap();
@@ -150,23 +171,9 @@ This allows you to do:
 // feel free to use `Normal` or `Advanced` instead of `Basic`
 use rpgstat::stats::Basic as Stats;
 use rpgstat::class::Basic as Class;
-use rpgstat::creature::Animal;
+
 // this is the thing we need!
 use rpgstat::stats::Builder;
-
-// get bear stats for our program
-fn bear_stats () -> Stats<f64> {
-    // make the bear enum
-    let bear:Animal = Animal::Bear;
-    // this number only matters if you want
-    let id:f64 = 0.0;
-    // this effects the stats returned
-    let level:f64 = 1.0;
-    // use the basic `Builder`
-    let bear_stats:Stats<f64> = bear.build_basic(id, level);
-    // that was easy!
-    bear_stats
-}
 
 // get Hero stats for our program
 fn hero_stats () -> Stats<f64> {
@@ -187,6 +194,11 @@ fn hero_stats () -> Stats<f64> {
 
 ## Build your own!
 If you are not into making stats from things I made, you can implement your own builder:
+```toml
+num = "0.2"
+rpg-stat = "3.0"
+toml = "0.5"
+```
 
 ```
 use rpgstat::stats::Basic as BasicStats;
@@ -224,7 +236,7 @@ impl<T:Copy
     + SubAssign
     + std::cmp::PartialOrd
     + num::NumCast> Builder<T> for MyAwesomeThing {
-    /// Build a `Basic` stat
+
     fn build_basic(&self, id:T, level:T) -> BasicStats<T>{
         match *self {
             // make basic
@@ -268,8 +280,6 @@ impl<T:Copy
     fn build_advanced(&self, id:T, level:T) -> AdvancedStats<T>{
         match *self {
             // make advanced
-            // TODO make Tux destroy the other characters stats
-            // well maybe not Pepper since she gives out free paint brushes...
             _=>
             AdvancedStats {
                 id: Default::default(),
@@ -342,28 +352,8 @@ fn hero_stats () -> Stats<f64> {
 ```
 
 # Creatures
- This contains all manner of creatures.  We have `Animal` creatures, `Person` creatures, and even `Monster` creatures
 
-I have implemented `Builder` for `Animal`
- 
-# Legendary
-This contains the basics to use any creature from [Wikipedia's Legendary Creatures](https://en.wikipedia.org/wiki/Lists_of_legendary_creatures) and create `Basic`, `Normal` or `Advanced` stats.
-```
-use rpgstat::legendary::Legendary;
-// we want basic stats
-use rpgstat::stats::Basic as Stats;
-// this is the thing we need!
-use rpgstat::stats::Builder;
-let sc:Legendary = Legendary::SantaClaus;
-// remember build_*(id,level); if you are copy/paste XD
-let stats:Stats<f64> = sc.build_basic(0.0,1.0);
-assert_eq!(stats.hp, 10.0);
-```
-Eventually I would like to curate unique stats for each creature and have a full `long_description()` available for every creature.  This may change, however.
 
-As it stands you can still battle the `ToothFairy` against the `EasterBilby`, they will just have the exact same stats to start.  Feel free to modify them.
-
-The goal will be to read all the information from the individual files *eventually*.
 
 # Types
 
@@ -500,7 +490,7 @@ This is to collect all the information about armor, stats, status, etc, based on
 pub mod stats;
 pub mod class;
 pub mod creature;
-pub mod legendary;
+//pub mod legendary;
 pub mod body;
 pub mod types;
 pub mod random;
@@ -509,3 +499,4 @@ pub mod npc;
 pub mod special;
 pub mod attributes;
 pub mod effect;
+pub mod item;

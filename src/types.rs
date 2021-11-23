@@ -87,6 +87,12 @@ extern crate num;
 use serde::{Deserialize, Serialize};
 //use strum::IntoEnumIterator;
 use strum_macros::EnumIter;
+#[cfg(feature = "fltkform")]
+use fltk::{prelude::*, *};
+#[cfg(feature = "fltkform")]
+use fltk_form_derive::*;
+#[cfg(feature = "fltkform")]
+use fltk_form::{FltkForm, HasProps};
 
 //our stuff
 use crate::attributes::Effectiveness;
@@ -187,7 +193,11 @@ assert_eq!(wind.effectiveness(rock), Effectiveness::Double);
 
 ```
 */
+
+use crate::random::*;
+
 #[derive(Debug, Clone, Copy, PartialEq, Eq, EnumIter, Deserialize, Serialize)]
+#[cfg_attr(feature = "fltkform", derive(FltkForm))]
 pub enum Normal {
     Rock,
     Plant,
@@ -198,6 +208,50 @@ pub enum Normal {
     Light,
     Wind,
     None,
+}
+impl Normal {
+    pub fn level_threshold(&self, current_level:f64) -> f64 {
+        let mut threshold:f64 = current_level;
+        let mut counter:u32 = 0;
+        while threshold > 10.0 {
+            threshold /= 10.0;
+            counter += 1;
+        }
+        match *self {
+            //TODO type based level 
+            Normal::Rock => threshold += 0.0,
+            Normal::Plant => threshold += 0.0,
+            Normal::Water => threshold += 0.0,
+            Normal::Fire => threshold += 0.0,
+            Normal::Electric => threshold += 0.0,
+            Normal::Spirit => threshold += 0.0,
+            Normal::Light => threshold += 0.0,
+            Normal::Wind => threshold += 0.0,
+            _=> threshold += 0.0,
+        }
+        for div in 0..counter {
+            threshold *= 10.0;
+        }
+        threshold
+    }
+}
+impl Random for Normal {
+    type Type = Normal;
+    fn random_type(&self) -> Self::Type {
+        let max = 8;
+        let val = self.random_rate(max);
+        match val {
+            0 => Normal::Rock,
+            1 => Normal::Plant,
+            2 => Normal::Water,
+            3 => Normal::Fire,
+            4 => Normal::Electric,
+            5 => Normal::Spirit,
+            7 => Normal::Light,
+            8 => Normal::Wind,
+            _=> Normal::None,
+        }
+    }
 }
 impl Default for Normal {
     /// Default to empty
@@ -349,6 +403,7 @@ impl Compare for Normal {
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, EnumIter, Deserialize, Serialize)]
+#[cfg_attr(feature = "fltkform", derive(FltkForm))]
 ///  `Advanced`
 ///```rs:no_run                     
 ///    ------   _  __ __     

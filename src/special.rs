@@ -1,6 +1,9 @@
 /*!
 # Special
 
+Special moves learned by `rpgstat::creatures::*;`
+
+
 */
 use std::fmt;
 use std::fmt::Debug;
@@ -11,6 +14,16 @@ extern crate num;
 use serde::{Deserialize, Serialize};
 //use strum::IntoEnumIterator;
 use strum_macros::EnumIter;
+#[cfg(feature = "fltkform")]
+use fltk::{prelude::*, *};
+#[cfg(feature = "fltkform")]
+use fltk_form_derive::*;
+#[cfg(feature = "fltkform")]
+use fltk_form::{FltkForm, HasProps};
+
+
+use crate::random::*;
+
 // TODO Advanced
 #[derive(Debug, Clone, PartialEq, Eq, EnumIter, Deserialize, Serialize)]
 /*
@@ -22,7 +35,18 @@ pub enum Basic {
     None,
     Some(String),
 }
-impl Default for Basic {
+impl Random for Basic {
+    type Type = Basic;
+    fn random_type(&self) -> Self::Type {
+        if self.half() {
+            return Basic::None
+        }
+        if self.half() {
+            return Basic::Some(random_character_name())
+        }
+        Basic::Some(random_creature_name())
+    }
+}impl Default for Basic {
     fn default() -> Self {
         Self::None
     }
@@ -43,6 +67,7 @@ impl fmt::Display for Basic {
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, EnumIter, Deserialize, Serialize)]
+#[cfg_attr(feature = "fltkform", derive(FltkForm))]
 /// Specials are just types of attack, coupled with the `Element`
 /// These enums are used in determining the effects of the attack and which animations to use
 pub enum Normal {
@@ -84,6 +109,34 @@ pub enum Normal {
     Splash,
     /// None
     None,
+}
+impl Random for Normal {
+    type Type = Normal;
+    fn random_type(&self) -> Self::Type {
+        let max = 18;
+        let val = self.random_rate(max);
+        match val {
+            0 => Normal::Tackle,
+            1 => Normal::Toss,
+            2 => Normal::Throw,
+            3 => Normal::Slash,
+            4 => Normal::Freeze,
+            5 => Normal::Burn,
+            6 => Normal::Melt,
+            7 => Normal::Crush,
+            8 => Normal::Grind,
+            9 => Normal::Hit,
+            10 => Normal::Slap,
+            11 => Normal::Smack,
+            12 => Normal::Whip,
+            13 => Normal::Slice,
+            14 => Normal::Spin,
+            15 => Normal::Blur,
+            16 => Normal::Strike,
+            17 => Normal::Splash,
+            _=> Normal::None,
+        }
+    }
 }
 impl Default for Normal {
     /// Default to empty
@@ -164,6 +217,36 @@ impl<T:Copy
             // Normal:: => one,
         }
     }
+    fn mp_total(&self, _input:T) -> T {
+        let thirty:T = num::cast(30).unwrap();
+        let twenty:T = num::cast(20).unwrap();
+        let ten:T = num::cast(10).unwrap();
+        let empty:T = num::cast(1).unwrap();
+        match self {
+            Normal::Toss => thirty,
+            Normal::Throw => thirty,
+            Normal::Strike => thirty,
+            Normal::Tackle => thirty,
+            Normal::Spin => thirty,
+
+            Normal::Slash =>  twenty,
+            Normal::Burn =>  twenty,
+            Normal::Blur => twenty,
+            Normal::Splash =>  twenty,
+            Normal::Crush =>  twenty,
+            Normal::Hit =>  twenty,
+            Normal::Slap =>  twenty,
+            Normal::Whip =>  twenty,
+
+            Normal::Grind =>  ten,
+            Normal::Smack =>  ten,
+            Normal::Melt =>  ten,
+            Normal::Slice =>  ten,
+            Normal::Freeze => ten,
+            Normal::None => empty,
+            // Normal:: => one,
+        }
+    }
 }
 
 /*
@@ -172,6 +255,7 @@ impl<T:Copy
 */
 //TODO more specials
 #[derive(Debug, Clone, Copy, PartialEq, Eq, EnumIter, Deserialize, Serialize)]
+#[cfg_attr(feature = "fltkform", derive(FltkForm))]
 pub enum Advanced {
         /// The generic wrestling attack
     Tackle,
@@ -211,6 +295,34 @@ pub enum Advanced {
     Splash,
     /// None
     None,
+}
+impl Random for Advanced {
+    type Type = Advanced;
+    fn random_type(&self) -> Self::Type {
+        let max = 18;
+        let val = self.random_rate(max);
+        match val {
+            0 => Advanced::Tackle,
+            1 => Advanced::Toss,
+            2 => Advanced::Throw,
+            3 => Advanced::Slash,
+            4 => Advanced::Freeze,
+            5 => Advanced::Burn,
+            6 => Advanced::Melt,
+            7 => Advanced::Crush,
+            8 => Advanced::Grind,
+            9 => Advanced::Hit,
+            10 => Advanced::Slap,
+            11 => Advanced::Smack,
+            12 => Advanced::Whip,
+            13 => Advanced::Slice,
+            14 => Advanced::Spin,
+            15 => Advanced::Blur,
+            16 => Advanced::Strike,
+            17 => Advanced::Splash,
+            _=> Advanced::None,
+        }
+    }
 }
 impl Default for Advanced {
     fn default() -> Self {
@@ -262,4 +374,5 @@ pub trait ManaCost<T:Copy
                       + std::cmp::PartialOrd
                       + num::NumCast> {
     fn mp_cost(&self, _input:T) -> T;
+    fn mp_total(&self, _input:T) -> T;
 }

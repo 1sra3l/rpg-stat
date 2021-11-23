@@ -63,6 +63,12 @@ use serde::{Deserialize, Serialize};
 use strum_macros::EnumIter;
 use crate::random::Random;
 
+#[cfg(feature = "fltkform")]
+use fltk::{prelude::*, *};
+#[cfg(feature = "fltkform")]
+use fltk_form_derive::*;
+#[cfg(feature = "fltkform")]
+use fltk_form::{FltkForm, HasProps};
 /*
 # Rate
 
@@ -78,6 +84,7 @@ assert_eq!(yes.worked(), true);
 
 */
 #[derive(Debug, Clone, Copy, PartialEq, Eq, EnumIter, Deserialize, Serialize)]
+#[cfg_attr(feature = "fltkform", derive(FltkForm))]
 pub enum Rate {
     /// 100%
     Always,
@@ -94,7 +101,22 @@ pub enum Rate {
     /// 0%
     None,
 }
-impl Random for Rate{}
+impl Random for Rate{
+    type Type = Rate;
+    fn random_type(&self) -> Self::Type {
+        let max = 7;
+        let val = self.random_rate(max);
+        match val {
+            0 => return Rate::None,
+            1 => return Rate::Often,
+            3 => return Rate::Hardly,
+            4 => return Rate::Some,
+            5 => return Rate::Barely,
+            7 => return Rate::Always,
+            _=> return Rate::Usually,
+        }
+    }
+}
 impl Rate {
     /*
     
@@ -139,17 +161,31 @@ assert_eq!(Effectiveness::Half.value(hp), 25);
 ```
 */
 #[derive(Debug, Clone, Copy, PartialEq, Eq, EnumIter, Deserialize, Serialize)]
-pub enum Effectiveness {
-    
+#[cfg_attr(feature = "fltkform", derive(FltkForm))]
+pub enum Effectiveness {    
     Double,
     HalfExtra,
     Half,
     Normal,
     None,
 }
+impl Random for Effectiveness{
+    type Type = Effectiveness;
+    fn random_type(&self) -> Self::Type {
+        let max = 6;
+        let val = self.random_rate(max);
+        match val {
+            0 => return Effectiveness::Double,
+            1 => return Effectiveness::HalfExtra,
+            4 => return Effectiveness::Half,
+            5 => return Effectiveness::Normal,
+            _=> return Effectiveness::None,
+        }
+    }
+}
 impl<T:Copy
-    + Display
     + Default
+    + Debug
     + AddAssign
     + Add<Output = T>
     + Div<Output = T>
@@ -197,6 +233,7 @@ impl fmt::Display for Effectiveness {
     }
 }
 #[derive(Debug, Clone, Copy, PartialEq, Eq, EnumIter, Deserialize, Serialize)]
+#[cfg_attr(feature = "fltkform", derive(FltkForm))]
 /// This is the 'stage' of life the creature is in
 /// Stages of life are similar to Pokemon evolution,
 /// however our creatures cannot change species randomly
@@ -212,6 +249,23 @@ pub enum Stage {
     Older,
     Old,
 }
+impl Random for Stage{
+    type Type = Stage;
+    fn random_type(&self) -> Self::Type {
+        let max = 8;
+        let val = self.random_rate(max);
+        match val {
+            0 => return Stage::Toddler,
+            1 => return Stage::Kid,
+            3 => return Stage::Teen,
+            4 => return Stage::Young,
+            5 => return Stage::Grown,
+            7 => return Stage::Older,
+            8 => return Stage::Old,
+            _=> return Stage::Baby,
+        }
+    }
+}
 impl Stage {
     /// Default to empty
     #[allow(dead_code)]
@@ -219,9 +273,9 @@ impl Stage {
         Self::Teen
     }
 }
-impl<T:Copy 
+impl<T:Copy
     + Default
-    + Display
+    + Debug
     + AddAssign
     + Add<Output = T>
     + Div<Output = T>
@@ -261,8 +315,8 @@ impl<T:Copy
 }
 
 pub trait Value<T:Copy
-    + Display
     + Default
+    + Debug
     + AddAssign
     + Add<Output = T>
     + Div<Output = T>

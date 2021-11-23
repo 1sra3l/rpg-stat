@@ -16,6 +16,12 @@ extern crate num;
 use serde::{Deserialize, Serialize};
 //use strum::IntoEnumIterator;
 use strum_macros::EnumIter;
+#[cfg(feature = "fltkform")]
+use fltk::{prelude::*, *};
+#[cfg(feature = "fltkform")]
+use fltk_form_derive::*;
+#[cfg(feature = "fltkform")]
+use fltk_form::{FltkForm, HasProps};
 
 use crate::random::Random;
 
@@ -25,6 +31,7 @@ The state the individual is in.
 There are two states `Broken` and `Ordered`  These are assesments of the individual's alignment and choices.  If their choices match the Alignment, the State becomes `Ordered` when out of sync it becomes `Broken`
 */
 #[derive(Debug, Clone, Copy, PartialEq, Eq, EnumIter, Deserialize, Serialize)]
+#[cfg_attr(feature = "fltkform", derive(FltkForm))]
 pub enum State {
     /// Alignment does not match actions
     Broken,
@@ -52,6 +59,7 @@ impl Default for State {
 
 */
 #[derive(Debug, Clone, Copy, PartialEq, Eq, EnumIter, Deserialize, Serialize)]
+#[cfg_attr(feature = "fltkform", derive(FltkForm))]
 pub enum Purpose {
     Random,
     Story,
@@ -80,6 +88,7 @@ impl Default for Purpose {
 This is used to generate conversational content for NPCs
 */
 #[derive(Debug, Clone, Copy, PartialEq, Eq, EnumIter, Deserialize, Serialize)]
+#[cfg_attr(feature = "fltkform", derive(FltkForm))]
 pub enum Conversation {
     /// General life advice, such as proverbs
     Advice,
@@ -139,6 +148,7 @@ impl Default for Conversation {
 /*
 */
 #[derive(Debug, Clone, PartialEq, Eq, Deserialize, Serialize)]
+#[cfg_attr(feature = "fltkform", derive(FltkForm))]
 pub struct Script {
     /// The list of lines
     pub lines:Vec<u32>,
@@ -151,7 +161,12 @@ pub struct Script {
     /// Are we done here?
     pub finished:bool
 }
-impl Random for Script{}
+impl Random for Script{
+    type Type = Script;
+    fn random_type(&self) -> Self::Type {
+        Self::empty()
+    }
+}
 impl Script {
     /// Make a generic conversation script
     #[allow(dead_code)]
@@ -195,6 +210,7 @@ This holds our Non-Player Characters
 */
 #[allow(clippy::upper_case_acronyms)]
 #[derive(Debug, Clone, PartialEq, Eq, Deserialize, Serialize)]
+#[cfg_attr(feature = "fltkform", derive(FltkForm))]
 pub struct NPC {
     /// Whether the NPC is on task
     pub state:State,
