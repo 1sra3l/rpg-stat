@@ -285,6 +285,43 @@ impl Stats {
             image:String::from(""),
         }
     }
+    pub fn use_mp(&mut self, move_number:u32) -> bool {
+        let value = 1.0;
+        match move_number {
+            0 => {
+                self.move0_mp -= value;
+                return true;
+            },
+            1 => {
+                self.move1_mp -= value;
+                return true;
+            },
+            2 => {
+                self.move2_mp -= value;
+                return true;
+            },
+            3 => {
+                self.move3_mp -= value;
+                return true;
+            },
+            4 => {
+                self.move4_mp -= value;
+                return true;
+            },
+            _=> return false,
+        }
+    }
+    pub fn get_mp(&self, move_number:u32) -> f64 {
+        let value = 1.0;
+        match move_number {
+            0 => return self.move0_mp,
+            1 => return self.move1_mp,
+            2 => return self.move2_mp,
+            3 => return self.move3_mp,
+            4 => return self.move4_mp,
+            _=> return 0.0,
+        }
+    }
     pub fn restore_mp(&mut self, move_number:u32, value:f64) -> bool {
         match move_number {
             0 => {
@@ -397,14 +434,77 @@ impl Stats {
             _=> false,
         }
     }
-    pub fn get_move(&mut self, move_number:u32) -> Special {
+    pub fn get_move(&self, move_number:u32) -> Special {
         match move_number {
-            0 => self.move0,
+            4 => self.move4,
             1 => self.move1,
             2 => self.move2,
             3 => self.move3,
-            _=> self.move4,
+            _=> self.move0,
         }
+    }
+    pub fn valid_move(&self, move_number:u32) -> bool {
+        match move_number {
+            1 => {
+                if self.move1 == Special::None {
+                    return false
+                } else {
+                    return true
+                }
+            },
+            2 => {
+                if self.move2 == Special::None {
+                    return false
+                } else {
+                    return true
+                }
+            },
+            3 => {
+                if self.move3 == Special::None {
+                    return false
+                } else {
+                    return true
+                }
+            },
+            4 => {
+                if self.move4 == Special::None {
+                    return false
+                } else {
+                    return true
+                }
+            },
+            _=> {
+                if self.move0 == Special::None {
+                    return false
+                } else {
+                    return true
+                }
+            },
+        }
+    }
+    
+    pub fn damage_attack(&mut self, atk_move:Special, other:Creature) -> f64 {
+        //first math
+        let dmg = self.get_damage(atk_move.clone(), other.element1);
+        dmg * self.atk
+    }
+    pub fn special(&mut self, id:usize, other:Creature) -> Option<f64> {
+        let vec = self.moves.clone();
+        if vec.len() < id {
+            return None
+        }
+        let atk_move = vec[id].clone();
+        let atk = self.atk;
+        let mut result = self.damage_attack(atk_move.clone(), other.clone());//dmg * self.atk
+        let def = other.def + other.hp;
+        if result == 0.0 {
+            result = def;
+        }
+        result /= def;
+        if result > other.hp {
+            result = other.hp;
+        }
+        Some(result)
     }
     pub fn items(&self) -> Vec<MyItem> {
         let mut vec:Vec<MyItem> = vec![];

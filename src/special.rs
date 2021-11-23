@@ -187,33 +187,33 @@ impl<T:Copy
     + SubAssign
     + std::cmp::PartialOrd
     + num::NumCast> ManaCost<T> for Normal{
-    fn mp_cost(&self, _input:T) -> T {
+    fn damage(&self, level:T) -> T {
         let one:T = num::cast(1).unwrap();
         let five:T = num::cast(5).unwrap();
         let seven:T = num::cast(7).unwrap();
-        let empty:T = num::cast(0).unwrap();
+        let empty:T = num::cast(1).unwrap();
         match self {
-            Normal::Toss => one,
-            Normal::Throw => one,
-            Normal::Strike => one,
-            Normal::Tackle => one,
-            Normal::Spin => one,
+            Normal::Toss => one * level,
+            Normal::Throw => one * level,
+            Normal::Strike => one * level,
+            Normal::Tackle => one * level,
+            Normal::Spin => one * level,
 
-            Normal::Slash =>  five,
-            Normal::Burn =>  five,
-            Normal::Blur => five,
-            Normal::Splash =>  five,
-            Normal::Crush =>  five,
-            Normal::Hit =>  five,
-            Normal::Slap =>  five,
-            Normal::Whip =>  five,
+            Normal::Slash =>  five, * level
+            Normal::Burn =>  five * level,
+            Normal::Blur => five * level,
+            Normal::Splash =>  five * level,
+            Normal::Crush =>  five * level,
+            Normal::Hit =>  five * level,
+            Normal::Slap =>  five * level,
+            Normal::Whip =>  five * level,
 
-            Normal::Grind =>  seven,
-            Normal::Smack =>  seven,
-            Normal::Melt =>  seven,
-            Normal::Slice =>  seven,
-            Normal::Freeze => seven,
-            Normal::None => empty,
+            Normal::Grind =>  seven * level,
+            Normal::Smack =>  seven * level,
+            Normal::Melt =>  seven * level,
+            Normal::Slice =>  seven * level,
+            Normal::Freeze => seven * level,
+            Normal::None => empty * level,
             // Normal:: => one,
         }
     }
@@ -373,6 +373,6 @@ pub trait ManaCost<T:Copy
                       + SubAssign
                       + std::cmp::PartialOrd
                       + num::NumCast> {
-    fn mp_cost(&self, _input:T) -> T;
+    fn damage(&self, level:T) -> T;
     fn mp_total(&self, _input:T) -> T;
 }
