@@ -199,7 +199,7 @@ impl<T:Copy
             Normal::Tackle => one * level,
             Normal::Spin => one * level,
 
-            Normal::Slash =>  five, * level
+            Normal::Slash =>  five * level,
             Normal::Burn =>  five * level,
             Normal::Blur => five * level,
             Normal::Splash =>  five * level,

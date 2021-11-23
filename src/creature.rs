@@ -1,5 +1,5 @@
 /*!
-# Creature Stats
+# Stats Stats
 */
 use std::fmt;
 //use strum::IntoEnumIterator;
@@ -29,7 +29,7 @@ use fltk_form_derive::*;
 use fltk_form::{FltkForm, HasProps};
 
 /*
-# Creature Stats
+# Stats Stats
 
 These stats exist for the sole purpose of raising and training creatures
 This stat is
@@ -483,13 +483,13 @@ impl Stats {
         }
     }
     
-    pub fn damage_attack(&mut self, atk_move:Special, other:Creature) -> f64 {
+    pub fn damage_attack(&mut self, atk_move:Special, other:Stats) -> f64 {
         //first math
-        let dmg = self.get_damage(atk_move.clone(), other.element1);
+        let dmg = atk_move.damage(self.level);
         dmg * self.atk
     }
-    pub fn special(&mut self, id:usize, other:Creature) -> Option<f64> {
-        let vec = self.moves.clone();
+    pub fn special(&mut self, id:usize, other:Stats) -> Option<f64> {
+        let vec = self.moves().clone();
         if vec.len() < id {
             return None
         }
