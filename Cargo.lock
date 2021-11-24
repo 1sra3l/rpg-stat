@@ -92,8 +92,7 @@ dependencies = [
 [[package]]
 name = "fltk-form"
 version = "0.1.1"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "0d16e4e17f22f91e1ce1fadff52c0ef6354b1a24a5d42039fc220900596dfc2f"
+source = "git+https://github.com/1sra3l/fltk-form.git#fd81d478b09f9df56db748fcaff0217eabd3cdbd"
 dependencies = [
  "fltk",
  "fltk-form-derive",
@@ -102,8 +101,7 @@ dependencies = [
 [[package]]
 name = "fltk-form-derive"
 version = "0.1.0"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "68027bf98b317ef3e06c85dc53d4297e308f05ea3425045dc8a8aff17d58e0d5"
+source = "git+https://github.com/1sra3l/fltk-form.git#fd81d478b09f9df56db748fcaff0217eabd3cdbd"
 dependencies = [
  "proc-macro2",
  "quote",

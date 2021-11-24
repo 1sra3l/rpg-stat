@@ -73,7 +73,7 @@ fn fltk_main() {
         .with_size(300, 200)
         .center_of_parent();
     // inside group
-    let form = my_struct.generate();
+    let form = my_struct.view();
     grp.end();
     let mut btn = button::Button::default()
         .with_label("print")
@@ -97,8 +97,8 @@ fn fltk_main() {
 }
 
 fn main() {
-    //fltk_main();
-    //return;
+    fltk_main();
+    return;
     let yaml = load_yaml!("cli.yaml");
     let matches = App::from(yaml).get_matches();
 
