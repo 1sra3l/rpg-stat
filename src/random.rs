@@ -106,7 +106,7 @@ pub fn random_creature_name() -> String {
         3 => String::from("la"),
         4 => String::from("hu"),
         5 => String::from("ni"),
-        7 => String::from("a"),
+        7 => String::from("ba"),
         8 => String::from("la"),
         _=> String::from("na"),
     };
@@ -118,9 +118,9 @@ pub fn random_creature_name() -> String {
         1 => String::from("le"),
         2 => String::from("di"),
         3 => String::from("to"),
-        4 => String::from("ph"),
-        5 => String::from("g"),
-        7 => String::from("tt"),
+        4 => String::from("phu"),
+        5 => String::from("go"),
+        7 => String::from("tto"),
         8 => String::from(""),
         _=> String::from(""),
     };
@@ -128,15 +128,15 @@ pub fn random_creature_name() -> String {
     //Syllable 4
     let val = random_0max(max);
     let name_second:String = match val {
-        0 => String::from("el"),
-        1 => String::from("ous"),
-        2 => String::from("ine"),
+        0 => String::from("l"),
+        1 => String::from("s"),
+        2 => String::from("ne"),
         3 => String::from("le"),
         4 => String::from(""),
-        5 => String::from("er"),
+        5 => String::from("ar"),
         7 => String::from("om"),
-        8 => String::from("oph"),
-        _=> String::from("ette"),
+        8 => String::from("ph"),
+        _=> String::from("te"),
     };
     name.push_str(name_second.as_str());
     name
