@@ -247,14 +247,6 @@ use rpgstat::special::Normal as Special;
 let grind:Special = Special::Grind;
 ```
 
-You can get the prebuilt `mp_cost()`:
-```
-use rpgstat::special::ManaCost;
-use rpgstat::special::Normal as Special;
-let grind:Special = Special::Grind;
-assert_eq!(grind.mp_cost(0), 7);
-```
-
 # Effect
 This composes the various Effects in-game related to a character's Stats
 

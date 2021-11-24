@@ -11,6 +11,8 @@ use fltk_form_derive::*;
 #[cfg(feature = "fltkform")]
 use fltk_form::{FltkForm, HasProps};
 
+use std::fmt;
+
 // #Condition
 use crate::effect::Normal as Effect;
 // #Element
@@ -26,6 +28,7 @@ This defines the functions for an item
 
 These Are applied to all *Item* types
 
+TODO actual economic functions to vary prices
 */
 pub trait Item {
     fn value(&self) -> f64;
@@ -39,6 +42,22 @@ pub enum Basic {
     Hp,
     Mp,
     None,
+}
+impl Default for Basic {
+    fn default() -> Self {
+        Self::None
+    }
+}
+impl fmt::Display for Basic {
+    fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
+        let v:String;
+        match *self {
+            Basic::Hp => v = String::from("Hp"),
+            Basic::Mp => v = String::from("Mp"),
+            Basic::None => v = String::from(""),
+        }
+        write!(f, "{}", v.as_str())
+    }
 }
 impl Item for Basic {
     fn value(&self) -> f64 {
@@ -76,6 +95,28 @@ pub enum Normal {
     Speed,
     Special,
     None,
+}
+impl Default for Normal {
+    fn default() -> Self {
+        Self::None
+    }
+}
+impl fmt::Display for Normal {
+    fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
+        let v:String;
+        match *self {
+            Normal::Hp => v = String::from("Hp"),
+            Normal::Mp => v = String::from("Mp"),
+            Normal::Heal => v = String::from("Heal"),
+            Normal::Exp => v = String::from("Exp"),
+            Normal::Def => v = String::from("Def"),
+            Normal::Atk => v = String::from("Atk"),
+            Normal::Speed => v = String::from("Speed"),
+            Normal::Special => v = String::from("Special"),
+            Normal::None => v = String::from(""),
+        }
+        write!(f, "{}", v.as_str())
+    }
 }
 impl Item for Normal {
     fn value(&self) -> f64 {
@@ -132,7 +173,33 @@ pub enum Advanced {
     Special,
     Crystal,
     Powder,
+    Gem,
     None,
+}
+impl Default for Advanced {
+    fn default() -> Self {
+        Self::None
+    }
+}
+impl fmt::Display for Advanced {
+    fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
+        let v:String;
+        match *self {
+            Advanced::Hp => v = String::from("Hp"),
+            Advanced::Mp => v = String::from("Mp"),
+            Advanced::Heal => v = String::from("Heal"),
+            Advanced::Exp => v = String::from("Exp"),
+            Advanced::Def => v = String::from("Def"),
+            Advanced::Atk => v = String::from("Atk"),
+            Advanced::Speed => v = String::from("Speed"),
+            Advanced::Special => v = String::from("Special"),
+            Advanced::Crystal => v = String::from("Crystal"),
+            Advanced::Powder => v = String::from("Powder"),
+            Advanced::Gem  => v = String::from("Gem"),
+            Advanced::None => v = String::from(""),
+        }
+        write!(f, "{}", v.as_str())
+    }
 }
 impl Item for Advanced {
     fn value(&self) -> f64 {
@@ -147,6 +214,7 @@ impl Item for Advanced {
             Advanced::Special => 1.0,
             Advanced::Crystal => 30.0,
             Advanced::Powder => 40.0,
+            Advanced::Gem => 50.0,
             _=> 0.0,
         }
     }
@@ -162,6 +230,7 @@ impl Item for Advanced {
             Advanced::Special => 100.0,
             Advanced::Crystal => 40.0,
             Advanced::Powder => 30.0,
+            Advanced::Gem => 150.0,
             _=> 0.0,
         }
     }
@@ -177,6 +246,7 @@ impl Item for Advanced {
             Advanced::Special => 50.0,
             Advanced::Crystal => 20.0,
             Advanced::Powder => 15.0,
+            Advanced::Gem => 90.0,
             _=> 0.0,
         }
     }

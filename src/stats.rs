@@ -541,29 +541,27 @@ pub trait NormalPremade<T:Copy
         res
     }
 }
-
 /*
 # The Normal
 
 This model provides fine tuning of attack and defense without needing all the fine tuning of a full stat sheet
 */
 #[derive( Debug, Clone, Copy, PartialEq, Serialize, Deserialize)]
-pub struct Normal<T:Copy
-    + Default
-    + Debug
-    + AddAssign
-    + Add<Output = T>
-    + Div<Output = T>
-    + DivAssign
-    + Mul<Output = T>
-    + MulAssign
-    + Neg<Output = T>
-    + Rem<Output = T>
-    + RemAssign
-    + Sub<Output = T>
-    + SubAssign
-    + std::cmp::PartialOrd
-    + num::NumCast> {
+pub struct Normal<T:Copy 
+                 + Default
+                 + AddAssign
+                 + Add<Output = T>
+                 + Div<Output = T>
+                 + DivAssign
+                 + Mul<Output = T>
+                 + MulAssign
+                 + Neg<Output = T>
+                 + Rem<Output = T>
+                 + RemAssign
+                 + Sub<Output = T>
+                 + SubAssign
+                 + std::cmp::PartialOrd
+                 + num::NumCast> {
     /// Identification Number
     pub id:T,
     // Name
@@ -596,9 +594,8 @@ pub struct Normal<T:Copy
     pub m_def:T,
 
 }
-impl<T:Copy
+impl<T:Copy 
     + Default
-    + Debug
     + AddAssign
     + Add<Output = T>
     + Div<Output = T>
@@ -635,9 +632,8 @@ impl<T:Copy
     }
 }
 
-impl<T:Copy
+impl<T:Copy 
     + Default
-    + Debug
     + AddAssign
     + Add<Output = T>
     + Div<Output = T>
@@ -656,6 +652,7 @@ impl<T:Copy
         Self::empty::<T>()
     }
 }
+
 /*
 Premade trait for Advanced Stat
 You simply define the function `stat()` to return the `Advanced<T>` associated with your code.
@@ -976,3 +973,73 @@ impl<T:Copy
     }
 }
 
+/*
+# The FLTK
+
+This model provides fine tuning of attack and defense without needing all the fine tuning of a full stat sheet
+*/
+#[derive( Debug, Clone, PartialEq, Serialize, Deserialize)]
+#[cfg_attr(feature = "fltkform", derive(FltkForm))]
+pub struct Stats {
+    /// Identification Number
+    pub id:f64,
+    // Name
+    pub name:String,
+    /// Experience Points
+    pub xp:f64,
+    /// Health Points
+    pub hp:f64,
+    /// Mana Points
+    pub mp:f64,
+    /// Experience Points multiplier for next level
+    pub xp_next:f64,
+    /// Max Health Points
+    pub hp_max:f64,
+    /// Max Mana Points
+    pub mp_max:f64,
+    /// Current Level
+    pub level:f64,
+    /// The speed
+    pub speed:f64,
+    /// your currency points
+    pub gp:f64,
+    /// Attack
+    pub atk:f64,
+    /// Defense
+    pub def:f64,
+    /// Mana Attack
+    pub m_atk:f64,
+    /// Mana Defense
+    pub m_def:f64,
+
+}
+impl Stats {
+    
+    /// make empty stats
+    pub fn empty() -> Self {
+        Stats {
+            name: String::from("Ferris"),
+            id:0.0,
+            xp:0.0,
+            xp_next:0.0,
+            mp:0.0,
+            hp:0.0,
+            mp_max:0.0,
+            hp_max:0.0,
+            level:0.0,
+            speed:0.0,
+            gp:0.0,
+            atk:0.0,
+            def:0.0,
+            m_atk:0.0,
+            m_def:0.0,
+        }
+    }
+}
+
+impl Default for Stats {
+    /// Default to empty
+    fn default() -> Self {
+        Self::empty()
+    }
+}

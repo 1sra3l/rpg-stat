@@ -53,12 +53,6 @@ char = 10
 wis = 10
 age = 10"#;
 
-
-    #[test]
-    fn special_type(){
-        let grind:Special = Special::Grind;
-        assert_eq!(grind.mp_cost(0), 7);
-    }
     // used in effectiveness test below
     #[derive(Clone, PartialEq, Debug, Serialize, Deserialize)]
     pub struct OccasionalEnemy {
