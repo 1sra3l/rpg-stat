@@ -10,7 +10,7 @@ pub trait Random {
     fn random(&self, min:f64, max:f64) -> f64 {
         let mut rng = thread_rng();
         let n: f64 = rng.gen_range(min..max);
-        n
+        (n * 0.5).round() / 0.5
     }
     /// 
     fn half(&self) -> bool {
