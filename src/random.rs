@@ -85,28 +85,58 @@ pub fn random_character_name() ->String {
 pub fn random_creature_name() -> String {
     let max = 8;
     let val = random_0max(max);
+    //Syllable 1
     let mut name:String = match val {
-        0 => String::from("Muga"),
-        1 => String::from("Pory"),
-        2 => String::from("Dyno"),
-        3 => String::from("Mela"),
-        4 => String::from("Ashu"),
-        5 => String::from("Deni"),
-        7 => String::from("Ega"),
-        8 => String::from("Bela"),
-        _=> String::from("Raina"),
+        0 => String::from("Mu"),
+        1 => String::from("Po"),
+        2 => String::from("Dy"),
+        3 => String::from("Me"),
+        4 => String::from("As"),
+        5 => String::from("De"),
+        7 => String::from("Eg"),
+        8 => String::from("Be"),
+        _=> String::from("Rai"),
     };
+    //Syllable 2
     let val = random_0max(max);
     let name_second:String = match val {
-        0 => String::from("nel"),
-        1 => String::from("leous"),
-        2 => String::from("dine"),
-        3 => String::from("tole"),
-        4 => String::from("phous"),
-        5 => String::from("ger"),
-        7 => String::from("tom"),
-        8 => String::from("toph"),
-        _=> String::from("fel"),
+        0 => String::from("ga"),
+        1 => String::from("ry"),
+        2 => String::from("no"),
+        3 => String::from("la"),
+        4 => String::from("hu"),
+        5 => String::from("ni"),
+        7 => String::from("a"),
+        8 => String::from("la"),
+        _=> String::from("na"),
+    };
+    name.push_str(name_second.as_str());
+    //Syllable 3
+    let val = random_0max(max);
+    let name_second:String = match val {
+        0 => String::from("ni"),
+        1 => String::from("le"),
+        2 => String::from("di"),
+        3 => String::from("to"),
+        4 => String::from("ph"),
+        5 => String::from("g"),
+        7 => String::from("tt"),
+        8 => String::from(""),
+        _=> String::from(""),
+    };
+    name.push_str(name_second.as_str());
+    //Syllable 4
+    let val = random_0max(max);
+    let name_second:String = match val {
+        0 => String::from("el"),
+        1 => String::from("ous"),
+        2 => String::from("ine"),
+        3 => String::from("le"),
+        4 => String::from(""),
+        5 => String::from("er"),
+        7 => String::from("om"),
+        8 => String::from("oph"),
+        _=> String::from("ette"),
     };
     name.push_str(name_second.as_str());
     name
