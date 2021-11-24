@@ -137,8 +137,8 @@ use serde::{Deserialize, Serialize};
 extern crate num;
 //use num::NumCast;
 use std::ops::{Add, AddAssign,  Div, DivAssign, Mul, MulAssign, Neg, Rem, RemAssign, Sub, SubAssign};
-
 use std::fmt::Debug;
+
 #[cfg(feature = "fltkform")]
 use fltk::{prelude::*, *};
 #[cfg(feature = "fltkform")]
@@ -149,6 +149,9 @@ use fltk_form::{FltkForm, HasProps};
 use std::collections::HashMap;
 #[cfg(feature = "fltkform")]
 use std::mem::transmute;
+
+
+use crate::random::*;
 
 /*
 # Builder
@@ -1012,6 +1015,38 @@ pub struct Stats {
     /// Mana Defense
     pub m_def:f64,
 
+}
+impl Random for Stats {
+    type Type = Stats;
+    fn random_type(&self) -> Self::Type {
+        let hp = self.random(10.0,50.0);
+        let atk = self.random(5.0,50.0);
+        let def = self.random(5.0,50.0);
+        let mp = self.random(10.0,50.0);
+        let m_atk = self.random(5.0,50.0);
+        let m_def = self.random(5.0,50.0);
+        let speed = self.random(5.0,50.0);
+        let gp = self.random(0.0, 30.0);
+        Stats {
+            id:self.random(0.0, 100.0),
+            name:random_character_name(),
+            xp:0.0,
+            xp_next:10.0,
+            level:1.0,
+            hp_max:hp,
+            hp:hp,
+            mp_max:mp,
+            mp:mp,
+            atk:atk,
+            def:def,
+            m_atk:m_atk,
+            m_def:m_def,
+            speed:speed,
+            gp:gp,
+            
+        }
+    }
+    
 }
 impl Stats {
     

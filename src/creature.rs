@@ -177,7 +177,7 @@ impl Random for Stats {
             def_xp:def,
             speed_xp:speed,
             special_xp:special,
-            level:0.0,
+            level:1.0,
             hp_max:hp,
             hp:hp,
             atk:atk,
