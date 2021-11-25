@@ -99,6 +99,7 @@ use crate::stats::Basic as BasicStats;
 use crate::stats::Normal as NormalStats;
 use crate::stats::Advanced as AdvancedStats;
 use crate::stats::Builder;
+use crate::random::*;
 
 /*
 Alignement allows for the creation of multile outcomes in situations
@@ -950,12 +951,12 @@ impl fmt::Display for Advanced {
         let v:String;
         match *self {
             Advanced::Adventurer => v = String::from("Adventurer"),
-            Advanced::Artistan => v = String::from("Artistan"),
+            Advanced::Artisan => v = String::from("Artisan"),
             Advanced::Clergy => v = String::from("Clergy"),
             Advanced::Governmental => v = String::from("Governmental"),
             Advanced::Sailor => v = String::from("Sailor"),
             Advanced::Worker => v = String::from("Worker"),
-            Advanced::Horder => v = String::from("Horder"),
+            Advanced::Hoarder => v = String::from("Hoarder"),
             Advanced::Community => v = String::from("Community"),
             Advanced::Sport => v = String::from("Sport"),
             Advanced::Solo => v = String::from("Solo"),
@@ -983,7 +984,7 @@ impl fmt::Display for Advanced {
             Advanced::Teacher => v = String::from("Teacher"),
             Advanced::Spiritual => v = String::from("Spiritual"),
             Advanced::Farmer => v = String::from("Farmer"),
-            Advanced::Metalurgist => v = String::from("Metalurgist"),
+            Advanced::Metallurgist => v = String::from("Metallurgist"),
             Advanced::Archivist => v = String::from("Archivist"),
             Advanced::Janitor => v = String::from("Janitor"),
             Advanced::Cook => v = String::from("Cook"),
@@ -1003,12 +1004,12 @@ impl Random for Advanced {
         let val = self.random_rate(max);
         match val {
             0 => Advanced::Adventurer,
-            1 => Advanced::Artistan,
+            1 => Advanced::Artisan,
             2 => Advanced::Clergy,
             3 => Advanced::Governmental,
             4 => Advanced::Sailor,
             5 => Advanced::Worker,
-            6 => Advanced::Horder,
+            6 => Advanced::Hoarder,
             7 => Advanced::Community,
             8 => Advanced::Sport,
             9 => Advanced::Solo,
@@ -1036,7 +1037,7 @@ impl Random for Advanced {
             31 => Advanced::Teacher,
             32 => Advanced::Spiritual,
             33 => Advanced::Farmer,
-            34 => Advanced::Metalurgist,
+            34 => Advanced::Metallurgist,
             35 => Advanced::Archivist,
             36 => Advanced::Janitor,
             37 => Advanced::Cook,

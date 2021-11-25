@@ -45,6 +45,7 @@ extern crate clap;
 use clap::{App, load_yaml};
 use toml::*;
 use serde::{Deserialize, Serialize};
+use std::cfg;
 
 
 // fltkform features
@@ -97,8 +98,11 @@ fn fltk_main() {
 }
 
 fn main() {
-    fltk_main();
-    return;
+    #[cfg(feature = "fltkform")]
+    {
+        fltk_main();
+        return;
+    }
     let yaml = load_yaml!("cli.yaml");
     let matches = App::from(yaml).get_matches();
 

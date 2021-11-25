@@ -96,6 +96,7 @@ use fltk_form::{FltkForm, HasProps};
 
 //our stuff
 use crate::attributes::Effectiveness;
+use crate::random::*;
 
 /*
 # Compare

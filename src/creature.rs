@@ -14,7 +14,6 @@ use crate::special::Normal as Special;
 use crate::special::ManaCost;
 use crate::item::Item;
 use crate::item::Normal as MyItem;
-use crate::attributes::Rate;
 // #Condition
 use crate::effect::Normal as Condition;
 // #Element
