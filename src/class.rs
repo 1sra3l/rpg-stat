@@ -846,83 +846,206 @@ impl<T:Copy
     }
 }
 /*
-The Advanced group includes more support type characters.  Thhese classes can be used primarily for NPC type characters in games as well as the `Normal` types also included in `Advanced`
+# Advanced
 
-You can couple these things with `Alignment` to produce variations on Monks, Elementals, Alchemists, etc..
 
-## Builder
-
-Make anything pretty easily from built in classes
-
-```
-use rpgstat::stat::Builder;
-use rpgstat::stat::Advanced as Stat;
-use rpgstat::class::Advanced as Class;
-use rpgstat::stats::Builder;
-let class:Class = Class::Artisan;
-let stat:Stat<f64> = class.build_advanced();
-```
 */
-#[allow(unused)]
-#[derive(Clone, PartialEq, Copy, Debug, Serialize, Deserialize, EnumIter)]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, EnumIter, Deserialize, Serialize)]
 #[cfg_attr(feature = "fltkform", derive(FltkForm))]
+///  `Advanced`
 pub enum Advanced {
-    /// The goal is to discover new things without needing to get into fights
+    /// Adventurer - 
     Adventurer,
-    /// Scientist who creates useful medicines
-    Alchemist,
-    /// Often found hunting for game
-    Archer,
-    /// Crafting and creating goods of many uses
-    Artistan,
-    /// Focused solely on support for other players/characters and their healing
+    /// Artisan - 
+    Artisan,
+    /// Clergy - 
     Clergy,
-    /// Devoted to studying the elements and harnessing their powers
-    Elemental,
-    /// People devoted to keeping roads fixed and laws in place
+    /// Governmental - 
     Governmental,
-    /// A  protector of the `Governmental` class
-    Knight,
-    /// Devoted to reading really old books and figuring out really old combinations of substances
-    Monk,
-    /// Into life magic, which overcomes death magic
-    Priest,
-    /// Known to do well in fights, they generally keep to the sea
+    /// Sailor - 
     Sailor,
-    /// Travelling abroad to wage wars, they return infrequently
-    Soldier,
-    /// Incredibly stealthy, this rounded character can survive any environment
-    Ranger,
-    /// The elite female warriors from the deepest coldest winters
-    Valkyrie,
-    /// One of the various classes of people who work
+    /// Worker - 
     Worker,
+    /// Hoarder - 
+    Hoarder,
+    /// Community - 
+    Community,
+    /// Sport - 
+    Sport,
+    /// Solo - 
+    Solo,
+    /// Research - 
+    Research,
+    /// Scientist - 
+    Scientist,
+    /// Engineer - 
+    Engineer,
+    /// Clown - 
+    Clown,
+    /// Musician - 
+    Musician,
+    /// Baker - 
+    Baker,
+    /// Gardener - 
+    Gardener,
+    /// Boring - 
+    Boring,
+    /// Random - 
+    Random,
+    /// Gambler - 
+    Gambler,
+    /// Bicyclist - 
+    Bicyclist,
+    /// SkateBoarder - 
+    SkateBoarder,
+    /// Climber - 
+    Climber,
+    /// Watcher - 
+    Watcher,
+    /// Spy - 
+    Spy,
+    /// Shinobi - 
+    Shinobi,
+    /// Samurai - 
+    Samurai,
+    /// Shaolin - 
+    Shaolin,
+    /// Knitter - 
+    Knitter,
+    /// Crocheter - 
+    Crocheter,
+    /// Student - 
+    Student,
+    /// Teacher - 
+    Teacher,
+    /// Spiritual - 
+    Spiritual,
+    /// Farmer - 
+    Farmer,
+    /// Metallurgist - 
+    Metallurgist,
+    /// Archivist - 
+    Archivist,
+    /// Janitor - 
+    Janitor,
+    /// Cook - 
+    Cook,
+    /// Florist - 
+    Florist,
+    /// HomeMaker - 
+    HomeMaker,
+    /// Actor - 
+    Actor,
+    /// GameMaker - 
+    GameMaker,
+    None,
 }
 impl Default for Advanced {
     fn default() -> Self {
-        Self::Worker
+        Self::None
     }
 }
-impl fmt::Display for  Advanced{
+impl fmt::Display for Advanced {
     fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
         let v:String;
         match *self {
             Advanced::Adventurer => v = String::from("Adventurer"),
-            Advanced::Alchemist => v = String::from("Alchemist"),
-            Advanced::Archer => v = String::from("Archer"),
             Advanced::Artistan => v = String::from("Artistan"),
             Advanced::Clergy => v = String::from("Clergy"),
-            Advanced::Elemental => v = String::from("Elemental"),
             Advanced::Governmental => v = String::from("Governmental"),
-            Advanced::Knight => v = String::from("Knight"),
-            Advanced::Monk => v = String::from("Monk"),
-            Advanced::Priest => v = String::from("Priest"),
             Advanced::Sailor => v = String::from("Sailor"),
-            Advanced::Soldier => v = String::from("Soldier"),
-            Advanced::Ranger => v = String::from("Ranger"),
-            Advanced::Valkyrie => v = String::from("Valkyrie"),
             Advanced::Worker => v = String::from("Worker"),
+            Advanced::Horder => v = String::from("Horder"),
+            Advanced::Community => v = String::from("Community"),
+            Advanced::Sport => v = String::from("Sport"),
+            Advanced::Solo => v = String::from("Solo"),
+            Advanced::Research => v = String::from("Research"),
+            Advanced::Scientist => v = String::from("Scientist"),
+            Advanced::Engineer => v = String::from("Engineer"),
+            Advanced::Clown => v = String::from("Clown"),
+            Advanced::Musician => v = String::from("Musician"),
+            Advanced::Baker => v = String::from("Baker"),
+            Advanced::Gardener => v = String::from("Gardener"),
+            Advanced::Boring => v = String::from("Boring"),
+            Advanced::Random => v = String::from("Random"),
+            Advanced::Gambler => v = String::from("Gambler"),
+            Advanced::Bicyclist => v = String::from("Bicyclist"),
+            Advanced::SkateBoarder => v = String::from("SkateBoarder"),
+            Advanced::Climber => v = String::from("Climber"),
+            Advanced::Watcher => v = String::from("Watcher"),
+            Advanced::Spy => v = String::from("Spy"),
+            Advanced::Shinobi => v = String::from("Shinobi"),
+            Advanced::Samurai => v = String::from("Samurai"),
+            Advanced::Shaolin => v = String::from("Shaolin"),
+            Advanced::Knitter => v = String::from("Knitter"),
+            Advanced::Crocheter => v = String::from("Crocheter"),
+            Advanced::Student => v = String::from("Student"),
+            Advanced::Teacher => v = String::from("Teacher"),
+            Advanced::Spiritual => v = String::from("Spiritual"),
+            Advanced::Farmer => v = String::from("Farmer"),
+            Advanced::Metalurgist => v = String::from("Metalurgist"),
+            Advanced::Archivist => v = String::from("Archivist"),
+            Advanced::Janitor => v = String::from("Janitor"),
+            Advanced::Cook => v = String::from("Cook"),
+            Advanced::Florist => v = String::from("Florist"),
+            Advanced::HomeMaker => v = String::from("HomeMaker"),
+            Advanced::Actor => v = String::from("Actor"),
+            Advanced::GameMaker => v = String::from("GameMaker"),
+            _=> v = String::from("None"),
         }
         write!(f, "{}", v.as_str())
     }
+}
+impl Random for Advanced {
+    type Type = Advanced;
+    fn random_type(&self) -> Self::Type {
+        let max = 42;
+        let val = self.random_rate(max);
+        match val {
+            0 => Advanced::Adventurer,
+            1 => Advanced::Artistan,
+            2 => Advanced::Clergy,
+            3 => Advanced::Governmental,
+            4 => Advanced::Sailor,
+            5 => Advanced::Worker,
+            6 => Advanced::Horder,
+            7 => Advanced::Community,
+            8 => Advanced::Sport,
+            9 => Advanced::Solo,
+            10 => Advanced::Research,
+            11 => Advanced::Scientist,
+            12 => Advanced::Engineer,
+            13 => Advanced::Clown,
+            14 => Advanced::Musician,
+            15 => Advanced::Baker,
+            16 => Advanced::Gardener,
+            17 => Advanced::Boring,
+            18 => Advanced::Random,
+            19 => Advanced::Gambler,
+            20 => Advanced::Bicyclist,
+            21 => Advanced::SkateBoarder,
+            22 => Advanced::Climber,
+            23 => Advanced::Watcher,
+            24 => Advanced::Spy,
+            25 => Advanced::Shinobi,
+            26 => Advanced::Samurai,
+            27 => Advanced::Shaolin,
+            28 => Advanced::Knitter,
+            29 => Advanced::Crocheter,
+            30 => Advanced::Student,
+            31 => Advanced::Teacher,
+            32 => Advanced::Spiritual,
+            33 => Advanced::Farmer,
+            34 => Advanced::Metalurgist,
+            35 => Advanced::Archivist,
+            36 => Advanced::Janitor,
+            37 => Advanced::Cook,
+            38 => Advanced::Florist,
+            39 => Advanced::HomeMaker,
+            40 => Advanced::Actor,
+            41 => Advanced::GameMaker,
+            _=> Advanced::None,
+        }
+    }
+    
 }

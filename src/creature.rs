@@ -14,10 +14,12 @@ use crate::special::Normal as Special;
 use crate::special::ManaCost;
 use crate::item::Item;
 use crate::item::Normal as MyItem;
+use crate::attributes::Rate;
 // #Condition
 use crate::effect::Normal as Condition;
 // #Element
 use crate::types::Normal as Element;
+use crate::types::Advanced as Element2;
 use crate::attributes::{Stage, Rate, Effectiveness};
 use crate::random::*;
 
@@ -32,7 +34,7 @@ use fltk_form::{FltkForm, HasProps};
 # Stats Stats
 
 These stats exist for the sole purpose of raising and training creatures
-This stat is
+This stat is based off of the ideas of the original Pokemon save memory data structure, but for use with the rpgstat library.
 */
 #[derive( Debug, Clone, PartialEq, Serialize, Deserialize)]
 #[cfg_attr(feature = "fltkform", derive(FltkForm))]
@@ -43,11 +45,14 @@ pub struct Stats {
     pub name:String,
     /// Current Stage
     pub form:Stage,
-    ///
+    /// Current status/ailment condition
     pub condition:Condition,
+    /// Normal element type
     pub element1:Element,
-    pub element2:Element,
-    pub rate:f64,
+    /// Advanced element type
+    pub element2:Element2,
+    /// The rate of occurrence, or rate of success
+    pub rate:Rate,
     /// this is the owner's id
     pub owner:u32,
     /// level cycle xp (for display)
@@ -141,14 +146,15 @@ impl Random for Stats {
         let item = MyItem::None;
         let move0 = spec.random_type();
         let move1 = spec.random_type();
+        let mut rate = Rate::None;
         Stats {
             id:self.random_rate(100),
             name:random_creature_name(),
             form:form.random_type(),
             condition:Condition::None,
             element1:elem,
-            element2:Element::None,
-            rate:self.random(5.0,90.0),
+            element2:Element2::None,
+            rate:rate.random_type(),
             move0:move0,
             move0_mp:move0.mp_total(0.0),
             move1:move1,
@@ -191,6 +197,12 @@ impl Random for Stats {
     
 }
 impl Stats {
+    pub fn check_capture(&self) -> bool {
+        self.rate.worked()
+    }
+    pub fn check_encounter(&self) -> bool {
+        self.rate.worked()
+    }
     pub fn heal(&mut self, value:f64) -> bool {
         if value < 0.0 {
             return false;
@@ -245,8 +257,8 @@ impl Stats {
             form:Stage::Baby,
             condition:Condition::None,
             element1:Element::None,
-            element2:Element::None,
-            rate:0.0,
+            element2:Element2::None,
+            rate:Rate::None,
             item0:MyItem::None,
             items0:0.0,
             item1:MyItem::None,

@@ -257,42 +257,7 @@ impl<T:Copy
 #[derive(Debug, Clone, Copy, PartialEq, Eq, EnumIter, Deserialize, Serialize)]
 #[cfg_attr(feature = "fltkform", derive(FltkForm))]
 pub enum Advanced {
-        /// The generic wrestling attack
-    Tackle,
-    /// Picking up and throwing an enemy a short distance
-    Toss,
-    /// Picking up and throwing an enemy very hard
-    Throw,
-    /// using claws, beaks or other sharp objects
-    Slash,
-    /// Reducing an enemy's core temperature and effecting their skin
-    Freeze,
-    /// Increasing an enemy's core temperature and effecting their skin
-    Burn,
-    /// Much more intensity than burn
-    Melt,
-    /// more intensity than tackle
-    Crush,
-    /// WAY more intensity than crush
-    Grind,
-    /// generic physical hit
-    Hit,
-    // not as powerful as Hit
-    Slap,
-    /// almost as powerful as Hit
-    Smack,
-    /// More powerful than Hit 
-    Whip,
-    /// More powerful than Slash
-    Slice,
-    /// disorienting attack
-    Spin,
-    /// more powerful than Spin
-    Blur,
-    /// Similar in power to Whip
-    Strike,
-    /// Much less powerful than Freeze
-    Splash,
+    /// 
     /// None
     None,
 }
@@ -302,24 +267,6 @@ impl Random for Advanced {
         let max = 18;
         let val = self.random_rate(max);
         match val {
-            0 => Advanced::Tackle,
-            1 => Advanced::Toss,
-            2 => Advanced::Throw,
-            3 => Advanced::Slash,
-            4 => Advanced::Freeze,
-            5 => Advanced::Burn,
-            6 => Advanced::Melt,
-            7 => Advanced::Crush,
-            8 => Advanced::Grind,
-            9 => Advanced::Hit,
-            10 => Advanced::Slap,
-            11 => Advanced::Smack,
-            12 => Advanced::Whip,
-            13 => Advanced::Slice,
-            14 => Advanced::Spin,
-            15 => Advanced::Blur,
-            16 => Advanced::Strike,
-            17 => Advanced::Splash,
             _=> Advanced::None,
         }
     }
@@ -333,24 +280,6 @@ impl fmt::Display for Advanced {
     fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
         let v:String;
         match *self {
-            Advanced::Toss => v = "Toss".to_string(),
-            Advanced::Throw => v = "Throw".to_string(),
-            Advanced::Slash => v = "Slash".to_string(),
-            Advanced::Freeze => v = "Freeze".to_string(),
-            Advanced::Burn => v = "Burn".to_string(),
-            Advanced::Melt => v = "Melt".to_string(),
-            Advanced::Crush => v = "Crush".to_string(),
-            Advanced::Grind => v = "Grind".to_string(),
-            Advanced::Hit => v = "Hit".to_string(),
-            Advanced::Slap => v = "Slap".to_string(),
-            Advanced::Smack => v = "Smack".to_string(),
-            Advanced::Whip => v = "whip".to_string(),
-            Advanced::Slice => v = "Slice".to_string(),
-            Advanced::Tackle => v = "Tackle".to_string(),
-            Advanced::Spin => v = "Spin".to_string(),
-            Advanced::Blur => v = "Blur".to_string(),
-            Advanced::Strike => v = "Strike".to_string(),
-            Advanced::Splash => v = "Splash".to_string(),
             Advanced::None => v = "None".to_string(),
             //Advanced:: => v = String::from(""),
         }

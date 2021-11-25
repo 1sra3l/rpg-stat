@@ -405,29 +405,111 @@ impl Compare for Normal {
 #[derive(Debug, Clone, Copy, PartialEq, Eq, EnumIter, Deserialize, Serialize)]
 #[cfg_attr(feature = "fltkform", derive(FltkForm))]
 ///  `Advanced`
-///```rs:no_run                     
-///    ------   _  __ __     
-///      |  \ / |) |_ |_     
-///      |   |  |  |_ _/     
-///```
-/// 
-/// * rock     - earth type  
-/// * plant    - green type  
-/// * water    - liquid type 
-/// * fire     - lava type   
-/// * electric - lightning type
-/// * spirit   - holy type    
-/// * light    - laser type   
-/// * wind     - tornado type 
 pub enum Advanced {
-    Rock,
-    Plant,
-    Water,
-    Fire,
-    Electric,
-    Spirit,
-    Light,
-    Wind,
+    /// Feline - 
+    Feline,
+    /// Canine - 
+    Canine,
+    /// Rodent - 
+    Rodent,
+    /// Primate - 
+    Primate,
+    /// Bug - 
+    Bug,
+    /// Amphibian - 
+    Amphibian,
+    /// Reptile - 
+    Reptile,
+    /// Fish - 
+    Fish,
+    /// Dragon - 
+    Dragon,
+    /// Legendary - 
+    Legendary,
+    /// Plasma - 
+    Plasma,
+    /// Magma - 
+    Magma,
+    /// Crystal - 
+    Crystal,
+    /// Laser - 
+    Laser,
+    /// Tech - 
+    Tech,
+    /// Leaf - 
+    Leaf,
+    /// Patch - 
+    Patch,
+    /// Undead - 
+    Undead,
+    /// Star - 
+    Star,
+    /// Galactic - 
+    Galactic,
+    /// Kaiju - 
+    Kaiju,
+    /// Xeno - 
+    Xeno,
+    /// Paper - 
+    Paper,
+    /// Shifter - 
+    Shifter,
+    /// Gravity - 
+    Gravity,
+    /// Life - 
+    Life,
+    /// Food - 
+    Food,
+    /// Death - 
+    Death,
+    /// Mana - 
+    Mana,
+    /// Bubble - 
+    Bubble,
+    /// Seed - 
+    Seed,
+    /// Bean - 
+    Bean,
+    /// Clay - 
+    Clay,
+    /// Steel - 
+    Steel,
+    /// Iron - 
+    Iron,
+    /// Vine - 
+    Vine,
+    /// Tree - 
+    Tree,
+    /// River - 
+    River,
+    /// Ocean - 
+    Ocean,
+    /// Ember - 
+    Ember,
+    /// Lava - 
+    Lava,
+    /// Spark - 
+    Spark,
+    /// Lightning - 
+    Lightning,
+    /// Holy - 
+    Holy,
+    /// Unholy - 
+    Unholy,
+    /// Sunrise - 
+    Sunrise,
+    /// Sunset - 
+    Sunset,
+    /// Moonrise - 
+    Moonrise,
+    /// Moonset - 
+    Moonset,
+    /// Tornado - 
+    Tornado,
+    /// Breeze - 
+    Breeze,
+    /// Blustry - 
+    Blustry,
     None,
 }
 impl Default for Advanced {
@@ -439,142 +521,123 @@ impl fmt::Display for Advanced {
     fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
         let v:String;
         match *self {
-            Advanced::Rock => v = String::from("Rock"),
-            Advanced::Plant => v = String::from("Plant"),
-            Advanced::Water => v = String::from("Water"),
-            Advanced::Fire => v = String::from("Fire"),
-            Advanced::Electric => v = String::from("Electric"),
-            Advanced::Spirit => v = String::from("Spirit"),
-            Advanced::Light => v = String::from("Light"),
-            Advanced::Wind => v = String::from("Wind"),
-            Advanced::None => v = String::from("None"),
-            //Advanced:: => v = String::from(""),
+            Advanced::Feline => v = String::from("Feline"),
+            Advanced::Canine => v = String::from("Canine"),
+            Advanced::Rodent => v = String::from("Rodent"),
+            Advanced::Primate => v = String::from("Primate"),
+            Advanced::Bug => v = String::from("Bug"),
+            Advanced::Amphibian => v = String::from("Amphibian"),
+            Advanced::Reptile => v = String::from("Reptile"),
+            Advanced::Fish => v = String::from("Fish"),
+            Advanced::Dragon => v = String::from("Dragon"),
+            Advanced::Legendary => v = String::from("Legendary"),
+            Advanced::Plasma => v = String::from("Plasma"),
+            Advanced::Magma => v = String::from("Magma"),
+            Advanced::Crystal => v = String::from("Crystal"),
+            Advanced::Laser => v = String::from("Laser"),
+            Advanced::Tech => v = String::from("Tech"),
+            Advanced::Leaf => v = String::from("Leaf"),
+            Advanced::Patch => v = String::from("Patch"),
+            Advanced::Undead => v = String::from("Undead"),
+            Advanced::Star => v = String::from("Star"),
+            Advanced::Galactic => v = String::from("Galactic"),
+            Advanced::Kaiju => v = String::from("Kaiju"),
+            Advanced::Xeno => v = String::from("Xeno"),
+            Advanced::Paper => v = String::from("Paper"),
+            Advanced::Shifter => v = String::from("Shifter"),
+            Advanced::Gravity => v = String::from("Gravity"),
+            Advanced::Life => v = String::from("Life"),
+            Advanced::Food => v = String::from("Food"),
+            Advanced::Death => v = String::from("Death"),
+            Advanced::Mana => v = String::from("Mana"),
+            Advanced::Bubble => v = String::from("Bubble"),
+            Advanced::Seed => v = String::from("Seed"),
+            Advanced::Bean => v = String::from("Bean"),
+            Advanced::Clay => v = String::from("Clay"),
+            Advanced::Steel => v = String::from("Steel"),
+            Advanced::Iron => v = String::from("Iron"),
+            Advanced::Vine => v = String::from("Vine"),
+            Advanced::Tree => v = String::from("Tree"),
+            Advanced::River => v = String::from("River"),
+            Advanced::Ocean => v = String::from("Ocean"),
+            Advanced::Ember => v = String::from("Ember"),
+            Advanced::Lava => v = String::from("Lava"),
+            Advanced::Spark => v = String::from("Spark"),
+            Advanced::Lightning => v = String::from("Lightning"),
+            Advanced::Holy => v = String::from("Holy"),
+            Advanced::Unholy => v = String::from("Unholy"),
+            Advanced::Sunrise => v = String::from("Sunrise"),
+            Advanced::Sunset => v = String::from("Sunset"),
+            Advanced::Moonrise => v = String::from("Moonrise"),
+            Advanced::Moonset => v = String::from("Moonset"),
+            Advanced::Tornado => v = String::from("Tornado"),
+            Advanced::Breeze => v = String::from("Breeze"),
+            Advanced::Blustry => v = String::from("Blustry"),
+            _=> v = String::from("None"),
         }
         write!(f, "{}", v.as_str())
     }
 }
-impl Compare for Advanced {
+impl Random for Advanced {
     type Type = Advanced;
-    ///  Plant Effectiveness against a target
-    fn plant(other:Advanced) -> Effectiveness {
-        match other {
-            Advanced::Rock => Effectiveness::HalfExtra,
-            Advanced::Water => Effectiveness::Half,
-            Advanced::Fire => Effectiveness::None,
-            Advanced::Light => Effectiveness::Double,
-            Advanced::Wind => Effectiveness::Half,
-            _=> Effectiveness::Normal,
-        }
-    }
-    /// Rock Effectiveness against a target
-    fn rock(other:Advanced) -> Effectiveness {
-        match other {
-            Advanced::Plant => Effectiveness::Half,
-            Advanced::Water => Effectiveness::HalfExtra,
-            Advanced::Fire => Effectiveness::Double,
-            Advanced::Electric => Effectiveness::Double,
-            Advanced::Light => Effectiveness::Half,
-            Advanced::Wind => Effectiveness::None,
-            _=> Effectiveness::Normal,
-        }
-    }
-    /// Water Effectiveness against a target
-    fn water(other:Advanced) -> Effectiveness {
-        match other {
-            Advanced::Rock => Effectiveness::Double,
-            Advanced::Plant => Effectiveness::HalfExtra,
-            Advanced::Fire => Effectiveness::Double,
-            Advanced::Electric => Effectiveness::Half,
-            Advanced::Light => Effectiveness::None,
-            Advanced::Wind => Effectiveness::Half,
-            _=> Effectiveness::Normal,
-        }
-    }
-    /// Fire Effectiveness against a target
-    fn fire(other:Advanced) -> Effectiveness {
-        match other {
-            Advanced::Rock => Effectiveness::Half,
-            Advanced::Plant => Effectiveness::Double,
-            Advanced::Water => Effectiveness::HalfExtra,
-            Advanced::Spirit => Effectiveness::None,
-            Advanced::Wind => Effectiveness::Half,
-            _=> Effectiveness::Normal,
-        }
-    }
-    /// Electric Effectiveness against a target
-    fn electric(other:Advanced) -> Effectiveness {
-        match other {
-            Advanced::Rock => Effectiveness::Half,
-            Advanced::Plant => Effectiveness::HalfExtra,
-            Advanced::Water => Effectiveness::Double,
-            Advanced::Light => Effectiveness::None,
-            Advanced::Wind => Effectiveness::Half,
-            _=> Effectiveness::Normal,
-        }
-    }
-    /// Spirit Effectiveness against a target
-    fn spirit(other:Advanced) -> Effectiveness {
-        match other {
-            Advanced::Water => Effectiveness::None,
-            Advanced::Fire => Effectiveness::Double,
-            Advanced::Electric => Effectiveness::Half,
-            Advanced::Spirit => Effectiveness::HalfExtra,
-            Advanced::Light => Effectiveness::Half,
-            Advanced::Wind => Effectiveness::Double,
-            Advanced::None => Effectiveness::None,
-            _=> Effectiveness::Normal,
-        }
-    }
-    /// Light Effectiveness against a target
-    fn light(other:Advanced) -> Effectiveness {
-        match other {
-            Advanced::Rock => Effectiveness::Double,
-            Advanced::Plant => Effectiveness::None,
-            Advanced::Water => Effectiveness::Double,
-            Advanced::Fire => Effectiveness::None,
-            Advanced::Electric => Effectiveness::Half,
-            Advanced::Wind => Effectiveness::HalfExtra,
-            Advanced::None => Effectiveness::Half,
-            _=> Effectiveness::Normal,
-        }
-    }
-    ///  Effectiveness against a target
-    fn wind(other:Advanced) -> Effectiveness {
-        match other {
-            Advanced::Rock => Effectiveness::Double,
-            Advanced::Plant => Effectiveness::Half,
-            Advanced::Water => Effectiveness::Double,
-            Advanced::Fire => Effectiveness::None,
-            Advanced::Spirit => Effectiveness::Half,
-            Advanced::Wind => Effectiveness::HalfExtra,
-            _=> Effectiveness::Normal,
-        }
-    }
-    ///  Effectiveness against a target
-    fn none(other:Advanced) -> Effectiveness {
-        match other {
-            Advanced::Water => Effectiveness::Half,
-            Advanced::Fire => Effectiveness::Half,
-            Advanced::Electric => Effectiveness::Half,
-            Advanced::Spirit => Effectiveness::None,
-            Advanced::Light => Effectiveness::None,
-            Advanced::Wind => Effectiveness::Half,
-            _=> Effectiveness::Normal,
+    fn random_type(&self) -> Self::Type {
+        let max = 52;
+        let val = self.random_rate(max);
+        match val {
+            0 => Advanced::Feline,
+            1 => Advanced::Canine,
+            2 => Advanced::Rodent,
+            3 => Advanced::Primate,
+            4 => Advanced::Bug,
+            5 => Advanced::Amphibian,
+            6 => Advanced::Reptile,
+            7 => Advanced::Fish,
+            8 => Advanced::Dragon,
+            9 => Advanced::Legendary,
+            10 => Advanced::Plasma,
+            11 => Advanced::Magma,
+            12 => Advanced::Crystal,
+            13 => Advanced::Laser,
+            14 => Advanced::Tech,
+            15 => Advanced::Leaf,
+            16 => Advanced::Patch,
+            17 => Advanced::Undead,
+            18 => Advanced::Star,
+            19 => Advanced::Galactic,
+            20 => Advanced::Kaiju,
+            21 => Advanced::Xeno,
+            22 => Advanced::Paper,
+            23 => Advanced::Shifter,
+            24 => Advanced::Gravity,
+            25 => Advanced::Life,
+            26 => Advanced::Food,
+            27 => Advanced::Death,
+            28 => Advanced::Mana,
+            29 => Advanced::Bubble,
+            30 => Advanced::Seed,
+            31 => Advanced::Bean,
+            32 => Advanced::Clay,
+            33 => Advanced::Steel,
+            34 => Advanced::Iron,
+            35 => Advanced::Vine,
+            36 => Advanced::Tree,
+            37 => Advanced::River,
+            38 => Advanced::Ocean,
+            39 => Advanced::Ember,
+            40 => Advanced::Lava,
+            41 => Advanced::Spark,
+            42 => Advanced::Lightning,
+            43 => Advanced::Holy,
+            44 => Advanced::Unholy,
+            45 => Advanced::Sunrise,
+            46 => Advanced::Sunset,
+            47 => Advanced::Moonrise,
+            48 => Advanced::Moonset,
+            49 => Advanced::Tornado,
+            50 => Advanced::Breeze,
+            51 => Advanced::Blustry,
+            _=> Advanced::None,
         }
     }
     
-    /// Match current Type to find effectiveness of the value
-    fn effectiveness(&self, other:Advanced) -> Effectiveness {
-        match *self {
-            Advanced::Rock => Advanced::rock(other),
-            Advanced::Plant => Advanced::plant(other),
-            Advanced::Water => Advanced::water(other),
-            Advanced::Fire => Advanced::fire(other),
-            Advanced::Electric => Advanced::electric(other),
-            Advanced::Spirit => Advanced::spirit(other),
-            Advanced::Light => Advanced::light(other),
-            Advanced::Wind => Advanced::wind(other),
-            Advanced::None => Advanced::none(other),
-        }
-    }
 }

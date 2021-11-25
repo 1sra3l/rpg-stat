@@ -1,0 +1,72 @@
+#!/bin/bash
+# "${1}"
+ADVANCED="Advanced"
+ADVANCED_TYPE_LIST=("Feline" "Canine" "Rodent" "Primate" "Bug" "Amphibian" "Reptile" "Fish" "Dragon" "Legendary" "Plasma" "Magma" "Crystal" "Laser" "Tech" "Leaf" "Patch" "Undead" "Star" "Galactic" "Kaiju" "Xeno" "Paper" "Shifter" "Gravity" "Life" "Food" "Death" "Mana" "Bubble" "Seed" "Bean" "Clay" "Steel" "Iron" "Vine" "Tree" "River" "Ocean" "Ember" "Lava" "Spark" "Lightning" "Holy" "Unholy" "Sunrise" "Sunset" "Moonrise" "Moonset" "Tornado" "Breeze" "Blustry")
+CLASS_LIST=("Adventurer" "Artisan" "Clergy" "Governmental" "Sailor" "Worker" "Hoarder" "Community" "Sport" "Solo" "Research" "Scientist" "Engineer" "Clown" "Musician" "Baker" "Gardener" "Boring" "Random" "Gambler" "Bicyclist" "SkateBoarder" "Climber" "Watcher" "Spy" "Shinobi" "Samurai" "Shaolin" "Knitter" "Crocheter" "Student" "Teacher" "Spiritual" "Farmer" "Metallurgist" "Archivist" "Janitor" "Cook" "Florist" "HomeMaker" "Actor" "GameMaker")
+TYPE="${ADVANCED}"
+LIST=(${ADVANCED_TYPE_LIST[@]})
+
+HEADER="#[derive(Debug, Clone, Copy, PartialEq, Eq, EnumIter, Deserialize, Serialize)]
+#[cfg_attr(feature = \"fltkform\", derive(FltkForm))]
+///  \`${TYPE}\`
+pub enum ${TYPE} {"
+
+echo "${HEADER}"
+for ITEM in ${LIST[@]}
+do
+    OUTPUT_LINE="    /// ${ITEM} - 
+    ${ITEM},"
+    echo "${OUTPUT_LINE}"
+done
+
+echo "    None,
+}"
+# Default and Display
+IMPL="impl Default for ${TYPE} {
+    fn default() -> Self {
+        Self::None
+    }
+}
+impl fmt::Display for ${TYPE} {
+    fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
+        let v:String;
+        match *self {"
+echo "${IMPL}"
+
+for ITEM in ${LIST[@]}
+do
+    OUTPUT_LINE="            ${TYPE}::${ITEM} => v = String::from(\"${ITEM}\"),"
+    echo "${OUTPUT_LINE}"
+done
+
+
+
+END="            _=> v = String::from(\"None\"),
+        }
+        write!(f, \"{}\", v.as_str())
+    }
+}"
+echo "${END}"
+
+# Random
+RANDO="impl Random for ${TYPE} {
+    type Type = ${TYPE};
+    fn random_type(&self) -> Self::Type {
+        let max = ${#LIST[@]};
+        let val = self.random_rate(max);
+        match val {"
+echo "${RANDO}"
+iter=0
+for ITEM in ${LIST[@]}
+do
+    OUTPUT_LINE="            $iter => ${TYPE}::${ITEM},"
+    echo "${OUTPUT_LINE}"
+    iter=$(( iter + 1 ))
+done
+RAND_END="            _=> ${TYPE}::None,
+        }
+    }
+    
+}"
+
+echo "${RAND_END}"
