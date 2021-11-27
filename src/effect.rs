@@ -18,9 +18,14 @@ use fltk::{prelude::*, *};
 #[cfg(feature = "fltkform")]
 use fltk_form_derive::*;
 #[cfg(feature = "fltkform")]
-use fltk_form::{FltkForm, HasProps};
+use fltk_form::FltkForm;
 
 use crate::random::*;
+
+#[cfg(feature = "makesvg")]
+use svg::node::element::Group as SvgGroup;
+#[cfg(feature = "makesvg")]
+use crate::body::VectorView;
 
 /*
 # Basic 
@@ -100,6 +105,19 @@ pub enum Normal {
     Blocked,
     /// a lock to prevent access
     Locked,  
+}
+#[cfg(feature = "makesvg")]
+impl VectorView for Normal{
+    fn make_image(&self, x:f64, y:f64, w:f64, h:f64, color:&str, opacity:f64) -> SvgGroup {
+        match *self {
+            Normal::Poison =>self.make_face_default(x,y,w,h,"green","#502f07","#005300", "black"),
+            Normal::Freeze =>self.make_face_default(x,y,w,h,"#affbff","#502f07","#447886", "black"),
+            Normal::Sick =>self.make_face_default(x,y,w,h,"#f8ff75","#502f07","#afb453", "black"),
+            Normal::Sap =>self.make_face_default(x,y,w,h,"#5500ff","#502f07","#55007f", "black"),
+            _=> self.make_face_default(x,y,w,h, color.clone(),"#502f07","orange", "black"),//TODO Nose color...
+        }
+    }
+    //fn make_mouth(&self, x:i32, y:i32, w:i32, h:i32, color:&str) -> SvgGroup {}
 }
 impl Default for Normal {
     fn default() -> Self {

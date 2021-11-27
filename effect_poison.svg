@@ -1,0 +1,24 @@
+<svg viewBox="0 0 80 100" xmlns="http://www.w3.org/2000/svg">
+<g>
+<ellipse cx="40" cy="50" rx="40" ry="50" style="opacity:1;fill:green"/>
+<ellipse cx="40" cy="49.333333333333336" rx="8" ry="16" style="opacity:1;fill:#005300"/>
+<g>
+<ellipse cx="56" cy="42.333333333333336" rx="8" ry="8" style="opacity:0.5;fill:black"/>
+<ellipse cx="56" cy="41.333333333333336" rx="8" ry="8" style="opacity:1;fill:white"/>
+<ellipse cx="57.6" cy="38.13333333333333" rx="4" ry="4" style="opacity:1;fill:#502f07"/>
+<ellipse cx="57.6" cy="38.13333333333333" rx="2" ry="2" style="opacity:1;fill:black"/>
+</g>
+<g>
+<ellipse cx="24" cy="42.333333333333336" rx="8" ry="8" style="opacity:0.5;fill:black"/>
+<ellipse cx="24" cy="41.333333333333336" rx="8" ry="8" style="opacity:1;fill:white"/>
+<ellipse cx="25.6" cy="38.13333333333333" rx="4" ry="4" style="opacity:1;fill:#502f07"/>
+<ellipse cx="25.6" cy="38.13333333333333" rx="2" ry="2" style="opacity:1;fill:black"/>
+</g>
+<g>
+<path d="M20,73.666664 c0,18.416666,40,18.416666,40,0 z" fill="black" opacity="1"/>
+<g>
+<rect fill="white" height="6.138888888888889" rx="0.4" width="26.666666666666664" x="26.666666666666668" y="73.66666666666667"/>
+</g>
+</g>
+</g>
+</svg>

@@ -341,38 +341,7 @@ fn hero_stats () -> Stats<f64> {
 ```
 
 # Creatures
- This contains all manner of creatures.  We have `Animal` creatures, `Person` creatures, and even `Monster` creatures
 
-I have implemented `Builder` for `Animal`
- 
-# Legendary
-This contains the basics to use any creature from [Wikipedia's Legendary Creatures](https://en.wikipedia.org/wiki/Lists_of_legendary_creatures) and create `Basic`, `Normal` or `Advanced` stats.
-```rs
-use rpgstat::legendary::Legendary;
-// we want basic stats
-use rpgstat::stats::Basic as Stats;
-// this is the thing we need!
-use rpgstat::stats::Builder;
-let sc:Legendary = Legendary::SantaClaus;
-// remember build_*(id,level); if you are copy/paste XD
-let stats:Stats<f64> = sc.build_basic(0.0,1.0);
-assert_eq!(stats.hp, 10.0);
-```
-Eventually I would like to curate unique stats for each creature and have a full `long_description()` available for every creature.  This may change, however.
-
-As it stands you can still battle the `ToothFairy` against the `EasterBilby`, they will just have the exact same stats to start.  Feel free to modify them.
-
-The goal will be to read all the information from the individual files *eventually*.
-
-# Types
-
-This includes various enums related to the type of character you have
-
-`use rpgstat::types::Basic as Type`
-
- * `Basic` is the basic type `Good` or `Bad`
- * `Normal` has elemental types
- * `Advanced` has elemental types
 
 ## Compare
 
@@ -482,7 +451,9 @@ assert_eq!(stage, Stage::Teen(15));
 ```
 
 # Body
-This is to collect all the information about armor, stats, status, etc, based on each body part.  This will be some serious numeric control over the simulation.
+
+Currently with the `makesvg` feature, Body contains the `VectorView` trait which creates vector (SVG) images from parameters.
+Work will go into implementing this for other things, such as type.
 
 
 # RPG Stat command line tool

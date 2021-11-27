@@ -14,12 +14,15 @@ mod tests {
     
     // special
     use crate::special::ManaCost;
-    use crate::special::Normal as Special;
+    //use crate::special::Normal as Special;
 
     //atributes
     use crate::attributes::{Effectiveness, Value, Rate};
+    //etc
     use crate::equation::Equation;
     use crate::body::Expression;
+    use crate::effect::Normal as Effect;
+    use crate::creature::Stats as Cs;
 
     #[cfg(feature = "makesvg")]
     use crate::body::VectorView;
@@ -246,21 +249,62 @@ age = 10"#;
     }
     #[cfg(feature = "makesvg")]
     use svg::Document;
-    #[cfg(feature = "makesvg")]
-    use svg::node::element::{Ellipse, Filter, Rectangle, path::Data, Path};
-    #[cfg(feature = "makesvg")]
-    use svg::node::element::Group as SvgGroup;
+
     #[test]
     #[cfg(feature = "makesvg")]
-    fn test_vector() {
-        let x:i32 = 0;
-        let y:i32 = 0;
-        let w:i32 = 80;
-        let h:i32 = 100;
-        let face = Expression::Smile;
+    fn test_vector_expression() {
+        let x:f64 = 0.0;
+        let y:f64 = 0.0;
+        let w:f64 = 64.0;
+        let h:f64 = 128.0;
+        let face = Expression::Smile; //implements VectorView trait
         let document = Document::new()
-    .set("viewBox", (0 as i32, 0 as i32, w, h))
-    .add(face.make_image(x,y,w,h,"yellow", 1.0));
-    svg::save("image.svg", &document).unwrap();
+            .set("viewBox", (x, y, w, h))
+            .add(face.make_image(x, y, w, h, "yellow", 1.0));
+        svg::save("image.svg", &document).unwrap();
+    }
+    #[test]
+    #[cfg(feature = "makesvg")]
+    fn test_vector_effect() {
+        let x:f64 = 0.0;
+        let y:f64 = 0.0;
+        let w:f64 = 80.0;
+        let h:f64 = 100.0;
+        let effect = Effect::Sick; //implements VectorView trait
+        let document = Document::new()
+            .set("viewBox", (x, y, w, h))
+            .add(effect.make_image(x, y, w, h, "#ffff00", 1.0));
+        svg::save("effect_sick.svg", &document).unwrap();
+        let effect = Effect::Poison;
+        let document = Document::new()
+            .set("viewBox", (x, y, w, h))
+            .add(effect.make_image(x, y, w, h, "#ffff00", 1.0));
+        svg::save("effect_poison.svg", &document).unwrap();
+    }
+    #[cfg(feature = "fltkform")]
+    use fltk::{prelude::*, *};
+    #[cfg(feature = "fltkform")]
+    use fltk_form_derive::*;
+    #[cfg(feature = "fltkform")]
+    use fltk_form::{FltkForm, HasProps};
+    #[test]
+    #[cfg(feature = "makesvg")]
+    #[cfg(feature = "fltkform")]
+    fn text_forms() {
+        use crate::random::Random;
+        let c = Cs::default();
+        let app = app::App::default();
+        let mut win = window::Window::default().with_size(400, 300);
+        let my_struct = c.random_type();
+        let mut grp = group::Scroll::default()
+            .with_size(300, 200)
+            .center_of_parent();
+            // inside group
+        let form = my_struct.generate();
+        grp.end();
+        win.end();
+        while app.wait() {
+            win.redraw();
+        }
     }
 } 

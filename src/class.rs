@@ -88,11 +88,7 @@ use fltk::{prelude::*, *};
 #[cfg(feature = "fltkform")]
 use fltk_form_derive::*;
 #[cfg(feature = "fltkform")]
-use fltk_form::{FltkForm, HasProps};
-#[cfg(feature = "fltkform")]
-use std::collections::HashMap;
-#[cfg(feature = "fltkform")]
-use std::mem::transmute;
+use fltk_form::FltkForm;
 
 // RPG Stat
 use crate::stats::Basic as BasicStats;

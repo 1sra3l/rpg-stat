@@ -1,10 +1,35 @@
 /*!
-# Stats Stats
+# Creature Stats
+
+Easy to `generate()` an editable version, or use `view()` to simple view the stats as an FLTK group
+```
+#[cfg(feature = "fltkform")]
+fn main () {
+    use fltk::{prelude::*, *};
+    use fltk_form_derive::*;
+    use fltk_form::FltkForm;
+    use rpgstat::random::Random;
+    use rpgstat::creature::Stats;
+    let c = Stats::default();
+    let app = app::App::default();
+    let mut win = window::Window::default().with_size(400, 300);
+    let my_struct = c.random_type();
+    let mut grp = group::Scroll::default()
+                    .with_size(300, 200)
+                    .center_of_parent();
+    let form = my_struct.generate();
+    grp.end();
+    win.end();
+    while app.wait() {
+        win.redraw();
+    }
+}
+```
 */
-use std::fmt;
+//use std::fmt;
 //use strum::IntoEnumIterator;
-use strum_macros::EnumIter;
-use std::ops::{Add, AddAssign,  Div, DivAssign, Mul, MulAssign, Neg, Rem, RemAssign, Sub, SubAssign};
+//use strum_macros::EnumIter;
+
 use serde::{Deserialize, Serialize};
 use std::fmt::Debug;
 
@@ -19,7 +44,7 @@ use crate::effect::Normal as Condition;
 // #Element
 use crate::types::Normal as Element;
 use crate::types::Advanced as Element2;
-use crate::attributes::{Stage, Rate, Effectiveness};
+use crate::attributes::{Stage, Rate};//, Effectiveness};
 use crate::random::*;
 
 #[cfg(feature = "fltkform")]
@@ -27,7 +52,7 @@ use fltk::{prelude::*, *};
 #[cfg(feature = "fltkform")]
 use fltk_form_derive::*;
 #[cfg(feature = "fltkform")]
-use fltk_form::{FltkForm, HasProps};
+use fltk_form::FltkForm;
 
 /*
 # Stats Stats
@@ -145,7 +170,7 @@ impl Random for Stats {
         let item = MyItem::None;
         let move0 = spec.random_type();
         let move1 = spec.random_type();
-        let mut rate = Rate::None;
+        let rate = Rate::None;
         Stats {
             id:self.random_rate(100),
             name:random_creature_name(),
@@ -323,7 +348,6 @@ impl Stats {
         }
     }
     pub fn get_mp(&self, move_number:u32) -> f64 {
-        let value = 1.0;
         match move_number {
             0 => return self.move0_mp,
             1 => return self.move1_mp,
@@ -494,7 +518,7 @@ impl Stats {
         }
     }
     
-    pub fn damage_attack(&mut self, atk_move:Special, other:Stats) -> f64 {
+    pub fn damage_attack(&mut self, atk_move:Special) -> f64 {
         //first math
         let dmg = atk_move.damage(self.level);
         dmg * self.atk
@@ -505,8 +529,7 @@ impl Stats {
             return None
         }
         let atk_move = vec[id].clone();
-        let atk = self.atk;
-        let mut result = self.damage_attack(atk_move.clone(), other.clone());//dmg * self.atk
+        let mut result = self.damage_attack(atk_move.clone());//dmg * self.atk
         let def = other.def + other.hp;
         if result == 0.0 {
             result = def;
