@@ -19,6 +19,10 @@ mod tests {
     //atributes
     use crate::attributes::{Effectiveness, Value, Rate};
     use crate::equation::Equation;
+    use crate::body::Expression;
+
+    #[cfg(feature = "makesvg")]
+    use crate::body::VectorView;
 
 // imported libraries
     //use std::fs::File;
@@ -239,5 +243,24 @@ age = 10"#;
     fn equation_test() {
         // TODO
         println!("nothing");
+    }
+    #[cfg(feature = "makesvg")]
+    use svg::Document;
+    #[cfg(feature = "makesvg")]
+    use svg::node::element::{Ellipse, Filter, Rectangle, path::Data, Path};
+    #[cfg(feature = "makesvg")]
+    use svg::node::element::Group as SvgGroup;
+    #[test]
+    #[cfg(feature = "makesvg")]
+    fn test_vector() {
+        let x:i32 = 0;
+        let y:i32 = 0;
+        let w:i32 = 80;
+        let h:i32 = 100;
+        let face = Expression::Smile;
+        let document = Document::new()
+    .set("viewBox", (0 as i32, 0 as i32, w, h))
+    .add(face.make_image(x,y,w,h,"yellow", 1.0));
+    svg::save("image.svg", &document).unwrap();
     }
 } 
