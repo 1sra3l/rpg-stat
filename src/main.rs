@@ -35,7 +35,6 @@ mod attributes;
 mod effect;
 mod item;
 
-//use crate::creature::Stats as Stats;
 //use crate::stats::Advanced as ReadmeBuilder;
 //use crate::creature::Person;
 //use crate::legendary::Legendary;
@@ -51,25 +50,20 @@ use clap::{App, load_yaml};
 #[cfg(feature = "fltkform")]
 use fltk::{prelude::*, *};
 #[cfg(feature = "fltkform")]
-use fltk_form_derive::*;
-#[cfg(feature = "fltkform")]
 use fltk_form::{FltkForm, HasProps};
 
 
 
 #[cfg(feature = "fltkform")]
 fn fltk_main() {
-    use std::fs;
-    use std::fs::File;
-    use std::io::BufReader;
-    use std::io::prelude::*;
+    use crate::creature::Stats as Stats;
 
     let app = app::App::default().with_scheme(app::Scheme::Gtk);
     app::set_background_color(222, 222, 222);
 
     let mut win = window::Window::default().with_size(400, 300);
     let my_struct = Stats::default();
-    let mut grp = group::Scroll::default()
+    let grp = group::Scroll::default()
         .with_size(300, 200)
         .center_of_parent();
     // inside group
@@ -84,7 +78,7 @@ fn fltk_main() {
     win.end();
     win.show();
 
-    let v = form.get_prop("hp"); // <-- get a single property
+    //let v = form.get_prop("hp"); // <-- get a single property
     //assert_eq!(v, Some("3.0".to_owned()));
 
     btn.set_callback(move |_| {

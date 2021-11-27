@@ -83,10 +83,6 @@ The four color body (teeth are always white)
 The fully configurable body.
 */
     fn make_full_body(&self, x:f64, y:f64, w:f64, h:f64, skin_color:&str, eye_color:&str, nose_color:&str, hair_color:&str, teeth_color:&str, clothes_color1:&str, clothes_color2:&str) -> SvgGroup {
-        let initial_x:f64 = x;
-        let initial_y:f64 = y;
-        let initial_w:f64 = w;
-        let initial_h:f64 = h;
         let half_w:f64 = w / 2.0;
         let quarter_w:f64 = w / 4.0;
         let head_h:f64 = h / 6.5;
@@ -119,10 +115,13 @@ Make full face
     fn make_face_default(&self, x:f64, y:f64, w:f64, h:f64, skin_color:&str, eye_color:&str, nose_color:&str, hair_color:&str, teeth_color:&str, anger:bool) -> SvgGroup {
         let face = self.make_ellipse(x, y, w, h, skin_color);
         let eye_w:f64 = w / 5.0;
+        let ear_w:f64 = eye_w / 2.0;
         let y = y + (h / 3.0);
         let spacer = w / 12.0;
-        let face_x:f64 = x + ((w / 2.0) - (eye_w / 2.0));
+        let face_x:f64 = x + ((w / 2.0) - ear_w);
         let nose = self.make_ellipse(face_x, y, eye_w, eye_w * 2.0, nose_color);
+        let l_ear = self.make_ellipse(x, y, ear_w, eye_w * 2.0, nose_color);
+        let r_ear = self.make_ellipse((x + w) - ear_w, y, ear_w, eye_w * 2.0, nose_color);
         let brow_h:f64 = eye_w / 8.0;
         let brow_y:f64 = y - brow_h;
         let eye_brow_r = self.make_slant(face_x - eye_w, brow_y, eye_w, brow_h, hair_color, 1.0, !anger);
@@ -137,6 +136,8 @@ Make full face
                     .add(nose)
                     .add(eye_r)
                     .add(eye_l)
+                    .add(l_ear)
+                    .add(r_ear)
                     .add(eye_brow_r)
                     .add(eye_brow_l)
                     //.add(hair)
@@ -154,7 +155,7 @@ Override for different teeth
 Make the default "smile" mouth
 */
     fn make_smile_mouth(&self, x:f64, y:f64, w:f64, h:f64, color:&str) -> SvgGroup {
-        let mut path = self.make_down_part(x,y,w,"black", 1.0);
+        let path = self.make_down_part(x,y,w,"black", 1.0);
         let height:f64 = y / 4.0;
         let mut x:f64 = x;
         x += w / 4.0;

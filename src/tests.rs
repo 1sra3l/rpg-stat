@@ -13,7 +13,7 @@ mod tests {
     
     
     // special
-    use crate::special::ManaCost;
+    //use crate::special::ManaCost;
     //use crate::special::Normal as Special;
 
     //atributes
@@ -210,7 +210,7 @@ age = 10"#;
         if stat.add_item(MyItem::Special) {
             println!("Added Item 'Special'");
         }
-        let clone = stat.clone();
+        //let clone = stat.clone();
         
     }
     #[test]
@@ -324,18 +324,10 @@ age = 10"#;
             .add(effect.make_image(x, y, w, h, "#ffff00", 1.0));
         svg::save("effect_poison.svg", &document).unwrap();
     }
-    #[cfg(feature = "fltkform")]
-    use fltk::{prelude::*, *};
-    #[cfg(feature = "fltkform")]
-    use fltk_form_derive::*;
-    #[cfg(feature = "fltkform")]
-    use fltk_form::{FltkForm, HasProps};
-    #[test]
-    #[cfg(feature = "makesvg")]
-    #[cfg(feature = "fltkform")]
     fn text_forms() {
         use crate::random::Random;
         use crate::creature::Stats as Cs;
         let c = Cs::default();
+        assert_eq!(c.hp, 0.0);
     }
 } 

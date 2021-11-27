@@ -14,6 +14,8 @@
 <ellipse cx="25.6" cy="38.13333333333333" rx="4" ry="4" style="opacity:1;fill:#502f07"/>
 <ellipse cx="25.6" cy="38.13333333333333" rx="2" ry="2" style="opacity:1;fill:black"/>
 </g>
+<ellipse cx="4" cy="49.333333333333336" rx="4" ry="16" style="opacity:1;fill:#afb453"/>
+<ellipse cx="76" cy="49.333333333333336" rx="4" ry="16" style="opacity:1;fill:#afb453"/>
 <path d="M16,33.333332 L32,31.333334 L32,29.333334 L16,31.333334 z" fill="black" opacity="1"/>
 <path d="M48,29.333334 L64,31.333334 L64,33.333332 L48,31.333334 z" fill="black" opacity="1"/>
 <g>
