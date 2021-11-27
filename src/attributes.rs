@@ -51,6 +51,8 @@ let stage:Stage = Stage::Baby.value(15);
 assert_eq!(stage, Stage::Teen);
 
 ```
+
+
 */
 use std::fmt;
 use std::fmt::Debug;
@@ -80,8 +82,8 @@ To find a random true/false value simple call `worked()` on your enum
 use rpgstat::attributes::Rate;
 let yes:Rate = Rate::Always;
 assert_eq!(yes.worked(), true);
+assert_eq!(Rate::None::worked(), false);
 ```
-
 */
 #[derive(Debug, Clone, Copy, PartialEq, Eq, EnumIter, Deserialize, Serialize)]
 #[cfg_attr(feature = "fltkform", derive(FltkForm))]

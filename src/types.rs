@@ -230,7 +230,7 @@ impl Normal {
             Normal::Wind => threshold += 0.0,
             _=> threshold += 0.0,
         }
-        for div in 0..counter {
+        for _div in 0..counter {
             threshold *= 10.0;
         }
         threshold

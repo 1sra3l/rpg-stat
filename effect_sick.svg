@@ -14,10 +14,12 @@
 <ellipse cx="25.6" cy="38.13333333333333" rx="4" ry="4" style="opacity:1;fill:#502f07"/>
 <ellipse cx="25.6" cy="38.13333333333333" rx="2" ry="2" style="opacity:1;fill:black"/>
 </g>
+<path d="M16,33.333332 L32,31.333334 L32,29.333334 L16,31.333334 z" fill="black" opacity="1"/>
+<path d="M48,29.333334 L64,31.333334 L64,33.333332 L48,31.333334 z" fill="black" opacity="1"/>
 <g>
-<path d="M20,73.666664 c0,18.416666,40,18.416666,40,0 z" fill="black" opacity="1"/>
+<path d="M28,73.666664 c0,18.416666,24,18.416666,24,0 z" fill="black" opacity="1"/>
 <g>
-<rect fill="white" height="6.138888888888889" rx="0.4" width="26.666666666666664" x="26.666666666666668" y="73.66666666666667"/>
+<rect fill="white" height="6.138888888888889" rx="0.4" width="16" x="32" y="73.66666666666667"/>
 </g>
 </g>
 </g>

@@ -4,7 +4,7 @@
 Easy to `generate()` an editable version, or use `view()` to simple view the stats as an FLTK group
 ```
 #[cfg(feature = "fltkform")]
-fn main () {
+fn run () {
     use fltk::{prelude::*, *};
     use fltk_form_derive::*;
     use fltk_form::FltkForm;
@@ -221,6 +221,48 @@ impl Random for Stats {
     
 }
 impl Stats {
+/*
+```
+use rpgstat::random::Random;
+use rpgstat::creature::Stats;
+use rpgstat::item::Item;
+use rpgstat::item::Normal as MyItem;
+
+let mut stat = Stats::default();
+stat = stat.random_type();
+let captured = stat.check_capture();
+if captured {
+  println!("Captured: {:?}", stat.name.to_owned());
+}
+if stat.check_encounter() {
+  println!("Found: {:?}", stat.name.to_owned());
+
+}
+if stat.heal(100.0) {
+  println!("Healed: {:?}", stat.name.to_owned());
+
+}
+if stat.use_item(1) {
+  println!("Used Item on {:?}", stat.name.to_owned());
+
+}
+if stat.get_item(1) {
+  println!("Got item #1 from: {:?}", stat.name.to_owned());
+
+}
+if !stat.remove_item(3) {
+  println!("{:?} has no item #3 to remove", stat.name.to_owned());
+
+}
+for item in stat.items {
+    println!("Item: {:?}", item);
+}
+if stat.add_item(MyItem::Special) {
+    println!("Added Item 'Special'");
+}
+let clone = stats.clone();
+```
+*/
     pub fn check_capture(&self) -> bool {
         self.rate.worked()
     }

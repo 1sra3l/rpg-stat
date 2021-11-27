@@ -47,6 +47,17 @@ impl Default for Basic {
     fn default() -> Self {
         Self::None
     }
+}impl Random for Basic {
+    type Type = Basic;
+    fn random_type(&self) -> Self::Type {
+        let max = 2;
+        let val = self.random_rate(max);
+        match val {
+            0 => return Basic::Hp,
+            1 => return Basic::Mp,
+            _=> return Basic::None,
+        }
+    }
 }
 impl fmt::Display for Basic {
     fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
@@ -99,6 +110,24 @@ pub enum Normal {
 impl Default for Normal {
     fn default() -> Self {
         Self::None
+    }
+}
+impl Random for Normal {
+    type Type = Normal;
+    fn random_type(&self) -> Self::Type {
+        let max = 10;
+        let val = self.random_rate(max);
+        match val {
+            0 => return Normal::Hp,
+            1 => return Normal::Mp,
+            4 => return Normal::Heal,
+            5 => return Normal::Exp,
+            7 => return Normal::Def,
+            8 => return Normal::Atk,
+            9 => return Normal::Speed,
+            10 => return Normal::Special,
+            _=> return Normal::None,
+        }
     }
 }
 impl fmt::Display for Normal {
@@ -175,6 +204,27 @@ pub enum Advanced {
     Powder,
     Gem,
     None,
+}
+impl Random for Advanced {
+    type Type = Advanced;
+    fn random_type(&self) -> Self::Type {
+        let max = 10;
+        let val = self.random_rate(max);
+        match val {
+            0 => return Advanced::Hp,
+            1 => return Advanced::Mp,
+            4 => return Advanced::Heal,
+            5 => return Advanced::Exp,
+            7 => return Advanced::Def,
+            8 => return Advanced::Atk,
+            9 => return Advanced::Speed,
+            10 => return Advanced::Special,
+            11 => return Advanced::Crystal,
+            12 => return Advanced::Powder,
+            13 => return Advanced::Gem,
+            _=> return Advanced::None,
+        }
+    }
 }
 impl Default for Advanced {
     fn default() -> Self {

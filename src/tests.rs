@@ -20,12 +20,13 @@ mod tests {
     use crate::attributes::{Effectiveness, Value, Rate};
     //etc
     use crate::equation::Equation;
-    use crate::body::Expression;
-    use crate::effect::Normal as Effect;
-    use crate::creature::Stats as Cs;
 
     #[cfg(feature = "makesvg")]
     use crate::body::VectorView;
+    #[cfg(feature = "makesvg")]
+    use crate::effect::Normal as Effect;
+    #[cfg(feature = "makesvg")]
+    use crate::body::Expression;
 
 // imported libraries
     //use std::fs::File;
@@ -171,6 +172,48 @@ age = 10"#;
     }
 
     #[test]
+    fn attribute_test() {
+        use rpgstat::creature::Stats;
+        use rpgstat::random::Random;
+        //use rpgstat::item::Item;
+        use rpgstat::item::Normal as MyItem;
+
+        let mut stat = Stats::default();
+        stat = stat.random_type();
+        let captured = stat.check_capture();
+        if captured {
+          println!("Captured: {:?}", stat.name.to_owned());
+        }
+        if stat.check_encounter() {
+          println!("Found: {:?}", stat.name.to_owned());
+
+        }
+        if stat.heal(100.0) {
+          println!("Healed: {:?}", stat.name.to_owned());
+
+        }
+        if stat.use_item(1) {
+          println!("Used Item on {:?}", stat.name.to_owned());
+
+        }
+        if stat.get_item(1)  != MyItem::None {
+          println!("Got item #1 from: {:?}", stat.name.to_owned());
+
+        }
+        if !stat.remove_item(3) {
+          println!("{:?} has no item #3 to remove", stat.name.to_owned());
+
+        }
+        for item in stat.items() {
+            println!("Item: {:?}", item);
+        }
+        if stat.add_item(MyItem::Special) {
+            println!("Added Item 'Special'");
+        }
+        let clone = stat.clone();
+        
+    }
+    #[test]
     fn test_basic() {
         let b:Stats<f64> = Stats::default();
         assert_eq!(0.0, b.xp);
@@ -292,19 +335,7 @@ age = 10"#;
     #[cfg(feature = "fltkform")]
     fn text_forms() {
         use crate::random::Random;
+        use crate::creature::Stats as Cs;
         let c = Cs::default();
-        let app = app::App::default();
-        let mut win = window::Window::default().with_size(400, 300);
-        let my_struct = c.random_type();
-        let mut grp = group::Scroll::default()
-            .with_size(300, 200)
-            .center_of_parent();
-            // inside group
-        let form = my_struct.generate();
-        grp.end();
-        win.end();
-        while app.wait() {
-            win.redraw();
-        }
     }
 } 

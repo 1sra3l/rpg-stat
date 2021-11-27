@@ -59,7 +59,12 @@ Draw an eye
     fn make_eye(&self, x:f64, y:f64, w:f64, h:f64, color:&str) -> SvgGroup {
         self.make_eye_default(x,y,w,h,color.clone())
     }
-
+/*
+Draw a face uses default method unless overridden
+*/
+    fn make_face(&self, x:f64, y:f64, w:f64, h:f64, skin_color:&str, eye_color:&str, nose_color:&str, hair_color:&str, teeth_color:&str) -> SvgGroup {
+        self.make_face_default(x,y,w,h,skin_color, eye_color, nose_color, hair_color, teeth_color, false)
+    }
 /*
 The four color body (teeth are always white)
 */
@@ -92,7 +97,7 @@ The fully configurable body.
         let torso_h:f64 = head_h * 2.0;
 
         // make the groups
-        let head = self.make_face_full(head_x, y, head_w, head_h, skin_color, eye_color, nose_color, hair_color, teeth_color);
+        let head = self.make_face(head_x, y, head_w, head_h, skin_color, eye_color, nose_color, hair_color, teeth_color);
         let hand = skin_color;
         let y = (y + head_h) - spacer;
         
@@ -111,13 +116,17 @@ The fully configurable body.
 /*
 Make full face
 */
-    fn make_face_full(&self, x:f64, y:f64, w:f64, h:f64, skin_color:&str, eye_color:&str, nose_color:&str, hair_color:&str, teeth_color:&str) -> SvgGroup {
+    fn make_face_default(&self, x:f64, y:f64, w:f64, h:f64, skin_color:&str, eye_color:&str, nose_color:&str, hair_color:&str, teeth_color:&str, anger:bool) -> SvgGroup {
         let face = self.make_ellipse(x, y, w, h, skin_color);
         let eye_w:f64 = w / 5.0;
         let y = y + (h / 3.0);
         let spacer = w / 12.0;
         let face_x:f64 = x + ((w / 2.0) - (eye_w / 2.0));
         let nose = self.make_ellipse(face_x, y, eye_w, eye_w * 2.0, nose_color);
+        let brow_h:f64 = eye_w / 8.0;
+        let brow_y:f64 = y - brow_h;
+        let eye_brow_r = self.make_slant(face_x - eye_w, brow_y, eye_w, brow_h, hair_color, 1.0, !anger);
+        let eye_brow_l = self.make_slant(face_x + eye_w, brow_y, eye_w, brow_h, hair_color, 1.0, anger);
         let eye_l = self.make_eye(face_x - eye_w, y, eye_w, eye_w, eye_color);
         let eye_r = self.make_eye(face_x + eye_w, y, eye_w, eye_w, eye_color);
         let ellipse_y:f64 = y + (eye_w * 2.0);
@@ -128,28 +137,8 @@ Make full face
                     .add(nose)
                     .add(eye_r)
                     .add(eye_l)
-                    //.add(hair)
-                    .add(mouth)
-    }
-
-/*
-*/
-    fn make_face_default(&self, x:f64, y:f64, w:f64, h:f64, skin_color:&str, eye_color:&str, nose_color:&str, hair_color:&str) -> SvgGroup {
-        let face = self.make_ellipse(x,y,w,h,skin_color);
-        let eye_w:f64 = w / 5.0;
-        let y = y + (h / 3.0);
-        let face_x:f64 = (w / 2.0) - (eye_w / 2.0);
-        let nose = self.make_ellipse(face_x, y, eye_w, eye_w * 2.0, nose_color);
-        let eye_l = self.make_eye(face_x - eye_w, y, eye_w, eye_w, eye_color);
-        let eye_r = self.make_eye(face_x + eye_w, y, eye_w, eye_w, eye_color);
-        let ellipse_y:f64 = y + (eye_w * 2.0);
-        let mouth = self.make_mouth((x / 8.0)*7.0 , ellipse_y + (h/12.0), w, 0.0, "white");
-        //let hair = self.make_hair(x,y,w,h,hair_color);
-        SvgGroup::new()
-                    .add(face)
-                    .add(nose)
-                    .add(eye_r)
-                    .add(eye_l)
+                    .add(eye_brow_r)
+                    .add(eye_brow_l)
                     //.add(hair)
                     .add(mouth)
     }
@@ -272,6 +261,50 @@ Make the default eye
                         .add(pupil);
         g
     }
+/*
+Make a tooth-like triangle
+*/
+    fn make_line(&self, x:f64, y:f64, x2:f64, y2:f64, color:&str, opacity:f64) -> Path {
+        let line = Data::new()
+                        .move_to((x, y))
+                        .line_to((x2, y))
+                        .line_to((x2, y2))
+                        .line_to((x, y2))
+                        .close();
+        Path::new()
+             .set("fill", color)
+             .set("opacity", opacity.to_string().as_str())
+            .set("d", line)
+    }
+/*
+Make a tooth-like triangle
+*/
+    fn make_slant(&self, x:f64, y:f64, w:f64, h:f64, color:&str, opacity:f64, left_facing:bool) -> Path {
+        let x2:f64 = x + w;
+        let y1:f64;
+        let y2:f64;
+        let y3:f64;
+        if left_facing {
+            y1 = y + h;
+            y2 = y1 - h;
+            y3 = y2 - h;
+        } else{
+            y1 = y - h;
+            y2 = y1 + h;
+            y3 = y2 + h;
+        }
+        let line = Data::new()
+                        .move_to((x, y1))
+                        .line_to((x2, y2))
+                        .line_to((x2, y3))
+                        .line_to((x, y2))
+                        .close();
+        Path::new()
+             .set("fill", color)
+             .set("opacity", opacity.to_string().as_str())
+            .set("d", line)
+    }
+
 /*
 Make a tooth-like triangle
 */

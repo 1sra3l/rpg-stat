@@ -35,17 +35,16 @@ mod attributes;
 mod effect;
 mod item;
 
-use crate::creature::Stats as Stats;
-use crate::stats::Advanced as ReadmeBuilder;
+//use crate::creature::Stats as Stats;
+//use crate::stats::Advanced as ReadmeBuilder;
 //use crate::creature::Person;
 //use crate::legendary::Legendary;
 //use crate::stats::Builder;
 //use crate::attributes::Rate;
 extern crate clap;
 use clap::{App, load_yaml};
-use toml::*;
-use serde::{Deserialize, Serialize};
-use std::cfg;
+//use toml::*;
+//use serde::{Deserialize, Serialize};
 
 
 // fltkform features
