@@ -30,11 +30,11 @@ toml = "0.5"
 rand = "0.8.4"
 clap = {version = "3.0.0-beta.2", features = ["yaml"]}
 fltk = { version = "1.2.6", optional = true }
-#fltk-form = { version = "0.1", optional = true }
-fltk-form = { git="https://github.com/1sra3l/fltk-form.git", optional = true}
-#fltk-form-derive = { version = "0.1", optional = true }
-fltk-form-derive = { git="https://github.com/1sra3l/fltk-form.git", optional = true}
+fltk-form = { version = "0.1", optional = true }
+fltk-form-derive = { version = "0.1", optional = true }
+svg = { version = "0.10", optional = true }
 [features]
-default = []#"serde", "strum", "strum_macros", "num", "ramd", "clap"]
+default = []
 fltkform = ["fltk", "fltk-form", "fltk-form-derive"]
+makesvg = ["svg"]
 

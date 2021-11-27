@@ -407,19 +407,19 @@ impl Compare for Normal {
 #[cfg_attr(feature = "fltkform", derive(FltkForm))]
 ///  `Advanced`
 pub enum Advanced {
-    /// Feline - 
+    /// Feline - Cat type
     Feline,
-    /// Canine - 
+    /// Canine - Dog type
     Canine,
-    /// Rodent - 
+    /// Rodent - mouse type
     Rodent,
-    /// Primate - 
+    /// Primate - monkey type
     Primate,
-    /// Bug - 
+    /// Bug - creepy crawly type
     Bug,
-    /// Amphibian - 
+    /// Amphibian - frog/salamander type
     Amphibian,
-    /// Reptile - 
+    /// Reptile -  type
     Reptile,
     /// Fish - 
     Fish,

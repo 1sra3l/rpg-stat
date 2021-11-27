@@ -91,8 +91,9 @@ dependencies = [
 
 [[package]]
 name = "fltk-form"
-version = "0.1.1"
-source = "git+https://github.com/1sra3l/fltk-form.git#fd81d478b09f9df56db748fcaff0217eabd3cdbd"
+version = "0.1.2"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "81f6119c5b7ad3eb5c2fc46cd252fe8e104b705ccc7b2555ea3edcfe8406d694"
 dependencies = [
  "fltk",
  "fltk-form-derive",
@@ -100,8 +101,9 @@ dependencies = [
 
 [[package]]
 name = "fltk-form-derive"
-version = "0.1.0"
-source = "git+https://github.com/1sra3l/fltk-form.git#fd81d478b09f9df56db748fcaff0217eabd3cdbd"
+version = "0.1.1"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "1a4a7ccef1a99517fb86d559b4678a4c271e2269d0963138dfc6c91929270113"
 dependencies = [
  "proc-macro2",
  "quote",
@@ -379,6 +381,7 @@ dependencies = [
  "serde",
  "strum",
  "strum_macros",
+ "svg",
  "toml",
 ]
 
@@ -425,6 +428,12 @@ dependencies = [
  "quote",
  "syn",
 ]
+
+[[package]]
+name = "svg"
+version = "0.10.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "e72d8b19ab05827afefcca66bf47040c1e66a0901eb814784c77d4ec118bd309"
 
 [[package]]
 name = "syn"
