@@ -87,56 +87,28 @@ pub fn random_creature_name() -> String {
     let val = random_0max(max);
     //Syllable 1
     let mut name:String = match val {
-        0 => String::from("Mu"),
-        1 => String::from("Po"),
-        2 => String::from("Dy"),
-        3 => String::from("Me"),
-        4 => String::from("As"),
-        5 => String::from("De"),
-        7 => String::from("Eg"),
-        8 => String::from("Be"),
-        _=> String::from("Rai"),
+        0 => String::from("Arc"),
+        1 => String::from("Molt"),
+        2 => String::from("Dynar"),
+        3 => String::from("Megas"),
+        4 => String::from("Gibor"),
+        5 => String::from("Dend"),
+        7 => String::from("Egal"),
+        8 => String::from("Bend"),
+        _=> String::from("Apt"), // yes i use ubuntu/debian/variants sometimes
     };
     //Syllable 2
     let val = random_0max(max);
     let name_second:String = match val {
-        0 => String::from("ga"),
-        1 => String::from("ry"),
-        2 => String::from("no"),
-        3 => String::from("la"),
-        4 => String::from("hu"),
-        5 => String::from("ni"),
-        7 => String::from("ba"),
-        8 => String::from("la"),
-        _=> String::from("na"),
-    };
-    name.push_str(name_second.as_str());
-    //Syllable 3
-    let val = random_0max(max);
-    let name_second:String = match val {
-        0 => String::from("ni"),
-        1 => String::from("le"),
-        2 => String::from("di"),
-        3 => String::from("to"),
-        4 => String::from("phu"),
-        5 => String::from("go"),
-        7 => String::from("tto"),
-        8 => String::from(""),
-        _=> String::from(""),
-    };
-    name.push_str(name_second.as_str());
-    //Syllable 4
-    let val = random_0max(max);
-    let name_second:String = match val {
-        0 => String::from("l"),
-        1 => String::from("s"),
-        2 => String::from("ne"),
-        3 => String::from("le"),
-        4 => String::from(""),
-        5 => String::from("ar"),
-        7 => String::from("om"),
-        8 => String::from("ph"),
-        _=> String::from("te"),
+        0 => String::from("ion"),
+        1 => String::from("acron"),
+        2 => String::from("os"),
+        3 => String::from("aya"),
+        4 => String::from("on"),
+        5 => String::from("ine"),
+        7 => String::from("aur"),// yes i use arch sometimes
+        8 => String::from("ate"),
+        _=> String::from("ay"),
     };
     name.push_str(name_second.as_str());
     name
