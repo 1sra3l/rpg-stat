@@ -106,19 +106,6 @@ pub enum Normal {
     /// a lock to prevent access
     Locked,  
 }
-#[cfg(feature = "makesvg")]
-impl VectorView for Normal{
-    fn make_image(&self, x:f64, y:f64, w:f64, h:f64, color:&str, opacity:f64) -> SvgGroup {
-        match *self {
-            Normal::Poison =>self.make_face_default(x,y,w,h,"green","#502f07","#005300", "black", "white", true),
-            Normal::Freeze =>self.make_face_default(x,y,w,h,"#affbff","#502f07","#447886", "black", "white", false),
-            Normal::Sick =>self.make_face_default(x,y,w,h,"#f8ff75","#502f07","#afb453", "black", "white", false),
-            Normal::Sap =>self.make_face_default(x,y,w,h,"#5500ff","#502f07","#55007f", "black", "white", true),
-            _=> self.make_face_default(x,y,w,h, color.clone(),"#502f07","orange", "black", "white", false),
-        }
-    }
-    //fn make_mouth(&self, x:i32, y:i32, w:i32, h:i32, color:&str) -> SvgGroup {}
-}
 impl Default for Normal {
     fn default() -> Self {
         Self::None

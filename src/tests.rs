@@ -21,13 +21,6 @@ mod tests {
     //etc
     use crate::equation::Equation;
 
-    #[cfg(feature = "makesvg")]
-    use crate::body::VectorView;
-    #[cfg(feature = "makesvg")]
-    use crate::effect::Normal as Effect;
-    #[cfg(feature = "makesvg")]
-    use crate::body::Expression;
-
 // imported libraries
     //use std::fs::File;
     //use std::io::Read;
@@ -289,40 +282,6 @@ age = 10"#;
     fn equation_test() {
         // TODO
         println!("nothing");
-    }
-    #[cfg(feature = "makesvg")]
-    use svg::Document;
-
-    #[test]
-    #[cfg(feature = "makesvg")]
-    fn test_vector_expression() {
-        let x:f64 = 0.0;
-        let y:f64 = 0.0;
-        let w:f64 = 64.0;
-        let h:f64 = 128.0;
-        let face = Expression::Smile; //implements VectorView trait
-        let document = Document::new()
-            .set("viewBox", (x, y, w, h))
-            .add(face.make_image(x, y, w, h, "yellow", 1.0));
-        svg::save("image.svg", &document).unwrap();
-    }
-    #[test]
-    #[cfg(feature = "makesvg")]
-    fn test_vector_effect() {
-        let x:f64 = 0.0;
-        let y:f64 = 0.0;
-        let w:f64 = 80.0;
-        let h:f64 = 100.0;
-        let effect = Effect::Sick; //implements VectorView trait
-        let document = Document::new()
-            .set("viewBox", (x, y, w, h))
-            .add(effect.make_image(x, y, w, h, "#ffff00", 1.0));
-        svg::save("effect_sick.svg", &document).unwrap();
-        let effect = Effect::Poison;
-        let document = Document::new()
-            .set("viewBox", (x, y, w, h))
-            .add(effect.make_image(x, y, w, h, "#ffff00", 1.0));
-        svg::save("effect_poison.svg", &document).unwrap();
     }
     fn text_forms() {
         use crate::random::Random;
