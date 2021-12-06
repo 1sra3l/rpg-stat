@@ -1034,15 +1034,15 @@ impl Random for Stats {
             xp_next:10.0,
             level:1.0,
             hp_max:hp,
-            hp:hp,
+            hp,
             mp_max:mp,
-            mp:mp,
-            atk:atk,
-            def:def,
-            m_atk:m_atk,
-            m_def:m_def,
-            speed:speed,
-            gp:gp,
+            mp,
+            atk,
+            def,
+            m_atk,
+            m_def,
+            speed,
+            gp,
             
         }
     }

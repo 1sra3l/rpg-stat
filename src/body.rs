@@ -15,7 +15,11 @@ pub enum Shape {
     Feline,
     None,
 }
-
+impl Default for Shape {
+    fn default() -> Self {
+        Self::None
+    }
+}
 #[derive(Clone, Debug, PartialEq, Deserialize, Serialize)]
 pub struct Body {
     pub head:Shape,
@@ -24,6 +28,11 @@ pub struct Body {
     pub torso:Shape,
     pub arms:Shape,
     pub legs:Shape,
+}
+impl Default for Body {
+    fn default() -> Self {
+        Self::new()
+    }
 }
 impl Body {
     pub fn new()-> Self {

@@ -264,11 +264,12 @@ pub enum Advanced {
 impl Random for Advanced {
     type Type = Advanced;
     fn random_type(&self) -> Self::Type {
-        let max = 18;
+        /*let max = 18;
         let val = self.random_rate(max);
         match val {
             _=> Advanced::None,
-        }
+        }*/
+        Advanced::None
     }
 }
 impl Default for Advanced {

@@ -284,7 +284,7 @@ age = 10"#;
         println!("nothing");
     }
     fn text_forms() {
-        use crate::random::Random;
+        //use crate::random::Random;
         use crate::creature::Stats as Cs;
         let c = Cs::default();
         assert_eq!(c.hp, 0.0);

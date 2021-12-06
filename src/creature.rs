@@ -158,8 +158,8 @@ impl  Default for Stats {
 impl Random for Stats {
     type Type = Stats;
     fn random_type(&self) -> Self::Type {
-        let mut elem = Element::Rock;
-        elem = elem.random_type();
+        let mut element1 = Element::Rock;
+        element1 = element1.random_type();
         let hp = self.random(10.0,50.0);
         let atk = self.random(5.0,50.0);
         let def = self.random(5.0,50.0);
@@ -176,12 +176,12 @@ impl Random for Stats {
             name:random_creature_name(),
             form:form.random_type(),
             condition:Condition::None,
-            element1:elem,
+            element1,
             element2:Element2::None,
             rate:rate.random_type(),
-            move0:move0,
+            move0,
             move0_mp:move0.mp_total(0.0),
-            move1:move1,
+            move1,
             move1_mp:move1.mp_total(0.0),
             move2:spec,
             move2_mp:0.0,
@@ -209,11 +209,11 @@ impl Random for Stats {
             special_xp:special,
             level:1.0,
             hp_max:hp,
-            hp:hp,
-            atk:atk,
-            def:def,
-            speed:speed,
-            special:special,
+            hp,
+            atk,
+            def,
+            speed,
+            special,
             image:String::from(""),
             
         }
@@ -263,12 +263,15 @@ if stat.add_item(MyItem::Special) {
 let clone = stats.clone();
 ```
 */
+    #[allow(unused)]
     pub fn check_capture(&self) -> bool {
         self.rate.worked()
     }
+    #[allow(unused)]
     pub fn check_encounter(&self) -> bool {
         self.rate.worked()
     }
+    #[allow(unused)]
     pub fn heal(&mut self, value:f64) -> bool {
         if value < 0.0 {
             return false;
@@ -279,9 +282,11 @@ let clone = stats.clone();
         }
         true
     }
+    #[allow(unused)]
     pub fn next(&self) -> f64 {
         self.level * 20.0
     }
+    #[allow(unused)]
     pub fn level_up(&mut self) {
         println!("xp:{} next:{} total:{}", self.xp, self.next(), self.total_xp);
         self.total_xp += self.xp;
@@ -316,6 +321,7 @@ let clone = stats.clone();
         }
         println!("level:{}",self.level);
     }
+    #[allow(unused)]
     pub fn new() -> Self {
         Stats {
             id:0,
@@ -363,42 +369,31 @@ let clone = stats.clone();
             image:String::from(""),
         }
     }
+    #[allow(unused)]
     pub fn use_mp(&mut self, move_number:u32) -> bool {
         let value = 1.0;
         match move_number {
-            0 => {
-                self.move0_mp -= value;
-                return true;
-            },
-            1 => {
-                self.move1_mp -= value;
-                return true;
-            },
-            2 => {
-                self.move2_mp -= value;
-                return true;
-            },
-            3 => {
-                self.move3_mp -= value;
-                return true;
-            },
-            4 => {
-                self.move4_mp -= value;
-                return true;
-            },
+            0 => self.move0_mp -= value,
+            1 => self.move1_mp -= value,
+            2 => self.move2_mp -= value,
+            3 => self.move3_mp -= value,
+            4 => self.move4_mp -= value,
             _=> return false,
         }
+        true
     }
+    #[allow(unused)]
     pub fn get_mp(&self, move_number:u32) -> f64 {
         match move_number {
-            0 => return self.move0_mp,
-            1 => return self.move1_mp,
-            2 => return self.move2_mp,
-            3 => return self.move3_mp,
-            4 => return self.move4_mp,
-            _=> return 0.0,
+            0 => self.move0_mp,
+            1 => self.move1_mp,
+            2 => self.move2_mp,
+            3 => self.move3_mp,
+            4 => self.move4_mp,
+            _=> 0.0,
         }
     }
+    #[allow(unused)]
     pub fn restore_mp(&mut self, move_number:u32, value:f64) -> bool {
         match move_number {
             0 => {
@@ -407,7 +402,6 @@ let clone = stats.clone();
                 if self.move0_mp > limit {
                     self.move0_mp = limit;
                 }
-                return true;
             },
             1 => {
                 self.move1_mp += value;
@@ -415,7 +409,6 @@ let clone = stats.clone();
                 if self.move1_mp > limit {
                     self.move1_mp = limit;
                 }
-                return true;
             },
             2 => {
                 self.move2_mp += value;
@@ -423,7 +416,6 @@ let clone = stats.clone();
                 if self.move2_mp > limit {
                     self.move2_mp = limit;
                 }
-                return true;
             },
             3 => {
                 self.move3_mp += value;
@@ -431,7 +423,6 @@ let clone = stats.clone();
                 if self.move3_mp > limit {
                     self.move3_mp = limit;
                 }
-                return true;
             },
             4 => {
                 self.move4_mp += value;
@@ -439,11 +430,12 @@ let clone = stats.clone();
                 if self.move4_mp > limit {
                     self.move4_mp = limit;
                 }
-                return true;
             },
             _=> return false,
         }
+        true
     }
+    #[allow(unused)]
     pub fn moves(&self) -> Vec<Special> {
         let mut vec:Vec<Special> = vec![];
         if self.move0 != Special::None {
@@ -463,6 +455,7 @@ let clone = stats.clone();
         }
         vec
     }
+    #[allow(unused)]
     pub fn add_move(&mut self, special:Special) -> bool {
         if self.move0 != Special::None {
             self.move0 = special;
@@ -486,31 +479,19 @@ let clone = stats.clone();
         }
         false
     }
+    #[allow(unused)]
     pub fn remove_move(&mut self, move_number:u32) -> bool {
         match move_number {
-            0 => {
-                self.move0 = Special::None;
-                return true;
-            },
-            1 => {
-                self.move1 = Special::None;
-                return true;
-            },
-            2 => {
-                self.move2 = Special::None;
-                return true;
-            },
-            3 => {
-                self.move3 = Special::None;
-                return true;
-            },
-            4 => {
-                self.move4 = Special::None;
-                return true;
-            },
-            _=> false,
+            0 => self.move0 = Special::None,
+            1 => self.move1 = Special::None,
+            2 => self.move2 = Special::None,
+            3 => self.move3 = Special::None,
+            4 => self.move4 = Special::None,
+            _=> return false,
         }
+        true
     }
+    #[allow(unused)]
     pub fn get_move(&self, move_number:u32) -> Special {
         match move_number {
             4 => self.move4,
@@ -520,58 +501,30 @@ let clone = stats.clone();
             _=> self.move0,
         }
     }
+    #[allow(unused)]
     pub fn valid_move(&self, move_number:u32) -> bool {
         match move_number {
-            1 => {
-                if self.move1 == Special::None {
-                    return false
-                } else {
-                    return true
-                }
-            },
-            2 => {
-                if self.move2 == Special::None {
-                    return false
-                } else {
-                    return true
-                }
-            },
-            3 => {
-                if self.move3 == Special::None {
-                    return false
-                } else {
-                    return true
-                }
-            },
-            4 => {
-                if self.move4 == Special::None {
-                    return false
-                } else {
-                    return true
-                }
-            },
-            _=> {
-                if self.move0 == Special::None {
-                    return false
-                } else {
-                    return true
-                }
-            },
+            1 => !(self.move1 == Special::None),
+            2 => !(self.move2 == Special::None),
+            3 => !(self.move3 == Special::None),
+            4 => !(self.move4 == Special::None),
+            _=> !(self.move0 == Special::None),
         }
     }
-    
+    #[allow(unused)]
     pub fn damage_attack(&mut self, atk_move:Special) -> f64 {
         //first math
         let dmg = atk_move.damage(self.level);
         dmg * self.atk
     }
+    #[allow(unused)]
     pub fn special(&mut self, id:usize, other:Stats) -> Option<f64> {
-        let vec = self.moves().clone();
+        let vec = self.moves();
         if vec.len() < id {
             return None
         }
-        let atk_move = vec[id].clone();
-        let mut result = self.damage_attack(atk_move.clone());//dmg * self.atk
+        let atk_move = vec[id];
+        let mut result = self.damage_attack(atk_move);//dmg * self.atk
         let def = other.def + other.hp;
         if result == 0.0 {
             result = def;
@@ -582,6 +535,7 @@ let clone = stats.clone();
         }
         Some(result)
     }
+    #[allow(unused)]
     pub fn items(&self) -> Vec<MyItem> {
         let mut vec:Vec<MyItem> = vec![];
         if self.item0 != MyItem::None {
@@ -601,6 +555,7 @@ let clone = stats.clone();
         }
         vec
     }
+    #[allow(unused)]
     pub fn add_item(&mut self, special:MyItem) -> bool {
         if self.item0 != MyItem::None {
             self.item0 = special;
@@ -624,31 +579,19 @@ let clone = stats.clone();
         }
         false
     }
+    #[allow(unused)]
     pub fn remove_item(&mut self, item_number:u32) -> bool {
         match item_number {
-            0 => {
-                self.item0 = MyItem::None;
-                return true;
-            },
-            1 => {
-                self.item1 = MyItem::None;
-                return true;
-            },
-            2 => {
-                self.item2 = MyItem::None;
-                return true;
-            },
-            3 => {
-                self.item3 = MyItem::None;
-                return true;
-            },
-            4 => {
-                self.item4 = MyItem::None;
-                return true;
-            },
-            _=> false,
+            0 => self.item0 = MyItem::None,
+            1 => self.item1 = MyItem::None,
+            2 => self.item2 = MyItem::None,
+            3 => self.item3 = MyItem::None,
+            4 => self.item4 = MyItem::None,
+            _=> return false,
         }
+        true
     }
+    #[allow(unused)]
     pub fn get_item(&self, item_number:u32) -> MyItem {
         match item_number {
             0 => self.item0,
@@ -659,6 +602,7 @@ let clone = stats.clone();
         }
     }
 
+    #[allow(unused)]
     pub fn use_item(&mut self, item_number:u32) -> bool {
         let item:MyItem;
         match item_number {
@@ -681,6 +625,6 @@ let clone = stats.clone();
             MyItem::Special => self.special += val,
             _=> return false,
         }
-        return true
+        true
     }
 }

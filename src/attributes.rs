@@ -56,7 +56,6 @@ assert_eq!(stage, Stage::Teen);
 */
 use std::fmt;
 use std::fmt::Debug;
-use std::fmt::Display;
 use std::ops::{Add, AddAssign, Div, DivAssign, Mul, MulAssign, Neg, Rem, RemAssign, Sub, SubAssign};
 extern crate num;
 //use num::NumCast;
@@ -109,13 +108,13 @@ impl Random for Rate{
         let max = 7;
         let val = self.random_rate(max);
         match val {
-            0 => return Rate::None,
-            1 => return Rate::Often,
-            3 => return Rate::Hardly,
-            4 => return Rate::Some,
-            5 => return Rate::Barely,
-            7 => return Rate::Always,
-            _=> return Rate::Usually,
+            0 => Rate::None,
+            1 => Rate::Often,
+            3 => Rate::Hardly,
+            4 => Rate::Some,
+            5 => Rate::Barely,
+            7 => Rate::Always,
+            _=> Rate::Usually,
         }
     }
 }
@@ -123,6 +122,7 @@ impl Rate {
     /*
     
     */
+    #[allow(unused)]
     pub fn worked(&self) -> bool {
         match *self {
             Rate::Always => true, // 100%
@@ -177,11 +177,11 @@ impl Random for Effectiveness{
         let max = 6;
         let val = self.random_rate(max);
         match val {
-            0 => return Effectiveness::Double,
-            1 => return Effectiveness::HalfExtra,
-            4 => return Effectiveness::Half,
-            5 => return Effectiveness::Normal,
-            _=> return Effectiveness::None,
+            0 => Effectiveness::Double,
+            1 => Effectiveness::HalfExtra,
+            4 => Effectiveness::Half,
+            5 => Effectiveness::Normal,
+            _=> Effectiveness::None,
         }
     }
 }
@@ -257,14 +257,14 @@ impl Random for Stage{
         let max = 8;
         let val = self.random_rate(max);
         match val {
-            0 => return Stage::Toddler,
-            1 => return Stage::Kid,
-            3 => return Stage::Teen,
-            4 => return Stage::Young,
-            5 => return Stage::Grown,
-            7 => return Stage::Older,
-            8 => return Stage::Old,
-            _=> return Stage::Baby,
+            0 => Stage::Toddler,
+            1 => Stage::Kid,
+            3 => Stage::Teen,
+            4 => Stage::Young,
+            5 => Stage::Grown,
+            7 => Stage::Older,
+            8 => Stage::Old,
+            _=> Stage::Baby,
         }
     }
 }

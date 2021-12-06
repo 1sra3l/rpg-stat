@@ -14,9 +14,9 @@ use fltk_form::{FltkForm, HasProps};
 use std::fmt;
 
 // #Condition
-use crate::effect::Normal as Effect;
+//use crate::effect::Normal as Effect;
 // #Element
-use crate::types::Normal as Element;
+//use crate::types::Normal as Element;
 use crate::random::*;
 /*
 # Item trait
@@ -53,9 +53,9 @@ impl Default for Basic {
         let max = 2;
         let val = self.random_rate(max);
         match val {
-            0 => return Basic::Hp,
-            1 => return Basic::Mp,
-            _=> return Basic::None,
+            0 => Basic::Hp,
+            1 => Basic::Mp,
+            _=> Basic::None,
         }
     }
 }
@@ -118,15 +118,15 @@ impl Random for Normal {
         let max = 10;
         let val = self.random_rate(max);
         match val {
-            0 => return Normal::Hp,
-            1 => return Normal::Mp,
-            4 => return Normal::Heal,
-            5 => return Normal::Exp,
-            7 => return Normal::Def,
-            8 => return Normal::Atk,
-            9 => return Normal::Speed,
-            10 => return Normal::Special,
-            _=> return Normal::None,
+            0 => Normal::Hp,
+            1 => Normal::Mp,
+            4 => Normal::Heal,
+            5 => Normal::Exp,
+            7 => Normal::Def,
+            8 => Normal::Atk,
+            9 => Normal::Speed,
+            10 => Normal::Special,
+            _=> Normal::None,
         }
     }
 }
@@ -211,18 +211,18 @@ impl Random for Advanced {
         let max = 10;
         let val = self.random_rate(max);
         match val {
-            0 => return Advanced::Hp,
-            1 => return Advanced::Mp,
-            4 => return Advanced::Heal,
-            5 => return Advanced::Exp,
-            7 => return Advanced::Def,
-            8 => return Advanced::Atk,
-            9 => return Advanced::Speed,
-            10 => return Advanced::Special,
-            11 => return Advanced::Crystal,
-            12 => return Advanced::Powder,
-            13 => return Advanced::Gem,
-            _=> return Advanced::None,
+            0 => Advanced::Hp,
+            1 => Advanced::Mp,
+            4 => Advanced::Heal,
+            5 => Advanced::Exp,
+            7 => Advanced::Def,
+            8 => Advanced::Atk,
+            9 => Advanced::Speed,
+            10 => Advanced::Special,
+            11 => Advanced::Crystal,
+            12 => Advanced::Powder,
+            13 => Advanced::Gem,
+            _=> Advanced::None,
         }
     }
 }

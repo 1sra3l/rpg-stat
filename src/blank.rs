@@ -18,18 +18,20 @@ use strum_macros::EnumIter;
 */
 #[derive(Debug, Clone, Copy, PartialEq, Eq, EnumIter, Deserialize, Serialize)]
 pub enum Basic {
-    
+    /// Nothing
+    None,
 }
 impl Default for Basic {
     fn default() -> Self {
-        Self::
+        Self::None
     }
 }
 impl fmt::Display for Basic {
     fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
         let v:String;
         match *self {
-            Basic:: => v = String::from(""),
+            //Basic:: => v = String::from(""),
+            _=> v = String::from("None"),
         }
         write!(f, "{}", v.as_str())
     }
@@ -40,18 +42,20 @@ impl fmt::Display for Basic {
 */
 #[derive(Debug, Clone, Copy, PartialEq, Eq, EnumIter, Deserialize, Serialize)]
 pub enum Normal {
-    
+    /// Nothing
+    None,
 }
 impl Default for Normal {
     fn default() -> Self {
-        Self::
+        Self::None
     }
 }
 impl fmt::Display for Normal {
     fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
         let v:String;
         match *self {
-            Normal:: => v = String::from(""),
+            //Normal:: => v = String::from(""),
+            _=> v = String::from("None"),
         }
         write!(f, "{}", v.as_str())
     }
@@ -62,18 +66,20 @@ impl fmt::Display for Normal {
 */
 #[derive(Debug, Clone, Copy, PartialEq, Eq, EnumIter, Deserialize, Serialize)]
 pub enum Advanced {
-    
+    /// Nothing
+    None,
 }
 impl Default for Advanced {
     fn default() -> Self {
-        Self::
+        Self::None
     }
 }
 impl fmt::Display for Advanced {
     fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
         let v:String;
         match *self {
-            Advanced:: => v = String::from(""),
+            //Advanced:: => v = String::from(""),
+            _=> v = String::from("None"),
         }
         write!(f, "{}", v.as_str())
     }

@@ -20,7 +20,7 @@ use fltk_form_derive::*;
 #[cfg(feature = "fltkform")]
 use fltk_form::FltkForm;
 
-use crate::random::*;
+use crate::random::Random;
 
 #[cfg(feature = "makesvg")]
 use svg::node::element::Group as SvgGroup;
@@ -63,6 +63,21 @@ impl fmt::Display for Basic {
         write!(f, "{}", v.as_str())
     }
 }
+impl Random for Basic {
+    type Type = Basic;
+    fn random_type(&self) -> Self::Type {
+        let max = 4;
+        let val = self.random_rate(max);
+        match val {
+            0 => Basic::HP,
+            1 => Basic::MP,
+            2 => Basic::XP,
+            3 => Basic::GP,
+            _=> Basic::None,
+        }
+    }
+}
+
 /*
 # Normal 
 
@@ -135,7 +150,31 @@ impl fmt::Display for Normal {
         write!(f, "{}", v.as_str())
     }
 }
-
+impl Random for Normal {
+    type Type = Normal;
+    fn random_type(&self) -> Self::Type {
+        let max = 15;
+        let val = self.random_rate(max);
+        match val {
+            0 => Normal::HP,
+            1 => Normal::MP,
+            2 => Normal::XP,
+            3 => Normal::GP,
+            4 => Normal::Burn,
+            5 => Normal::Poison,
+            7 => Normal::Freeze,
+            8 => Normal::Sick,
+            9 => Normal::Sap,
+            10 => Normal::Bless,
+            11 => Normal::Heal,
+            12 => Normal::Stuck,
+            13 => Normal::Bound,
+            14 => Normal::Blocked,
+            15 => Normal::Locked,
+            _=> Normal::None,
+        }
+    }
+}
 /*
 # Advanced 
 

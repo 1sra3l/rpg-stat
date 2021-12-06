@@ -96,7 +96,7 @@ use fltk_form::{FltkForm, HasProps};
 
 //our stuff
 use crate::attributes::Effectiveness;
-use crate::random::*;
+use crate::random::Random;
 
 /*
 # Compare
@@ -195,8 +195,6 @@ assert_eq!(wind.effectiveness(rock), Effectiveness::Double);
 ```
 */
 
-use crate::random::*;
-
 #[derive(Debug, Clone, Copy, PartialEq, Eq, EnumIter, Deserialize, Serialize)]
 #[cfg_attr(feature = "fltkform", derive(FltkForm))]
 pub enum Normal {
@@ -211,6 +209,7 @@ pub enum Normal {
     None,
 }
 impl Normal {
+    #[allow(unused)]
     pub fn level_threshold(&self, current_level:f64) -> f64 {
         let mut threshold:f64 = current_level;
         let mut counter:u32 = 0;

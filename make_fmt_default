@@ -1,25 +1,42 @@
 #!/bin/bash
 # "${1}"
 ADVANCED="Advanced"
+NORMAL="Normal"
+BASIC="Basic"
 ADVANCED_TYPE_LIST=("Feline" "Canine" "Rodent" "Primate" "Bug" "Amphibian" "Reptile" "Fish" "Dragon" "Legendary" "Plasma" "Magma" "Crystal" "Laser" "Tech" "Leaf" "Patch" "Undead" "Star" "Galactic" "Kaiju" "Xeno" "Paper" "Shifter" "Gravity" "Life" "Food" "Death" "Mana" "Bubble" "Seed" "Bean" "Clay" "Steel" "Iron" "Vine" "Tree" "River" "Ocean" "Ember" "Lava" "Spark" "Lightning" "Holy" "Unholy" "Sunrise" "Sunset" "Moonrise" "Moonset" "Tornado" "Breeze" "Blustry")
 CLASS_LIST=("Adventurer" "Artisan" "Clergy" "Governmental" "Sailor" "Worker" "Hoarder" "Community" "Sport" "Solo" "Research" "Scientist" "Engineer" "Clown" "Musician" "Baker" "Gardener" "Boring" "Random" "Gambler" "Bicyclist" "SkateBoarder" "Climber" "Watcher" "Spy" "Shinobi" "Samurai" "Shaolin" "Knitter" "Crocheter" "Student" "Teacher" "Spiritual" "Farmer" "Metallurgist" "Archivist" "Janitor" "Cook" "Florist" "HomeMaker" "Actor" "GameMaker")
-TYPE="${ADVANCED}"
-LIST=(${ADVANCED_TYPE_LIST[@]})
+# [Lobster tail pot](https://en.wikipedia.org/wiki/Capeline)
+ARMOR_BASIC=("Good" "Better" "Best" "Epic" "Legendary")
+ARMOR_NORMAL=("Hood" "Jaw" "Joint" "Collar" "UpperArm" "Elbow" "Pants" "Belly" "Chestplate" "Torso" "Hip" "Knee" "Shin" "Shoe" "Shoulder" "Forearm" "Hand" "Shirt" "Head" "Neck" "Face" "Coat" "Thigh")
+ARMOR_ADVANCED=("Hood" "Bevor" "Rondel" "Gorget" "Rerebrace" "Couter" "Chausses" "Plackart" "Cuisses" "Chestplate" "Curiass" "Fauld" "Poleyn" "Greaves" "Sabaton" "Spaulders" "Pauldron" "Vambrace" "Gauntlets" "Hauberk" "Helmet" "Neckguard" "Faceplate" "Coat" "Tasset")
+HELMET_LIST=("GreatHelm" "Hounskull" "KusariZukin" "LobsterTailedPot" "FrogMouth")
+GEMS_LIST=("Diamond" "Emerald" "Ruby" "Saphire" "Opal" "Amethyst" "LapisLazuli" "Turquoise" "Hematite" "Jasper" "Malachite" "RoseQuartz" "Obsidian" "Carnelian" "Quartz" "MossAgate" "LaceAgate" "Pyrite" "Sugilite")
+RARE_GEM_LIST=("Painite" "Hibonite" "RedBeryl" "Jeremejevite" "Chambersite" "Musgravite" "Grandidirite" "Poudretteite" "Serendibite" "Zektzerite")
+
+MINERAL_LIST=("Calcium" "Zirconium" "Boron" "Aluminium" "Chromium" "Vandium" "Borate" "Manganese" "Silicon" "Beryllium" "Titanium" "Cerium" "Magnesium" "Iron" "Cobalt" "Nickel" "Copper" "Zinc" "Silver" "Tin" "Platinum" "Gold")
+
+TYPE="${ADVANCED}"  #"${BASIC}"
+LIST=(${MINERAL_LIST[@]})
+
+#LIST=(${[@]})
 
 HEADER="#[derive(Debug, Clone, Copy, PartialEq, Eq, EnumIter, Deserialize, Serialize)]
 #[cfg_attr(feature = \"fltkform\", derive(FltkForm))]
-///  \`${TYPE}\`
+/*  # ${TYPE}
+
+*/
 pub enum ${TYPE} {"
 
 echo "${HEADER}"
 for ITEM in ${LIST[@]}
 do
-    OUTPUT_LINE="    /// ${ITEM} - 
+    OUTPUT_LINE="    /// ${ITEM}
     ${ITEM},"
     echo "${OUTPUT_LINE}"
 done
 
-echo "    None,
+echo "    /// Nothing
+    None,
 }"
 # Default and Display
 IMPL="impl Default for ${TYPE} {
