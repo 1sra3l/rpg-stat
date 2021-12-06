@@ -12,12 +12,20 @@ use fltk_form_derive::*;
 use fltk_form::{FltkForm, HasProps};
 
 use std::fmt;
+use std::fmt::Debug;
+use std::ops::{Add, AddAssign,  Div, DivAssign, Mul, MulAssign, Neg, Rem, RemAssign, Sub, SubAssign};
+
 
 // #Condition
 //use crate::effect::Normal as Effect;
 // #Element
 //use crate::types::Normal as Element;
-use crate::random::*;
+use crate::random::Random;
+use crate::stats::Basic as BasicStats;
+use crate::stats::Normal as NormalStats;
+use crate::stats::Advanced as AdvancedStats;
+use crate::stats::Builder;
+
 /*
 # Item trait
 
@@ -93,7 +101,174 @@ impl Item for Basic {
         }
     }
 }
-
+impl<T:Copy
+    + Default
+    + Debug
+    + AddAssign
+    + Add<Output = T>
+    + Div<Output = T>
+    + DivAssign
+    + Mul<Output = T>
+    + MulAssign
+    + Neg<Output = T>
+    + Rem<Output = T>
+    + RemAssign
+    + Sub<Output = T>
+    + SubAssign
+    + std::cmp::PartialOrd
+    + num::NumCast> Builder<T> for Basic {
+    fn build_basic(&self, id:T, level:T) -> BasicStats<T>{
+        let mut hp:T = num::cast(0).unwrap();
+        let mut mp:T = num::cast(0).unwrap();
+        let xp:T = num::cast(0).unwrap();
+        let xp_next:T = num::cast(0).unwrap();
+        let gp:T = num::cast(0).unwrap();
+        let speed:T = num::cast(0).unwrap();
+        match *self {
+            Basic::Hp => {
+                hp = num::cast(5).unwrap();
+            },
+            Basic::Mp => {
+                mp = num::cast(2).unwrap();
+            },
+            _=> (),
+        }
+        hp *= level;
+        mp *= level;
+        BasicStats {
+            id,
+            xp,
+            xp_next,
+            level,
+            gp,
+            hp,
+            mp,
+            hp_max:hp,
+            mp_max:mp,
+            speed,
+        }
+        
+    }
+    fn build_normal(&self, id:T, level:T) -> NormalStats<T>{
+        let mut hp:T = num::cast(0).unwrap();
+        let mut mp:T = num::cast(0).unwrap();
+        let xp:T = num::cast(0).unwrap();
+        let xp_next:T = num::cast(0).unwrap();
+        let gp:T = num::cast(0).unwrap();
+        let speed:T = num::cast(0).unwrap();
+        let atk:T = num::cast(0).unwrap();
+        let mut def:T = num::cast(0).unwrap();
+        let m_atk:T = num::cast(0).unwrap();
+        let mut m_def:T = num::cast(0).unwrap();
+        match *self {
+            Basic::Hp => {
+                hp = num::cast(5).unwrap();
+                def = num::cast(2).unwrap();
+            },
+            Basic::Mp => {
+                mp = num::cast(2).unwrap();
+                m_def = num::cast(2).unwrap();
+            },
+            _=> (),
+        }
+        hp *= level;
+        mp *= level;
+        def *= level;
+        m_def *= level;
+        NormalStats {
+            id,
+            xp,
+            xp_next,
+            level,
+            gp,
+            hp,
+            mp,
+            hp_max:hp,
+            mp_max:mp,
+            speed,
+            atk,
+            def,
+            m_atk,
+            m_def,
+        }
+    }
+    fn build_advanced(&self, id:T, level:T) -> AdvancedStats<T>{
+        let mut hp:T = num::cast(0).unwrap();
+        let mut mp:T = num::cast(0).unwrap();
+        let xp:T = num::cast(0).unwrap();
+        let xp_next:T = num::cast(0).unwrap();
+        let gp:T = num::cast(0).unwrap();
+        let speed:T = num::cast(0).unwrap();
+        let atk:T = num::cast(0).unwrap();
+        let mut def:T = num::cast(0).unwrap();
+        let m_atk:T = num::cast(0).unwrap();
+        let mut m_def:T = num::cast(0).unwrap();
+        let mut agility:T = num::cast(0).unwrap();
+        let mut strength:T = num::cast(0).unwrap();
+        let mut dexterity:T = num::cast(0).unwrap();
+        let mut constitution:T = num::cast(0).unwrap();
+        let mut intelligence:T = num::cast(0).unwrap();
+        let mut charisma:T = num::cast(0).unwrap();
+        let mut wisdom:T = num::cast(0).unwrap();
+        let age:T = num::cast(0).unwrap();
+        match *self {
+            Basic::Hp => {
+                hp = num::cast(5).unwrap();
+                def = num::cast(2).unwrap();
+                strength = num::cast(2).unwrap();
+                constitution = num::cast(2).unwrap();
+                charisma = num::cast(1).unwrap();
+                dexterity = num::cast(2).unwrap();
+            },
+            Basic::Mp => {
+                mp = num::cast(2).unwrap();
+                m_def = num::cast(2).unwrap();
+                agility = num::cast(2).unwrap();
+                strength = num::cast(1).unwrap();
+                constitution = num::cast(1).unwrap();
+                charisma = num::cast(2).unwrap();
+                dexterity = num::cast(1).unwrap();
+                wisdom = num::cast(2).unwrap();
+                intelligence = num::cast(2).unwrap();
+            },
+            _=> (),
+        }
+        hp *= level;
+        mp *= level;
+        def *= level;
+        m_def *= level;
+        strength *= level;
+        constitution *= level;
+        charisma *= level;
+        dexterity *= level;
+        wisdom *= level;
+        intelligence *= level;
+        AdvancedStats {
+            id,
+            xp,
+            xp_next,
+            level,
+            gp,
+            hp,
+            mp,
+            hp_max:hp,
+            mp_max:mp,
+            speed,
+            atk,
+            def,
+            m_atk,
+            m_def,
+            agility,
+            strength,
+            dexterity,
+            constitution,
+            intelligence,
+            charisma,
+            wisdom,
+            age,
+        }
+    }
+}
 #[derive(Debug, Clone, Copy, PartialEq, Serialize, Deserialize)]
 #[cfg_attr(feature = "fltkform", derive(FltkForm))]
 pub enum Normal {

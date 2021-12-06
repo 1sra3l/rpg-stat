@@ -328,7 +328,7 @@ This is to collect all the information about armor, stats, status, etc, based on
 pub mod stats;
 pub mod class;
 pub mod creature;
-//pub mod legendary;
+pub mod armor;
 pub mod body;
 pub mod types;
 pub mod random;

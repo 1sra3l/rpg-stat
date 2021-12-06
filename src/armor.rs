@@ -1,17 +1,29 @@
 /*!
-# 
+# Armor
 
+Use stats::Builder to get some basic premade armor stats
+
+```
+use rpgstat::armor::Basic as Armor;
+use rpgstat::stats::Basic as Stats;
+use rpgstat::stats::Builder;
+let armor = Armor::Good;
+let stats:Stats<f64> = armor.build_basic(0.0, 1.0);
+assert_eq!(stats.hp, 5.0);
+```
+These enums can be combined with other modules, such as Element to create an elemental armor
 
 */
 use std::fmt;
 use std::fmt::Debug;
-use std::fmt::Display;
+
 use std::ops::{Add, AddAssign, Div, DivAssign, Mul, MulAssign, Neg, Rem, RemAssign, Sub, SubAssign};
 extern crate num;
-use num::NumCast;
+
 use serde::{Deserialize, Serialize};
-use strum::IntoEnumIterator;
+//use strum::IntoEnumIterator;
 use strum_macros::EnumIter;
+use crate::random::Random;
 
 // RPG Stat
 use crate::stats::Basic as BasicStats;
@@ -37,6 +49,7 @@ pub enum Basic {
     Epic,
     /// Legendary Armor
     Legendary,
+    /// No armor
     None,
 }
 impl Default for Basic {
@@ -182,7 +195,7 @@ impl<T:Copy
                 hp = num::cast(12).unwrap();
                 speed = num::cast(2).unwrap();
                 atk = num::cast(15).unwrap();
-                def = num::cast(100).unwrap();;
+                def = num::cast(100).unwrap();
                 m_def = num::cast(100).unwrap();
             },
             Basic::Epic => {
@@ -231,8 +244,8 @@ impl<T:Copy
         let mut hp:T = num::cast(0).unwrap();
         let mut mp:T = num::cast(0).unwrap();
         let mut xp:T = num::cast(0).unwrap();
-        let mut xp_next:T = num::cast(0).unwrap();
-        let mut gp:T = num::cast(0).unwrap();
+        let xp_next:T = num::cast(0).unwrap();
+        let gp:T = num::cast(0).unwrap();
         let mut speed:T = num::cast(0).unwrap();
         let mut atk:T = num::cast(0).unwrap();
         let mut def:T = num::cast(0).unwrap();
@@ -272,7 +285,7 @@ impl<T:Copy
                 hp = num::cast(12).unwrap();
                 speed = num::cast(2).unwrap();
                 atk = num::cast(15).unwrap();
-                def = num::cast(100).unwrap();;
+                def = num::cast(100).unwrap();
                 m_def = num::cast(100).unwrap();
                 strength = num::cast(25).unwrap();
                 constitution = num::cast(20).unwrap();
@@ -337,7 +350,6 @@ impl<T:Copy
         }
     }
 }
-}
 #[derive(Debug, Clone, Copy, PartialEq, Eq, EnumIter, Deserialize, Serialize)]
 #[cfg_attr(feature = "fltkform", derive(FltkForm))]
 /* 
@@ -391,6 +403,7 @@ pub enum Normal {
     Coat,
     /// Thigh
     Thigh,
+    /// No armor
     None,
 }
 impl Default for Normal {
@@ -480,7 +493,7 @@ pub enum Advanced {
    /// Collar armor
    Gorget,
    /// Upper arm armor below the shoulder armor
-   Rerebrace
+   Rerebrace,
    /// Elbow Armor
    Couter,
    /// Pant armor
@@ -520,8 +533,8 @@ pub enum Advanced {
    /// The coat worn over armor
    Coat,
    /// Hanging upper thigh plate armor
-   Tasset
-   /// Nothing
+   Tasset,
+   /// No armor
    None,
 }
 impl Default for Advanced {
