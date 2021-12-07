@@ -166,10 +166,10 @@ age = 10"#;
 
     #[test]
     fn attribute_test() {
-        use rpgstat::creature::Stats;
-        use rpgstat::random::Random;
-        //use rpgstat::item::Item;
-        use rpgstat::item::Normal as MyItem;
+        use rpg_stat::creature::Stats;
+        use rpg_stat::random::Random;
+        //use rpg_stat::item::Item;
+        use rpg_stat::item::Normal as MyItem;
 
         let mut stat = Stats::default();
         stat = stat.random_type();

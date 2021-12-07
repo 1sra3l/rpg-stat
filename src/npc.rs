@@ -9,13 +9,9 @@ We also provide `AI` Logic as well.
 */
 use std::fmt;
 use std::fmt::Debug;
-//use std::fmt::Display;
-//use std::ops::{Add, AddAssign, Div, DivAssign, Mul, MulAssign, Neg, Rem, RemAssign, Sub, SubAssign};
 extern crate num;
-//use num::NumCast;
 use serde::{Deserialize, Serialize};
-//use strum::IntoEnumIterator;
-use strum_macros::EnumIter;
+
 #[cfg(feature = "fltkform")]
 use fltk::{prelude::*, *};
 #[cfg(feature = "fltkform")]
@@ -23,6 +19,7 @@ use fltk_form_derive::*;
 #[cfg(feature = "fltkform")]
 use fltk_form::{FltkForm, HasProps};
 
+// our module
 use crate::random::Random;
 
 /*
@@ -30,7 +27,7 @@ use crate::random::Random;
 The state the individual is in.
 There are two states `Broken` and `Ordered`  These are assesments of the individual's alignment and choices.  If their choices match the Alignment, the State becomes `Ordered` when out of sync it becomes `Broken`
 */
-#[derive(Debug, Clone, Copy, PartialEq, Eq, EnumIter, Deserialize, Serialize)]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Deserialize, Serialize)]
 #[cfg_attr(feature = "fltkform", derive(FltkForm))]
 pub enum State {
     /// Alignment does not match actions
@@ -58,7 +55,7 @@ impl Default for State {
 /*
 
 */
-#[derive(Debug, Clone, Copy, PartialEq, Eq, EnumIter, Deserialize, Serialize)]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Deserialize, Serialize)]
 #[cfg_attr(feature = "fltkform", derive(FltkForm))]
 pub enum Purpose {
     Random,
@@ -87,7 +84,7 @@ impl Default for Purpose {
 # Conversation
 This is used to generate conversational content for NPCs
 */
-#[derive(Debug, Clone, Copy, PartialEq, Eq, EnumIter, Deserialize, Serialize)]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Deserialize, Serialize)]
 #[cfg_attr(feature = "fltkform", derive(FltkForm))]
 pub enum Conversation {
     /// General life advice, such as proverbs

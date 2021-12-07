@@ -1,19 +1,15 @@
 /*!
 # Special
 
-Special moves learned by `rpgstat::creatures::*;`
+Special moves learned by `rpg_stat::creatures::*;`
 
 
 */
 use std::fmt;
 use std::fmt::Debug;
-//use std::fmt::Display;
 use std::ops::{Add, AddAssign, Div, DivAssign, Mul, MulAssign, Neg, Rem, RemAssign, Sub, SubAssign};
 extern crate num;
-//use num::NumCast;
 use serde::{Deserialize, Serialize};
-//use strum::IntoEnumIterator;
-use strum_macros::EnumIter;
 #[cfg(feature = "fltkform")]
 use fltk::{prelude::*, *};
 #[cfg(feature = "fltkform")]
@@ -25,7 +21,7 @@ use fltk_form::{FltkForm, HasProps};
 use crate::random::*;
 
 // TODO Advanced
-#[derive(Debug, Clone, PartialEq, Eq, EnumIter, Deserialize, Serialize)]
+#[derive(Debug, Clone, PartialEq, Eq, Deserialize, Serialize)]
 /*
 # Basic Special
 This is quite versitle as it is similar to `Option<String>` being either `None` or `Some(String)`
@@ -66,7 +62,7 @@ impl fmt::Display for Basic {
     }
 }
 
-#[derive(Debug, Clone, Copy, PartialEq, Eq, EnumIter, Deserialize, Serialize)]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Deserialize, Serialize)]
 #[cfg_attr(feature = "fltkform", derive(FltkForm))]
 /// Specials are just types of attack, coupled with the `Element`
 /// These enums are used in determining the effects of the attack and which animations to use
@@ -254,7 +250,7 @@ impl<T:Copy
 
 */
 //TODO more specials
-#[derive(Debug, Clone, Copy, PartialEq, Eq, EnumIter, Deserialize, Serialize)]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Deserialize, Serialize)]
 #[cfg_attr(feature = "fltkform", derive(FltkForm))]
 pub enum Advanced {
     /// 

@@ -4,9 +4,9 @@
 Use stats::Builder to get some basic premade armor stats
 
 ```
-use rpgstat::armor::Basic as Armor;
-use rpgstat::stats::Basic as Stats;
-use rpgstat::stats::Builder;
+use rpg_stat::armor::Basic as Armor;
+use rpg_stat::stats::Basic as Stats;
+use rpg_stat::stats::Builder;
 let armor = Armor::Good;
 let stats:Stats<f64> = armor.build_basic(0.0, 1.0);
 assert_eq!(stats.hp, 5.0);
@@ -21,17 +21,15 @@ use std::ops::{Add, AddAssign, Div, DivAssign, Mul, MulAssign, Neg, Rem, RemAssi
 extern crate num;
 
 use serde::{Deserialize, Serialize};
-//use strum::IntoEnumIterator;
-use strum_macros::EnumIter;
-use crate::random::Random;
 
-// RPG Stat
+// our modules
+use crate::random::Random;
 use crate::stats::Basic as BasicStats;
 use crate::stats::Normal as NormalStats;
 use crate::stats::Advanced as AdvancedStats;
 use crate::stats::Builder;
 
-#[derive(Debug, Clone, Copy, PartialEq, Eq, EnumIter, Deserialize, Serialize)]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Deserialize, Serialize)]
 #[cfg_attr(feature = "fltkform", derive(FltkForm))]
 /* 
 # Basic Armor
@@ -350,7 +348,7 @@ impl<T:Copy
         }
     }
 }
-#[derive(Debug, Clone, Copy, PartialEq, Eq, EnumIter, Deserialize, Serialize)]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Deserialize, Serialize)]
 #[cfg_attr(feature = "fltkform", derive(FltkForm))]
 /* 
 # Normal
@@ -477,7 +475,7 @@ impl Random for Normal {
     }
     
 }
-#[derive(Debug, Clone, Copy, PartialEq, Eq, EnumIter, Deserialize, Serialize)]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Deserialize, Serialize)]
 #[cfg_attr(feature = "fltkform", derive(FltkForm))]
 /* 
 # Advanced

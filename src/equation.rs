@@ -4,11 +4,8 @@ use std::fmt::Display;
 use serde::{Deserialize, Serialize};
 use std::ops::{Add, AddAssign, Div, DivAssign, Mul, MulAssign, Neg, Rem, RemAssign, Sub, SubAssign};
 extern crate num;
-//use num::NumCast;
-//use strum::IntoEnumIterator;
-use strum_macros::EnumIter;
 
-#[derive(Debug, Clone, Copy, PartialEq, Eq, EnumIter, Deserialize, Serialize)]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Deserialize, Serialize)]
 pub enum Equation<T:Copy 
                  + Default
                  + Display
@@ -86,7 +83,7 @@ match *self {
         }
     }
 }
-#[derive(Debug, Clone, Copy, PartialEq, Eq, EnumIter, Deserialize, Serialize)]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Deserialize, Serialize)]
 pub enum Operation<T:Copy 
                  + Default
                  + Display

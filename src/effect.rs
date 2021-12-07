@@ -6,13 +6,9 @@ This composes the various Effects in-game related to a character's Stats
 */
 use std::fmt;
 use std::fmt::Debug;
-//use std::fmt::Display;
-//use std::ops::{Add, AddAssign, Div, DivAssign, Mul, MulAssign, Neg, Rem, RemAssign, Sub, SubAssign};
 extern crate num;
-//use num::NumCast;
 use serde::{Deserialize, Serialize};
-//use strum::IntoEnumIterator;
-use strum_macros::EnumIter;
+
 #[cfg(feature = "fltkform")]
 use fltk::{prelude::*, *};
 #[cfg(feature = "fltkform")]
@@ -31,7 +27,7 @@ use crate::body::VectorView;
 # Basic 
 
 */
-#[derive(Debug, Clone, Copy, PartialEq, Eq, EnumIter, Deserialize, Serialize)]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Deserialize, Serialize)]
 #[cfg_attr(feature = "fltkform", derive(FltkForm))]
 pub enum Basic {
     /// no effect aka a player or something else that should not have an effect, like a key
@@ -82,7 +78,7 @@ impl Random for Basic {
 # Normal 
 
 */
-#[derive(Debug, Clone, Copy, PartialEq, Eq, EnumIter, Deserialize, Serialize)]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Deserialize, Serialize)]
 #[cfg_attr(feature = "fltkform", derive(FltkForm))]
 pub enum Normal {
     /// no effect aka a player or something else that should not have an effect, like a key
@@ -180,7 +176,7 @@ impl Random for Normal {
 
 */
 //TODO more effects
-#[derive(Debug, Clone, Copy, PartialEq, Eq, EnumIter, Deserialize, Serialize)]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Deserialize, Serialize)]
 #[cfg_attr(feature = "fltkform", derive(FltkForm))]
 pub enum Advanced {
     /// no effect aka a player or something else that should not have an effect, like a key

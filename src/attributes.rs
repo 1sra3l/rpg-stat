@@ -6,7 +6,7 @@ These are definitions of abstract terms into code
 ## Rate
 Rate of occurance
 ```
-use rpgstat::attributes::Rate;
+use rpg_stat::attributes::Rate;
 let yes:Rate = Rate::Always;
 assert_eq!(yes.worked(), true);
 let no:Rate = Rate::None;
@@ -20,7 +20,7 @@ let hmmm:Rate = Rate::Some;
 We can easily find the value of an effectiveness:
 
 ```
-use rpgstat::attributes::{Effectiveness, Value};
+use rpg_stat::attributes::{Effectiveness, Value};
 let hp:i32 = 50;
 // later on we use an item and check the effectiveness of it
 assert_eq!(Effectiveness::Half.value(hp), 25);
@@ -28,7 +28,7 @@ assert_eq!(Effectiveness::Half.value(hp), 25);
 ```
 This effectiveness can be stored in a struct and you could implement a wrapper for `value(T)`:
 ```
-use rpgstat::attributes::{Effectiveness, Value};
+use rpg_stat::attributes::{Effectiveness, Value};
 
 pub struct Item {
     pub name:String,
@@ -45,7 +45,7 @@ impl Item {
 
 ## Stage
 ```
-use rpgstat::attributes::{Stage, Value};
+use rpg_stat::attributes::{Stage, Value};
 let stage:Stage = Stage::Baby.value(15);
 //
 assert_eq!(stage, Stage::Teen);
@@ -58,11 +58,7 @@ use std::fmt;
 use std::fmt::Debug;
 use std::ops::{Add, AddAssign, Div, DivAssign, Mul, MulAssign, Neg, Rem, RemAssign, Sub, SubAssign};
 extern crate num;
-//use num::NumCast;
 use serde::{Deserialize, Serialize};
-//use strum::IntoEnumIterator;
-use strum_macros::EnumIter;
-use crate::random::Random;
 
 #[cfg(feature = "fltkform")]
 use fltk::{prelude::*, *};
@@ -70,6 +66,11 @@ use fltk::{prelude::*, *};
 use fltk_form_derive::*;
 #[cfg(feature = "fltkform")]
 use fltk_form::{FltkForm, HasProps};
+
+// our modules
+use crate::random::Random;
+
+
 /*
 # Rate
 
@@ -78,13 +79,13 @@ This can be used to determine the Rate at which enemies/items appear in areas, o
 To find a random true/false value simple call `worked()` on your enum
 
 ```
-use rpgstat::attributes::Rate;
+use rpg_stat::attributes::Rate;
 let yes:Rate = Rate::Always;
 assert_eq!(yes.worked(), true);
 assert_eq!(Rate::None::worked(), false);
 ```
 */
-#[derive(Debug, Clone, Copy, PartialEq, Eq, EnumIter, Deserialize, Serialize)]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Deserialize, Serialize)]
 #[cfg_attr(feature = "fltkform", derive(FltkForm))]
 pub enum Rate {
     /// 100%
@@ -155,14 +156,14 @@ impl fmt::Display for Rate {
 # Effectiveness
 
 ```rs
-use rpgstat::attributes::{Effectiveness, Value};
+use rpg_stat::attributes::{Effectiveness, Value};
 let hp:i32 = 50;
 // later on we use an item and check the effectiveness of it
 assert_eq!(Effectiveness::Half.value(hp), 25);
 
 ```
 */
-#[derive(Debug, Clone, Copy, PartialEq, Eq, EnumIter, Deserialize, Serialize)]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Deserialize, Serialize)]
 #[cfg_attr(feature = "fltkform", derive(FltkForm))]
 pub enum Effectiveness {    
     Double,
@@ -234,7 +235,7 @@ impl fmt::Display for Effectiveness {
         write!(f, "{}", v.as_str())
     }
 }
-#[derive(Debug, Clone, Copy, PartialEq, Eq, EnumIter, Deserialize, Serialize)]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Deserialize, Serialize)]
 #[cfg_attr(feature = "fltkform", derive(FltkForm))]
 /// This is the 'stage' of life the creature is in
 /// Stages of life are similar to Pokemon evolution,

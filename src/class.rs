@@ -9,9 +9,9 @@ You can even use the fully `Advanced` version to use the entire class realm.
 Make anything pretty easily from built in classes `Basic`, `Normal`, and `Advanced`
 
 ```
-use rpgstat::stats::Builder;
-use rpgstat::stats::Basic as Stat;
-use rpgstat::class::Basic as Class;
+use rpg_stat::stats::Builder;
+use rpg_stat::stats::Basic as Stat;
+use rpg_stat::class::Basic as Class;
 
 let class:Class = Class::Hero;
 let stat:Stat<f64> = class.build_basic(0.0, 1.0);
@@ -79,8 +79,6 @@ let age:T = num::cast(10).unwrap();
 use std::fmt;
 use serde::{Deserialize, Serialize};
 use std::ops::{Add, AddAssign,  Div, DivAssign, Mul, MulAssign, Neg, Rem, RemAssign, Sub, SubAssign};
-//use strum::IntoEnumIterator;
-use strum_macros::EnumIter;
 use std::fmt::Debug;
 
 #[cfg(feature = "fltkform")]
@@ -104,7 +102,7 @@ This is a WIP currently
 
 */
 #[allow(unused)]
-#[derive(Clone, PartialEq, Copy, Debug, Serialize, Deserialize, EnumIter)]
+#[derive(Clone, PartialEq, Copy, Debug, Serialize, Deserialize)]
 #[cfg_attr(feature = "fltkform", derive(FltkForm))]
 pub enum Alignment {
     Light,
@@ -138,9 +136,9 @@ Default to making an `Enemy`, because there are honestly few `Hero`s in games
 Make anything pretty easily from built in classes
 
 ```
-use rpgstat::stat::Builder;
-use rpgstat::stat::Basic as Stat;
-use rpgstat::class::Basic as Class;
+use rpg_stat::stat::Builder;
+use rpg_stat::stat::Basic as Stat;
+use rpg_stat::class::Basic as Class;
 
 let class:Class = Class::Hero;
 let stat:Stat<f64> = class.build_basic();
@@ -148,7 +146,7 @@ let stat:Stat<f64> = class.build_basic();
 
 */
 #[allow(unused)]
-#[derive(Clone, PartialEq, Copy, Debug, Serialize, Deserialize, EnumIter)]
+#[derive(Clone, PartialEq, Copy, Debug, Serialize, Deserialize)]
 #[cfg_attr(feature = "fltkform", derive(FltkForm))]
 pub enum Basic {
     /// Obviously the protagonist
@@ -349,9 +347,9 @@ You can couple these things with `Alignment` to produce variations on Monks, Ele
 Make anything pretty easily from built in classes
 
 ```
-use rpgstat::stat::Builder;
-use rpgstat::stat::Normal as Stat;
-use rpgstat::class::Normal as Class;
+use rpg_stat::stat::Builder;
+use rpg_stat::stat::Normal as Stat;
+use rpg_stat::class::Normal as Class;
 
 let class:Class = Class::Archer;
 let stat:Stat<f64> = class.build_normal();
@@ -359,7 +357,7 @@ let stat:Stat<f64> = class.build_normal();
 
 */
 #[allow(unused)]
-#[derive(Clone, PartialEq, Copy, Debug, Serialize, Deserialize, EnumIter)]
+#[derive(Clone, PartialEq, Copy, Debug, Serialize, Deserialize)]
 #[cfg_attr(feature = "fltkform", derive(FltkForm))]
 pub enum Normal {
     /// Full of concotions to both heal and harm.
@@ -847,7 +845,7 @@ impl<T:Copy
 
 
 */
-#[derive(Debug, Clone, Copy, PartialEq, Eq, EnumIter, Deserialize, Serialize)]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Deserialize, Serialize)]
 #[cfg_attr(feature = "fltkform", derive(FltkForm))]
 ///  `Advanced`
 pub enum Advanced {

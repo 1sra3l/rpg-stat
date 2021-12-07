@@ -6,25 +6,14 @@
 
 Cargo.toml
 
-`rpgstat="4.0"`
+Versioning numbering was changed to `year.month.day` format
 
-This is fairly exhaustive and links to most things you can use.
-The library is **still a WIP** as the battle system is rudimentary in the current form.  [TOML](https://crates.io/crates/toml) format with [serde](https://crates.io/crates/serde) is supported.
-
-# **breaking changes**
-A choice was made to remove data from this library and move it to a [repo]() as it became too much information for the scope of this crate, very quickly.
-
-This breaks **all** previous usage using `rpgstat::creature::*;`
-This breaks **all** previous usage using `rpgstat::legendary::*;`
-
-But adds quite a bit, by removing so much!
-
-Using the `--feature fltkform` you can now build a GUI without coding!  It does require [FLTK](https://github.com/fltk-rs/) which has many incredible features built in.
+`rpg_stat="2021.12"`
 
 ## Only SPECIFIC stats are supported for FLTK
 
-This is due to limitations of abstraction
-
+This is due to limitations of abstraction, namely Vectors and primitives being practically the same as a generic type
+FLTK uses `f64` so the `rpg_stat::stats::Stats` implements [fltk-form](https://crates.io/crates/fltk-form)
 
 # Stats
 
@@ -32,7 +21,7 @@ The Stats are broken down into categories `Basic`, `Normal`, and `Advanced`
 
 `Basic` contains only the most needed for a generic game
 Your file needs:
-`use rpgstat::stats::Basic as Stats`
+`use rpg_stat::stats::Basic as Stats`
  * id
  * xp
  * xp_next
@@ -46,7 +35,7 @@ Your file needs:
 
 `Normal` includes a few more for the generic RPG battle system as well as everything in `Basic`
 Your file needs:
-`use rpgstat::stats::Normal as Stats`
+`use rpg_stat::stats::Normal as Stats`
  * atk
  * def
  * m_atk
@@ -54,7 +43,7 @@ Your file needs:
 
 `Advanced` contains the finer details seen in tabletop RPG stats as well as everything in `Normal` and `Basic`
 Your file needs:
-`use rpgstat::stats::Advanced as Stats`
+`use rpg_stat::stats::Advanced as Stats`
  * agility
  * strength
  * dexterity
@@ -67,7 +56,7 @@ Your file needs:
 You can easily **ANY** of build these to populate however you like:
 ```
 // choose Normal or Basic if you'd rather...
-use rpgstat::stats::Advanced as Stats;
+use rpg_stat::stats::Advanced as Stats;
 let stats:Stats<f64> = Stats::empty::<f64>();
 ```
 
@@ -79,9 +68,9 @@ Yes you can use serde with any of the assets/characters/ files provided.  You ca
 
 ```
 use serde::{Deserialize, Serialize};
-use rpgstat::attributes::{Effectiveness, Value};
-use rpgstat::class::Basic as Class;
-use rpgstat::stats::Basic as Stats;
+use rpg_stat::attributes::{Effectiveness, Value};
+use rpg_stat::class::Basic as Class;
+use rpg_stat::stats::Basic as Stats;
 
 // example program
 const INI_FILE:&str = r#"name="test"
@@ -130,16 +119,16 @@ assert_eq!(decoded.class.to_string(), String::from("Hero"));
 ```
 ## Builder
 Since the 1.X version `rpg-stat` has come with a `Builder` trait.
-The builder trait is being implemented for all the enumerations like the `rpgstat::class::*` as well as `rpgstat::creature::*`
+The builder trait is being implemented for all the enumerations like the `rpg_stat::class::*` as well as `rpg_stat::creature::*`
 
 This allows you to do:
 ```
 // feel free to use `Normal` or `Advanced` instead of `Basic`
-use rpgstat::stats::Basic as Stats;
-use rpgstat::class::Basic as Class;
+use rpg_stat::stats::Basic as Stats;
+use rpg_stat::class::Basic as Class;
 
 // this is the thing we need!
-use rpgstat::stats::Builder;
+use rpg_stat::stats::Builder;
 
 // get Hero stats for our program
 fn hero_stats () -> Stats<f64> {
@@ -172,23 +161,23 @@ The Classes are broken down into categories `Basic`, `Normal`, and `Advanced`
 
 The `Basic` class is either `Hero` or `Enemy`
 Your file needs:
-`use rpgstat::class::Basic as Class`
+`use rpg_stat::class::Basic as Class`
 
 The `Normal` class includes a range of character classes for a battle game.
 Your file needs:
-`use rpgstat::class::Normal as Class`
+`use rpg_stat::class::Normal as Class`
 
 `Advanced` includes more characters for a game with interactive roles, not simply a game of battle.
 Your file needs:
-`use rpgstat::class::Advanced as Class`
+`use rpg_stat::class::Advanced as Class`
 
 The stat `Builder` is implemented for all the classes and can be used easily:
 
 ```
-use rpgstat::stats::Normal as Stats;
-use rpgstat::class::Normal as Class;
+use rpg_stat::stats::Normal as Stats;
+use rpg_stat::class::Normal as Class;
 // *Use this*
-use rpgstat::stats::Builder;
+use rpg_stat::stats::Builder;
 
 // get Hero stats for our program
 fn hero_stats () -> Stats<f64> {
@@ -214,7 +203,7 @@ fn hero_stats () -> Stats<f64> {
 
 This includes various enums related to the type of character you have
 
-`use rpgstat::types::Basic as Type`
+`use rpg_stat::types::Basic as Type`
 
  * `Basic` is the basic type `Good` or `Bad`
  * `Normal` has elemental types
@@ -226,11 +215,11 @@ The Compare trait is implemented for `Normal`
 according to this chart:
  
 ```
-use rpgstat::types::Normal as Type;
+use rpg_stat::types::Normal as Type;
 // to check effectiveness
-use rpgstat::types::Compare;
+use rpg_stat::types::Compare;
 // need effectiveness too!
-use rpgstat::attributes::Effectiveness;
+use rpg_stat::attributes::Effectiveness;
 
 let rock = Type::Rock;
 let wind = Type::Wind;
@@ -243,7 +232,7 @@ assert_eq!(wind.effectiveness(rock), Effectiveness::Double);
 These are names of `Special` moves.
 
 ```
-use rpgstat::special::Normal as Special;
+use rpg_stat::special::Normal as Special;
 let grind:Special = Special::Grind;
 ```
 
@@ -258,7 +247,7 @@ These are definitions of abstract terms into code
 ## Rate
 Rate of occurance
 ```
-use rpgstat::attributes::Rate;
+use rpg_stat::attributes::Rate;
 let yes:Rate = Rate::Always;
 assert_eq!(yes.worked(), true);
 let no:Rate = Rate::None;
@@ -271,7 +260,7 @@ let hmmm:Rate = Rate::Some;
 
 This effectiveness can be stored in a struct and you could implement a wrapper for `value(T)`:
 ```
-use rpgstat::attributes::{Effectiveness, Value};
+use rpg_stat::attributes::{Effectiveness, Value};
 
 pub struct Item {
     pub name:String,
@@ -287,7 +276,7 @@ impl Item {
 ```
 
 ```
-use rpgstat::attributes::{Effectiveness, Value};
+use rpg_stat::attributes::{Effectiveness, Value};
 let hp:i32 = 50;
 // later on we use an item and check the effectiveness of it
 assert_eq!(Effectiveness::Half.value(hp), 25);
@@ -297,7 +286,7 @@ assert_eq!(Effectiveness::Half.value(hp), 25);
 ## Stage
 
 ```
-use rpgstat::attributes::Stage;
+use rpg_stat::attributes::Stage;
 
 ```
 This includes the `Stage` of life.  This is similar to things like "evolution" in creature raising games, but based on reality.  In real life no creature evolves randomly in front of someone, however they do get older and change their "form".  There are eight forms:
@@ -319,7 +308,7 @@ This is to collect all the information about armor, stats, status, etc, based on
  Ideally, this will use `clap` and support some very specific stat traits only.
 
  AFAIK the interface will end up looking like:
- `rpgstat class normal Archer stat normal hp`
+ `rpg_stat class normal Archer stat normal hp`
  
  That said none of the work has been started yet, and I am open to input.
 

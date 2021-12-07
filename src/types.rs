@@ -14,9 +14,9 @@ This includes various enums related to the type of character you have
 `Basic` has no need for effectiveness against types, so you can implement your own `Compare` if you like
 
 ```
-use rpgstat::types::Basic;
-use rpgstat::types::Compare;
-use rpgstat::attributes::Effectiveness;
+use rpg_stat::types::Basic;
+use rpg_stat::types::Compare;
+use rpg_stat::attributes::Effectiveness;
 use std::fmt;
 use std::fmt::Debug;
 use std::fmt::Display;
@@ -80,13 +80,9 @@ This can be compared easily using the Compare trait
 */
 use std::fmt;
 use std::fmt::Debug;
-//use std::fmt::Display;
-//use std::ops::{Add, AddAssign, Div, DivAssign, Mul, MulAssign, Neg, Rem, RemAssign, Sub, SubAssign};
 extern crate num;
-///use num::NumCast;
 use serde::{Deserialize, Serialize};
-//use strum::IntoEnumIterator;
-use strum_macros::EnumIter;
+
 #[cfg(feature = "fltkform")]
 use fltk::{prelude::*, *};
 #[cfg(feature = "fltkform")]
@@ -94,7 +90,7 @@ use fltk_form_derive::*;
 #[cfg(feature = "fltkform")]
 use fltk_form::{FltkForm, HasProps};
 
-//our stuff
+//module stuff
 use crate::attributes::Effectiveness;
 use crate::random::Random;
 
@@ -125,7 +121,7 @@ pub trait Compare {
     ///  Effectiveness against a target
     fn effectiveness(&self, other:Self::Type) -> Effectiveness;
 }
-#[derive(Debug, Clone, Copy, PartialEq, Eq, EnumIter, Deserialize, Serialize)]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Deserialize, Serialize)]
 ///  `Basic`
 ///```rs:no_run                       
 ///    ------   _  __ __     
@@ -181,11 +177,11 @@ Implemented according to this chart:
 </div>
 
 ```
-use rpgstat::types::Normal as Type;
+use rpg_stat::types::Normal as Type;
 // to check effectiveness
-use rpgstat::types::Compare;
+use rpg_stat::types::Compare;
 // need effectiveness too!
-use rpgstat::attributes::Effectiveness;
+use rpg_stat::attributes::Effectiveness;
 
 let rock = Type::Rock;
 let wind = Type::Wind;
@@ -195,7 +191,7 @@ assert_eq!(wind.effectiveness(rock), Effectiveness::Double);
 ```
 */
 
-#[derive(Debug, Clone, Copy, PartialEq, Eq, EnumIter, Deserialize, Serialize)]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Deserialize, Serialize)]
 #[cfg_attr(feature = "fltkform", derive(FltkForm))]
 pub enum Normal {
     Rock,
@@ -402,7 +398,7 @@ impl Compare for Normal {
     }
 }
 
-#[derive(Debug, Clone, Copy, PartialEq, Eq, EnumIter, Deserialize, Serialize)]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Deserialize, Serialize)]
 #[cfg_attr(feature = "fltkform", derive(FltkForm))]
 ///  `Advanced`
 pub enum Advanced {

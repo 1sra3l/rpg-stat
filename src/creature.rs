@@ -8,8 +8,8 @@ fn run () {
     use fltk::{prelude::*, *};
     use fltk_form_derive::*;
     use fltk_form::FltkForm;
-    use rpgstat::random::Random;
-    use rpgstat::creature::Stats;
+    use rpg_stat::random::Random;
+    use rpg_stat::creature::Stats;
     let c = Stats::default();
     let app = app::App::default();
     let mut win = window::Window::default().with_size(400, 300);
@@ -26,10 +26,6 @@ fn run () {
 }
 ```
 */
-//use std::fmt;
-//use strum::IntoEnumIterator;
-//use strum_macros::EnumIter;
-
 use serde::{Deserialize, Serialize};
 use std::fmt::Debug;
 
@@ -58,7 +54,7 @@ use fltk_form::FltkForm;
 # Stats Stats
 
 These stats exist for the sole purpose of raising and training creatures
-This stat is based off of the ideas of the original Pokemon save memory data structure, but for use with the rpgstat library.
+This stat is based off of the ideas of the original Pokemon save memory data structure, but for use with the rpg_stat library.
 */
 #[derive( Debug, Clone, PartialEq, Serialize, Deserialize)]
 #[cfg_attr(feature = "fltkform", derive(FltkForm))]
@@ -223,10 +219,10 @@ impl Random for Stats {
 impl Stats {
 /*
 ```
-use rpgstat::random::Random;
-use rpgstat::creature::Stats;
-use rpgstat::item::Item;
-use rpgstat::item::Normal as MyItem;
+use rpg_stat::random::Random;
+use rpg_stat::creature::Stats;
+use rpg_stat::item::Item;
+use rpg_stat::item::Normal as MyItem;
 
 let mut stat = Stats::default();
 stat = stat.random_type();

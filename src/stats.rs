@@ -129,13 +129,13 @@ Fight mechanics:
  * Items, Weapons, Armor, etc may be formulated for specific age ranges and prevent users who are too young or old to use them.
 
 Story mechanics:
- * Age can influence story mechanics but this would be a choice
+ * Age could potentially influence story mechanics, being to young to leave an area would promote grinding.
 
  */
 use std::default::Default;
 use serde::{Deserialize, Serialize};
 extern crate num;
-//use num::NumCast;
+
 use std::ops::{Add, AddAssign,  Div, DivAssign, Mul, MulAssign, Neg, Rem, RemAssign, Sub, SubAssign};
 use std::fmt::Debug;
 
@@ -156,7 +156,7 @@ use crate::random::*;
 /*
 # Builder
 
-The builder trait is how I create `rpgstat::stats::{Basic,Normal,Advance}` from enums
+The builder trait is how I create `rpg_stat::stats::{Basic,Normal,Advance}` from enums
 
 */
 pub trait Builder <T:Copy

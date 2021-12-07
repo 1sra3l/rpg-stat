@@ -1,6 +1,6 @@
 [package]
 name = "rpg-stat"
-version = "4.0.0"
+version = "2021.12.7"
 edition = "2021"
 authors = ["Israel Dahl <israeldahl@protonmail.com>"]
 description = "A library for computer stats for RPG game development"
@@ -13,18 +13,16 @@ documentation = "https://docs.rs/rpg-stat/"
 
 # library files
 [lib]
-name = "rpgstat"
+name = "rpg_stat"
 path = "src/lib.rs" 
 
 # binary file
 [[bin]]
-name = "rpgstat"
+name = "rpg-stat"
 path = "src/main.rs"
 
 [dependencies]
 serde = { version = "1.0.130", features = ["derive"] }
-strum = "0.22"
-strum_macros = "0.22"
 num = "0.2"
 toml = "0.5"
 rand = "0.8.4"
