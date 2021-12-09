@@ -43,6 +43,7 @@ impl Premade<f64> for MyStruct {
     fn set_gp(&mut self, amount:f64) {
         self.stats.gp = amount;
     }
+    
 }
 ```
 
@@ -93,6 +94,12 @@ impl Premade for MyStruct {
     }
     fn set_m_def(&mut self, amount:f64) {
         self.stats.m_def = amount;
+    }
+    fn set_level(&mut self, amount:f64) {
+        self.stats.level = amount;
+    }
+    fn set_speed(&mut self, amount:f64) {
+        self.stats.speed = amount;
     }
 }
 
@@ -1350,6 +1357,12 @@ pub trait Premade {
     /// # Function you need to imlement
     /// Set the `Stats` Mana Defense Points
     fn set_m_def(&mut self, amount:f64);
+    /// # Function you need to imlement
+    /// Set the `Stats` Level
+    fn set_level(&mut self, amount:f64);
+    /// # Function you need to imlement
+    /// Set the `Stats` Level
+    fn set_speed(&mut self, amount:f64);
 
 // PREMADE FUNCf64IONS   
     /// Return  the `Stats` id number
@@ -1386,7 +1399,7 @@ pub trait Premade {
     }
     /// Return  the `Stats` Speed
     fn speed(&self) -> f64 {
-        self.stat().level
+        self.stat().speed
     }
     /// Return  the `Stats` Gold Points
     fn gp(&self) -> f64 {
@@ -1458,5 +1471,41 @@ pub trait Premade {
     fn earn(&mut self, price:f64) {
         let total = self.gp() + price;
         self.set_gp(total);
+    }    #[allow(unused)]
+    /// Get the next amount of XP needed to level up
+    fn next(&self) -> f64 {
+        self.level() * self.xp_next()
+    }
+    /// a vector of stats used to get the standard deviation
+    fn stats_vec(&self) -> Vec<f64>{
+        vec![
+            self.hp_max(),
+            self.mp_max(),
+            self.speed(),
+            self.atk(),
+            self.def(),
+            self.m_atk(),
+            self.m_def(),
+        ]
+    }
+
+    #[allow(unused)]
+    fn level_up(&mut self) {
+        if self.xp() > self.next() {
+            let stats_vec:Vec<f64> = self.stats_vec();
+            let mut num:f64 = Math::population_standard_deviation(stats_vec);
+            let one = 1.0;
+            if num < one {
+                num = one;
+            }
+            self.set_level(self.level() + num);
+            self.set_mp_max(self.mp_max() + num);
+            self.set_hp_max(self.hp_max() + num);
+            self.set_speed(self.speed() + num);
+            self.set_atk(self.atk() + num);
+            self.set_def(self.def() + num);
+            self.set_m_atk(self.m_atk() + num);
+            self.set_m_def(self.m_def() + num);
+        }
     }
 }
