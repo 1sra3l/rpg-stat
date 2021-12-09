@@ -1294,6 +1294,7 @@ impl Stats {
             if num < one {
                 num = one;
             }
+            num *= self.level;
             self.level += num;
             self.mp_max += num;
             self.hp_max += num;
@@ -1524,7 +1525,7 @@ pub trait Premade {
     }
 
     #[allow(unused)]
-    fn level_up(&mut self) {
+    fn level_up(&mut self) -> bool{
         if self.xp() > self.next() {
             let stats_vec:Vec<f64> = self.stats_vec();
             let mut num:f64 = Math::population_standard_deviation(stats_vec);
@@ -1540,6 +1541,8 @@ pub trait Premade {
             self.add_def(num);
             self.add_m_atk(num);
             self.add_m_def(num);
+            return true;
         }
+        false
     }
 }
