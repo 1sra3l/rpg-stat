@@ -26,7 +26,7 @@ serde = { version = "1.0.130", features = ["derive"] }
 num = "0.2"
 toml = "0.5"
 rand = "0.8.4"
-clap = {version = "3.0.0-beta.2", features = ["yaml"]}
+clap = {version = "2.3.4", features = ["yaml"]}
 fltk = { version = "1.2.6", optional = true }
 fltk-form = { version = "0.1.2", optional = true }
 fltk-form-derive = { version = "0.1", optional = true }

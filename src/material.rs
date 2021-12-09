@@ -386,7 +386,7 @@ Sell an item from your bag
 
 Get an item into your bag
 */
-    pub fn get(&mut self, drop:Drops) -> f64 {
+    pub fn get(&mut self, drop:Drops) {
         match drop {
             Drops::Feed =>  self.feed += 1.0,
             Drops::Hide =>  self.hide += 1.0,
