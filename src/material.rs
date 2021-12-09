@@ -381,6 +381,34 @@ Sell an item from your bag
         }
         price
     }
+/*
+# Get
+
+Get an item into your bag
+*/
+    pub fn get(&mut self, drop:Drops) -> f64 {
+        match drop {
+            Drops::Feed =>  self.feed += 1.0,
+            Drops::Hide =>  self.hide += 1.0,
+            Drops::Scale =>  self.scale += 1.0,
+            Drops::Tooth =>  self.tooth += 1.0,
+            Drops::Horn =>  self.horn += 1.0,
+            Drops::Talon =>  self.talon += 1.0,
+            Drops::Feather =>  self.feather += 1.0,
+            Drops::Claw =>  self.claw += 1.0,
+            Drops::Fang =>  self.fang += 1.0,
+            Drops::Bone =>  self.bone += 1.0,
+            Drops::Hair =>  self.hair += 1.0,
+            Drops::Jerky =>  self.jerky += 1.0,
+            Drops::Oil =>  self.oil += 1.0,
+            Drops::Wool =>  self.wool += 1.0,
+            Drops::Pelt =>  self.pelt += 1.0,
+            Drops::Leather =>  self.leather += 1.0,
+            Drops::Fur =>  self.fur += 1.0,
+            Drops::Tusk =>  self.tusk += 1.0,
+            _=> (),
+        }
+    }
 }
 impl Default for DropBag {
     fn default() -> Self {
