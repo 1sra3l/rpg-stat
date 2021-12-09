@@ -46,6 +46,59 @@ impl Premade<f64> for MyStruct {
 }
 ```
 
+And for FLTK premade f64:
+
+```
+use rpg_stat::stats::Stats;
+use rpg_stat::stats::Premade;
+
+struct MyStruct {
+    stats:Stats,
+    // whatever else you need
+}
+// now you can get the stats `hp` via `my_struct.hp()`, etc..
+impl Premade for MyStruct {
+    fn stat(&self) -> Stats {
+        self.stats
+    }
+    fn set_hp(&mut self, amount:f64) {
+        self.stats.hp = amount;
+    }
+    fn set_mp(&mut self, amount:f64) {
+        self.stats.mp = amount;
+    }
+    fn set_xp(&mut self, amount:f64) {
+        self.stats.xp = amount;
+    }
+    fn set_hp_max(&mut self, amount:f64) {
+        self.stats.hp_max = amount;
+    }
+    fn set_mp_max(&mut self, amount:f64) {
+        self.stats.mp_max = amount;
+    }
+    fn set_xp_next(&mut self, amount:f64) {
+        self.stats.xp_next = amount;
+    }
+    fn set_gp(&mut self, amount:f64) {
+        self.stats.gp = amount;
+    }
+    fn set_atk(&mut self, amount:f64) {
+        self.stats.atk = amount;
+    }
+    fn set_def(&mut self, amount:f64) {
+        self.stats.def = amount;
+    }
+    fn set_m_atk(&mut self, amount:f64) {
+        self.stats.m_atk = amount;
+    }
+    fn set_m_def(&mut self, amount:f64) {
+        self.stats.m_def = amount;
+    }
+}
+
+```
+
+# Structure
 This contains the basic structures for the RPG statistics library
 
 ## `Basic` contains only the most needed for a generic game
@@ -1113,13 +1166,11 @@ impl<T:Copy
 # The FLTK Stats
 This is designed to be used with FLTK, but can be used without FLTK
 */
-#[derive( Debug, Clone, PartialEq, Serialize, Deserialize)]
+#[derive( Debug, Clone, Copy, PartialEq, Serialize, Deserialize)]
 #[cfg_attr(feature = "fltkform", derive(FltkForm))]
 pub struct Stats {
     /// Identification Number
     pub id:f64,
-    // Name
-    pub name:String,
     /// Experience Points
     pub xp:f64,
     /// Health Points
@@ -1161,7 +1212,6 @@ impl Random for Stats {
         let gp = self.random(0.0, 30.0);
         Stats {
             id:self.random(0.0, 100.0),
-            name:random_character_name(),
             xp:0.0,
             xp_next:10.0,
             level:1.0,
@@ -1186,7 +1236,6 @@ impl Stats {
     #[allow(unused)]
     pub fn empty() -> Self {
         Stats {
-            name: String::default(),
             id:0.0,
             xp:0.0,
             xp_next:0.0,
@@ -1253,5 +1302,148 @@ impl Default for Stats {
     /// Default to empty
     fn default() -> Self {
         Self::empty()
+    }
+}
+
+/*
+# Premade trait for the f64/FLTK Stat
+Define the function `stat()` to return the `Stats` associated with your code.
+Define the methods to set the stats, and the getter functions already exist
+
+
+*/
+pub trait Premade {
+    /// # Function you need to imlement
+    /// stat returns the `Stats` you created
+    fn stat(&self) -> Stats;
+    /// # Function you need to imlement
+    /// Set the `Stats` Health Points
+    fn set_hp(&mut self, amount:f64);
+    /// # Function you need to imlement
+    /// Set the `Stats` Mana Points
+    fn set_mp(&mut self, amount:f64);
+    /// # Function you need to imlement
+    /// Set the `Stats` Experience Points
+    fn set_xp(&mut self, amount:f64);
+    /// # Function you need to imlement
+    /// Set the `Stats` Max Health Points
+    fn set_hp_max(&mut self, amount:f64);
+    /// # Function you need to imlement
+    /// Set the `Stats` Max Mana Points
+    fn set_mp_max(&mut self, amount:f64);
+    /// # Function you need to imlement
+    /// Set the `Stats` Next Experience Points
+    fn set_xp_next(&mut self, amount:f64);
+    /// # Function you need to imlement
+    /// Set the `Stats` Gold Points
+    fn set_gp(&mut self, amount:f64);
+    /// # Function you need to imlement
+    /// Set the `Stats` Attack Points
+    fn set_atk(&mut self, amount:f64);
+    /// # Function you need to imlement
+    /// Set the `Stats` Defense Points
+    fn set_def(&mut self, amount:f64);
+    /// # Function you need to imlement
+    /// Set the `Stats` Mana Attack Points
+    fn set_m_atk(&mut self, amount:f64);
+    /// # Function you need to imlement
+    /// Set the `Stats` Mana Defense Points
+    fn set_m_def(&mut self, amount:f64);
+
+// PREMADE FUNCf64IONS   
+    /// Return  the `Stats` id number
+    fn id(&self) -> f64 {
+        self.stat().id
+    }
+    /// Return  the `Stats` Health Points
+    fn hp(&self) -> f64 {
+        self.stat().hp
+    }
+    /// Return  the `Stats` Mana Points
+    fn mp(&self) -> f64 {
+        self.stat().mp
+    }
+    /// Return  the `Stats` Experience Points
+    fn xp(&self) -> f64 {
+        self.stat().xp
+    }
+    /// Return  the `Stats` Max Health Points
+    fn hp_max(&self) -> f64 {
+        self.stat().hp_max
+    }
+    /// Return  the `Stats` Max Mana Points
+    fn mp_max(&self) -> f64 {
+        self.stat().mp_max
+    }
+    /// Return  the `Stats` Next Experience Points
+    fn xp_next(&self) -> f64 {
+        self.stat().xp_next
+    }
+    /// Return  the `Stats` Level
+    fn level(&self) -> f64 {
+        self.stat().level
+    }
+    /// Return  the `Stats` Speed
+    fn speed(&self) -> f64 {
+        self.stat().level
+    }
+    /// Return  the `Stats` Gold Points
+    fn gp(&self) -> f64 {
+        self.stat().gp
+    }
+    /// Return  the `Stats` Attack Points
+    fn atk(&self) -> f64 {
+        self.stat().atk
+    }
+    /// Return  the `Stats` Defense Points
+    fn def(&self) -> f64 {
+        self.stat().def
+    }
+    /// Return  the `Stats` Mana Attack Points
+    fn m_atk(&self) -> f64 {
+        self.stat().m_atk
+    }
+    /// Return  the `Stats` Mana Defense Points
+    fn m_def(&self) -> f64 {
+        self.stat().m_def
+    }
+
+    /// Damage the character by an amount
+    fn damage(&mut self, amount:f64) {
+        let mut val = self.hp();
+        val -= amount;
+        let none = 0.0;
+        if val < none {
+            val = none;
+        }
+        self.set_hp(val)
+    }
+    /// Add health to character but not beyond their Max Healh Points
+    fn heal(&mut self, amount:f64) {
+        let mut val = self.hp();
+        val += amount;
+        let max = self.hp_max();
+        if val > max {
+            val = max;
+        }
+        self.set_hp(val)
+    }
+    /// Stable attack forumla
+    /// [attack*(100/(100+defense))](https://rpg.fandom.com/wiki/Damage_Formula)
+    fn attack_stable(&self, other:Stats) -> f64 { 
+        let hundred = 100.0;
+        let val = self.atk();
+        let def = other.def + hundred;
+        let res = hundred / def;
+        val * res
+    }
+    /// Scalable attack forumla
+    /// [damage = att * att / (att + def)](https://gamedev.stackexchange.com/questions/129319/rpg-formula-attack-and-defense)
+    fn attack(&self, other:Stats) -> f64 {
+        let val = self.atk();
+        let mut res = val * val;
+        let def = other.def + val;
+        res /= def;
+        res
     }
 }
