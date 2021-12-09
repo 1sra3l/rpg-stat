@@ -1421,7 +1421,41 @@ pub trait Premade {
     fn m_def(&self) -> f64 {
         self.stat().m_def
     }
-
+    /// Return  the `Stats` Attack Points
+    fn add_atk(&mut self, amount:f64) {
+        self.set_atk(self.stat().atk + amount);
+    }
+    /// Return  the `Stats` Defense Points
+    fn add_def(&mut self, amount:f64) {
+        self.set_def(self.stat().def + amount);
+    }
+    /// Return  the `Stats` Mana Attack Points
+    fn add_m_atk(&mut self, amount:f64) {
+        self.set_m_atk(self.stat().m_atk + amount);
+    }
+    /// Return  the `Stats` Mana Defense Points
+    fn add_m_def(&mut self, amount:f64) {
+        self.set_m_def(self.stat().m_def + amount);
+    }/// Return  the `Stats` Experience Points
+    fn add_xp(&mut self, amount:f64) {
+        self.set_xp(self.stat().xp + amount);
+    }
+    /// Return  the `Stats` Max Health Points
+    fn add_hp_max(&mut self, amount:f64) {
+        self.set_hp_max(self.stat().hp_max + amount);
+    }
+    /// Return  the `Stats` Max Mana Points
+    fn add_mp_max(&mut self, amount:f64) {
+       self.set_mp_max( self.stat().mp_max + amount);
+    }
+    /// Return  the `Stats` Level
+    fn add_level(&mut self, amount:f64) {
+        self.set_level(self.stat().level + amount);
+    }
+    /// Return  the `Stats` Speed
+    fn add_speed(&mut self, amount:f64) {
+        self.set_speed(self.stat().speed + amount);
+    }
     /// Damage the character by an amount
     fn damage(&mut self, amount:f64) {
         let mut val = self.hp();
@@ -1498,14 +1532,14 @@ pub trait Premade {
             if num < one {
                 num = one;
             }
-            self.set_level(self.level() + num);
-            self.set_mp_max(self.mp_max() + num);
-            self.set_hp_max(self.hp_max() + num);
-            self.set_speed(self.speed() + num);
-            self.set_atk(self.atk() + num);
-            self.set_def(self.def() + num);
-            self.set_m_atk(self.m_atk() + num);
-            self.set_m_def(self.m_def() + num);
+            self.add_level(num);
+            self.add_mp_max(num);
+            self.add_hp_max(num);
+            self.add_speed(num);
+            self.add_atk(num);
+            self.add_def(num);
+            self.add_m_atk(num);
+            self.add_m_def(num);
         }
     }
 }
