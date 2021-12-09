@@ -235,3 +235,126 @@ impl<T:Copy
         write!(f, "{} {} {}", first, v.as_str(), second)
     }
 }
+#[allow(unused)]
+pub struct Math <T:Copy 
+                 + Default
+                 + AddAssign
+                 + Add<Output = T>
+                 + Div<Output = T>
+                 + DivAssign
+                 + Mul<Output = T>
+                 + MulAssign
+                 + Neg<Output = T>
+                 + Rem<Output = T>
+                 + RemAssign
+                 + Sub<Output = T>
+                 + SubAssign
+                 + std::cmp::PartialOrd
+                 + std::cmp::PartialEq
+                 + num::NumCast> {
+    pub answer:T,
+    pub question:String,
+}
+impl <T:Copy 
+    + Default
+    + AddAssign
+    + Add<Output = T>
+    + Div<Output = T>
+    + DivAssign
+    + Mul<Output = T>
+    + MulAssign
+    + Neg<Output = T>
+    + Rem<Output = T>
+    + RemAssign
+    + Sub<Output = T>
+    + SubAssign
+    + std::cmp::PartialOrd
+    + std::cmp::PartialEq
+    + num::NumCast> Math<T> {
+    /// einstien math
+    /// `e = m * (c * c)` is fun, so...
+    #[allow(unused)]
+    pub fn e_mc2 (m:T, c:T) -> T {
+        m * (c * c)
+    }
+/*
+
+*/
+    #[allow(unused)]
+    pub fn patterns(begin:T, end:T, number_of_entries:usize) -> Vec<T> {
+        //30% digit one is 1
+        // exponentially less for each number
+        let mut ret_vec:Vec<T> = vec![];
+        /*let mut tracker = begin;
+        for 0..number_of_entries {
+            if value < num::cast(30).unwrap() {
+                
+            }
+        }*/
+        ret_vec
+    }
+/*
+Divide a number in half
+*/
+    #[allow(unused)]
+    pub fn half(number: T) -> T {
+        let two = num::cast(2).unwrap();
+        number / two
+    }
+/*
+Used to start the square root
+*/
+    #[allow(unused)]
+    pub fn estimate_start(number: T) -> T {
+        let mut num = number;
+        let mut return_value = Math::half(number);
+        let one_hundred:T = num::cast(100).unwrap();
+        while num > one_hundred {
+            return_value = Math::half(return_value);
+            num /= one_hundred;
+        }
+        return_value
+    }
+/*
+Not sure if this is the best equation to use, but it works...
+*/
+    #[allow(unused)]
+    pub fn sqrt(number: T) -> T {
+        let starter:u32 = num::cast(Math::estimate_start(number)).unwrap();
+        let total:u32 = num::cast(number).unwrap();
+        for num in starter..total {
+            if num * num == num::cast(number).unwrap() {
+                return num::cast(num).unwrap()
+            }
+        }
+        T::default()
+    }
+    #[allow(unused)]
+    pub fn population_standard_deviation(numbers:Vec<T>) -> T {
+        Math::sqrt(Math::variance(numbers))
+    }
+
+    #[allow(unused)]
+    pub fn variance(numbers:Vec<T>) -> T {
+        let mean:T = Math::mean(numbers.clone());
+        let mut total:T = T::default();
+        let mut counter:T = T::default();
+        for number in numbers {
+            counter += num::cast(1).unwrap();
+            let result:T = number - mean;
+            total += result * result
+        }
+        total / counter
+    }
+    #[allow(unused)]
+    pub fn mean(numbers:Vec<T>) -> T {
+        let mut total:T = num::cast(0).unwrap();
+        let mut total_count:T = num::cast(0).unwrap();
+        for number in numbers {
+            total += number;
+            total_count += num::cast(1).unwrap();
+        }
+        total / total_count
+    }
+    
+}

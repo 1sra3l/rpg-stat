@@ -327,3 +327,4 @@ pub mod special;
 pub mod attributes;
 pub mod effect;
 pub mod item;
+pub mod material;

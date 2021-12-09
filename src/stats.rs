@@ -152,7 +152,27 @@ use std::mem::transmute;
 
 
 use crate::random::*;
+use crate::equation::Math;
 
+pub trait Functions <T:Copy
+    + Default
+    + Debug
+    + AddAssign
+    + Add<Output = T>
+    + Div<Output = T>
+    + DivAssign
+    + Mul<Output = T>
+    + MulAssign
+    + Neg<Output = T>
+    + Rem<Output = T>
+    + RemAssign
+    + Sub<Output = T>
+    + SubAssign
+    + std::cmp::PartialOrd
+    + num::NumCast> {
+    type Statistics;
+    fn damage(&self);
+}
 /*
 # Builder
 
@@ -633,6 +653,22 @@ impl<T:Copy
             m_def:Default::default(),
         }
     }
+/*
+# Stats Vector
+
+This is mainly used in the standard deviation math to create the gain for the level and stats.
+*/
+    pub fn stats_vec(&self) -> Vec<T>{
+        vec![
+            self.hp_max,
+            self.mp_max,
+            self.speed,
+            self.atk,
+            self.def,
+            self.m_atk,
+            self.m_def,
+        ]
+    }
 }
 
 impl<T:Copy 
@@ -847,6 +883,7 @@ pub trait AdvancedPremade<T:Copy
 # The Advanced stat model
 The entire stat sheet for fine tuned algorithms using all the information possible!
 */
+#[allow(unused)]
 #[derive( Debug, Clone, Copy, PartialEq, Serialize, Deserialize)]
 pub struct Advanced<T:Copy
     + Default
@@ -927,6 +964,7 @@ impl<T:Copy
     + std::cmp::PartialOrd
     + num::NumCast> Advanced<T> {
     /// make empty stats
+    #[allow(unused)]
     pub fn empty<U:Default>() -> Self {
         Advanced {
             id:Default::default(),
@@ -952,6 +990,56 @@ impl<T:Copy
             wisdom:Default::default(),
             age:Default::default(),
         }
+    }
+    /// People like new
+    #[allow(unused)]
+    pub fn new<U:Default>() -> Self {
+        Self::empty::<U>()
+    }
+    #[allow(unused)]
+    pub fn next(&self) -> T {
+        self.level * self.xp_next
+    }
+    pub fn stats_vec(&self) -> Vec<T>{
+        vec![
+            self.hp_max,
+            self.mp_max,
+            self.speed,
+            self.atk,
+            self.def,
+            self.m_atk,
+            self.m_def,
+            self.agility,
+            self.strength,
+            self.dexterity,
+            self.constitution,
+            self.intelligence,
+            self.charisma,
+        ]
+    }
+
+    #[allow(unused)]
+    pub fn level_up(&mut self) -> bool {
+        if self.xp > self.next() {
+            let stats_vec:Vec<T> = self.stats_vec();
+            let mut value:T = Math::population_standard_deviation(stats_vec);
+            self.level += value;
+            self.mp_max += value;
+            self.hp_max += value;
+            self.speed += value;
+            self.atk += value;
+            self.def += value;
+            self.m_atk += value;
+            self.m_def += value;
+            self.agility += value;
+            self.strength += value;
+            self.dexterity += value;
+            self.constitution += value;
+            self.intelligence += value;
+            self.charisma += value;
+            return true;
+        }
+        false
     }
 }
 impl<T:Copy
@@ -1051,9 +1139,10 @@ impl Random for Stats {
 impl Stats {
     
     /// make empty stats
+    #[allow(unused)]
     pub fn empty() -> Self {
         Stats {
-            name: String::from("Ferris"),
+            name: String::default(),
             id:0.0,
             xp:0.0,
             xp_next:0.0,
@@ -1068,6 +1157,47 @@ impl Stats {
             def:0.0,
             m_atk:0.0,
             m_def:0.0,
+        }
+    }
+    /// People like new
+    #[allow(unused)]
+    pub fn new() -> Self {
+        Self::empty()
+    }
+    #[allow(unused)]
+    pub fn next(&self) -> f64 {
+        self.level * self.xp_next
+    }
+    pub fn stats_vec(&self) -> Vec<f64>{
+        vec![
+            self.hp_max,
+            self.mp_max,
+            self.speed,
+            self.atk,
+            self.def,
+            self.m_atk,
+            self.m_def,
+        ]
+    }
+
+    #[allow(unused)]
+    pub fn level_up(&mut self) {
+        println!("xp:{} next:{}", self.xp, self.next());
+        if self.xp > self.next() {
+            let stats_vec:Vec<f64> = self.stats_vec();
+            let mut num:f64 = Math::population_standard_deviation(stats_vec);
+            let one = num::cast(1).unwrap();
+            if num < one {
+                num = one;
+            }
+            self.level += num;
+            self.mp_max += num;
+            self.hp_max += num;
+            self.speed += num;
+            self.atk += num;
+            self.def += num;
+            self.m_atk += num;
+            self.m_def += num;
         }
     }
 }

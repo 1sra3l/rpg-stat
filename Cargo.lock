@@ -370,7 +370,7 @@ dependencies = [
 
 [[package]]
 name = "rpg-stat"
-version = "2021.12.7"
+version = "2021.12.8"
 dependencies = [
  "clap",
  "fltk",

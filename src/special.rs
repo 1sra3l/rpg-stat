@@ -1,7 +1,7 @@
 /*!
 # Special
 
-Special moves learned by `rpg_stat::creatures::*;`
+Special moves learned by `rpgstat::creatures::*;`
 
 
 */
