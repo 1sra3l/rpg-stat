@@ -270,109 +270,109 @@ Sell an item from your bag
         let mut price:f64 = 0.0;
         match drop {
             Drops::Feed =>  {
-                if self.feed > 1.0 {
+                if self.feed >= 1.0 {
                     self.feed -= 1.0;
                     price = drop.price();
                 }
             },
             Drops::Hide =>  {
-                if self.hide > 1.0 {
+                if self.hide >= 1.0 {
                     self.hide -= 1.0;
                     price = drop.price();
                 }
             },
             Drops::Scale =>  {
-                if self.scale > 1.0 {
+                if self.scale >= 1.0 {
                     self.scale -= 1.0;
                     price = drop.price();
                 }
             },
             Drops::Tooth =>  {
-                if self.tooth > 1.0 {
+                if self.tooth >= 1.0 {
                     self.tooth -= 1.0;
                     price = drop.price();
                 }
             },
             Drops::Horn =>  {
-                if self.horn > 1.0 {
+                if self.horn >= 1.0 {
                     self.horn -= 1.0;
                     price = drop.price();
                 }
             },
             Drops::Talon =>  {
-                if self.talon > 1.0 {
+                if self.talon >= 1.0 {
                     self.talon -= 1.0;
                     price = drop.price();
                 }
             },
             Drops::Feather =>  {
-                if self.feather > 1.0 {
+                if self.feather >= 1.0 {
                     self.feather -= 1.0;
                     price = drop.price();
                 }
             },
             Drops::Claw =>  {
-                if self.claw > 1.0 {
+                if self.claw >= 1.0 {
                     self.claw -= 1.0;
                     price = drop.price();
                 }
             },
             Drops::Fang =>  {
-                if self.fang > 1.0 {
+                if self.fang >= 1.0 {
                     self.fang -= 1.0;
                     price = drop.price();
                 }
             },
             Drops::Bone =>  {
-                if self.bone > 1.0 {
+                if self.bone >= 1.0 {
                     self.bone -= 1.0;
                     price = drop.price();
                 }
             },
             Drops::Hair =>  {
-                if self.hair > 1.0 {
+                if self.hair >= 1.0 {
                     self.hair -= 1.0;
                     price = drop.price();
                 }
             },
             Drops::Jerky =>  {
-                if self.jerky > 1.0 {
+                if self.jerky >= 1.0 {
                     self.jerky -= 1.0;
                     price = drop.price();
                 }
             },
             Drops::Oil =>  {
-                if self.oil > 1.0 {
+                if self.oil >= 1.0 {
                     self.oil -= 1.0;
                     price = drop.price();
                 }
             },
             Drops::Wool =>  {
-                if self.wool > 1.0 {
+                if self.wool >= 1.0 {
                     self.wool -= 1.0;
                     price = drop.price();
                 }
             },
             Drops::Pelt =>  {
-                if self.pelt > 1.0 {
+                if self.pelt >= 1.0 {
                     self.pelt -= 1.0;
                     price = drop.price();
                 }
             },
             Drops::Leather =>  {
-                if self.leather > 1.0 {
+                if self.leather >= 1.0 {
                     self.leather -= 1.0;
                     price = drop.price();
                 }
             },
             Drops::Fur =>  {
-                if self.fur > 1.0 {
+                if self.fur >= 1.0 {
                     self.fur -= 1.0;
                     price = drop.price();
                 }
             },
             Drops::Tusk =>  {
-                if self.tusk > 1.0 {
+                if self.tusk >= 1.0 {
                     self.tusk -= 1.0;
                     price = drop.price();
                 }
