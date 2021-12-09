@@ -1262,6 +1262,7 @@ impl Stats {
     pub fn next(&self) -> f64 {
         self.level * self.xp_next
     }
+    #[allow(unused)]
     /// a vector of stats used to get the standard deviation
     pub fn stats_vec(&self) -> Vec<f64>{
         vec![
@@ -1445,5 +1446,17 @@ pub trait Premade {
         let def = other.def + val;
         res /= def;
         res
+    }
+    fn buy(&mut self, price:f64) -> bool {
+        let total = self.gp() - price;
+        if total <= 0.0 {
+            return false;
+        }
+        self.set_gp(total);
+        true
+    }
+    fn earn(&mut self, price:f64) {
+        let total = self.gp() + price;
+        self.set_gp(total);
     }
 }
