@@ -1,7 +1,52 @@
 /*!
 # Stats
 
-This contains the basic structures for the statistics library
+This module offers a few options.
+
+### FLTK
+
+The use of `fltk-form` allows easy integration into a GUI toolkit via the FLTK specific `Stats`
+
+### Premade traits to add to your own struct
+
+```
+use rpg_stat::stats::Basic as Stats;
+use rpg_stat::stats::BasicPremade as Premade;
+
+struct MyStruct {
+    stats:Stats<f64>,
+    // whatever else you need
+}
+// now you can get the stats `hp` via `my_struct.hp()`, etc..
+impl Premade<f64> for MyStruct {
+    fn stat(&self) -> Stats<f64> {
+        self.stats
+    }
+    fn set_hp(&mut self, amount:f64) {
+        self.stats.hp = amount;
+    }
+    fn set_mp(&mut self, amount:f64) {
+        self.stats.mp = amount;
+    }
+    fn set_xp(&mut self, amount:f64) {
+        self.stats.xp = amount;
+    }
+    fn set_hp_max(&mut self, amount:f64) {
+        self.stats.hp_max = amount;
+    }
+    fn set_mp_max(&mut self, amount:f64) {
+        self.stats.mp_max = amount;
+    }
+    fn set_xp_next(&mut self, amount:f64) {
+        self.stats.xp_next = amount;
+    }
+    fn set_gp(&mut self, amount:f64) {
+        self.stats.gp = amount;
+    }
+}
+```
+
+This contains the basic structures for the RPG statistics library
 
 ## `Basic` contains only the most needed for a generic game
 
@@ -144,11 +189,7 @@ use fltk::{prelude::*, *};
 #[cfg(feature = "fltkform")]
 use fltk_form_derive::*;
 #[cfg(feature = "fltkform")]
-use fltk_form::{FltkForm, HasProps};
-#[cfg(feature = "fltkform")]
-use std::collections::HashMap;
-#[cfg(feature = "fltkform")]
-use std::mem::transmute;
+use fltk_form::FltkForm;
 
 
 use crate::random::*;
@@ -997,9 +1038,12 @@ impl<T:Copy
         Self::empty::<U>()
     }
     #[allow(unused)]
+    /// Get the next amount of XP needed to level up
     pub fn next(&self) -> T {
         self.level * self.xp_next
     }
+    #[allow(unused)]
+    /// a vector of stats used to get the standard deviation
     pub fn stats_vec(&self) -> Vec<T>{
         vec![
             self.hp_max,
@@ -1019,6 +1063,7 @@ impl<T:Copy
     }
 
     #[allow(unused)]
+    /// This function levels up our stats
     pub fn level_up(&mut self) -> bool {
         if self.xp > self.next() {
             let stats_vec:Vec<T> = self.stats_vec();
@@ -1065,9 +1110,8 @@ impl<T:Copy
 }
 
 /*
-# The FLTK
-
-This model provides fine tuning of attack and defense without needing all the fine tuning of a full stat sheet
+# The FLTK Stats
+This is designed to be used with FLTK, but can be used without FLTK
 */
 #[derive( Debug, Clone, PartialEq, Serialize, Deserialize)]
 #[cfg_attr(feature = "fltkform", derive(FltkForm))]
@@ -1165,9 +1209,11 @@ impl Stats {
         Self::empty()
     }
     #[allow(unused)]
+    /// Get the next amount of XP needed to level up
     pub fn next(&self) -> f64 {
         self.level * self.xp_next
     }
+    /// a vector of stats used to get the standard deviation
     pub fn stats_vec(&self) -> Vec<f64>{
         vec![
             self.hp_max,
@@ -1181,6 +1227,7 @@ impl Stats {
     }
 
     #[allow(unused)]
+    /// This function levels up our stats
     pub fn level_up(&mut self) {
         println!("xp:{} next:{}", self.xp, self.next());
         if self.xp > self.next() {

@@ -39,6 +39,12 @@ let direction = Compass::South;
 use std::fmt;
 use crate::random::Random;
 use serde::{Deserialize, Serialize};
+#[cfg(feature = "fltkform")]
+use fltk::{prelude::*, *};
+#[cfg(feature = "fltkform")]
+use fltk_form_derive::*;
+#[cfg(feature = "fltkform")]
+use fltk_form::FltkForm;
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Deserialize, Serialize)]
 #[cfg_attr(feature = "fltkform", derive(FltkForm))]

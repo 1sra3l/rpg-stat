@@ -287,7 +287,7 @@ dependencies = [
 
 [[package]]
 name = "rpg-stat"
-version = "2021.12.8"
+version = "2021.12.9"
 dependencies = [
  "clap",
  "fltk",
@@ -296,7 +296,6 @@ dependencies = [
  "num",
  "rand",
  "serde",
- "svg",
  "toml",
 ]
 
@@ -325,12 +324,6 @@ name = "strsim"
 version = "0.8.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "8ea5119cdb4c55b55d432abb513a0429384878c15dde60cc77b1c99de1a95a6a"
-
-[[package]]
-name = "svg"
-version = "0.10.0"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "e72d8b19ab05827afefcca66bf47040c1e66a0901eb814784c77d4ec118bd309"
 
 [[package]]
 name = "syn"

@@ -1,6 +1,6 @@
 [package]
 name = "rpg-stat"
-version = "2021.12.8"
+version = "2021.12.9"
 edition = "2021"
 authors = ["Israel Dahl <israeldahl@protonmail.com>"]
 description = "A library for computer stats for RPG game development"
@@ -30,9 +30,8 @@ clap = {version = "2.3.4", features = ["yaml"]}
 fltk = { version = "1.2.6", optional = true }
 fltk-form = { version = "0.1.2", optional = true }
 fltk-form-derive = { version = "0.1", optional = true }
-svg = { version = "0.10", optional = true }
+
 [features]
 default = []
 fltkform = ["fltk", "fltk-form", "fltk-form-derive"]
-makesvg = ["svg"]
 

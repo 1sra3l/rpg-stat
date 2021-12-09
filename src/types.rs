@@ -88,7 +88,7 @@ use fltk::{prelude::*, *};
 #[cfg(feature = "fltkform")]
 use fltk_form_derive::*;
 #[cfg(feature = "fltkform")]
-use fltk_form::{FltkForm, HasProps};
+use fltk_form::FltkForm;
 
 //module stuff
 use crate::attributes::Effectiveness;

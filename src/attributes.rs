@@ -65,7 +65,7 @@ use fltk::{prelude::*, *};
 #[cfg(feature = "fltkform")]
 use fltk_form_derive::*;
 #[cfg(feature = "fltkform")]
-use fltk_form::{FltkForm, HasProps};
+use fltk_form::FltkForm;
 
 // our modules
 use crate::random::Random;

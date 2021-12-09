@@ -15,13 +15,7 @@ use fltk::{prelude::*, *};
 use fltk_form_derive::*;
 #[cfg(feature = "fltkform")]
 use fltk_form::FltkForm;
-
 use crate::random::Random;
-
-#[cfg(feature = "makesvg")]
-use svg::node::element::Group as SvgGroup;
-#[cfg(feature = "makesvg")]
-use crate::body::VectorView;
 
 /*
 # Basic 
