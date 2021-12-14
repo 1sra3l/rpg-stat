@@ -32,7 +32,7 @@ use std::fmt::Debug;
 // #Normal
 // #Special
 use crate::special::Normal as Special;
-use crate::special::ManaCost;
+use crate::special::SpecialMove;
 use crate::item::Item;
 use crate::item::Normal as MyItem;
 // #Condition

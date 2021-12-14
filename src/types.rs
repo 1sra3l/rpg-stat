@@ -397,7 +397,6 @@ impl Compare for Normal {
         }
     }
 }
-
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Deserialize, Serialize)]
 #[cfg_attr(feature = "fltkform", derive(FltkForm))]
 ///  `Advanced`

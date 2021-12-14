@@ -1,10 +1,13 @@
 /*!
 # Special
 
-Special moves learned by `rpgstat::creatures::*;`
-
-
+Special moves used by:
+ * `rpgstat::creatures::*;`
+ * `rpg_stat::stats::*;`
 */
+
+// * `rpg_stat::weapons*;
+
 use std::fmt;
 use std::fmt::Debug;
 use std::ops::{Add, AddAssign, Div, DivAssign, Mul, MulAssign, Neg, Rem, RemAssign, Sub, SubAssign};
@@ -19,21 +22,114 @@ use fltk_form_derive::*;
 use fltk_form::FltkForm;
 
 use crate::random::*;
+use crate::types::Normal as Type;
+use crate::types::Compare;
+use crate::attributes::Value;
+
 use std::path::Path;
 
-#[derive(Debug, Default, Clone, PartialEq, FltkForm, Deserialize, Serialize)]
-pub struct Moves {
+/*
+
+*/
+#[derive(Debug, Default, Clone, Copy, PartialEq, Deserialize, Serialize)]
+#[cfg_attr(feature = "fltkform", derive(FltkForm))]
+pub struct ManaMoves {
+    /// The first move
+    pub zero:Normal,
+    /// The first move's `rpg_stat::type::Normal` type
+    pub mana_zero:Type,
+    /// The second move
     pub one:Normal,
+    /// The second move's `rpg_stat::type::Normal` type
+    pub mana_one:Type,
+    /// The third move
     pub two:Normal,
+    /// The third move's `rpg_stat::type::Normal` type
+    pub mana_two:Type,
+    /// The fourth move
     pub three:Normal,
-    pub four:Normal,
-    pub tp:f64,
+    /// The fourth move's `rpg_stat::type::Normal` type
+    pub mana_three:Type,
+    /// the total tech points
+    pub mp:f64,
 }
-impl Moves {
-    // Make a new move set
+impl ManaMoves {
+    #[allow(unused)]
+    /// Make a new move set
     pub fn new() -> Self {
         Self::default()
     }
+    #[allow(unused)]
+    /// Read in a move set from a file
+    pub fn read<P: AsRef<Path>>(filename:P) -> Self {
+        if let Ok(file_string) = std::fs::read_to_string(filename) {
+            let decoded:ManaMoves = match toml::from_str(file_string.as_str()) {
+                Ok(decoded) => decoded,
+                Err(e) => {
+                    println!("Moves::read()->toml::from_str() Error:{}",e);
+                    return Self::default()
+                },
+            };
+            return decoded;
+        }
+        Self::default()
+    }
+/*
+
+
+*/
+   #[allow(unused)]
+   pub fn use_move(&mut self, move_number:u32, level:f64, enemy_type:Type) -> f64{
+        let mut dmg:f64 = 0.0;
+        let mut cost:f64 = 0.0;
+        let mut total = 0.0;
+        match move_number {
+            0  => {
+                cost = self.zero.mp_cost(0.0);
+                dmg = self.zero.damage(level);
+                total = self.mana_zero.effectiveness(enemy_type).value(dmg);
+            },
+            1 => {
+                cost = self.one.mp_cost(0.0);
+                dmg = self.one.damage(level);
+                total = self.mana_one.effectiveness(enemy_type).value(dmg);
+            },
+            2 => {
+                cost = self.two.mp_cost(0.0);
+                dmg = self.two.damage(level);
+                total = self.mana_two.effectiveness(enemy_type).value(dmg);
+            },
+            _=> {
+                cost = self.three.mp_cost(0.0);
+                dmg = self.three.damage(level);
+                total = self.mana_three.effectiveness(enemy_type).value(dmg);
+            },
+        }
+        total
+    }
+}
+
+#[derive(Debug, Default, Clone, Copy, PartialEq, Deserialize, Serialize)]
+#[cfg_attr(feature = "fltkform", derive(FltkForm))]
+pub struct Moves {
+    /// The first move
+    pub one:Normal,
+    /// The second move
+    pub two:Normal,
+    /// The third move
+    pub three:Normal,
+    /// The fourth move
+    pub four:Normal,
+    /// the total tech points
+    pub tp:f64,
+}
+impl Moves {
+    #[allow(unused)]
+    /// Make a new move set
+    pub fn new() -> Self {
+        Self::default()
+    }
+    #[allow(unused)]
     pub fn read<P: AsRef<Path>>(filename:P) -> Self {
         if let Ok(file_string) = std::fs::read_to_string(filename) {
             let decoded:Moves = match toml::from_str(file_string.as_str()) {
@@ -48,7 +144,52 @@ impl Moves {
         Self::default()
     }
 }
-// TODO Advanced
+/*
+# Tech Point Moves
+The four move setup
+*/
+#[derive(Debug, Default, Clone, Copy, PartialEq, Deserialize, Serialize)]
+#[cfg_attr(feature = "fltkform", derive(FltkForm))]
+pub struct TpMoves {
+    /// The first move
+    pub one:Normal,
+    /// The first move's tech points.  This is the **remaining** number of times it can be used.
+    pub tp_one:f64,
+    /// The second move
+    pub two:Normal,
+    /// The second move's tech points.  This is the **remaining** number of times it can be used.
+    pub tp_two:f64,
+    /// The third move
+    pub three:Normal,
+    /// The third move's tech points.  This is the **remaining** number of times it can be used.
+    pub tp_three:f64,
+    /// The fourth move
+    pub four:Normal,
+    /// The fourth move's tech points.  This is the **remaining** number of times it can be used.
+    pub tp_four:f64,
+}
+impl TpMoves {
+    #[allow(unused)]
+    /// Make a new move set
+    pub fn new() -> Self {
+        Self::default()
+    }
+    #[allow(unused)]
+    pub fn read<P: AsRef<Path>>(filename:P) -> Self {
+        if let Ok(file_string) = std::fs::read_to_string(filename) {
+            let decoded:TpMoves = match toml::from_str(file_string.as_str()) {
+                Ok(decoded) => decoded,
+                Err(e) => {
+                    println!("Moves::read()->toml::from_str() Error:{}",e);
+                    return Self::default()
+                },
+            };
+            return decoded;
+        }
+        Self::default()
+    }
+}
+
 #[derive(Debug, Clone, PartialEq, Eq, Deserialize, Serialize)]
 /*
 # Basic Special
@@ -210,12 +351,12 @@ impl<T:Copy
     + Sub<Output = T>
     + SubAssign
     + std::cmp::PartialOrd
-    + num::NumCast> ManaCost<T> for Normal{
+    + num::NumCast> SpecialMove<T> for Normal{
     fn damage(&self, level:T) -> T {
         let one:T = num::cast(1).unwrap();
         let five:T = num::cast(5).unwrap();
         let seven:T = num::cast(7).unwrap();
-        let empty:T = num::cast(1).unwrap();
+        let empty:T = num::cast(0).unwrap();
         match self {
             Normal::Toss => one * level,
             Normal::Throw => one * level,
@@ -346,7 +487,7 @@ impl fmt::Display for Advanced {
 
 This is to allow a unified set of terms to use for mana/tech related costs, totals and damage
 */
-pub trait ManaCost<T:Copy 
+pub trait SpecialMove <T:Copy 
                       + Default
                       + AddAssign
                       + Add<Output = T>

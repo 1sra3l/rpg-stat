@@ -283,6 +283,7 @@ age = 10"#;
         // TODO
         println!("nothing");
     }
+    #[test]
     fn text_forms() {
         //use crate::random::Random;
         use crate::creature::Stats as Cs;

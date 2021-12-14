@@ -166,10 +166,15 @@ assert_eq!(Effectiveness::Half.value(hp), 25);
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Deserialize, Serialize)]
 #[cfg_attr(feature = "fltkform", derive(FltkForm))]
 pub enum Effectiveness {    
+    /// Two times the effect
     Double,
+    /// One half extra added
     HalfExtra,
+    /// Half of the amount
     Half,
+    /// The full amount
     Normal,
+    /// No amount
     None,
 }
 impl Random for Effectiveness{
