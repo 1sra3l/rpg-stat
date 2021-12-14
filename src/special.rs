@@ -18,9 +18,36 @@ use fltk_form_derive::*;
 #[cfg(feature = "fltkform")]
 use fltk_form::FltkForm;
 
-
 use crate::random::*;
+use std::path::Path;
 
+#[derive(Debug, Default, Clone, PartialEq, FltkForm, Deserialize, Serialize)]
+pub struct Moves {
+    pub one:Normal,
+    pub two:Normal,
+    pub three:Normal,
+    pub four:Normal,
+    pub tp:f64,
+}
+impl Moves {
+    // Make a new move set
+    pub fn new() -> Self {
+        Self::default()
+    }
+    pub fn read<P: AsRef<Path>>(filename:P) -> Self {
+        if let Ok(file_string) = std::fs::read_to_string(filename) {
+            let decoded:Moves = match toml::from_str(file_string.as_str()) {
+                Ok(decoded) => decoded,
+                Err(e) => {
+                    println!("Moves::read()->toml::from_str() Error:{}",e);
+                    return Self::default()
+                },
+            };
+            return decoded;
+        }
+        Self::default()
+    }
+}
 // TODO Advanced
 #[derive(Debug, Clone, PartialEq, Eq, Deserialize, Serialize)]
 /*
@@ -218,7 +245,7 @@ impl<T:Copy
         let thirty:T = num::cast(30).unwrap();
         let twenty:T = num::cast(20).unwrap();
         let ten:T = num::cast(10).unwrap();
-        let empty:T = num::cast(1).unwrap();
+        let empty:T = num::cast(0).unwrap();
         match self {
             Normal::Toss => thirty,
             Normal::Throw => thirty,
@@ -240,6 +267,36 @@ impl<T:Copy
             Normal::Melt =>  ten,
             Normal::Slice =>  ten,
             Normal::Freeze => ten,
+            Normal::None => empty,
+            // Normal:: => one,
+        }
+    }
+    fn mp_cost(&self, _input:T) -> T {
+        let fifteen:T = num::cast(15).unwrap();
+        let five:T = num::cast(5).unwrap();
+        let ten:T = num::cast(10).unwrap();
+        let empty:T = num::cast(0).unwrap();
+        match self {
+            Normal::Toss => five,
+            Normal::Throw => five,
+            Normal::Strike => five,
+            Normal::Tackle => five,
+            Normal::Spin => five,
+
+            Normal::Slash =>  ten,
+            Normal::Burn =>  ten,
+            Normal::Blur => ten,
+            Normal::Splash =>  ten,
+            Normal::Crush =>  ten,
+            Normal::Hit =>  ten,
+            Normal::Slap =>  ten,
+            Normal::Whip =>  ten,
+
+            Normal::Grind =>  fifteen,
+            Normal::Smack =>  fifteen,
+            Normal::Melt =>  fifteen,
+            Normal::Slice =>  fifteen,
+            Normal::Freeze => fifteen,
             Normal::None => empty,
             // Normal:: => one,
         }
@@ -284,7 +341,11 @@ impl fmt::Display for Advanced {
         write!(f, "{}", v.as_str())
     }
 }
+/*
+# Mana Cost
 
+This is to allow a unified set of terms to use for mana/tech related costs, totals and damage
+*/
 pub trait ManaCost<T:Copy 
                       + Default
                       + AddAssign
@@ -302,4 +363,11 @@ pub trait ManaCost<T:Copy
                       + num::NumCast> {
     fn damage(&self, level:T) -> T;
     fn mp_total(&self, _input:T) -> T;
+    fn mp_cost(&self, _input:T) -> T;
+    fn tp_cost(&self, input:T) -> T {
+        self.mp_cost(input)
+    }
+    fn tp_total(&self, input:T) -> T{
+        self.mp_total(input)
+    }
 }

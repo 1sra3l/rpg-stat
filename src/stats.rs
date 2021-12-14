@@ -488,6 +488,45 @@ impl<T:Copy
             gp:Default::default(),
         }
     }
+    /// People like new
+    #[allow(unused)]
+    pub fn new() -> Self {
+        Self::empty()
+    }
+    #[allow(unused)]
+    /// Get the next amount of XP needed to level up
+    pub fn next(&self) -> T {
+        self.level * self.xp_next
+    }
+    #[allow(unused)]
+    /// a vector of stats used to get the standard deviation
+    pub fn stats_vec(&self) -> Vec<T>{
+        vec![
+            self.hp_max,
+            self.mp_max,
+            self.speed,
+        ]
+    }
+
+    #[allow(unused)]
+    /// This function levels up our stats
+    pub fn level_up(&mut self) -> bool {
+        if self.xp > self.next() {
+            let stats_vec:Vec<T> = self.stats_vec();
+            let mut num:T = Math::population_standard_deviation(stats_vec);
+            let one:T = num::cast::<u32, T>(1).unwrap();
+            if num < one {
+                num = one;
+            }
+            num *= self.level;
+            self.level += num;
+            self.mp_max += num;
+            self.hp_max += num;
+            self.speed += num;
+            return true;
+        }
+        false
+    }
 }
 impl<T:Copy
     + Default
@@ -753,12 +792,18 @@ impl<T:Copy
             m_atk:Default::default(),
             m_def:Default::default(),
         }
+    }/// People like new
+    #[allow(unused)]
+    pub fn new() -> Self {
+        Self::empty::<T>()
     }
-/*
-# Stats Vector
-
-This is mainly used in the standard deviation math to create the gain for the level and stats.
-*/
+    #[allow(unused)]
+    /// Get the next amount of XP needed to level up
+    pub fn next(&self) -> T {
+        self.level * self.xp_next
+    }
+    #[allow(unused)]
+    /// a vector of stats used to get the standard deviation
     pub fn stats_vec(&self) -> Vec<T>{
         vec![
             self.hp_max,
@@ -769,6 +814,30 @@ This is mainly used in the standard deviation math to create the gain for the le
             self.m_atk,
             self.m_def,
         ]
+    }
+
+    #[allow(unused)]
+    /// This function levels up our stats
+    pub fn level_up(&mut self) -> bool {
+        if self.xp > self.next() {
+            let stats_vec:Vec<T> = self.stats_vec();
+            let mut num:T = Math::population_standard_deviation(stats_vec);
+            let one:T = num::cast::<u32, T>(1).unwrap();
+            if num < one {
+                num = one;
+            }
+            num *= self.level;
+            self.level += num;
+            self.mp_max += num;
+            self.hp_max += num;
+            self.speed += num;
+            self.atk += num;
+            self.def += num;
+            self.m_atk += num;
+            self.m_def += num;
+            return true;
+        }
+        false
     }
 }
 

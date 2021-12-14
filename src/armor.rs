@@ -148,14 +148,7 @@ impl<T:Copy
             },
             _=> (),
         }
-        hp *= level;
-        mp *= level;
-        // TODO fixme:
-        xp *= level;
-        // TODO fixme:
-        gp *= level;
-        speed += level;
-        BasicStats {
+        let mut stats = BasicStats {
             id,
             xp,
             xp_next,
@@ -166,7 +159,9 @@ impl<T:Copy
             hp_max:hp,
             mp_max:mp,
             speed,
-        }
+        };
+        stats.level_up();
+        stats
         
     }
     fn build_normal(&self, id:T, level:T) -> NormalStats<T>{
@@ -223,12 +218,7 @@ impl<T:Copy
             },
             _=> (),
         }
-        hp *= level;
-        // TODO fixme:
-        xp *= level;
-        gp *= level;
-        speed += level;
-        NormalStats {
+        let mut stats = NormalStats {
             id,
             xp,
             xp_next,
@@ -243,7 +233,9 @@ impl<T:Copy
             def,
             m_atk,
             m_def,
-        }
+        };
+        stats.level_up();
+        stats
     }
     fn build_advanced(&self, id:T, level:T) -> AdvancedStats<T>{
         let mut hp:T = num::cast(0).unwrap();
@@ -324,12 +316,7 @@ impl<T:Copy
             },
             _=> (),
         }
-        hp *= level;
-        mp *= level;
-        // TODO fixme:
-        xp *= level;
-        speed += level;
-        AdvancedStats {
+        let mut stats = AdvancedStats {
             id,
             xp,
             xp_next,
@@ -352,7 +339,9 @@ impl<T:Copy
             charisma,
             wisdom,
             age,
-        }
+        };
+        stats.level_up();
+        stats
     }
 }
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Deserialize, Serialize)]
@@ -613,6 +602,295 @@ impl Random for Advanced {
             23 => Advanced::Coat,
             24 => Advanced::Tasset,
             _=> Advanced::None,
+        }
+    }
+    
+}
+impl<T:Copy
+    + Default
+    + Debug
+    + AddAssign
+    + Add<Output = T>
+    + Div<Output = T>
+    + DivAssign
+    + Mul<Output = T>
+    + MulAssign
+    + Neg<Output = T>
+    + Rem<Output = T>
+    + RemAssign
+    + Sub<Output = T>
+    + SubAssign
+    + std::cmp::PartialOrd
+    + num::NumCast> Builder<T> for Advanced {
+    fn build_basic(&self, id:T, level:T) -> BasicStats<T>{
+        let mut hp:T = num::cast(0).unwrap();
+        let mut mp:T = num::cast(0).unwrap();
+        let mut xp:T = num::cast(0).unwrap();
+        let xp_next:T = num::cast(0).unwrap();
+        let mut gp:T = num::cast(0).unwrap();
+        let mut speed:T = num::cast(0).unwrap();
+        match *self {
+            //TODO
+            _=> {
+                xp = num::cast(50).unwrap();
+                hp = num::cast(200).unwrap();
+                mp = num::cast(200).unwrap();
+                speed = num::cast(10).unwrap();
+            },
+        }
+        let mut stats = BasicStats {
+            id,
+            xp,
+            xp_next,
+            level,
+            gp,
+            hp,
+            mp,
+            hp_max:hp,
+            mp_max:mp,
+            speed,
+        };
+        stats.level_up();
+        stats
+        
+    }
+    fn build_normal(&self, id:T, level:T) -> NormalStats<T>{
+        let mut hp:T = num::cast(0).unwrap();
+        let mp:T = num::cast(0).unwrap();
+        let mut xp:T = num::cast(0).unwrap();
+        let xp_next:T = num::cast(0).unwrap();
+        let mut gp:T = num::cast(0).unwrap();
+        let mut speed:T = num::cast(0).unwrap();
+        let mut atk:T = num::cast(0).unwrap();
+        let mut def:T = num::cast(0).unwrap();
+        let mut m_atk:T = num::cast(0).unwrap();
+        let mut m_def:T = num::cast(0).unwrap();
+        match *self {
+            //TODO
+            _=> {
+                xp = num::cast(51).unwrap();
+                hp = num::cast(115).unwrap();
+                speed = num::cast(10).unwrap();
+                atk = num::cast(150).unwrap();
+                def = num::cast(350).unwrap();
+                m_atk = num::cast(100).unwrap();
+                m_def = num::cast(450).unwrap();
+            },
+        }
+        let mut stats = NormalStats {
+            id,
+            xp,
+            xp_next,
+            level,
+            gp,
+            hp,
+            mp,
+            hp_max:hp,
+            mp_max:mp,
+            speed,
+            atk,
+            def,
+            m_atk,
+            m_def,
+        };
+        stats.level_up();
+        stats
+    }
+    fn build_advanced(&self, id:T, level:T) -> AdvancedStats<T>{
+        let mut hp:T = num::cast(0).unwrap();
+        let mut mp:T = num::cast(0).unwrap();
+        let mut xp:T = num::cast(0).unwrap();
+        let xp_next:T = num::cast(0).unwrap();
+        let gp:T = num::cast(0).unwrap();
+        let mut speed:T = num::cast(0).unwrap();
+        let mut atk:T = num::cast(0).unwrap();
+        let mut def:T = num::cast(0).unwrap();
+        let mut m_atk:T = num::cast(0).unwrap();
+        let mut m_def:T = num::cast(0).unwrap();
+        let mut agility:T = num::cast(0).unwrap();
+        let mut strength:T = num::cast(0).unwrap();
+        let mut dexterity:T = num::cast(0).unwrap();
+        let mut constitution:T = num::cast(0).unwrap();
+        let intelligence:T = num::cast(0).unwrap();
+        let mut charisma:T = num::cast(0).unwrap();
+        let wisdom:T = num::cast(0).unwrap();
+        let age:T = num::cast(0).unwrap();
+        match *self {
+            //TODO
+            _=> {
+                xp = num::cast(51).unwrap();
+                hp = num::cast(115).unwrap();
+                speed = num::cast(10).unwrap();
+                atk = num::cast(150).unwrap();
+                def = num::cast(350).unwrap();
+                m_atk = num::cast(100).unwrap();
+                m_def = num::cast(450).unwrap();
+                agility = num::cast(10).unwrap();
+                strength = num::cast(100).unwrap();
+                constitution = num::cast(70).unwrap();
+                charisma = num::cast(52).unwrap();
+                dexterity = num::cast(10).unwrap();
+            },
+        }
+        let mut stats = AdvancedStats {
+            id,
+            xp,
+            xp_next,
+            level,
+            gp,
+            hp,
+            mp,
+            hp_max:hp,
+            mp_max:mp,
+            speed,
+            atk,
+            def,
+            m_atk,
+            m_def,
+            agility,
+            strength,
+            dexterity,
+            constitution,
+            intelligence,
+            charisma,
+            wisdom,
+            age,
+        };
+        stats.level_up();
+        stats
+    }
+}
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Deserialize, Serialize)]
+#[cfg_attr(feature = "fltkform", derive(FltkForm))]
+/* 
+# Armor
+
+*/
+pub enum Armor {
+   /// Hood armor
+   Hood,
+   /// Jaw / throat armor
+   Bevor,
+   /// Circular plate armor protecting various areas
+   Rondel,
+   /// Collar armor
+   Gorget,
+   /// Upper arm armor below the shoulder armor
+   Rerebrace,
+   /// Elbow Armor
+   Couter,
+   /// Pant armor
+   Chausses,
+   /// Belly armor
+   Plackart,
+   /// Thigh armor
+   Cuisses,
+   /// Front torso armor
+   Chestplate,
+   /// Torso armor
+   Curiass,
+   /// Waist and hip armor
+   Fauld,
+   /// Knee armor
+   Poleyn,
+   /// Shin armor
+   Greaves,
+   /// Shoe armor
+   Sabaton,
+   /// Shoulder / upper arm guard
+   Spaulders,
+   /// Shoulder / armpit (back/chest optional) armor
+   Pauldron,
+   /// Forearm guard
+   Vambrace,
+   /// Hand guard
+   Gauntlets,
+   /// Shirt armor
+   Hauberk,
+   /// Head Armor
+   Helmet,
+   /// Neck Armor
+   Neckguard,
+   /// Face armor
+   Faceplate,
+   /// The coat worn over armor
+   Coat,
+   /// Hanging upper thigh plate armor
+   Tasset,
+   /// No armor
+   None,
+}
+impl Default for Armor {
+    fn default() -> Self {
+        Self::None
+    }
+}
+impl fmt::Display for Armor {
+    fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
+        let v:String;
+        match *self {
+            Armor::Hood => v = String::from("Hood"),
+            Armor::Bevor => v = String::from("Bevor"),
+            Armor::Rondel => v = String::from("Rondel"),
+            Armor::Gorget => v = String::from("Gorget"),
+            Armor::Rerebrace => v = String::from("Rerebrace"),
+            Armor::Couter => v = String::from("Couter"),
+            Armor::Chausses => v = String::from("Chausses"),
+            Armor::Plackart => v = String::from("Plackart"),
+            Armor::Cuisses => v = String::from("Cuisses"),
+            Armor::Chestplate => v = String::from("Chestplate"),
+            Armor::Curiass => v = String::from("Curiass"),
+            Armor::Fauld => v = String::from("Fauld"),
+            Armor::Poleyn => v = String::from("Poleyn"),
+            Armor::Greaves => v = String::from("Greaves"),
+            Armor::Sabaton => v = String::from("Sabaton"),
+            Armor::Spaulders => v = String::from("Spaulders"),
+            Armor::Pauldron => v = String::from("Pauldron"),
+            Armor::Vambrace => v = String::from("Vambrace"),
+            Armor::Gauntlets => v = String::from("Gauntlets"),
+            Armor::Hauberk => v = String::from("Hauberk"),
+            Armor::Helmet => v = String::from("Helmet"),
+            Armor::Neckguard => v = String::from("Neckguard"),
+            Armor::Faceplate => v = String::from("Faceplate"),
+            Armor::Coat => v = String::from("Coat"),
+            Armor::Tasset => v = String::from("Tasset"),
+            _=> v = String::from("None"),
+        }
+        write!(f, "{}", v.as_str())
+    }
+}
+impl Random for Armor {
+    type Type = Armor;
+    fn random_type(&self) -> Self::Type {
+        let max = 25;
+        let val = self.random_rate(max);
+        match val {
+            0 => Armor::Hood,
+            1 => Armor::Bevor,
+            2 => Armor::Rondel,
+            3 => Armor::Gorget,
+            4 => Armor::Rerebrace,
+            5 => Armor::Couter,
+            6 => Armor::Chausses,
+            7 => Armor::Plackart,
+            8 => Armor::Cuisses,
+            9 => Armor::Chestplate,
+            10 => Armor::Curiass,
+            11 => Armor::Fauld,
+            12 => Armor::Poleyn,
+            13 => Armor::Greaves,
+            14 => Armor::Sabaton,
+            15 => Armor::Spaulders,
+            16 => Armor::Pauldron,
+            17 => Armor::Vambrace,
+            18 => Armor::Gauntlets,
+            19 => Armor::Hauberk,
+            20 => Armor::Helmet,
+            21 => Armor::Neckguard,
+            22 => Armor::Faceplate,
+            23 => Armor::Coat,
+            24 => Armor::Tasset,
+            _=> Armor::None,
         }
     }
     
