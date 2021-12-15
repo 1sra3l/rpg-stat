@@ -1,3 +1,14 @@
+/*!# Math
+This contains functions to deal with `T` in ways that don't invovle long num::cast().unwrap() operations.
+```
+use rpg_stat::equation::Math;
+let t:i32 = 16;
+assert_eq!(8, Math::half(t));
+assert_eq!(4, Math::quarter(t));
+assert_eq!(12, Math::three_quarters(t));
+assert_eq!(32, Math::double(t));
+```
+*/
 use std::fmt;
 use std::fmt::Debug;
 use std::fmt::Display;
@@ -271,8 +282,7 @@ impl <T:Copy
     + std::cmp::PartialOrd
     + std::cmp::PartialEq
     + num::NumCast> Math<T> {
-    /// einstien math
-    /// `e = m * (c * c)` is fun, so...
+    /// `e = m * (c * c)`
     #[allow(unused)]
     pub fn e_mc2 (m:T, c:T) -> T {
         m * (c * c)
@@ -294,12 +304,45 @@ impl <T:Copy
         ret_vec
     }
 /*
+Divide a number to three quarters
+*/
+    #[allow(unused)]
+    pub fn three_quarters(number: T) -> T {
+        let four = num::cast(4).unwrap();
+        let three = num::cast(3).unwrap();
+        (number / four) * three
+    }
+/*
+Divide a number to one quarter
+*/
+    #[allow(unused)]
+    pub fn quarter(number: T) -> T {
+        let four = num::cast(4).unwrap();
+        number / four
+    }
+/*
 Divide a number in half
 */
     #[allow(unused)]
     pub fn half(number: T) -> T {
         let two = num::cast(2).unwrap();
         number / two
+    }
+/*
+Double a number
+*/
+    #[allow(unused)]
+    pub fn double(number: T) -> T {
+        let two = num::cast(2).unwrap();
+        number * two
+    }
+/*
+Get one and one half back
+*/
+    #[allow(unused)]
+    pub fn half_extra(number: T) -> T {
+        let two = num::cast(2).unwrap();
+        (number / two) + number
     }
 /*
 Used to start the square root
