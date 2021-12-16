@@ -193,6 +193,11 @@ impl Random for Drops {
     
 }
 impl Drops {
+    ///
+    pub fn list() -> Vec<Drops> {
+        vec![Drops::Feed, Drops::Hide, Drops::Scale, Drops::Tooth, Drops::Horn, Drops::Talon, Drops::Feather, Drops::Claw, Drops::Fang, Drops::Bone, Drops::Hair, Drops::Jerky, Drops::Oil, Drops::Wool, Drops::Pelt, Drops::Leather, Drops::Fur, Drops::Tusk]
+    }
+    /// 
     pub fn get_price(drop:Drops) -> f64 {
         drop.price()
     }

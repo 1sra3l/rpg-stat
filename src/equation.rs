@@ -7,6 +7,10 @@ assert_eq!(8, Math::half(t));
 assert_eq!(4, Math::quarter(t));
 assert_eq!(12, Math::three_quarters(t));
 assert_eq!(32, Math::double(t));
+let numbers:Vec<i32> = vec![2, 4, 6, 8, 10, 12];
+assert_eq!(7, Math::mean(numbers.clone()));
+assert_eq!(12, Math::sqrt(144));
+
 ```
 */
 use std::fmt;
@@ -345,30 +349,17 @@ Get one and one half back
         (number / two) + number
     }
 /*
-Used to start the square root
-*/
-    #[allow(unused)]
-    pub fn estimate_start(number: T) -> T {
-        let mut num = number;
-        let mut return_value = Math::half(number);
-        let one_hundred:T = num::cast(100).unwrap();
-        while num > one_hundred {
-            return_value = Math::half(return_value);
-            num /= one_hundred;
-        }
-        return_value
-    }
-/*
 Not sure if this is the best equation to use, but it works...
 */
     #[allow(unused)]
     pub fn sqrt(number: T) -> T {
-        let starter:u32 = num::cast(Math::estimate_start(number)).unwrap();
-        let total:u32 = num::cast(number).unwrap();
-        for num in starter..total {
-            if num * num == num::cast(number).unwrap() {
-                return num::cast(num).unwrap()
+        let mut num:T = num::cast::<u32, T>(0).unwrap();
+        let one:T = num::cast::<u32, T>(1).unwrap();
+        while num < number {
+            if num * num == number {
+                return num;
             }
+            num += one;
         }
         T::default()
     }

@@ -329,3 +329,4 @@ pub mod effect;
 pub mod item;
 pub mod material;
 pub mod compass;
+pub mod chemistry;
