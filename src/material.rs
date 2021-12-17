@@ -134,13 +134,14 @@ pub struct DropInventory {
     pub items:Vec<DropFile>,
     pub count:Vec<f64>,
 }
+
+
 //
 #[macro_export]
 macro_rules! inventory {
-    { $($t:ty), * } => { pub struct DropInventory {
-$(    pub $t:DropFile,
-    pub $t_count:f64)*
-    } };
+    ($($element: ident: $ty: ty),*) => {
+        pub struct Inventory { $($element: $ty),* }
+    }
 }
 
 /*# Drop List
