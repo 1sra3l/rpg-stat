@@ -18,6 +18,16 @@ use fltk_form::FltkForm;
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Deserialize, Serialize)]
 #[cfg_attr(feature = "fltkform", derive(FltkForm))]
+pub enum Periodic {
+    Borate,
+    Calcium,
+    Zirconium,
+    Boron,
+    Aluminium,
+    Magnesium,
+    Cerium,
+    Titanium, 
+}
 /*# Advanced
 The rarest gems, according to some place on the internet one time....
 */

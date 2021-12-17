@@ -50,8 +50,6 @@ pub struct ManaMoves {
     pub three:Normal,
     /// The fourth move's `rpg_stat::type::Normal` type
     pub mana_three:Type,
-    /// the total tech points
-    pub mp:f64,
 }
 impl ManaMoves {
     #[allow(unused)]
