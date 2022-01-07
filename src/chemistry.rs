@@ -13,8 +13,6 @@ assert_eq!(periodic, Periodic::default());
 */
 use std::fmt;
 use crate::random::Random;
-use crate::stats::Stats;
-use crate::stats::Builder;
 use serde::{Deserialize, Serialize};
 #[cfg(feature = "fltkform")]
 use fltk::{prelude::*, *};

@@ -244,6 +244,10 @@ extern crate num;
 use std::ops::{Add, AddAssign,  Div, DivAssign, Mul, MulAssign, Neg, Rem, RemAssign, Sub, SubAssign};
 use std::fmt::Debug;
 
+use std::fs::File;
+use std::io::Write;
+use std::path::Path;
+
 #[cfg(feature = "fltkform")]
 use fltk::{prelude::*, *};
 #[cfg(feature = "fltkform")]
@@ -474,6 +478,7 @@ impl<T:Copy
     + num::NumCast> Basic<T> {
 
     /// make empty stats
+    #[allow(unused)]
     pub fn empty() -> Self where Self:Sized {
         Basic {
             id:Default::default(),
@@ -664,7 +669,6 @@ pub trait NormalPremade<T:Copy
     fn m_def(&self) -> T {
         self.stat().m_def
     }
-
     /// Damage the character by an amount
     fn damage(&mut self, amount:T) {
         let mut val = self.hp();
@@ -688,20 +692,30 @@ pub trait NormalPremade<T:Copy
     /// Stable attack forumla
     /// [attack*(100/(100+defense))](https://rpg.fandom.com/wiki/Damage_Formula)
     fn attack_stable(&self, other:Normal<T>) -> T { 
-        let hundred = num::cast(100).unwrap();
+        let hundred = num::cast::<u32,T>(100).unwrap();
         let val = self.atk();
         let def = other.def + hundred;
         let res = hundred / def;
         val * res
     }
-    /// Scalable attack forumla
-    /// [damage = att * att / (att + def)](https://gamedev.stackexchange.com/questions/129319/rpg-formula-attack-and-defense)
+    /// Full attack formula
+    /// This attack is based off of current `hp` level as well as `hp_max`, and `atk`
     fn attack(&self, other:Normal<T>) -> T {
-        let val = self.atk();
-        let mut res = val * val;
-        let def = other.def + val;
-        res /= def;
-        res
+        let atk:T = Math::quarter(self.hp() 
+                       //rand(Math::half(max), max)
+                     ) + self.atk();
+        let def:T = other.def;//ense();
+        let ret:T = atk - def;
+        let none = num::cast::<u32,T>(0).unwrap();
+        if ret < none {
+            return none
+        }
+        ret
+    }
+    /// An equation to simulate a full defense
+    /// this relies on current `hp` as well as `def`
+    fn defense(&self) -> T {
+        Math::quarter(self.hp()) + self.def()
     }
 }
 /*
@@ -774,6 +788,7 @@ impl<T:Copy
     + num::NumCast> Normal<T> {
     
     /// make empty stats
+    #[allow(unused)]
     pub fn empty<U:Default>() -> Self {
         Normal {
             //name: "Ferris",
@@ -1038,16 +1053,7 @@ pub trait AdvancedPremade<T:Copy
         let res = hundred / def;
         val * res
     }
-    /// Scalable attack forumla
-    /// [damage = att * att / (att + def)](https://gamedev.stackexchange.com/questions/129319/rpg-formula-attack-and-defense)
-    fn attack(&self, other:Advanced<T>) -> T {
-        let val = self.atk();
-        let mut res = val * val;
-        let mut def = other.def;
-        def += val;
-        res /= def;
-        res
-    }
+
 }
 /*
 # The Advanced stat model
@@ -1161,6 +1167,7 @@ impl<T:Copy
             age:Default::default(),
         }
     }
+    
     /// People like new
     #[allow(unused)]
     pub fn new<U:Default>() -> Self {
@@ -1195,8 +1202,8 @@ impl<T:Copy
     /// This function levels up our stats
     pub fn level_up(&mut self) -> bool {
         if self.xp > self.next() {
-            let stats_vec:Vec<T> = self.stats_vec();
-            let mut value:T = Math::population_standard_deviation(stats_vec);
+            let one:T = num::cast(1).unwrap();
+            let value:T = self.wisdom;
             self.level += value;
             self.mp_max += value;
             self.hp_max += value;
@@ -1211,6 +1218,7 @@ impl<T:Copy
             self.constitution += value;
             self.intelligence += value;
             self.charisma += value;
+            self.wisdom += one;
             return true;
         }
         false
@@ -1307,7 +1315,53 @@ impl Random for Stats {
     
 }
 impl Stats {
-    
+    #[allow(unused)]
+    /// read from a TOML file
+    pub fn read<P: Clone + AsRef<Path> + std::fmt::Debug>(filename:P) -> Option<Self> {
+        if let Ok(file_string) = std::fs::read_to_string(filename.clone()) {
+            let decoded:Stats = match toml::from_str(file_string.as_str()) {
+                Ok(decoded) => decoded,
+                Err(e) => {
+                    println!("Stats::read()->toml::from_str() Error:{}\nFilename:{:?}", e, filename);
+                    return None
+                },
+            };
+            return Some(decoded);
+        }
+        None
+    }
+    #[allow(unused)]
+    /// Save a TOML FILE
+    pub fn save(&self, path:&str) -> bool {
+        Stats::write(*self, path)
+    }
+    #[allow(unused)]
+    /// Write a TOML file
+    pub fn write(save:Stats, path:&str) -> bool {
+        let toml = match toml::to_string(&save){
+            Ok(toml) => toml,
+            Err(e) => {
+                println!("Stats::save problem:\ntoml::to_string error:{}", e);
+                return false;
+            },
+        };
+        let mut output = match File::create(path) {
+            Ok(out) => out,
+            Err(e) => {
+                println!("Stats::save problem:\nFile::create({}) error:{}", path, e);
+                return false;
+            },
+            
+        };
+        match write!(output, "{}", toml) {
+            Ok(_) => (),
+            Err(e) => {
+                println!("Stats::save problem:\nwrite! error:{}", e);
+                return false;
+            },
+        }
+        true
+    }
     /// make empty stats
     #[allow(unused)]
     pub fn empty() -> Self {
@@ -1373,6 +1427,80 @@ impl Stats {
             self.m_atk += num;
             self.m_def += num;
         }
+    }
+    /// Damage the character by an amount
+    #[allow(unused)]
+    pub fn damage(&mut self, amount:f64) {
+        let mut val = self.hp;
+        val -= amount;
+        let none = 0.0;
+        if val < none {
+            val = none;
+        }
+        self.hp = val;
+    }
+    /// Add health to character but not beyond their Max Healh Points
+    #[allow(unused)]
+    pub fn heal(&mut self, amount:f64) {
+        let mut val = self.hp;
+        val += amount;
+        let max = self.hp_max;
+        if val > max {
+            val = max;
+        }
+        self.hp = val;
+    }
+    /* # Full attack formula
+    This attack uses
+     * `hp` level
+     * `hp_max`
+     * `atk`
+     * `str`
+    It uses the other stats to determine defense and returns the damage done
+    */
+    #[allow(unused)]
+    pub fn attack(&self, other:Stats) -> f64 {
+        let max:f64 = self.hp_max;
+        let atk:f64 = Math::quarter(self.hp + 
+                       rand(Math::half(max), max)
+                     ) + self.atk;
+        let def:f64 = other.defense();
+        let ret:f64 = atk - def;
+        let none = 0.0;
+        if ret < none {
+            return none
+        }
+        ret
+    }
+    /// Determine accuracy TODO 
+    #[allow(unused)]
+    pub fn accuracy(&self) -> bool {
+        let entropy:f64 = self.hp_max - self.hp;
+        let none:f64 = 0.0;
+        let seed:f64 = rand(none, entropy);
+        Math::quarter(entropy) <= seed
+    }
+    /// An equation to simulate a full defense
+    /// this relies on current `hp` as well as `def`
+    #[allow(unused)]
+    pub fn defense(&self) -> f64 {
+        Math::quarter(self.hp) + self.def
+    }
+    /// Buy something, if you have enough money
+    #[allow(unused)]
+    pub fn buy(&mut self, price:f64) -> bool {
+        let total = self.gp - price;
+        if total < 0.0 {
+            return false;
+        }
+        self.gp = total;
+        true
+    }
+    /// Earn some money
+    #[allow(unused)]
+    pub fn earn(&mut self, price:f64) {
+        let total = self.gp + price;
+        self.gp = total;
     }
 }
 
@@ -1546,23 +1674,25 @@ pub trait Premade {
         }
         self.set_hp(val)
     }
-    /// Stable attack forumla
-    /// [attack*(100/(100+defense))](https://rpg.fandom.com/wiki/Damage_Formula)
-    fn attack_stable(&self, other:Stats) -> f64 { 
-        let hundred = 100.0;
-        let val = self.atk();
-        let def = other.def + hundred;
-        let res = hundred / def;
-        val * res
-    }
-    /// Scalable attack forumla
-    /// [damage = att * att / (att + def)](https://gamedev.stackexchange.com/questions/129319/rpg-formula-attack-and-defense)
+    /* # Full attack formula
+    This attack uses
+     * `hp` level
+     * `hp_max`
+     * `atk`
+     * `str`
+    It uses the other stats to determine defense and returns the damage done
+    */
     fn attack(&self, other:Stats) -> f64 {
-        let val = self.atk();
-        let mut res = val * val;
-        let def = other.def + val;
-        res /= def;
-        res
+        self.stat().attack(other)
+    }
+    /// 
+    fn accuracy(&self) -> bool {
+        self.stat().accuracy()
+    }
+    /// An equation to simulate a full defense
+    /// this relies on current `hp` as well as `def`
+    fn defense(&self) -> f64 {
+        self.stat().defense()
     }
     fn buy(&mut self, price:f64) -> bool {
         let total = self.gp() - price;
@@ -1578,19 +1708,11 @@ pub trait Premade {
     }    #[allow(unused)]
     /// Get the next amount of XP needed to level up
     fn next(&self) -> f64 {
-        self.level() * self.xp_next()
+        self.stat().next()
     }
     /// a vector of stats used to get the standard deviation
     fn stats_vec(&self) -> Vec<f64>{
-        vec![
-            self.hp_max(),
-            self.mp_max(),
-            self.speed(),
-            self.atk(),
-            self.def(),
-            self.m_atk(),
-            self.m_def(),
-        ]
+        self.stat().stats_vec()
     }
 
     #[allow(unused)]

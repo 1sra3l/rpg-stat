@@ -26,9 +26,6 @@ fn run () {
 }
 ```
 */
-use serde::{Deserialize, Serialize};
-use std::fmt::Debug;
-
 // #Normal
 // #Special
 use crate::special::Normal as Special;
@@ -42,6 +39,12 @@ use crate::types::Normal as Element;
 use crate::types::Advanced as Element2;
 use crate::attributes::{Stage, Rate};//, Effectiveness};
 use crate::random::*;
+
+use serde::{Deserialize, Serialize};
+use std::fmt::Debug;
+use std::fs::File;
+use std::io::Write;
+use std::path::Path;
 
 #[cfg(feature = "fltkform")]
 use fltk::{prelude::*, *};
@@ -259,6 +262,53 @@ if stat.add_item(MyItem::Special) {
 let clone = stats.clone();
 ```
 */
+    /// read from a TOML file
+    #[allow(unused)]
+    pub fn read<P: Clone + AsRef<Path> + std::fmt::Debug>(filename:P) -> Option<Self> {
+        if let Ok(file_string) = std::fs::read_to_string(filename.clone()) {
+            let decoded:Stats = match toml::from_str(file_string.as_str()) {
+                Ok(decoded) => decoded,
+                Err(e) => {
+                    println!("Stats::read()->toml::from_str() Error:{}\nFilename:{:?}", e, filename);
+                    return None
+                },
+            };
+            return Some(decoded);
+        }
+        None
+    }
+    /// Save a TOML FILE
+    #[allow(unused)]
+    pub fn save(&self, path:&str) -> bool {
+        Stats::write(self.clone(), path)
+    }
+    /// Write a TOML file
+    #[allow(unused)]
+    pub fn write(save:Stats, path:&str) -> bool {
+        let toml = match toml::to_string(&save){
+            Ok(toml) => toml,
+            Err(e) => {
+                println!("Stats::save problem:\ntoml::to_string error:{}", e);
+                return false;
+            },
+        };
+        let mut output = match File::create(path) {
+            Ok(out) => out,
+            Err(e) => {
+                println!("Stats::save problem:\nFile::create({}) error:{}", path, e);
+                return false;
+            },
+            
+        };
+        match write!(output, "{}", toml) {
+            Ok(_) => (),
+            Err(e) => {
+                println!("Stats::save problem:\nwrite! error:{}", e);
+                return false;
+            },
+        }
+        true
+    }
     #[allow(unused)]
     pub fn check_capture(&self) -> bool {
         self.rate.worked()

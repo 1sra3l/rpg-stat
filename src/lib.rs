@@ -317,7 +317,6 @@ This is to collect all the information about armor, stats, status, etc, based on
 pub mod stats;
 pub mod class;
 pub mod creature;
-pub mod armor;
 pub mod body;
 pub mod types;
 pub mod random;
@@ -330,3 +329,5 @@ pub mod item;
 pub mod material;
 pub mod compass;
 pub mod chemistry;
+pub mod config;
+pub mod list;

@@ -142,13 +142,10 @@ impl Default for Basic {
         Self::Bad
     }
 }
-impl fmt::Display for Basic {
+impl std::fmt::Display for Basic {
     fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
-        let v:String;
-        match *self {
-            Basic::Good => v = String::from("Good"),
-            Basic::Bad => v = String::from("Bad"),
-        }
+        let v = format!("{:?}", *self);
+        let _u = v.split("::");
         write!(f, "{}", v.as_str())
     }
 }
@@ -255,20 +252,10 @@ impl Default for Normal {
         Self::Rock
     }
 }
-impl fmt::Display for Normal {
+impl std::fmt::Display for Normal {
     fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
-        let v:String;
-        match *self {
-            Normal::Rock => v = String::from("Rock"),
-            Normal::Plant => v = String::from("Plant"),
-            Normal::Water => v = String::from("Water"),
-            Normal::Fire => v = String::from("Fire"),
-            Normal::Electric => v = String::from("Electric"),
-            Normal::Spirit => v = String::from("Spirit"),
-            Normal::Light => v = String::from("Light"),
-            Normal::Wind => v = String::from("Wind"),
-            Normal::None => v = String::from("None"),
-        }
+        let v = format!("{:?}", *self);
+        let _u = v.split("::");
         write!(f, "{}", v.as_str())
     }
 }
@@ -512,64 +499,10 @@ impl Default for Advanced {
         Self::None
     }
 }
-impl fmt::Display for Advanced {
+impl std::fmt::Display for Advanced {
     fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
-        let v:String;
-        match *self {
-            Advanced::Feline => v = String::from("Feline"),
-            Advanced::Canine => v = String::from("Canine"),
-            Advanced::Rodent => v = String::from("Rodent"),
-            Advanced::Primate => v = String::from("Primate"),
-            Advanced::Bug => v = String::from("Bug"),
-            Advanced::Amphibian => v = String::from("Amphibian"),
-            Advanced::Reptile => v = String::from("Reptile"),
-            Advanced::Fish => v = String::from("Fish"),
-            Advanced::Dragon => v = String::from("Dragon"),
-            Advanced::Legendary => v = String::from("Legendary"),
-            Advanced::Plasma => v = String::from("Plasma"),
-            Advanced::Magma => v = String::from("Magma"),
-            Advanced::Crystal => v = String::from("Crystal"),
-            Advanced::Laser => v = String::from("Laser"),
-            Advanced::Tech => v = String::from("Tech"),
-            Advanced::Leaf => v = String::from("Leaf"),
-            Advanced::Patch => v = String::from("Patch"),
-            Advanced::Undead => v = String::from("Undead"),
-            Advanced::Star => v = String::from("Star"),
-            Advanced::Galactic => v = String::from("Galactic"),
-            Advanced::Kaiju => v = String::from("Kaiju"),
-            Advanced::Xeno => v = String::from("Xeno"),
-            Advanced::Paper => v = String::from("Paper"),
-            Advanced::Shifter => v = String::from("Shifter"),
-            Advanced::Gravity => v = String::from("Gravity"),
-            Advanced::Life => v = String::from("Life"),
-            Advanced::Food => v = String::from("Food"),
-            Advanced::Death => v = String::from("Death"),
-            Advanced::Mana => v = String::from("Mana"),
-            Advanced::Bubble => v = String::from("Bubble"),
-            Advanced::Seed => v = String::from("Seed"),
-            Advanced::Bean => v = String::from("Bean"),
-            Advanced::Clay => v = String::from("Clay"),
-            Advanced::Steel => v = String::from("Steel"),
-            Advanced::Iron => v = String::from("Iron"),
-            Advanced::Vine => v = String::from("Vine"),
-            Advanced::Tree => v = String::from("Tree"),
-            Advanced::River => v = String::from("River"),
-            Advanced::Ocean => v = String::from("Ocean"),
-            Advanced::Ember => v = String::from("Ember"),
-            Advanced::Lava => v = String::from("Lava"),
-            Advanced::Spark => v = String::from("Spark"),
-            Advanced::Lightning => v = String::from("Lightning"),
-            Advanced::Holy => v = String::from("Holy"),
-            Advanced::Unholy => v = String::from("Unholy"),
-            Advanced::Sunrise => v = String::from("Sunrise"),
-            Advanced::Sunset => v = String::from("Sunset"),
-            Advanced::Moonrise => v = String::from("Moonrise"),
-            Advanced::Moonset => v = String::from("Moonset"),
-            Advanced::Tornado => v = String::from("Tornado"),
-            Advanced::Breeze => v = String::from("Breeze"),
-            Advanced::Blustry => v = String::from("Blustry"),
-            _=> v = String::from("None"),
-        }
+        let v = format!("{:?}", *self);
+        let _u = v.split("::");
         write!(f, "{}", v.as_str())
     }
 }

@@ -40,16 +40,10 @@ impl Default for Basic {
         Self::None
     }
 }
-impl fmt::Display for Basic {
-    fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
-        let v:String;
-        match *self {
-            Basic::HP => v = String::from("HP"),
-            Basic::MP => v = String::from("MP"),
-            Basic::GP => v = String::from("GP"),
-            Basic::XP => v = String::from("XP"),
-            Basic::None => v = String::from("None"),
-        }
+impl std::fmt::Display for Basic {
+    fn fmt(&self, f: &mut std::fmt::Formatter) -> std::fmt::Result {
+        let v = format!("{:?}", *self);
+        let _u = v.split("::");
         write!(f, "{}", v.as_str())
     }
 }
@@ -118,25 +112,8 @@ impl Default for Normal {
 }
 impl fmt::Display for Normal {
     fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
-        let v:String;
-        match *self {
-            Normal::None => v = "None".to_string(),
-            Normal::HP => v = "HP".to_string(),
-            Normal::MP => v = "MP".to_string(),
-            Normal::XP => v = "XP".to_string(),
-            Normal::GP => v = String::from("GP"),
-            Normal::Burn => v = "Burn".to_string(),
-            Normal::Poison => v = "Poison".to_string(),
-            Normal::Freeze => v = "Freeze".to_string(),
-            Normal::Sick => v = "Sick".to_string(),
-            Normal::Sap => v = "Sap".to_string(),
-            Normal::Bless => v = "Bless".to_string(),
-            Normal::Heal => v = "Heal".to_string(),
-            Normal::Stuck => v = "Stuck".to_string(),
-            Normal::Bound => v = "Bound".to_string(),
-            Normal::Blocked => v = "Blocked".to_string(),
-            Normal::Locked => v = "Locked".to_string(),
-        }
+        let v = format!("{:?}", *self);
+        let _u = v.split("::");
         write!(f, "{}", v.as_str())
     }
 }
@@ -216,25 +193,8 @@ impl Default for Advanced {
 }
 impl fmt::Display for Advanced {
     fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
-        let v:String;
-        match *self {
-            Advanced::None => v = "None".to_string(),
-            Advanced::HP => v = "HP".to_string(),
-            Advanced::MP => v = "MP".to_string(),
-            Advanced::XP => v = "XP".to_string(),
-            Advanced::GP => v = String::from("GP"),
-            Advanced::Burn => v = "Burn".to_string(),
-            Advanced::Poison => v = "Poison".to_string(),
-            Advanced::Freeze => v = "Freeze".to_string(),
-            Advanced::Sick => v = "Sick".to_string(),
-            Advanced::Sap => v = "Sap".to_string(),
-            Advanced::Bless => v = "Bless".to_string(),
-            Advanced::Heal => v = "Heal".to_string(),
-            Advanced::Stuck => v = "Stuck".to_string(),
-            Advanced::Bound => v = "Bound".to_string(),
-            Advanced::Blocked => v = "Blocked".to_string(),
-            Advanced::Locked => v = "Locked".to_string(),
-        }
+        let v = format!("{:?}", *self);
+        let _u = v.split("::");
         write!(f, "{}", v.as_str())
     }
 }

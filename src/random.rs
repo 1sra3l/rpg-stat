@@ -48,11 +48,19 @@ pub trait Random {
         false
     }
 }
+#[allow(unused)]
+pub fn rand(min:f64, max:f64) -> f64 {
+    let mut rng = thread_rng();
+    let n:f64 = rng.gen_range(min..max);
+    n
+}
+#[allow(unused)]
 pub fn random_0max(value:u32) -> u32 {
     let mut rng = thread_rng();
     let n: u32 = rng.gen_range(0..value);
     n
 }
+#[allow(unused)]
 pub fn random_character_name() ->String {
     let max = 8;
     let val = random_0max(max);
@@ -82,6 +90,7 @@ pub fn random_character_name() ->String {
     name.push_str(name_second.as_str());
     name
 }
+#[allow(unused)]
 pub fn random_creature_name() -> String {
     let max = 8;
     let val = random_0max(max);
